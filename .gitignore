@@ -1,0 +1,22 @@
+# Build products
+build/
+B1/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Generated simulation data and figures
+muon_analysis/muon_tracks.csv
+muon_analysis/outputs/
+*.png
+
+# Python environments and caches
+muon_analysis/.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Operating-system and local editor settings
+.DS_Store
+.vscode/

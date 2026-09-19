@@ -1,0 +1,7 @@
+# Basic muon imaging run
+/run/initialize
+/control/verbose 1
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/run/beamOn 10
