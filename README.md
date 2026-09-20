@@ -5,7 +5,7 @@ This repository is a reproducible baseline for a four-plane Geant4 muon-scatteri
 ## Baseline scope
 
 - Four scintillator detector planes: two upstream and two downstream;
-- A central aluminium target;
+- A central U-shaped aluminium target;
 - Event-level hit recording and two-segment track fitting;
 - Point of Closest Approach (PoCA) reconstruction;
 - Fixed-voxel, scattering-angle-weighted imaging in a Jupyter notebook.

@@ -32,12 +32,31 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   makeDetector("DownstreamDetector1", 30*cm, G4Colour::Green());
   makeDetector("DownstreamDetector2", 40*cm, G4Colour::Yellow());
 
-  // Smaller than the detector plane so the reconstructed image has a
-  // visible background and a central high-scattering region.
-  auto* objectSolid = new G4Box("Object", 6*cm, 6*cm, 5*cm);
-  auto* objectLV = new G4LogicalVolume(objectSolid, aluminium, "Object");
-  new G4PVPlacement(nullptr, {}, objectLV, "Object", worldLV, false, 0, checkOverlaps);
-  objectLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0., 0., 0.5)));
+  // U-shaped aluminium target. The opening faces +y so the shape is
+  // immediately visible in the default oblique visualization view.
+  // Overall footprint: 12 cm (x) x 12 cm (y) x 10 cm (z).
+  const G4double outerHalfWidth = 6*cm;
+  const G4double wallThickness = 3*cm;
+  const G4double targetHalfDepth = 5*cm;
+  const G4double sideHalfHeight = (12*cm - wallThickness)/2;
+  const G4double sideCenterY = (-outerHalfWidth + wallThickness) + sideHalfHeight;
+
+  auto* bottomSolid = new G4Box("UObjectBottom", outerHalfWidth,
+                                wallThickness/2, targetHalfDepth);
+  auto* sideSolid = new G4Box("UObjectSide", wallThickness/2,
+                              sideHalfHeight, targetHalfDepth);
+  auto* objectLV = new G4LogicalVolume(bottomSolid, aluminium, "UObjectBottom");
+  auto* sideLV = new G4LogicalVolume(sideSolid, aluminium, "UObjectSide");
+
+  new G4PVPlacement(nullptr, {0, -outerHalfWidth + wallThickness/2, 0},
+                    objectLV, "UObjectBottom", worldLV, false, 0, checkOverlaps);
+  new G4PVPlacement(nullptr, {-outerHalfWidth + wallThickness/2, sideCenterY, 0},
+                    sideLV, "UObjectLeft", worldLV, false, 0, checkOverlaps);
+  new G4PVPlacement(nullptr, {outerHalfWidth - wallThickness/2, sideCenterY, 0},
+                    sideLV, "UObjectRight", worldLV, false, 1, checkOverlaps);
+
+  objectLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+  sideLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
 
   return worldPV;
 }
