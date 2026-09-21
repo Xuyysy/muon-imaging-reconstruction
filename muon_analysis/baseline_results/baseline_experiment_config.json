@@ -1,0 +1,23 @@
+{
+  "source_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+  "input_rows": 9975,
+  "source_mode": "Ideal (existing baseline CSV)",
+  "random_seed": 20260921,
+  "event_counts": [
+    1000,
+    3000,
+    5000,
+    9975
+  ],
+  "repeats": 5,
+  "voxel_grid": [
+    32,
+    32,
+    32
+  ],
+  "xy_limit_mm": 90.0,
+  "z_limit_mm": 100.0,
+  "weight": "sum(theta_mrad^2)",
+  "iou_definition": "Top-k prediction with k equal to the U-shaped ground-truth pixel count.",
+  "target_geometry": "U-shaped aluminium target: 120 mm x 120 mm XY footprint, 30 mm wall thickness, opening toward +y."
+}
