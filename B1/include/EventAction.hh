@@ -19,6 +19,8 @@ class EventAction : public G4UserEventAction
 
   private:
     RunAction* fRunAction = nullptr;
+    // Array order is fixed as: upstream 1/2, downstream 1/2. Keeping the
+    // order explicit makes the CSV columns and PoCA reconstruction consistent.
     G4bool fHasHit[4] = {false, false, false, false};
     G4double fX[4] = {0., 0., 0., 0.};
     G4double fY[4] = {0., 0., 0., 0.};

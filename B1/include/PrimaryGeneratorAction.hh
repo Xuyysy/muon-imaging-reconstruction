@@ -41,10 +41,11 @@ class G4Box;
 namespace B1
 {
 
-/// The primary generator action class with particle gun.
+/// Generates one negative muon per Geant4 event.
 ///
-/// The default kinematic is a 6 MeV gamma, randomly distribued
-/// in front of the phantom across 80% of the (X,Y) phantom size.
+/// The source mode and its physical assumptions are documented beside the
+/// switch in PrimaryGeneratorAction.cc. The default is the reproducible
+/// ideal 4 GeV parallel-beam mode used by the PoCA baseline experiment.
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
@@ -52,14 +53,14 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     PrimaryGeneratorAction();
     ~PrimaryGeneratorAction() override;
 
-    // method from the base class
+    // Geant4 calls this once for each event to create its primary muon.
     void GeneratePrimaries(G4Event*) override;
 
-    // method to access particle gun
+    // Exposes the configured gun for optional future UI/macro control.
     const G4ParticleGun* GetParticleGun() const { return fParticleGun; }
 
   private:
-    G4ParticleGun* fParticleGun = nullptr; // pointer a to G4 gun class
+    G4ParticleGun* fParticleGun = nullptr; // Owns the one-particle muon gun.
     G4Box* fEnvelopeBox = nullptr;
 };
 

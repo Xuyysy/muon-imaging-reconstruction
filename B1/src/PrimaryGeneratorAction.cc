@@ -15,19 +15,20 @@ namespace B1
 namespace
 {
 // ============================================================================
-// USER SWITCH: choose the incident-muon model here.
+// ===================== 你最常需要改的开关 =====================
+// 在这里选择缪子入射模型。修改后需要重新编译，再运行 Geant4。
 //
-// Ideal:
-//   Fixed 4 GeV muons, parallel to the +z direction.
-//   This is the original baseline and is best for debugging the geometry.
+// Ideal（当前默认、论文基线）：
+//   固定能量 4 GeV，全部沿 +z 方向平行入射。
+//   优点是可重复、容易看清 U 型几何与 POCA 算法本身的效果。
 //
-// SemiRealistic:
-//   Random impact position, random azimuth, an approximate cos^2(theta)
-//   zenith-angle distribution, and a simple 2--8 GeV energy range.
-//   This is an educational intermediate model, not a final cosmic-ray model.
-//   For a publication-quality natural-muon spectrum, use CRY or EcoMug later.
+// SemiRealistic（后续鲁棒性验证）：
+//   随机入射位置、随机方位角、近似 cos²(theta) 的天顶角分布，
+//   再使用 2--8 GeV 的简化能量范围。
+//   它只是帮助理解“自然入射会怎样影响成像”的中间模型，不能称为
+//   精确宇宙线缪子谱。正式贴近实验时再考虑 CRY 或 EcoMug。
 //
-// Change only the value below, then rebuild the project.
+// 只改下面这一行的 Ideal / SemiRealistic；不要同时改其他参数。
 enum class MuonSourceMode
 {
   Ideal,
@@ -42,7 +43,8 @@ constexpr G4double kSemiRealisticThetaMax = 45. * deg;
 constexpr G4double kSemiRealisticMinEnergy = 2. * GeV;
 constexpr G4double kSemiRealisticMaxEnergy = 8. * GeV;
 
-// Sample theta for p(theta) proportional to cos^2(theta) sin(theta).
+// 对 p(theta) ∝ cos²(theta)·sin(theta) 进行反函数采样。
+// 这里的 sin(theta) 来自球坐标的立体角元素，保证抽样分布正确。
 G4double SampleCosineSquaredTheta()
 {
   const auto cosThetaMax = std::cos(kSemiRealisticThetaMax);
@@ -74,21 +76,21 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction() { delete fParticleGun; }
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
-  // Shoot muons uniformly across the upstream source plane.
-  // The central object will therefore appear as a high-scattering region.
+  // 在上游源平面上均匀抽取入射位置。这样 x-y 平面不会预先偏向目标，
+  // 最终的高散射区域才主要来自 U 型铝目标而不是源分布。
   const auto x = (G4UniformRand() * 2. - 1.) * kSourceHalfWidth;
   const auto y = (G4UniformRand() * 2. - 1.) * kSourceHalfWidth;
 
   if (kMuonSourceMode == MuonSourceMode::Ideal) {
-    // Baseline mode: keep the beam parallel and mono-energetic.
+    // 基线模式：每条缪子完全相同，只保留材料散射造成的轨迹变化。
     fParticleGun->SetParticleEnergy(4. * GeV);
     fParticleGun->SetParticleMomentumDirection({0., 0., 1.});
   }
   else {
-    // Educational natural-muon approximation:
-    //   - azimuth is uniform;
-    //   - zenith angle follows an approximate cos^2(theta) law;
-    //   - energy is uniform in a simple 2--8 GeV interval.
+    // 简化自然缪子模式：
+    //   - 方位角 phi 在 0 到 2π 均匀；
+    //   - 天顶角 theta 服从近似 cos²(theta) 分布；
+    //   - 能量在 2--8 GeV 内均匀抽样。
     const auto theta = SampleCosineSquaredTheta();
     const auto phi = 2. * CLHEP::pi * G4UniformRand();
     const auto sinTheta = std::sin(theta);
