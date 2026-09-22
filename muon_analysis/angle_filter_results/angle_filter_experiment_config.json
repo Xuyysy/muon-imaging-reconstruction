@@ -1,0 +1,28 @@
+{
+  "source_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+  "source_rows": 9975,
+  "source_mode": "Ideal (existing baseline CSV)",
+  "random_seed": 20260921,
+  "event_counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "repeats": 5,
+  "theta_min_mrad_candidates": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    6.0
+  ],
+  "voxel_grid": [
+    32,
+    32,
+    32
+  ],
+  "weight": "sum(theta_mrad^2) after theta_mrad >= theta_min_mrad",
+  "fair_comparison": "For each repeat, every threshold uses the same input-event subset.",
+  "iou_definition": "Top-k prediction with k equal to the U-shaped ground-truth pixel count."
+}
