@@ -1,0 +1,5 @@
+# Off-centre U-target validation. The output path is supplied by MUON_TRACK_OUTPUT.
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

@@ -7,8 +7,28 @@
 #include "G4SystemOfUnits.hh"
 #include "G4VisAttributes.hh"
 
+#include <cstdlib>
+#include <string>
+
 namespace B1
 {
+namespace
+{
+// 目标场景由环境变量 MUON_TARGET_SCENARIO 控制：
+//   默认或 centered：中心 U 型目标，保持现有 PoCA 基线不变；
+//   offcenter：向 +x、-y 偏移，用于验证算法是否只适用于中心目标。
+// 这样不需要反复改源代码、重新保存两套几何文件。
+G4ThreeVector TargetCenterFromEnvironment()
+{
+  const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
+  if (scenario != nullptr && std::string(scenario) == "offcenter") {
+    // 右侧壁最大 x 为 85 mm、底边最小 y 为 -75 mm，完整落在当前 ±90 mm 成像区内。
+    return {25.*mm, -15.*mm, 0.};
+  }
+  return {0., 0., 0.};
+}
+}  // namespace
+
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
   // This function defines every physical object in the Geant4 world.
@@ -55,6 +75,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   const G4double targetHalfDepth = 5*cm;
   const G4double sideHalfHeight = (12*cm - wallThickness)/2;
   const G4double sideCenterY = (-outerHalfWidth + wallThickness) + sideHalfHeight;
+  const auto targetCenter = TargetCenterFromEnvironment();
 
   auto* bottomSolid = new G4Box("UObjectBottom", outerHalfWidth,
                                 wallThickness/2, targetHalfDepth);
@@ -65,12 +86,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Build the U from three non-overlapping boxes: one bottom wall and two
   // side walls. The missing top wall makes the opening face +y.
-  new G4PVPlacement(nullptr, {0, -outerHalfWidth + wallThickness/2, 0},
+  new G4PVPlacement(nullptr, targetCenter + G4ThreeVector(0, -outerHalfWidth + wallThickness/2, 0),
                     objectLV, "UObjectBottom", worldLV, false, 0, checkOverlaps);
-  new G4PVPlacement(nullptr, {-outerHalfWidth + wallThickness/2, sideCenterY, 0},
+  new G4PVPlacement(nullptr, targetCenter + G4ThreeVector(-outerHalfWidth + wallThickness/2, sideCenterY, 0),
                     sideLV, "UObjectLeft", worldLV, false, 0, checkOverlaps);
-  new G4PVPlacement(nullptr, {outerHalfWidth - wallThickness/2, sideCenterY, 0},
+  new G4PVPlacement(nullptr, targetCenter + G4ThreeVector(outerHalfWidth - wallThickness/2, sideCenterY, 0),
                     sideLV, "UObjectRight", worldLV, false, 1, checkOverlaps);
+
+  G4cout << "[Target] U-shaped aluminium centre: ("
+         << targetCenter.x()/mm << ", " << targetCenter.y()/mm << ", "
+         << targetCenter.z()/mm << ") mm" << G4endl;
 
   objectLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
   sideLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));

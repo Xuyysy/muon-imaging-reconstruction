@@ -6,7 +6,9 @@
 #include "G4ThreeVector.hh"
 
 #include <cmath>
+#include <cstdlib>
 #include <fstream>
+#include <string>
 
 namespace B1
 {
@@ -18,6 +20,14 @@ constexpr int kUpstream1 = 0;
 constexpr int kUpstream2 = 1;
 constexpr int kDownstream1 = 2;
 constexpr int kDownstream2 = 3;
+
+// 默认仍输出基线 CSV。设置 MUON_TRACK_OUTPUT 后可为不同验证场景
+// 写入独立文件，从而绝不覆盖已有的 muon_tracks.csv。
+std::string OutputPathFromEnvironment()
+{
+  const char* configured = std::getenv("MUON_TRACK_OUTPUT");
+  return configured != nullptr ? configured : "../../muon_analysis/muon_tracks.csv";
+}
 
 }
 
@@ -53,7 +63,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
 {
   // The simulation is run from B1/build, so ../../ points to the project root
   // and keeps raw Geant4 output separate from the C++ source tree.
-  static std::ofstream output("../../muon_analysis/muon_tracks.csv");
+  static std::ofstream output(OutputPathFromEnvironment());
   static G4bool headerWritten = false;
 
   if (!headerWritten) {
