@@ -1,0 +1,32 @@
+{
+  "source_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+  "random_seed": 20260921,
+  "event_counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "repeats": 5,
+  "theta_min_mrad": 2.0,
+  "theta_cap_mrad": 3.0,
+  "coarse_grid": [
+    16,
+    16,
+    16
+  ],
+  "refine_factor": 2,
+  "fine_grid_equivalent": [
+    32,
+    32,
+    32
+  ],
+  "refine_fractions": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "minimum_events_to_refine": 1,
+  "selection_rule": "Rank eligible coarse voxels by capped scattering-angle weighted sum; no target truth used."
+}
