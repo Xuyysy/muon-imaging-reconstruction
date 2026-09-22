@@ -18,14 +18,25 @@ namespace
 //   默认或 centered：中心 U 型目标，保持现有 PoCA 基线不变；
 //   offcenter：向 +x、-y 偏移，用于验证算法是否只适用于中心目标。
 // 这样不需要反复改源代码、重新保存两套几何文件。
-G4ThreeVector TargetCenterFromEnvironment()
+struct TargetConfiguration
+{
+  G4ThreeVector center;
+  G4double outerHalfWidth;
+  G4double wallThickness;
+};
+
+TargetConfiguration TargetConfigurationFromEnvironment()
 {
   const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
   if (scenario != nullptr && std::string(scenario) == "offcenter") {
     // 右侧壁最大 x 为 85 mm、底边最小 y 为 -75 mm，完整落在当前 ±90 mm 成像区内。
-    return {25.*mm, -15.*mm, 0.};
+    return {{25.*mm, -15.*mm, 0.}, 6.*cm, 3.*cm};
   }
-  return {0., 0., 0.};
+  if (scenario != nullptr && std::string(scenario) == "small") {
+    // 尺寸泛化验证：80 mm x 80 mm 外轮廓、20 mm 壁厚，中心保持在原点。
+    return {{0., 0., 0.}, 4.*cm, 2.*cm};
+  }
+  return {{0., 0., 0.}, 6.*cm, 3.*cm};
 }
 }  // namespace
 
@@ -70,12 +81,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // G4Box takes HALF lengths. Therefore:
   //   outerHalfWidth = 6 cm  -> 12 cm full x/y footprint;
   //   targetHalfDepth = 5 cm -> 10 cm full thickness along z.
-  const G4double outerHalfWidth = 6*cm;
-  const G4double wallThickness = 3*cm;
+  const auto targetConfig = TargetConfigurationFromEnvironment();
+  const G4double outerHalfWidth = targetConfig.outerHalfWidth;
+  const G4double wallThickness = targetConfig.wallThickness;
   const G4double targetHalfDepth = 5*cm;
-  const G4double sideHalfHeight = (12*cm - wallThickness)/2;
+  // 侧壁的全高度应随外轮廓尺寸变化：outer size - bottom-wall thickness。
+  // 原中心场景中 2*outerHalfWidth 恰好是 12 cm；写成通用表达式后，
+  // small 场景也会得到正确的 80 mm U 型外轮廓。
+  const G4double sideHalfHeight = (2.*outerHalfWidth - wallThickness)/2;
   const G4double sideCenterY = (-outerHalfWidth + wallThickness) + sideHalfHeight;
-  const auto targetCenter = TargetCenterFromEnvironment();
+  const auto targetCenter = targetConfig.center;
 
   auto* bottomSolid = new G4Box("UObjectBottom", outerHalfWidth,
                                 wallThickness/2, targetHalfDepth);
@@ -95,7 +110,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   G4cout << "[Target] U-shaped aluminium centre: ("
          << targetCenter.x()/mm << ", " << targetCenter.y()/mm << ", "
-         << targetCenter.z()/mm << ") mm" << G4endl;
+         << targetCenter.z()/mm << ") mm, outer width = "
+         << 2.*outerHalfWidth/mm << " mm, wall thickness = "
+         << wallThickness/mm << " mm" << G4endl;
 
   objectLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
   sideLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));

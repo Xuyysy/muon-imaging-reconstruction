@@ -1,0 +1,5 @@
+# Smaller U-target validation. Set MUON_TARGET_SCENARIO=small before running.
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
