@@ -1,0 +1,21 @@
+{
+  "scenes": [
+    "center",
+    "offcenter",
+    "small",
+    "medium_offset",
+    "small_offset"
+  ],
+  "event_count": 5000,
+  "repeats": 5,
+  "sigmas_mm": [
+    0.0,
+    0.1,
+    0.3
+  ],
+  "seed": 20260944,
+  "refine_fraction": 0.4,
+  "angle_method": "hard correction, 2 mrad threshold, 3 mrad weight cap",
+  "truth_usage": "retrospective diagnosis and plot outline only",
+  "top_share_definition": "share among positive pixels/events, not all zero pixels"
+}
