@@ -1,0 +1,26 @@
+{
+  "scenarios": {
+    "center": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+    "offcenter": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_offcenter.csv",
+    "small": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_small.csv"
+  },
+  "event_counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "position_sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed": 20260944,
+  "posterior_draws": 12,
+  "majority_min_pass_fraction": 0.5,
+  "theta_min_mrad": 2.0,
+  "theta_cap_mrad": 3.0,
+  "refinement_fraction": 0.4,
+  "note": "All parameters fixed from center-target experiment; target masks used only for scoring."
+}
