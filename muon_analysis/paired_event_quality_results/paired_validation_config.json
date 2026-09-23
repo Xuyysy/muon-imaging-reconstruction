@@ -1,0 +1,14 @@
+{
+  "source": "/Users/xuyaoyang/geant4-test/muon_analysis/continuous_event_quality_results/continuous_event_quality_by_repeat.csv",
+  "pairing_key": [
+    "scenario",
+    "event_count",
+    "repeat",
+    "position_sigma_mm"
+  ],
+  "reference_method": "hard",
+  "metric_sign": "positive means improvement over hard",
+  "main_summary_excludes_sigma_zero": true,
+  "parameters_reselected_from_truth": false,
+  "note": "Descriptive paired simulation analysis; repeats are not independent physical runs."
+}
