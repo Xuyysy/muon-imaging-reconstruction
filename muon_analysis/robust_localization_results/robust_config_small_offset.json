@@ -1,0 +1,27 @@
+{
+  "scenarios": [
+    "small_offset"
+  ],
+  "event_counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed": 20260944,
+  "refine_fraction": 0.4,
+  "candidate_window_bins": [
+    14,
+    18,
+    24
+  ],
+  "positive_intensity_cap_quantile": 0.95,
+  "new_scene_not_used_to_select_parameters": "small_offset",
+  "truth_used_in_localizer": false
+}

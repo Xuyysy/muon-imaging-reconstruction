@@ -17,6 +17,9 @@ namespace
 // 目标场景由环境变量 MUON_TARGET_SCENARIO 控制：
 //   默认或 centered：中心 U 型目标，保持现有 PoCA 基线不变；
 //   offcenter：向 +x、-y 偏移，用于验证算法是否只适用于中心目标。
+//   small：80 mm 外轮廓的中心 U 型目标；
+//   medium_offset：预留给多尺度定位的独立验证场景（100 mm，偏心）。
+//   small_offset：下一轮抗热点规则的独立验证（80 mm，双轴偏心）。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -35,6 +38,16 @@ TargetConfiguration TargetConfigurationFromEnvironment()
   if (scenario != nullptr && std::string(scenario) == "small") {
     // 尺寸泛化验证：80 mm x 80 mm 外轮廓、20 mm 壁厚，中心保持在原点。
     return {{0., 0., 0.}, 4.*cm, 2.*cm};
+  }
+  if (scenario != nullptr && std::string(scenario) == "medium_offset") {
+    // 新场景不参与定位规则设计；偏移方向与旧 offcenter 相反。
+    // 外轮廓 x=[-70,30]、y=[-35,65] mm，位于 ±90 mm 成像区域内。
+    return {{-20.*mm, 15.*mm, 0.}, 5.*cm, 2.5*cm};
+  }
+  if (scenario != nullptr && std::string(scenario) == "small_offset") {
+    // 小目标既不在几何中心，也不在上一轮的偏移方向。
+    // 外轮廓 x=[-10,70]、y=[-20,60] mm，仍完整位于成像区域内。
+    return {{30.*mm, 20.*mm, 0.}, 4.*cm, 2.*cm};
   }
   return {{0., 0., 0.}, 6.*cm, 3.*cm};
 }

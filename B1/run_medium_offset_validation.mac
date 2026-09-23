@@ -1,0 +1,6 @@
+# 独立验证用：100 mm U 型铝目标，中心 (-20, +15) mm。
+# 运行时设置 MUON_TARGET_SCENARIO=medium_offset 和 MUON_TRACK_OUTPUT。
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

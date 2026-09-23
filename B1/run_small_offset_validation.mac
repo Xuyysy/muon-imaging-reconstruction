@@ -1,0 +1,7 @@
+# 抗热点规则的独立验证：偏心 80 mm U 型铝目标。
+# 环境变量 MUON_TARGET_SCENARIO=small_offset 指定几何；
+# MUON_TRACK_OUTPUT 指定独立 CSV，避免覆盖已有实验数据。
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
