@@ -1,0 +1,29 @@
+{
+  "cases": [
+    [
+      "offcenter",
+      5000,
+      1,
+      0.1
+    ],
+    [
+      "offcenter",
+      5000,
+      2,
+      0.3
+    ],
+    [
+      "small",
+      3000,
+      4,
+      0.3
+    ]
+  ],
+  "reference": "/Users/xuyaoyang/geant4-test/muon_analysis/continuous_event_quality_results/continuous_event_quality_by_repeat.csv",
+  "methods": [
+    "hard",
+    "majority"
+  ],
+  "truth_usage": "retrospective scoring and plot overlays only",
+  "case_selection": "post-hoc failures; diagnosis only, not validation"
+}
