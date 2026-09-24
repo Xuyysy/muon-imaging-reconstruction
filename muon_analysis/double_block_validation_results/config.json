@@ -1,0 +1,24 @@
+{
+  "input_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_double_block.csv",
+  "input_rows": 9975,
+  "scene_role": "new shape, independent test of frozen U/L-developed rules",
+  "geometry": "two aluminium 50x60x100 mm boxes, x centers -40 and +40 mm",
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed": 20261868,
+  "truth_usage": "evaluation and display only",
+  "policy": "imported unchanged from diagnose_refinement_fallback.py",
+  "timing": "per-method reconstruction only; fallback reports chosen base method runtime",
+  "leaf_voxels_note": "not comparable for 2.5D local_shrink; recorded as NaN",
+  "localization_note": "auto-window error assumes one connected target; min-block recall and gap leakage are primary shape checks"
+}

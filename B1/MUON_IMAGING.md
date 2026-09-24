@@ -62,6 +62,50 @@ MPLBACKEND=Agg muon_analysis/.venv/bin/python \
 `muon_analysis/analysis.ipynb` 末尾也有对应的阅读与展示单元格。
 该验证仅改变目标形状，不能替代新材料、自然宇宙线或真实探测器验证。
 
+## 双分离铝块：冻结规则的独立形状验证
+
+本场景由两块 50 × 60 × 100 mm 的铝块组成，中间留 30 mm 空隙。
+所有角度筛选、细化比例、局部收缩和回退阈值保持前期设置，不用
+双铝块结果重新选择参数。运行命令：
+
+```bash
+cd /Users/xuyaoyang/geant4-test/B1
+cmake --build build -j4
+MUON_TARGET_SCENARIO=double_block \
+MUON_TRACK_OUTPUT=/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_double_block.csv \
+./build/exampleB1 run_double_block_validation.mac
+
+cd /Users/xuyaoyang/geant4-test/muon_analysis
+MPLBACKEND=Agg ./.venv/bin/python run_double_block_validation.py
+```
+
+原始数据与分析结果分别保存在 `muon_tracks_double_block.csv` 和
+`double_block_validation_results/`，不会覆盖 U/L 场景。结果图、配对
+表和中文结论也可从同一个 `analysis.ipynb` 的末尾查看。这里的自动
+单窗口定位误差仅作兼容指标：双目标应主要结合 IoU、两块最低召回率
+和空隙伪影判断。
+
+## T 型新场景：两半事件一致性细化的冻结规则验证
+
+细化规则、随机种子与判定标准在运行新场景前已写入
+`muon_analysis/CONFIDENCE_REFINEMENT_PROTOCOL.md`。脚本会核对规则源码
+SHA-256，不允许误将改动后的版本称作同一次独立验证。
+
+```bash
+cd /Users/xuyaoyang/geant4-test/B1
+cmake --build build -j4
+MUON_TARGET_SCENARIO=t_shape \
+MUON_TRACK_OUTPUT=/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_t_shape.csv \
+./build/exampleB1 run_t_shape_validation.mac
+
+cd /Users/xuyaoyang/geant4-test/muon_analysis
+MPLBACKEND=Agg ./.venv/bin/python run_t_shape_independent_validation.py
+```
+
+原始事件保存为 `muon_tracks_t_shape.csv`；全部配对结果、预注册判定、
+图像与实验说明在 `t_shape_independent_results/`，同一个 `analysis.ipynb`
+末尾也能查看。该预注册标准未通过，不能把新方法写成已验证的轮廓提升。
+
 ## 建议学习顺序
 
 1. 修改 `DetectorConstruction.cc` 中 U 型铝制目标的材料、尺寸和位置。

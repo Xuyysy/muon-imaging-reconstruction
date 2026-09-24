@@ -1,0 +1,8 @@
+# 独立双铝块形状验证。先固定重建规则，再生成本场景数据。
+# 从 B1/build 运行时设置 MUON_TARGET_SCENARIO=double_block，
+# MUON_TRACK_OUTPUT 指向 muon_analysis/muon_tracks_double_block.csv。
+/random/setSeeds 392741 817253
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

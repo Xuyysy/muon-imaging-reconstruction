@@ -21,6 +21,8 @@ namespace
 //   medium_offset：预留给多尺度定位的独立验证场景（100 mm，偏心）。
 //   small_offset：下一轮抗热点规则的独立验证（80 mm，双轴偏心）。
 //   l_shape：从未参与以上规则设计的 L 型铝目标，用于留出形状验证。
+//   double_block：两块分离的铝目标；用于冻结方法后的新形状验证。
+//   t_shape：预注册的新 T 型铝目标；只用于冻结一致性细化规则的检验。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -108,6 +110,42 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     armLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     G4cout << "[Target] held-out L-shaped aluminium target, 120 mm footprint"
            << G4endl;
+    return worldPV;
+  }
+
+  // 独立验证场景：两块完全分离、相同材料和厚度的铝块。
+  // 左块 x=[-65,-15] mm，右块 x=[15,65] mm；两块 y=[-30,30] mm，
+  // z=[-50,50] mm。中间 30 mm 空隙是检验轮廓伪影的关键区域。
+  // 仅改变目标几何；四层探测器、材料和入射源均保持原样。
+  if (scenario != nullptr && std::string(scenario) == "double_block") {
+    auto* block = new G4Box("DoubleBlockSolid", 2.5*cm, 3.*cm, 5.*cm);
+    auto* blockLV = new G4LogicalVolume(block, aluminium, "DoubleBlockAluminium");
+    new G4PVPlacement(nullptr, {-4.*cm, 0, 0}, blockLV,
+                      "DoubleBlockLeft", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {4.*cm, 0, 0}, blockLV,
+                      "DoubleBlockRight", worldLV, false, 1, checkOverlaps);
+    blockLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] independent double-block aluminium scene, 30 mm gap"
+           << G4endl;
+    return worldPV;
+  }
+
+  // 新的 T 型独立场景，几何数值在生成数据前已记录于
+  // muon_analysis/CONFIDENCE_REFINEMENT_PROTOCOL.md。
+  // 顶横梁 x=[-60,60], y=[20,50] mm；中柱 x=[-15,15], y=[-50,20] mm。
+  // 两部分仅在 y=20 mm 处接触而不重叠，z 均为 [-50,50] mm。
+  if (scenario != nullptr && std::string(scenario) == "t_shape") {
+    auto* bar = new G4Box("TObjectBar", 6.*cm, 1.5*cm, 5.*cm);
+    auto* stem = new G4Box("TObjectStem", 1.5*cm, 3.5*cm, 5.*cm);
+    auto* barLV = new G4LogicalVolume(bar, aluminium, "TObjectBar");
+    auto* stemLV = new G4LogicalVolume(stem, aluminium, "TObjectStem");
+    new G4PVPlacement(nullptr, {0, 3.5*cm, 0}, barLV,
+                      "TObjectBar", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {0, -1.5*cm, 0}, stemLV,
+                      "TObjectStem", worldLV, false, 0, checkOverlaps);
+    barLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] preregistered T-shaped aluminium target" << G4endl;
     return worldPV;
   }
 
