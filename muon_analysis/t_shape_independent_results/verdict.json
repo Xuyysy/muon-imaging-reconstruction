@@ -1,0 +1,9 @@
+{
+  "criterion_met": false,
+  "eligible_gain_sigmas_mm": [],
+  "qualifying_sigmas_mm": [],
+  "required_gain": 0.02,
+  "required_paired_wins_out_of_5": 4,
+  "max_mean_loss_at_other_sigmas": 0.02,
+  "interpretation": "descriptive practical criterion, not independent-simulation significance"
+}

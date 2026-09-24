@@ -1,0 +1,7 @@
+# 预注册 T 型独立验证；种子与事件数先于本场景数据冻结。
+# 运行时设置 MUON_TARGET_SCENARIO=t_shape、单独的 MUON_TRACK_OUTPUT。
+/random/setSeeds 418951 721093
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
