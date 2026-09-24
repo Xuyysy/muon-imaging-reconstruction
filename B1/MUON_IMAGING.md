@@ -38,6 +38,30 @@ cd build
 `/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv`。
 因此需要从项目的 `build` 目录运行程序。
 
+## 留出 L 型目标验证（不覆盖 U 型基线）
+
+`MUON_TARGET_SCENARIO=l_shape` 会在同一套四层探测器中放置一个
+120 mm 外轮廓、30 mm 壁厚、100 mm 厚度的 L 型铝目标。
+它没有参与前面 U 型场景的角度阈值、体素比例或事件质量规则选择。
+先在 `B1` 目录生成独立 CSV，再由数据处理目录中的脚本分析：
+
+```bash
+cd /Users/xuyaoyang/geant4-test/B1
+cmake --build build -j4
+MUON_TARGET_SCENARIO=l_shape \
+MUON_TRACK_OUTPUT=/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_l_shape.csv \
+./build/exampleB1 run_l_shape_validation.mac
+
+cd /Users/xuyaoyang/geant4-test
+MPLBACKEND=Agg muon_analysis/.venv/bin/python \
+  muon_analysis/run_heldout_l_shape_validation.py
+```
+
+原始事件保存在 `muon_analysis/muon_tracks_l_shape.csv`，派生 CSV、图和
+实验说明保存在 `muon_analysis/heldout_l_shape_results/`。现有的
+`muon_analysis/analysis.ipynb` 末尾也有对应的阅读与展示单元格。
+该验证仅改变目标形状，不能替代新材料、自然宇宙线或真实探测器验证。
+
 ## 建议学习顺序
 
 1. 修改 `DetectorConstruction.cc` 中 U 型铝制目标的材料、尺寸和位置。

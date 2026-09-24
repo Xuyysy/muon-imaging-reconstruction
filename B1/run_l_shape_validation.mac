@@ -1,0 +1,8 @@
+# 留出形状验证：120 mm L 型铝目标。运行时设置
+# MUON_TARGET_SCENARIO=l_shape 与单独的 MUON_TRACK_OUTPUT 文件名。
+# 固定随机种子，便于重新生成同一份 Geant4 数据。
+/random/setSeeds 241726 713579
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

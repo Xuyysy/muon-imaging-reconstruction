@@ -20,6 +20,7 @@ namespace
 //   small：80 mm 外轮廓的中心 U 型目标；
 //   medium_offset：预留给多尺度定位的独立验证场景（100 mm，偏心）。
 //   small_offset：下一轮抗热点规则的独立验证（80 mm，双轴偏心）。
+//   l_shape：从未参与以上规则设计的 L 型铝目标，用于留出形状验证。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -87,6 +88,28 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   makeDetector("UpstreamDetector2", -30*cm, G4Colour::Cyan());
   makeDetector("DownstreamDetector1", 30*cm, G4Colour::Green());
   makeDetector("DownstreamDetector2", 40*cm, G4Colour::Yellow());
+
+  // 留出验证场景：L 型目标与所有 U 型训练/探索场景不同。
+  // 两个互不重叠的长方体组成外轮廓 120 mm × 120 mm 的 L：
+  //   底边 x=[-60,60], y=[-60,-30] mm；
+  //   左臂 x=[-60,-30], y=[-30,60] mm；z 均为 [-50,50] mm。
+  // 仅改变目标形状，铝材料、厚度、探测器和源保持原设置。
+  const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
+  if (scenario != nullptr && std::string(scenario) == "l_shape") {
+    auto* bottom = new G4Box("LObjectBottom", 6*cm, 1.5*cm, 5*cm);
+    auto* arm = new G4Box("LObjectArm", 1.5*cm, 4.5*cm, 5*cm);
+    auto* bottomLV = new G4LogicalVolume(bottom, aluminium, "LObjectBottom");
+    auto* armLV = new G4LogicalVolume(arm, aluminium, "LObjectArm");
+    new G4PVPlacement(nullptr, {0, -4.5*cm, 0}, bottomLV,
+                      "LObjectBottom", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {-4.5*cm, 1.5*cm, 0}, armLV,
+                      "LObjectArm", worldLV, false, 0, checkOverlaps);
+    bottomLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    armLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] held-out L-shaped aluminium target, 120 mm footprint"
+           << G4endl;
+    return worldPV;
+  }
 
   // U-shaped aluminium target. The opening faces +y so the shape is
   // immediately visible in the default oblique visualization view.
