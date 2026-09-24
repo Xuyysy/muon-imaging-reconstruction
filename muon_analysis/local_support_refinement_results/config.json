@@ -1,0 +1,30 @@
+{
+  "input_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+  "input_rows": 9975,
+  "scene_role": "U development, not independent validation",
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed": 20261752,
+  "neighbor_xy": [
+    3,
+    3
+  ],
+  "z_group_size": 4,
+  "local_min_events": 2,
+  "proposal": "3x3 XY neighbor n_eff over 4 z slices >= 2*(1+(theta_noise/3mrad)^2)",
+  "execution": "refine only local 16^3 slices with >=2 selected events",
+  "shrink_alpha": "local_n_eff/(local_n_eff+proposal_threshold)",
+  "truth_used_for_selection": false,
+  "timing_note": "local_hard and local_shrink share candidate computation; runtime is joint diagnostic.",
+  "warning": "L shape has informed rule design and is not an independent test."
+}
