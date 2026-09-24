@@ -22,7 +22,9 @@ latexmk -xelatex main.tex
 
 - 正文的数字来自 `muon_analysis/*_results/*summary.csv`；不要仅凭图片修改数字。
 - `figures/` 保存论文实际使用的图像副本。每次重新跑实验并决定更新论文时，需同步替换对应图、核对图注和表格数值。
-- 现在只把已验证的理想源实验写成结果；自然宇宙线谱、真实探测器、机器学习事件筛选仍是后续工作。
+- 现在只把理想源下已计算并复核的仿真实验写成结果；五个 U 型场景中的重复扰动事件质量规则属于补充消融，不等于真实探测器验证，也不是已完成的机器学习方法。自然宇宙线谱、真实探测器和机器学习事件筛选仍是后续工作。
+- `paired_event_quality_results/paired_*.csv`、`event_quality_localizer_ablation_results/localizer_ablation_*.csv` 与 `event_quality_failure_diagnosis/diagnostic_cases.csv` 是新增结果的数值来源；论文 `figures/` 中三张对应 PNG 是用于编译的副本。失败案例为事后诊断，不能写作独立验证。
+- L 型留出验证的数值分别来自 `muon_analysis/heldout_l_shape_results/heldout_l_shape_summary.csv` 和 `heldout_l_shape_paired_summary.csv`；论文使用的两张 L 型图保存在 `figures/`。该测试只更换目标形状，未改变铝材料、探测器和理想入射源；如果据此重新设计规则，同一 L 型数据便不能再次充当新规则的留出测试集。
 - 图表中的“输入事件数”指从完整四层击中 CSV 抽取的条数；实际落入成像体积的 POCA 数量更少，二者不可混称。
 - 等面积 Top-k IoU 使用真值面积设定预测像素数量，仅用于仿真评价；实际未知目标不具备这个真值条件。
 - 文末的待完成清单是写作提醒，不属于可投稿正文。定稿时要补齐并移除。
