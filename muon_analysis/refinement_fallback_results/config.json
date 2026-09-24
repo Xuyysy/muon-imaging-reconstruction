@@ -1,0 +1,21 @@
+{
+  "input_csv": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+  "source_results": "/Users/xuyaoyang/geant4-test/muon_analysis/local_support_refinement_results/by_repeat.csv",
+  "scene_role": "U development only",
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "policy": "adaptive40 iff selected_events >= 16*16 and theta_noise < 0.25*theta_cap; else coarse16",
+  "source_threshold": "same-side spacing from input CSV, theta cap 3 mrad",
+  "truth_usage": "post-hoc diagnostic and scoring only",
+  "validation_warning": "L shape already informed design; new geometry is required for independent test."
+}

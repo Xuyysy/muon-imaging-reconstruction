@@ -39,7 +39,7 @@ METHODS = ('coarse16', 'adaptive40', 'z_pool_4', 'local_hard', 'local_shrink')
 
 
 def local_support_volumes(events: pd.DataFrame, sigma_mm: float,
-                          spacing_mm: float) -> tuple[dict[str, np.ndarray], dict[str, float]]:
+                          spacing_mm: float, return_debug: bool = False) -> tuple:
     """用 3×3 XY 邻域的 4 层统计量提议，再以单层本地计数决策。
 
     硬细分把本地事件全部按 XY 的 2×2 子格落点放置；收缩版混合
@@ -87,7 +87,8 @@ def local_support_volumes(events: pd.DataFrame, sigma_mm: float,
         if not np.allclose(volume.sum(axis=(0, 1)), coarse.sum(axis=(0, 1)),
                            rtol=1e-10, atol=1e-8):
             raise AssertionError('Refinement changed per-z scattering weight')
-    return {'local_hard': hard, 'local_shrink': shrink}, {
+    volumes = {'local_hard': hard, 'local_shrink': shrink}
+    diagnostics = {
         'proposed_coarse_slices': int(proposed_slices.sum()),
         'refined_coarse_slices': int(selected.sum()),
         'empty_or_singleton_slices_blocked': int((proposed_slices & ~selected).sum()),
@@ -95,6 +96,12 @@ def local_support_volumes(events: pd.DataFrame, sigma_mm: float,
         'max_neighbor_effective_events': float(neighbor_neff.max()),
         'threshold_effective_events': float(threshold),
     }
+    if return_debug:
+        # 仅供事后诊断；生产重建不读取任何目标几何或真值。
+        return volumes, diagnostics, {'selected': selected.copy(),
+                                      'coarse_weight': coarse.copy(),
+                                      'local_event_count': count.copy()}
+    return volumes, diagnostics
 
 
 def run(input_csv: Path, output_dir: Path, counts: tuple[int, ...],
