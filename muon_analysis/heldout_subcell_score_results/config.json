@@ -1,0 +1,38 @@
+{
+  "role": "development-only score diagnosis, no revised imaging method",
+  "plan": "HELDOUT_SUBCELL_SCORE_PLAN.md",
+  "inputs": {
+    "u_center": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+      "rows": 9975
+    },
+    "l_shape": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_l_shape.csv",
+      "rows": 9976
+    },
+    "double_block": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_double_block.csv",
+      "rows": 9975
+    }
+  },
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed_base": 20262444,
+  "split_seed": 20261007,
+  "split_repeats": 4,
+  "min_events_per_half": 2,
+  "min_valid_splits": 2,
+  "prior_per_child": 1.0,
+  "t_scene_used": false,
+  "truth_usage": "diagnostic labels and metrics only"
+}
