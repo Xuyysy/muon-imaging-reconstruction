@@ -1,0 +1,51 @@
+{
+  "role": "paired development-scene counterfactual description only",
+  "plan": "SELECTION_ATTRIBUTE_DECOMPOSITION_PLAN.md",
+  "inputs": {
+    "u_center": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks.csv",
+      "rows": 9975
+    },
+    "l_shape": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_l_shape.csv",
+      "rows": 9976
+    },
+    "double_block": {
+      "path": "/Users/xuyaoyang/geant4-test/muon_analysis/muon_tracks_double_block.csv",
+      "rows": 9975
+    }
+  },
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "seed_base": 20262444,
+  "images": {
+    "baseline": [
+      "ideal",
+      "ideal"
+    ],
+    "selection_only": [
+      "noisy",
+      "ideal"
+    ],
+    "attribute_only": [
+      "ideal",
+      "noisy"
+    ],
+    "full": [
+      "noisy",
+      "noisy"
+    ]
+  },
+  "t_scene_used": false,
+  "truth_usage": "Top-k IoU only, not counterfactual image construction"
+}
