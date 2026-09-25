@@ -1,0 +1,29 @@
+{
+  "plan": "SOFT_Z_GATE_PLAN.md",
+  "scenes": [
+    "u_center",
+    "l_shape",
+    "double_block"
+  ],
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "grids": [
+    16,
+    32
+  ],
+  "z_limit_mm": 100.0,
+  "bootstrap_draws": 32,
+  "soft_gate": "fraction of propagated measured-hit PoCA-z samples within ROI",
+  "xy_location": "observed nominal PoCA XY for both methods",
+  "role": "2.5D development-set ablation; no target truth in reconstruction"
+}
