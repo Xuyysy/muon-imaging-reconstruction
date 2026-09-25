@@ -32,6 +32,8 @@ latexmk -xelatex main.tex
 - 边界子格与 POCA 扰动的运行前设计见 `muon_analysis/BOUNDARY_POCA_DIAGNOSIS_PLAN.md`，逐次和汇总结果见 `muon_analysis/boundary_poca_diagnosis_results/`；`figures/boundary_poca_scale_5000.png` 是论文用图。真值仅用于边界代理评分，σ=0 POCA 不是物理散射点真值；本节只作开发集机制诊断，不证明已找到可部署的细化规则。
 - 无真值留出子格评分的运行前设计见 `muon_analysis/HELDOUT_SUBCELL_SCORE_PLAN.md`，完整格级与条件级数据见 `muon_analysis/heldout_subcell_score_results/`；`figures/heldout_subcell_score_5000.png` 为论文用图。分数计算不读真值，但事后“有用边界/背景”评价仍依赖真值代理；结果显示覆盖率和区分能力不足，尚未接入任何新成像规则。
 - 击中误差的入选--属性配对分解方案见 `muon_analysis/SELECTION_ATTRIBUTE_DECOMPOSITION_PLAN.md`，结果见 `muon_analysis/selection_attribute_results/`；`figures/selection_attribute_5000.png` 为论文用图。四张图是同一批事件的数学反事实，不是四种可部署算法；差值范数不能写成因果贡献百分比。只使用 U/L/双铝块开发集，未使用 T 型数据。
+- 入选事件的角度/几何门状态诊断方案见 `muon_analysis/SELECTION_GATE_TRANSITIONS_PLAN.md`，结果见 `muon_analysis/selection_gate_results/`；`figures/selection_gate_transitions_5000.png` 为论文用图。它沿用上一轮的配对事件，发现轻度击中误差下多数退出事件涉及 POCA-z 越界；失败门分类不是因果百分比，更不支持直接放宽 Z 边界。T 型数据未参与。
+- POCA-z 配对稳定性诊断方案见 `muon_analysis/POCA_Z_STABILITY_PLAN.md`，完整结果见 `muon_analysis/poca_z_stability_results/`；`figures/poca_z_strata_5000.png` 为论文用图。位移是同一事件两次 POCA 算法估计之差，并非相对真实散射点的定位误差。预设角度/边界距离分层只提示关联，不构成独立因果或新算法的性能验证。
 - 图表中的“输入事件数”指从完整四层击中 CSV 抽取的条数；实际落入成像体积的 POCA 数量更少，二者不可混称。
 - 等面积 Top-k IoU 使用真值面积设定预测像素数量，仅用于仿真评价；实际未知目标不具备这个真值条件。
 - 文末的待完成清单是写作提醒，不属于可投稿正文。定稿时要补齐并移除。
