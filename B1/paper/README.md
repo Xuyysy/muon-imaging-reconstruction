@@ -34,6 +34,7 @@ latexmk -xelatex main.tex
 - 击中误差的入选--属性配对分解方案见 `muon_analysis/SELECTION_ATTRIBUTE_DECOMPOSITION_PLAN.md`，结果见 `muon_analysis/selection_attribute_results/`；`figures/selection_attribute_5000.png` 为论文用图。四张图是同一批事件的数学反事实，不是四种可部署算法；差值范数不能写成因果贡献百分比。只使用 U/L/双铝块开发集，未使用 T 型数据。
 - 入选事件的角度/几何门状态诊断方案见 `muon_analysis/SELECTION_GATE_TRANSITIONS_PLAN.md`，结果见 `muon_analysis/selection_gate_results/`；`figures/selection_gate_transitions_5000.png` 为论文用图。它沿用上一轮的配对事件，发现轻度击中误差下多数退出事件涉及 POCA-z 越界；失败门分类不是因果百分比，更不支持直接放宽 Z 边界。T 型数据未参与。
 - POCA-z 配对稳定性诊断方案见 `muon_analysis/POCA_Z_STABILITY_PLAN.md`，完整结果见 `muon_analysis/poca_z_stability_results/`；`figures/poca_z_strata_5000.png` 为论文用图。位移是同一事件两次 POCA 算法估计之差，并非相对真实散射点的定位误差。预设角度/边界距离分层只提示关联，不构成独立因果或新算法的性能验证。
+- PoCA-z 不确定度校准方案见 `muon_analysis/POCA_Z_CALIBRATION_PLAN.md`，结果见 `muon_analysis/poca_z_calibration_results/`；与观测角度/深度位置比较的增量预测方案见 `muon_analysis/POCA_Z_INCREMENTAL_VALUE_PLAN.md`，结果见 `muon_analysis/poca_z_incremental_results/`。正文只记录开发集的弱增量或阴性诊断，不能写作真实散射点概率已校准，也不能称为成像质量提升；此轮图表保留在数据处理目录，不加入投稿正文图组。
 - 图表中的“输入事件数”指从完整四层击中 CSV 抽取的条数；实际落入成像体积的 POCA 数量更少，二者不可混称。
 - 等面积 Top-k IoU 使用真值面积设定预测像素数量，仅用于仿真评价；实际未知目标不具备这个真值条件。
 - 文末的待完成清单是写作提醒，不属于可投稿正文。定稿时要补齐并移除。
