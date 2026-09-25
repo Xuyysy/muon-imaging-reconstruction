@@ -1,0 +1,7 @@
+# 独立 Geant4 流 A；冻结方案：muon_analysis/FRAME_Z_GATE_VALIDATION_PROTOCOL.md。
+# 运行前设置 MUON_TARGET_SCENARIO=frame 和单独的 MUON_TRACK_OUTPUT。
+/random/setSeeds 537419 842657
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

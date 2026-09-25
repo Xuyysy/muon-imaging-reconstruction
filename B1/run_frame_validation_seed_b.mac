@@ -1,0 +1,7 @@
+# 独立 Geant4 流 B；不得与 A 共用输出 CSV。
+# 运行前设置 MUON_TARGET_SCENARIO=frame 和单独的 MUON_TRACK_OUTPUT。
+/random/setSeeds 693241 956113
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

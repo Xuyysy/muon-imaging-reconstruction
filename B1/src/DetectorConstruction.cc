@@ -23,6 +23,7 @@ namespace
 //   l_shape：从未参与以上规则设计的 L 型铝目标，用于留出形状验证。
 //   double_block：两块分离的铝目标；用于冻结方法后的新形状验证。
 //   t_shape：预注册的新 T 型铝目标；只用于冻结一致性细化规则的检验。
+//   frame：新的闭合方框铝目标；只用于冻结 H/A/P 深度门的独立验证。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -146,6 +147,30 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     barLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     G4cout << "[Target] preregistered T-shaped aluminium target" << G4endl;
+    return worldPV;
+  }
+
+  // 按 FRAME_Z_GATE_VALIDATION_PROTOCOL.md 预先冻结的闭合方框。
+  // 上下横梁：x=[-60,60]、y=[-60,-40] / [40,60] mm；
+  // 左右纵梁：x=[-60,-40] / [40,60]、y=[-40,40] mm。
+  // 四块在边界处相接但体积不重叠；中心开孔为 80 mm × 80 mm。
+  // z 厚度与旧形状相同，以隔离 XY 拓扑改变的影响。
+  if (scenario != nullptr && std::string(scenario) == "frame") {
+    auto* horizontal = new G4Box("FrameHorizontal", 6.*cm, 1.*cm, 5.*cm);
+    auto* vertical = new G4Box("FrameVertical", 1.*cm, 4.*cm, 5.*cm);
+    auto* horizontalLV = new G4LogicalVolume(horizontal, aluminium, "FrameHorizontal");
+    auto* verticalLV = new G4LogicalVolume(vertical, aluminium, "FrameVertical");
+    new G4PVPlacement(nullptr, {0, -5.*cm, 0}, horizontalLV,
+                      "FrameBottom", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {0, 5.*cm, 0}, horizontalLV,
+                      "FrameTop", worldLV, false, 1, checkOverlaps);
+    new G4PVPlacement(nullptr, {-5.*cm, 0, 0}, verticalLV,
+                      "FrameLeft", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {5.*cm, 0, 0}, verticalLV,
+                      "FrameRight", worldLV, false, 1, checkOverlaps);
+    horizontalLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    verticalLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] preregistered closed-frame aluminium target" << G4endl;
     return worldPV;
   }
 
