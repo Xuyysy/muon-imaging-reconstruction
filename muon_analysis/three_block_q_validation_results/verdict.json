@@ -1,0 +1,7 @@
+{
+  "primary_low_count_high_error_pass": false,
+  "low_error_safety_pass": true,
+  "overall_pass": false,
+  "criterion": "N=1000 σ=0.30 mm: both streams mean Q-P>=0, Q-H>=0, min-block-recall(Q-P)>=-0.10; N=1000 σ=0.05 mm: both streams mean Q-P>=-0.02",
+  "scope": "new three-block iron shape only; prior 75 mm plus Q failure remains"
+}

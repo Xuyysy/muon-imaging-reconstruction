@@ -1,0 +1,7 @@
+# 冻结 Q 新形状检验流 A。运行前设置 MUON_TARGET_SCENARIO=three_block_iron。
+# 方案：muon_analysis/THREE_BLOCK_Q_VALIDATION_PROTOCOL.md。
+/random/setSeeds 724031 385667
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

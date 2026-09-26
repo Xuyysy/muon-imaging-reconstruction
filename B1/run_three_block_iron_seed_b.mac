@@ -1,0 +1,7 @@
+# 冻结 Q 新形状检验流 B。与 A 使用不同的 Geant4 种子。
+# 方案：muon_analysis/THREE_BLOCK_Q_VALIDATION_PROTOCOL.md。
+/random/setSeeds 638219 914573
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

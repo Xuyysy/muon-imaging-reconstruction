@@ -28,6 +28,7 @@ namespace
 //   plus_al：与 plus_iron 完全相同的十字几何，只将目标材料换成铝。
 //   plus_iron_thin / plus_al_thin：对应十字目标仅把 z 全厚从 100 mm 改为 50 mm。
 //   plus_iron_mid / plus_al_mid：冻结新数据验证用 75 mm 全厚，XY 足迹不变。
+//   three_block_iron：三块阶梯形铁目标；冻结 Q 门的新形状检验。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -103,6 +104,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //   左臂 x=[-60,-30], y=[-30,60] mm；z 均为 [-50,50] mm。
   // 仅改变目标形状，铝材料、厚度、探测器和源保持原设置。
   const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
+  if (scenario != nullptr && std::string(scenario) == "three_block_iron") {
+    // 三块方柱互不重叠，每块 40×40×75 mm。XY 中心从左下到右上
+    // 呈阶梯排列：这是新形状检验，不能拿它反调 Q 门参数。
+    constexpr G4double halfXY = 2.*cm;
+    constexpr G4double halfDepth = 3.75*cm;
+    const G4ThreeVector centers[] = {
+      {-5.*cm, -4.5*cm, 0.}, {0., 0., 0.}, {5.*cm, 4.5*cm, 0.}
+    };
+    for (int i = 0; i < 3; ++i) {
+      const auto name = "ThreeBlockIron" + std::to_string(i + 1);
+      auto* solid = new G4Box(name, halfXY, halfXY, halfDepth);
+      auto* lv = new G4LogicalVolume(solid, iron, name);
+      new G4PVPlacement(nullptr, centers[i], lv, name,
+                        worldLV, false, i, checkOverlaps);
+      lv->SetVisAttributes(new G4VisAttributes(G4Colour(0.7, 0.2, 0.1, 0.75)));
+    }
+    G4cout << "[Target] three-block iron staircase, 40x40x75 mm each" << G4endl;
+    return worldPV;
+  }
   if (scenario != nullptr && std::string(scenario) == "l_shape") {
     auto* bottom = new G4Box("LObjectBottom", 6*cm, 1.5*cm, 5*cm);
     auto* arm = new G4Box("LObjectArm", 1.5*cm, 4.5*cm, 5*cm);
