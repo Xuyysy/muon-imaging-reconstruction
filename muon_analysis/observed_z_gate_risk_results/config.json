@@ -1,0 +1,31 @@
+{
+  "plan": "OBSERVED_Z_GATE_RISK_DIAGNOSTIC_PLAN.md",
+  "role": "post-hoc development diagnosis; no new test",
+  "sources": [
+    "u_center",
+    "l_shape",
+    "double_block",
+    "frame_seed_a",
+    "frame_seed_b",
+    "iron_seed_a",
+    "iron_seed_b"
+  ],
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "repeats": 5,
+  "grids": [
+    16,
+    32
+  ],
+  "truth_used_only_for_saved_iou_labels": true,
+  "candidate_and_gate_counts_reproduced": true
+}
