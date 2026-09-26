@@ -1,0 +1,18 @@
+{
+  "plan": "B1/NEFF8_INTERACTION_PLAN.md",
+  "role": "development-only neff8 selection failure analysis",
+  "source": "fixed_budget_refinement_results/selected_cells.csv",
+  "counts": [
+    1000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.05,
+    0.3
+  ],
+  "repeats": 5,
+  "budget": 8,
+  "truth_usage": "IoU and target-child diagnostic label only",
+  "interaction_definition": "actual gain minus sum of isolated one-cell gains",
+  "image_type": "2.5D XY projection, not full 3D density"
+}
