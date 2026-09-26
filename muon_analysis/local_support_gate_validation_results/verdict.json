@@ -1,0 +1,6 @@
+{
+  "primary_high_noise_pass": false,
+  "low_noise_safety_pass": true,
+  "overall_pass": false,
+  "criterion": "N=5000 σ=0.30 mm: all four Q-H>=0 and Q-P>=0; N=5000 σ=0.05 mm: all four Q-P>=-0.02"
+}

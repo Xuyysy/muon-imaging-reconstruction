@@ -1,0 +1,6 @@
+# 75 mm 十字目标 A；MUON_TARGET_SCENARIO=plus_al_mid 或 plus_iron_mid。
+/random/setSeeds 915731 613087
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

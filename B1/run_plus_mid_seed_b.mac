@@ -1,0 +1,6 @@
+# 75 mm 十字目标 B；MUON_TRACK_OUTPUT 指向各自独立的 CSV。
+/random/setSeeds 417239 829447
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

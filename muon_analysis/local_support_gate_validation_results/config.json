@@ -1,0 +1,27 @@
+{
+  "protocol": "LOCAL_SUPPORT_GATE_VALIDATION_PROTOCOL.md",
+  "role": "frozen Q validation on unseen 75 mm thickness, same plus XY footprint",
+  "materials": [
+    "al",
+    "iron"
+  ],
+  "streams": [
+    "a",
+    "b"
+  ],
+  "counts": [
+    1000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.3
+  ],
+  "repeats": 5,
+  "grid": 32,
+  "draws": 32,
+  "target_truth_only_for_scoring": true,
+  "event_level_material_pairing_assumed": false,
+  "formula": "Q = h*p + (1-h)*p*n_eff/(n_eff+2) on 16x16 hard-gate grid"
+}

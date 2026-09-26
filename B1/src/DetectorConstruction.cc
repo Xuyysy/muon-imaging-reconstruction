@@ -27,6 +27,7 @@ namespace
 //   plus_iron：铁制十字目标；只用于噪声底回退规则的未见验证。
 //   plus_al：与 plus_iron 完全相同的十字几何，只将目标材料换成铝。
 //   plus_iron_thin / plus_al_thin：对应十字目标仅把 z 全厚从 100 mm 改为 50 mm。
+//   plus_iron_mid / plus_al_mid：冻结新数据验证用 75 mm 全厚，XY 足迹不变。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -182,9 +183,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // 中央竖梁 x=[-15,15], y=[-60,60] mm；左右横臂 x=[-60,-15]
   // 与 [15,60], y=[-15,15] mm。三部分只在面上接触，不重叠。
   if (scenario != nullptr && (std::string(scenario) == "plus_iron" ||
-                              std::string(scenario) == "plus_iron_thin")) {
-    // 只调整沿 z 的半厚度；旧 plus_iron 分支保持 5 cm 不变。
-    const G4double halfDepth = std::string(scenario) == "plus_iron_thin" ? 2.5*cm : 5.*cm;
+                              std::string(scenario) == "plus_iron_thin" ||
+                              std::string(scenario) == "plus_iron_mid")) {
+    // 只调整沿 z 的半厚度；旧 plus_iron 分支仍取 5 cm。
+    const auto scenarioName = std::string(scenario);
+    const G4double halfDepth = scenarioName == "plus_iron_thin" ? 2.5*cm :
+                               scenarioName == "plus_iron_mid" ? 3.75*cm : 5.*cm;
     auto* stem = new G4Box("PlusIronStem", 1.5*cm, 6.*cm, halfDepth);
     auto* arm = new G4Box("PlusIronArm", 2.25*cm, 1.5*cm, halfDepth);
     auto* stemLV = new G4LogicalVolume(stem, iron, "PlusIronStem");
@@ -205,9 +209,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // 材料控制：严格沿用上面的十字体积与位置，只把 G4_Fe 改为 G4_Al。
   // 保留原铁目标构造分支，避免修改已存铁数据所用的几何定义。
   if (scenario != nullptr && (std::string(scenario) == "plus_al" ||
-                              std::string(scenario) == "plus_al_thin")) {
+                              std::string(scenario) == "plus_al_thin" ||
+                              std::string(scenario) == "plus_al_mid")) {
     // 铝与铁共用完全相同的厚度开关，避免材料比较时几何不同。
-    const G4double halfDepth = std::string(scenario) == "plus_al_thin" ? 2.5*cm : 5.*cm;
+    const auto scenarioName = std::string(scenario);
+    const G4double halfDepth = scenarioName == "plus_al_thin" ? 2.5*cm :
+                               scenarioName == "plus_al_mid" ? 3.75*cm : 5.*cm;
     auto* stem = new G4Box("PlusAlStem", 1.5*cm, 6.*cm, halfDepth);
     auto* arm = new G4Box("PlusAlArm", 2.25*cm, 1.5*cm, halfDepth);
     auto* stemLV = new G4LogicalVolume(stem, aluminium, "PlusAlStem");
