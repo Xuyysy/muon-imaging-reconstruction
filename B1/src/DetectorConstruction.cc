@@ -25,6 +25,7 @@ namespace
 //   t_shape：预注册的新 T 型铝目标；只用于冻结一致性细化规则的检验。
 //   frame：新的闭合方框铝目标；只用于冻结 H/A/P 深度门的独立验证。
 //   plus_iron：铁制十字目标；只用于噪声底回退规则的未见验证。
+//   plus_al：与 plus_iron 完全相同的十字几何，只将目标材料换成铝。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -193,6 +194,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
     armLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
     G4cout << "[Target] preregistered plus-shaped iron target" << G4endl;
+    return worldPV;
+  }
+
+  // 材料控制：严格沿用上面的十字体积与位置，只把 G4_Fe 改为 G4_Al。
+  // 保留原铁目标构造分支，避免修改已存铁数据所用的几何定义。
+  if (scenario != nullptr && std::string(scenario) == "plus_al") {
+    auto* stem = new G4Box("PlusAlStem", 1.5*cm, 6.*cm, 5.*cm);
+    auto* arm = new G4Box("PlusAlArm", 2.25*cm, 1.5*cm, 5.*cm);
+    auto* stemLV = new G4LogicalVolume(stem, aluminium, "PlusAlStem");
+    auto* armLV = new G4LogicalVolume(arm, aluminium, "PlusAlArm");
+    new G4PVPlacement(nullptr, {0, 0, 0}, stemLV,
+                      "PlusAlStem", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {-3.75*cm, 0, 0}, armLV,
+                      "PlusAlLeft", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {3.75*cm, 0, 0}, armLV,
+                      "PlusAlRight", worldLV, false, 1, checkOverlaps);
+    stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    armLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] plus-shaped aluminium material control" << G4endl;
     return worldPV;
   }
 

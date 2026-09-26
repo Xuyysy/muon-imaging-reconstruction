@@ -1,0 +1,7 @@
+# 同形状铝材料控制 A；重用铁十字 A 种子，但不假设逐事件配对。
+# 请单独设置 MUON_TARGET_SCENARIO=plus_al 和 MUON_TRACK_OUTPUT。
+/random/setSeeds 742391 864257
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

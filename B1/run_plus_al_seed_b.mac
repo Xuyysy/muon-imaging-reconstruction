@@ -1,0 +1,6 @@
+# 同形状铝材料控制 B；输出 CSV 必须与 A 和铁场景分开。
+/random/setSeeds 853729 971143
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
