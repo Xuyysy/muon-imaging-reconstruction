@@ -1,0 +1,6 @@
+# 50 mm 十字目标 A；材料用 MUON_TARGET_SCENARIO 选 plus_al_thin / plus_iron_thin。
+/random/setSeeds 742391 864257
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

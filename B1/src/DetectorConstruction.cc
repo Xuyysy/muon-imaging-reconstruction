@@ -26,6 +26,7 @@ namespace
 //   frame：新的闭合方框铝目标；只用于冻结 H/A/P 深度门的独立验证。
 //   plus_iron：铁制十字目标；只用于噪声底回退规则的未见验证。
 //   plus_al：与 plus_iron 完全相同的十字几何，只将目标材料换成铝。
+//   plus_iron_thin / plus_al_thin：对应十字目标仅把 z 全厚从 100 mm 改为 50 mm。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -180,9 +181,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // 事先写定于 NOISE_FLOOR_FALLBACK_PROTOCOL.md 的新材料/新形状。
   // 中央竖梁 x=[-15,15], y=[-60,60] mm；左右横臂 x=[-60,-15]
   // 与 [15,60], y=[-15,15] mm。三部分只在面上接触，不重叠。
-  if (scenario != nullptr && std::string(scenario) == "plus_iron") {
-    auto* stem = new G4Box("PlusIronStem", 1.5*cm, 6.*cm, 5.*cm);
-    auto* arm = new G4Box("PlusIronArm", 2.25*cm, 1.5*cm, 5.*cm);
+  if (scenario != nullptr && (std::string(scenario) == "plus_iron" ||
+                              std::string(scenario) == "plus_iron_thin")) {
+    // 只调整沿 z 的半厚度；旧 plus_iron 分支保持 5 cm 不变。
+    const G4double halfDepth = std::string(scenario) == "plus_iron_thin" ? 2.5*cm : 5.*cm;
+    auto* stem = new G4Box("PlusIronStem", 1.5*cm, 6.*cm, halfDepth);
+    auto* arm = new G4Box("PlusIronArm", 2.25*cm, 1.5*cm, halfDepth);
     auto* stemLV = new G4LogicalVolume(stem, iron, "PlusIronStem");
     auto* armLV = new G4LogicalVolume(arm, iron, "PlusIronArm");
     new G4PVPlacement(nullptr, {0, 0, 0}, stemLV,
@@ -193,15 +197,19 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                       "PlusIronRight", worldLV, false, 1, checkOverlaps);
     stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
     armLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
-    G4cout << "[Target] preregistered plus-shaped iron target" << G4endl;
+    G4cout << "[Target] plus-shaped iron target, full depth " << 2*halfDepth/mm
+           << " mm" << G4endl;
     return worldPV;
   }
 
   // 材料控制：严格沿用上面的十字体积与位置，只把 G4_Fe 改为 G4_Al。
   // 保留原铁目标构造分支，避免修改已存铁数据所用的几何定义。
-  if (scenario != nullptr && std::string(scenario) == "plus_al") {
-    auto* stem = new G4Box("PlusAlStem", 1.5*cm, 6.*cm, 5.*cm);
-    auto* arm = new G4Box("PlusAlArm", 2.25*cm, 1.5*cm, 5.*cm);
+  if (scenario != nullptr && (std::string(scenario) == "plus_al" ||
+                              std::string(scenario) == "plus_al_thin")) {
+    // 铝与铁共用完全相同的厚度开关，避免材料比较时几何不同。
+    const G4double halfDepth = std::string(scenario) == "plus_al_thin" ? 2.5*cm : 5.*cm;
+    auto* stem = new G4Box("PlusAlStem", 1.5*cm, 6.*cm, halfDepth);
+    auto* arm = new G4Box("PlusAlArm", 2.25*cm, 1.5*cm, halfDepth);
     auto* stemLV = new G4LogicalVolume(stem, aluminium, "PlusAlStem");
     auto* armLV = new G4LogicalVolume(arm, aluminium, "PlusAlArm");
     new G4PVPlacement(nullptr, {0, 0, 0}, stemLV,
@@ -212,7 +220,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                       "PlusAlRight", worldLV, false, 1, checkOverlaps);
     stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     armLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
-    G4cout << "[Target] plus-shaped aluminium material control" << G4endl;
+    G4cout << "[Target] plus-shaped aluminium target, full depth " << 2*halfDepth/mm
+           << " mm" << G4endl;
     return worldPV;
   }
 

@@ -1,0 +1,9 @@
+material,thickness_mm,stream,complete_tracks
+al,50,a,9981
+al,50,b,9978
+al,100,a,9971
+al,100,b,9967
+iron,50,a,9965
+iron,50,b,9976
+iron,100,a,9979
+iron,100,b,9978

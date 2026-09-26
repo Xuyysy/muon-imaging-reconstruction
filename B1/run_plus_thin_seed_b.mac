@@ -1,0 +1,6 @@
+# 50 mm 十字目标 B；CSV 路径用 MUON_TRACK_OUTPUT 单独指定。
+/random/setSeeds 853729 971143
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
