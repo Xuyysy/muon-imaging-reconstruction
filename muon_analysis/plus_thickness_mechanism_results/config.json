@@ -1,0 +1,17 @@
+{
+  "plan": "PLUS_THICKNESS_MECHANISM_PLAN.md",
+  "role": "post-hoc explanation of already observed H/P contrast",
+  "input_count": 5000,
+  "grid": 32,
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.3
+  ],
+  "repeats": 5,
+  "draws": 32,
+  "prior_h_p_results_reproduced": true,
+  "truth_only_for_scoring": true,
+  "event_level_physical_pairing_across_conditions": false,
+  "sequence": "H -> S -> P, P = S + R in image intensity"
+}
