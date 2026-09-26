@@ -1,0 +1,27 @@
+{
+  "protocol": "NOISE_FLOOR_FALLBACK_PROTOCOL.md",
+  "role": "previously unseen shape and material, two Geant4 seeds",
+  "streams": {
+    "seed_a": "muon_tracks_plus_iron_seed_a.csv",
+    "seed_b": "muon_tracks_plus_iron_seed_b.csv"
+  },
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "grids": [
+    16,
+    32
+  ],
+  "repeats": 5,
+  "draws": 32,
+  "fallback": "hard if noise_floor/theta_min>=2 else propagated",
+  "truth_only_for_scoring": true
+}

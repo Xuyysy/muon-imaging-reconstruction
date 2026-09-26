@@ -24,6 +24,7 @@ namespace
 //   double_block：两块分离的铝目标；用于冻结方法后的新形状验证。
 //   t_shape：预注册的新 T 型铝目标；只用于冻结一致性细化规则的检验。
 //   frame：新的闭合方框铝目标；只用于冻结 H/A/P 深度门的独立验证。
+//   plus_iron：铁制十字目标；只用于噪声底回退规则的未见验证。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -67,6 +68,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   auto* air = nist->FindOrBuildMaterial("G4_AIR");
   auto* scint = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
   auto* aluminium = nist->FindOrBuildMaterial("G4_Al");
+  auto* iron = nist->FindOrBuildMaterial("G4_Fe");
   const G4bool checkOverlaps = true;
 
   // The world only provides an air environment. Its half-lengths must be
@@ -171,6 +173,26 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     horizontalLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     verticalLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
     G4cout << "[Target] preregistered closed-frame aluminium target" << G4endl;
+    return worldPV;
+  }
+
+  // 事先写定于 NOISE_FLOOR_FALLBACK_PROTOCOL.md 的新材料/新形状。
+  // 中央竖梁 x=[-15,15], y=[-60,60] mm；左右横臂 x=[-60,-15]
+  // 与 [15,60], y=[-15,15] mm。三部分只在面上接触，不重叠。
+  if (scenario != nullptr && std::string(scenario) == "plus_iron") {
+    auto* stem = new G4Box("PlusIronStem", 1.5*cm, 6.*cm, 5.*cm);
+    auto* arm = new G4Box("PlusIronArm", 2.25*cm, 1.5*cm, 5.*cm);
+    auto* stemLV = new G4LogicalVolume(stem, iron, "PlusIronStem");
+    auto* armLV = new G4LogicalVolume(arm, iron, "PlusIronArm");
+    new G4PVPlacement(nullptr, {0, 0, 0}, stemLV,
+                      "PlusIronStem", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {-3.75*cm, 0, 0}, armLV,
+                      "PlusIronLeft", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {3.75*cm, 0, 0}, armLV,
+                      "PlusIronRight", worldLV, false, 1, checkOverlaps);
+    stemLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
+    armLV->SetVisAttributes(new G4VisAttributes(G4Colour(0.75, 0.25, 0.12, 0.8)));
+    G4cout << "[Target] preregistered plus-shaped iron target" << G4endl;
     return worldPV;
   }
 

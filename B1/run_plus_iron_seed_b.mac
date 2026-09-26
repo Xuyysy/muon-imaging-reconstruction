@@ -1,0 +1,6 @@
+# 铁制十字目标新随机流 B；不要复用 A 的 CSV 路径。
+/random/setSeeds 853729 971143
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

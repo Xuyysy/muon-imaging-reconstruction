@@ -1,0 +1,8 @@
+{
+  "protocol": "NOISE_FLOOR_FALLBACK_PROTOCOL.md",
+  "role": "post-hoc development diagnosis only",
+  "risk_ratio": "sqrt(8)*sigma_mm/layer_spacing_mm*1000/theta_min_mrad",
+  "risk_threshold": 2.0,
+  "fallback": "hard if ratio>=2 else propagated",
+  "oracle": "truth-dependent upper bound; never deployed"
+}

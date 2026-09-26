@@ -1,0 +1,6 @@
+# 铁制十字目标新随机流 A；运行前按协议设置独立输出路径。
+/random/setSeeds 742391 864257
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
