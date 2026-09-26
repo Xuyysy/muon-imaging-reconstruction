@@ -1,0 +1,16 @@
+{
+  "plan": "OBSERVABLE_RESCUE_SUPPORT_PLAN.md",
+  "role": "post-hoc development diagnostic, not classifier validation",
+  "support_grid": 16,
+  "min_effective_count": 2.0,
+  "count": 5000,
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.3
+  ],
+  "repeats": 5,
+  "source_hard_rescue_mass_reproduced": true,
+  "truth_not_in_spatial_features": true,
+  "labels_only_for_evaluation": true
+}
