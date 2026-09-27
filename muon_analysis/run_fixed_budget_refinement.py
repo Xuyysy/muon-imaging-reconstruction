@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 from pathlib import Path
 
 import matplotlib
@@ -26,6 +27,91 @@ FOCUS_SIGMAS_MM = (.05, .30)
 KEY = ['scenario', 'event_count', 'repeat', 'position_sigma_mm']
 METHODS = ('coarse', 'neff8', 'heldout_positive', 'random8_mean', 'truth_greedy8')
 EPS = 1e-12
+
+
+def fractional_iou_bounds(image: np.ndarray, truth: np.ndarray) -> dict:
+    """无坐标偏好的分数边界评分及合法硬并列 IoU 范围。
+
+    真值面积只用于终点评分，不参加构图或选格。分数 IoU 是软成员度
+    的交并比，不是随机硬掩膜 IoU 的期望；上下界不是统计置信区间。
+    """
+    if image.shape != truth.shape or not np.isfinite(image).all():
+        raise ValueError('Invalid image/truth alignment')
+    values = image.ravel()
+    target = np.asarray(truth, dtype=bool).ravel()
+    k = int(target.sum())
+    if not 0 < k < values.size:
+        raise ValueError('Degenerate truth area')
+    boundary = np.partition(values, -k)[-k]
+    above, tied = values > boundary, values == boundary
+    slots = k - int(above.sum())
+    n_tied = int(tied.sum())
+    target_tied = int((tied & target).sum())
+    fixed_overlap = int((above & target).sum())
+    fraction_overlap = fixed_overlap + slots * target_tied / n_tied
+    low_overlap = fixed_overlap + max(0, slots - (n_tied - target_tied))
+    high_overlap = fixed_overlap + min(slots, target_tied)
+    score = lambda overlap: float(overlap / (2*k - overlap))
+    result = {'fractional_iou': score(fraction_overlap),
+              'hard_iou_min': score(low_overlap), 'hard_iou_max': score(high_overlap),
+              'boundary_equal_pixels': n_tied, 'boundary_slots': slots,
+              'zero_pixels_required': max(0, k - int((values > 0).sum()))}
+    if not (result['hard_iou_min'] - EPS <= result['fractional_iou']
+            <= result['hard_iou_max'] + EPS):
+        raise AssertionError('Fractional IoU outside tie bounds')
+    return result
+
+
+def fractional_pair_metrics(image, base, truth):
+    """固定图像的双报告；完全相同图的收益必须严格为零。"""
+    refined, coarse = fractional_iou_bounds(image, truth), fractional_iou_bounds(base, truth)
+    same = np.array_equal(image, base)
+    metrics = {**refined, 'fractional_gain': refined['fractional_iou'] - coarse['fractional_iou'],
+            'gain_bound_min': 0. if same else refined['hard_iou_min'] - coarse['hard_iou_max'],
+            'gain_bound_max': 0. if same else refined['hard_iou_max'] - coarse['hard_iou_min']}
+    if not (metrics['gain_bound_min'] - EPS <= metrics['fractional_gain']
+            <= metrics['gain_bound_max'] + EPS):
+        raise AssertionError('Fractional gain outside pair bounds')
+    return metrics
+
+
+def test_fractional_metrics():
+    """指标定义的最小不变量测试，不生成或修改实验数据。"""
+    from itertools import combinations
+    image = np.array([4., 2., 2., 2., 0., 0.])
+    truth = np.array([True, True, False, False, True, False])
+    result = fractional_iou_bounds(image, truth)
+    # 枚举边界的合法硬选择，核查解析上下界确实可达。
+    scores = []
+    for choice in combinations([1, 2, 3], 2):
+        mask = np.zeros(6, dtype=bool)
+        mask[[0, *choice]] = True
+        scores.append(float((mask & truth).sum() / (mask | truth).sum()))
+    if not (np.isclose(min(scores), result['hard_iou_min'])
+            and np.isclose(max(scores), result['hard_iou_max'])):
+        raise AssertionError('Analytic bounds mismatch enumeration')
+    perm = np.array([5, 2, 1, 4, 0, 3])
+    if not np.isclose(result['fractional_iou'],
+                      fractional_iou_bounds(image[perm], truth[perm])['fractional_iou']):
+        raise AssertionError('Fractional score depends on coordinates')
+    distinct = np.arange(16.).reshape(4, 4)
+    distinct_truth = np.eye(4, dtype=bool)
+    if not np.isclose(fractional_iou_bounds(distinct, distinct_truth)['fractional_iou'],
+                      topk_iou_small(distinct, distinct_truth)):
+        raise AssertionError('Distinct-weight score differs from hard IoU')
+    zero = fractional_iou_bounds(np.zeros(6), truth)
+    # 六像素均分三名额，交集1.5、并集4.5，评分1/3。
+    if not np.isclose(zero['fractional_iou'], 1/3):
+        raise AssertionError('Zero-image fractional area incorrect')
+    pair = fractional_pair_metrics(image, image.copy(), truth)
+    if pair['fractional_gain'] != 0 or pair['gain_bound_min'] != 0 or pair['gain_bound_max'] != 0:
+        raise AssertionError('Identical image pair has nonzero gain')
+
+
+def topk_iou_small(image, truth):
+    """仅供非32x32小测试；正式原评分仍调用已有 topk_iou。"""
+    mask = topk_mask(image, int(truth.sum()))
+    return float((mask & truth).sum() / (mask | truth).sum())
 
 
 def images_and_ranks(events: pd.DataFrame) -> tuple[np.ndarray, np.ndarray,
@@ -99,7 +185,11 @@ def image_metrics(image: np.ndarray, base: np.ndarray,
     }
 
 
-def run(output_dir: Path) -> None:
+def run(output_dir: Path, fractional_audit: bool = False) -> None:
+    if fractional_audit:
+        test_fractional_metrics()
+        frozen = pd.read_csv(ROOT / 'muon_analysis/fixed_budget_refinement_results/selected_cells.csv')
+        original = pd.read_csv(ROOT / 'muon_analysis/fixed_budget_refinement_results/by_repeat.csv')
     archive = pd.read_csv(ROOT / 'muon_analysis/single_cell_refinement_signal_results'
                           / 'by_repeat.csv').set_index(KEY).sort_index()
     edges = imaging_edges(32)
@@ -145,7 +235,20 @@ def run(output_dir: Path) -> None:
                               if np.isfinite(score[cell]) and score[cell] > 0]
                     heldout_selection = sorted(
                         scored, key=lambda cell: (-score[cell], *cell))[:BUDGET]
-                    oracle_selection = greedy_with_truth(base, fine, truth, cells)
+                    if fractional_audit:
+                        part = frozen[(frozen.scenario == scene) & (frozen.event_count == count)
+                                      & (frozen.repeat == repeat) & (frozen.position_sigma_mm == sigma)]
+                        selections_archived = {
+                            method: list(zip(group.ix.astype(int), group.iy.astype(int)))
+                            for method, group in part.groupby('method', sort=False)}
+                        for method, selection in (('neff8', neff_selection),
+                                                  ('heldout_positive', heldout_selection)):
+                            if selection != selections_archived.get(method, []):
+                                raise AssertionError(f'Frozen selections changed: {key, method}')
+                        # 原真值贪心的格保持不变，不用新指标重新优化。
+                        oracle_selection = selections_archived.get('truth_greedy8', [])
+                    else:
+                        oracle_selection = greedy_with_truth(base, fine, truth, cells)
                     selections = {
                         'coarse': [], 'neff8': neff_selection,
                         'heldout_positive': heldout_selection,
@@ -154,6 +257,8 @@ def run(output_dir: Path) -> None:
                     for method, selected in selections.items():
                         image = apply_selection(base, fine, selected)
                         metrics = image_metrics(image, base, truth, len(selected))
+                        if fractional_audit:
+                            metrics.update(fractional_pair_metrics(image, base, truth))
                         rows.append({**key, 'method': method,
                                      'occupied_cells': len(cells),
                                      'scored_cells': int(np.isfinite(score).sum()),
@@ -170,6 +275,8 @@ def run(output_dir: Path) -> None:
                         selection = [cells[index] for index in choice]
                         image = apply_selection(base, fine, selection)
                         metrics = image_metrics(image, base, truth, BUDGET)
+                        if fractional_audit:
+                            metrics.update(fractional_pair_metrics(image, base, truth))
                         random_rows.append({**key, 'draw': draw_index,
                                             **metrics, 'iou_gain': metrics['iou'] - base_iou})
                         trial_metrics.append(metrics)
@@ -180,13 +287,38 @@ def run(output_dir: Path) -> None:
                                     for name in ('selected_cells', 'iou',
                                                  'topk_changed_pixels', 'relative_image_l1')},
                                  'iou_gain': float(np.mean([m['iou'] - base_iou
-                                                            for m in trial_metrics]))})
+                                                            for m in trial_metrics])),
+                                 **({name: float(np.mean([m[name] for m in trial_metrics]))
+                                     for name in ('fractional_iou', 'fractional_gain',
+                                                  'hard_iou_min', 'hard_iou_max',
+                                                  'gain_bound_min', 'gain_bound_max',
+                                                  'boundary_equal_pixels', 'boundary_slots',
+                                                  'zero_pixels_required')}
+                                    if fractional_audit else {})})
                 print(f'Fixed budget: {scene}, N={count}, repeat {repeat}/{REPEATS}',
                       flush=True)
     frame = pd.DataFrame(rows)
     if (len(frame) != len(SCENES) * len(FOCUS_COUNTS) * len(FOCUS_SIGMAS_MM)
             * REPEATS * len(METHODS) or frame.duplicated(KEY + ['method']).any()):
         raise AssertionError('Incomplete fixed-budget comparison')
+    if fractional_audit:
+        matched = frame.merge(original, on=KEY + ['method'], suffixes=('', '_old'),
+                              validate='one_to_one')
+        if len(matched) != 300:
+            raise AssertionError('Original archive match incomplete')
+        for name in ('iou', 'iou_gain', 'selected_cells', 'relative_image_l1'):
+            if not np.allclose(matched[name], matched[name + '_old'], atol=EPS, rtol=0):
+                raise AssertionError(f'Original metric changed: {name}')
+        # 原硬评分也必须处于合法并列界中；随机方法的界逐次平均。
+        for value, low, high in (('iou', 'hard_iou_min', 'hard_iou_max'),
+                                 ('iou_gain', 'gain_bound_min', 'gain_bound_max')):
+            if not ((frame[value] >= frame[low] - EPS).all()
+                    and (frame[value] <= frame[high] + EPS).all()):
+                raise AssertionError(f'Original {value} outside tie bounds')
+        signs = lambda x: np.where(x > EPS, 1, np.where(x < -EPS, -1, 0))
+        frame['sign_changed'] = signs(frame.fractional_gain) != signs(frame.iou_gain)
+        frame['strict_positive_bound'] = frame.gain_bound_min > EPS
+        frame['strict_negative_bound'] = frame.gain_bound_max < -EPS
     summary = frame.groupby(['scenario', 'event_count', 'position_sigma_mm',
                              'method'], as_index=False).agg(
         repeats=('repeat', 'size'),
@@ -194,14 +326,29 @@ def run(output_dir: Path) -> None:
            ('selected_cells', 'occupied_cells', 'scored_cells', 'iou',
             'iou_gain', 'topk_changed_pixels', 'relative_image_l1')},
         **{f'{name}_std': (name, 'std') for name in ('iou_gain', 'selected_cells')})
+    if fractional_audit:
+        audit_summary = frame.groupby(['scenario', 'event_count', 'position_sigma_mm', 'method'],
+                                      as_index=False).agg(
+            **{f'{name}_mean': (name, 'mean') for name in
+               ('fractional_iou', 'fractional_gain', 'gain_bound_min', 'gain_bound_max')},
+            sign_changes=('sign_changed', 'sum'),
+            strict_positive_conditions=('strict_positive_bound', 'sum'),
+            strict_negative_conditions=('strict_negative_bound', 'sum'))
+        summary = summary.merge(audit_summary,
+                                on=['scenario', 'event_count', 'position_sigma_mm', 'method'],
+                                validate='one_to_one')
     output_dir.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output_dir / 'by_repeat.csv', index=False)
     summary.to_csv(output_dir / 'summary.csv', index=False)
     pd.DataFrame(random_rows).to_csv(output_dir / 'random_draws.csv', index=False)
     pd.DataFrame(selected_rows).to_csv(output_dir / 'selected_cells.csv', index=False)
     (output_dir / 'config.json').write_text(json.dumps({
-        'plan': 'FIXED_BUDGET_REFINEMENT_PLAN.md',
-        'role': 'development-only fixed-budget ranking diagnostic',
+        'plan': ('B1/FRACTIONAL_IOU_AUDIT_PLAN.md' if fractional_audit
+                 else 'FIXED_BUDGET_REFINEMENT_PLAN.md'),
+        'role': ('development-only frozen-image score audit' if fractional_audit
+                 else 'development-only fixed-budget ranking diagnostic'),
+        'fractional_score_is_expected_hard_iou': False,
+        'gain_bounds_are_confidence_intervals': False,
         'inputs': inputs, 'counts': FOCUS_COUNTS, 'sigmas_mm': FOCUS_SIGMAS_MM,
         'repeats': REPEATS, 'budget': BUDGET, 'random_draws': RANDOM_DRAWS,
         'truth_usage': 'IoU scoring and nondeployable truth_greedy8 only',
@@ -227,9 +374,29 @@ def run(output_dir: Path) -> None:
     ax.legend(fontsize=8)
     fig.savefig(output_dir / 'fixed_budget_refinement.png', dpi=180)
     plt.close(fig)
+    if fractional_audit:
+        fig, axes = plt.subplots(1, 2, figsize=(10, 4), constrained_layout=True)
+        for ax, (count, sigma) in zip(axes, ((1000, .30), (5000, .05))):
+            part = summary[(summary.method == 'neff8') & (summary.event_count == count)
+                           & (summary.position_sigma_mm == sigma)].set_index('scenario').loc[labels]
+            ax.bar(positions - .18, part.iou_gain_mean, width=.36, label='Legacy hard Top-k')
+            ax.bar(positions + .18, part.fractional_gain_mean, width=.36, label='Fractional boundary IoU')
+            ax.axhline(0, color='black', lw=1)
+            ax.set_xticks(positions, labels)
+            ax.set(title=f'Frozen neff8: N={count}, sigma={sigma:.2f} mm',
+                   ylabel='Mean gain vs coarse')
+            ax.grid(axis='y', alpha=.2)
+        axes[0].legend(fontsize=8)
+        fig.savefig(output_dir / 'fractional_iou_comparison.png', dpi=180)
+        plt.close(fig)
     print(focus[['scenario', 'method', 'selected_cells_mean', 'iou_gain_mean',
                  'topk_changed_pixels_mean', 'relative_image_l1_mean']].to_string(index=False))
 
 
 if __name__ == '__main__':
-    run(ROOT / 'muon_analysis/fixed_budget_refinement_results')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fractional-audit', action='store_true',
+                        help='冻结图像分数边界评价，另存结果，不覆盖原比较')
+    args = parser.parse_args()
+    run(ROOT / 'muon_analysis' / ('fractional_iou_audit_results' if args.fractional_audit
+                                 else 'fixed_budget_refinement_results'), args.fractional_audit)
