@@ -1,0 +1,20 @@
+{
+  "plan": "B1/TOPK_TIE_AUDIT_PLAN.md",
+  "bootstraps": 32,
+  "tie_policies": [
+    "index_asc",
+    "index_desc",
+    "fixed_permutation",
+    "fractional"
+  ],
+  "tie_priority_seed": 314159,
+  "fixed_k": [
+    64,
+    128,
+    256
+  ],
+  "primary": "l1_instability_increment",
+  "selection": "fixed nominal neff8, not reselected in bootstrap",
+  "truth_usage": "archived outcome check and endpoint label only",
+  "role": "development-only association, no tuned threshold or validation"
+}
