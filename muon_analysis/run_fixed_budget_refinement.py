@@ -27,6 +27,59 @@ FOCUS_SIGMAS_MM = (.05, .30)
 KEY = ['scenario', 'event_count', 'repeat', 'position_sigma_mm']
 METHODS = ('coarse', 'neff8', 'heldout_positive', 'random8_mean', 'truth_greedy8')
 EPS = 1e-12
+CONTINUOUS_COLUMNS = ('target_mass_fraction', 'target_mass_gain',
+                      'footprint_proxy_distance', 'footprint_proxy_gain',
+                      'concentration_penalty', 'target_mass_reward')
+
+
+def continuous_image_metrics(image, base, truth):
+    """不排序、不强制分割面积，但真值足迹仍只可用于事后评价。
+
+    p 是归一化观测权重，q 是均匀二值足迹代理而非材料密度真值。
+    集中度项衡量平方权重变化，不可冒称为探测器噪声的方差。
+    """
+    if (image.shape != base.shape or image.shape != truth.shape
+            or not np.isfinite(image).all() or not np.isfinite(base).all()
+            or (image < 0).any() or (base < 0).any()
+            or image.sum() <= 0 or base.sum() <= 0):
+        raise ValueError('Invalid continuous images')
+    mask = np.asarray(truth, dtype=bool)
+    k = int(mask.sum())
+    if not 0 < k < image.size:
+        raise ValueError('Degenerate target footprint')
+    p, p0 = image / image.sum(), base / base.sum()
+    q = mask.astype(float) / k
+    m = image.size
+    foreground, foreground0 = float(p[mask].sum()), float(p0[mask].sum())
+    distance, distance0 = float(m * np.square(p-q).sum()), float(m * np.square(p0-q).sum())
+    mass_gain = foreground - foreground0
+    penalty = float(m * (np.square(p).sum() - np.square(p0).sum()))
+    reward = 2*m/k * mass_gain
+    proxy_gain = distance0 - distance
+    if not np.isclose(proxy_gain, reward-penalty, atol=1e-10, rtol=1e-10):
+        raise AssertionError('Continuous proxy decomposition did not close')
+    return {'target_mass_fraction': foreground, 'target_mass_gain': mass_gain,
+            'footprint_proxy_distance': distance, 'footprint_proxy_gain': proxy_gain,
+            'concentration_penalty': penalty, 'target_mass_reward': reward}
+
+
+def test_continuous_metrics():
+    truth = np.array([[True, True], [False, False]])
+    base = np.ones((2, 2))
+    image = np.array([[2., 2.], [0., 0.]])
+    metrics = continuous_image_metrics(image, base, truth)
+    if not (np.isclose(metrics['target_mass_fraction'], 1.)
+            and np.isclose(metrics['footprint_proxy_distance'], 0.)):
+        raise AssertionError('Ideal footprint score incorrect')
+    for candidate in (continuous_image_metrics(image*7, base*3, truth),
+                      continuous_image_metrics(image[::-1], base[::-1], truth[::-1])):
+        for name in CONTINUOUS_COLUMNS:
+            if not np.isclose(candidate[name], metrics[name]):
+                raise AssertionError('Continuous metric scale/permutation mismatch')
+    identical = continuous_image_metrics(base, base.copy(), truth)
+    for name in ('target_mass_gain', 'footprint_proxy_gain', 'concentration_penalty', 'target_mass_reward'):
+        if identical[name] != 0:
+            raise AssertionError('Identical image has nonzero continuous gain')
 
 
 def fractional_iou_bounds(image: np.ndarray, truth: np.ndarray) -> dict:
@@ -185,7 +238,10 @@ def image_metrics(image: np.ndarray, base: np.ndarray,
     }
 
 
-def run(output_dir: Path, fractional_audit: bool = False) -> None:
+def run(output_dir: Path, fractional_audit: bool = False, continuous_audit: bool = False) -> None:
+    if continuous_audit:
+        fractional_audit = True
+        test_continuous_metrics()
     if fractional_audit:
         test_fractional_metrics()
         frozen = pd.read_csv(ROOT / 'muon_analysis/fixed_budget_refinement_results/selected_cells.csv')
@@ -259,6 +315,8 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
                         metrics = image_metrics(image, base, truth, len(selected))
                         if fractional_audit:
                             metrics.update(fractional_pair_metrics(image, base, truth))
+                        if continuous_audit:
+                            metrics.update(continuous_image_metrics(image, base, truth))
                         rows.append({**key, 'method': method,
                                      'occupied_cells': len(cells),
                                      'scored_cells': int(np.isfinite(score).sum()),
@@ -277,6 +335,8 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
                         metrics = image_metrics(image, base, truth, BUDGET)
                         if fractional_audit:
                             metrics.update(fractional_pair_metrics(image, base, truth))
+                        if continuous_audit:
+                            metrics.update(continuous_image_metrics(image, base, truth))
                         random_rows.append({**key, 'draw': draw_index,
                                             **metrics, 'iou_gain': metrics['iou'] - base_iou})
                         trial_metrics.append(metrics)
@@ -294,7 +354,9 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
                                                   'gain_bound_min', 'gain_bound_max',
                                                   'boundary_equal_pixels', 'boundary_slots',
                                                   'zero_pixels_required')}
-                                    if fractional_audit else {})})
+                                    if fractional_audit else {}),
+                                 **({name: float(np.mean([m[name] for m in trial_metrics]))
+                                     for name in CONTINUOUS_COLUMNS} if continuous_audit else {})})
                 print(f'Fixed budget: {scene}, N={count}, repeat {repeat}/{REPEATS}',
                       flush=True)
     frame = pd.DataFrame(rows)
@@ -319,6 +381,17 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
         frame['sign_changed'] = signs(frame.fractional_gain) != signs(frame.iou_gain)
         frame['strict_positive_bound'] = frame.gain_bound_min > EPS
         frame['strict_negative_bound'] = frame.gain_bound_max < -EPS
+    if continuous_audit:
+        prior = pd.read_csv(ROOT / 'muon_analysis/fractional_iou_audit_results/by_repeat.csv')
+        matched = frame.merge(prior, on=KEY + ['method'], suffixes=('', '_prior'),
+                              validate='one_to_one')
+        if len(matched) != 300:
+            raise AssertionError('Fractional archive match incomplete')
+        for name in ('fractional_iou', 'fractional_gain', 'gain_bound_min', 'gain_bound_max'):
+            if not np.allclose(matched[name], matched[name+'_prior'], atol=EPS, rtol=0):
+                raise AssertionError(f'Archived fractional metric changed: {name}')
+        if (frame.concentration_penalty < -1e-10).any():
+            raise AssertionError('Uniform coarse-cell replacement reduced square concentration')
     summary = frame.groupby(['scenario', 'event_count', 'position_sigma_mm',
                              'method'], as_index=False).agg(
         repeats=('repeat', 'size'),
@@ -337,18 +410,27 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
         summary = summary.merge(audit_summary,
                                 on=['scenario', 'event_count', 'position_sigma_mm', 'method'],
                                 validate='one_to_one')
+    if continuous_audit:
+        group = ['scenario', 'event_count', 'position_sigma_mm', 'method']
+        continuous_summary = frame.groupby(group, as_index=False).agg(
+            **{f'{name}_mean': (name, 'mean') for name in CONTINUOUS_COLUMNS},
+            mass_positive_conditions=('target_mass_gain', lambda x: int((x > EPS).sum())),
+            proxy_positive_conditions=('footprint_proxy_gain', lambda x: int((x > EPS).sum())))
+        summary = summary.merge(continuous_summary, on=group, validate='one_to_one')
     output_dir.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output_dir / 'by_repeat.csv', index=False)
     summary.to_csv(output_dir / 'summary.csv', index=False)
     pd.DataFrame(random_rows).to_csv(output_dir / 'random_draws.csv', index=False)
     pd.DataFrame(selected_rows).to_csv(output_dir / 'selected_cells.csv', index=False)
     (output_dir / 'config.json').write_text(json.dumps({
-        'plan': ('B1/FRACTIONAL_IOU_AUDIT_PLAN.md' if fractional_audit
+        'plan': ('B1/CONTINUOUS_IMAGE_AUDIT_PLAN.md' if continuous_audit else
+                 'B1/FRACTIONAL_IOU_AUDIT_PLAN.md' if fractional_audit
                  else 'FIXED_BUDGET_REFINEMENT_PLAN.md'),
         'role': ('development-only frozen-image score audit' if fractional_audit
                  else 'development-only fixed-budget ranking diagnostic'),
         'fractional_score_is_expected_hard_iou': False,
         'gain_bounds_are_confidence_intervals': False,
+        'continuous_proxy_is_material_density': False,
         'inputs': inputs, 'counts': FOCUS_COUNTS, 'sigmas_mm': FOCUS_SIGMAS_MM,
         'repeats': REPEATS, 'budget': BUDGET, 'random_draws': RANDOM_DRAWS,
         'truth_usage': 'IoU scoring and nondeployable truth_greedy8 only',
@@ -389,6 +471,26 @@ def run(output_dir: Path, fractional_audit: bool = False) -> None:
         axes[0].legend(fontsize=8)
         fig.savefig(output_dir / 'fractional_iou_comparison.png', dpi=180)
         plt.close(fig)
+    if continuous_audit:
+        fig, axes = plt.subplots(2, 2, figsize=(10, 7), constrained_layout=True)
+        for column, (count, sigma) in enumerate(((1000, .30), (5000, .05))):
+            part = summary[(summary.method == 'neff8') & (summary.event_count == count)
+                           & (summary.position_sigma_mm == sigma)].set_index('scenario').loc[labels]
+            axes[0, column].bar(positions, part.target_mass_gain_mean, color='tab:blue')
+            axes[0, column].set(title=f'Frozen neff8: N={count}, sigma={sigma:.2f} mm',
+                                ylabel='Target mass fraction gain')
+            ax = axes[1, column]
+            ax.bar(positions-.2, part.target_mass_reward_mean, width=.2, label='Target-mass reward')
+            ax.bar(positions, part.concentration_penalty_mean, width=.2, label='Concentration cost')
+            ax.bar(positions+.2, part.footprint_proxy_gain_mean, width=.2, label='Proxy distance gain')
+            ax.set(ylabel='Scaled proxy-distance components')
+        for ax in axes.ravel():
+            ax.axhline(0, color='black', lw=1)
+            ax.set_xticks(positions, labels)
+            ax.grid(axis='y', alpha=.2)
+        axes[1, 0].legend(fontsize=7)
+        fig.savefig(output_dir / 'continuous_image_audit.png', dpi=180)
+        plt.close(fig)
     print(focus[['scenario', 'method', 'selected_cells_mean', 'iou_gain_mean',
                  'topk_changed_pixels_mean', 'relative_image_l1_mean']].to_string(index=False))
 
@@ -397,6 +499,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--fractional-audit', action='store_true',
                         help='冻结图像分数边界评价，另存结果，不覆盖原比较')
+    parser.add_argument('--continuous-audit', action='store_true',
+                        help='增加连续图像配对评价（含分数IoU），输出独立目录')
     args = parser.parse_args()
-    run(ROOT / 'muon_analysis' / ('fractional_iou_audit_results' if args.fractional_audit
-                                 else 'fixed_budget_refinement_results'), args.fractional_audit)
+    run(ROOT / 'muon_analysis' / ('continuous_image_audit_results' if args.continuous_audit
+                                 else 'fractional_iou_audit_results' if args.fractional_audit
+                                 else 'fixed_budget_refinement_results'),
+        args.fractional_audit, args.continuous_audit)
