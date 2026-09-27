@@ -1,0 +1,13 @@
+{
+  "plan": "B1/COMBINATION_STABILITY_PLAN.md",
+  "bootstraps": 32,
+  "fixed_k": [
+    64,
+    128,
+    256
+  ],
+  "primary": "l1_instability_increment",
+  "selection": "fixed nominal neff8, not reselected in bootstrap",
+  "truth_usage": "archived outcome check and endpoint label only",
+  "role": "development-only association, no tuned threshold or validation"
+}
