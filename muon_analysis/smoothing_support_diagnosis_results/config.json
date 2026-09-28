@@ -1,0 +1,11 @@
+{
+  "plan": "B1/SMOOTHING_SUPPORT_DIAGNOSIS_PLAN.md",
+  "role": "descriptive old-data diagnosis; no learned policy",
+  "conditions": 360,
+  "sigma_mm_frozen": 5.625,
+  "local_window": "native 3x3, differs in physical size across grids",
+  "low_neff_cut_for_description_only": 4,
+  "truth_in_features": false,
+  "split": "alternating positive-weight observed order; not independent validation",
+  "correlation_caveat": "overlapping subsamples; no significance or fitted thresholds"
+}
