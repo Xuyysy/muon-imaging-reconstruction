@@ -1,0 +1,37 @@
+{
+  "protocol": "B1/FRAME_SMOOTHING_CONTROL_PLAN.md",
+  "role": "development-only fixed smoothing/cost control on old frame streams",
+  "streams": {
+    "seed_a": "muon_tracks_frame_seed_a.csv",
+    "seed_b": "muon_tracks_frame_seed_b.csv"
+  },
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "grids": [
+    16,
+    32
+  ],
+  "repeats": 5,
+  "bootstrap_draws": 32,
+  "primary": "N=5000, grid=32, sigma=0.05/0.10, P-H IoU per stream",
+  "truth_only_for_scoring": true,
+  "smoothing_sigma_mm": 5.625,
+  "smoothing_at_zero_noise": true,
+  "timing_repeats": 3,
+  "timing_scope": "method-only reconstruction of both native grids; excludes common preprocessing/scoring/I/O",
+  "timing_environment": {
+    "os": "Darwin",
+    "architecture": "arm64",
+    "python": "3.9.6",
+    "numpy": "2.0.2"
+  }
+}
