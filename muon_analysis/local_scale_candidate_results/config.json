@@ -1,0 +1,21 @@
+{
+  "plan": "B1/LOCAL_SCALE_CANDIDATE_PLAN.md",
+  "role": "old-data development ablation, not independent validation",
+  "methods": [
+    "hard",
+    "smoothed",
+    "support_only",
+    "edge_only",
+    "combined"
+  ],
+  "paired_conditions": 360,
+  "old_H_S_rows_reproduced": 720,
+  "spatial_sigma_mm": 5.625,
+  "physical_support_half_width_mm": 16.875,
+  "support_scale": 4.0,
+  "log_contrast_scale": 0.6931471805599453,
+  "guide_floor_ratio": 0.001,
+  "truth_in_reconstruction": false,
+  "changes_3d_voxel_tree": false,
+  "parameter_search": false
+}
