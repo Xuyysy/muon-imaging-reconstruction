@@ -1,7 +1,7 @@
 """物理支撑与局部尺度核的回归测试，不运行仿真。"""
 import unittest
 import numpy as np
-from local_scale_reconstruction import physical_support, local_scale_image
+from local_scale_reconstruction import physical_support, local_scale_image, matched_isotropic_image
 from run_frame_z_gate_validation import smooth_hard_image
 
 
@@ -54,6 +54,42 @@ class LocalScaleTests(unittest.TestCase):
         neff, guide = physical_support(np.array([[90., 90.]]), np.array([2.]), np.array([[90., 90.]]))
         self.assertAlmostEqual(neff[0], 1.)
         self.assertAlmostEqual(guide[0], 2/(16.875**2))
+
+    def test_single_source_displacement_matches_output_hand_sum(self):
+        for bins in (16, 32):
+            native = np.zeros((bins, bins)); native[0, 0] = 1.
+            image = native if bins == 32 else np.repeat(np.repeat(native/4, 2, axis=0), 2, axis=1)
+            output, diag = local_scale_image(image, bins, np.ones_like(native), np.ones_like(native), False, False)
+            out_native = output if bins == 32 else output.reshape(16, 2, 16, 2).sum(axis=(1, 3))
+            index = np.arange(bins)*(180/bins)
+            expected = float((out_native*(index[:, None]**2+index[None, :]**2)).sum())
+            self.assertAlmostEqual(diag['expected_squared_displacement_mm2'], expected, places=10)
+
+    def test_matched_mix_limits_and_mass(self):
+        base = np.array([[1., 0.], [0., 0.]])
+        fixed = np.ones((2, 2))*.25
+        h, dh = matched_isotropic_image(base, fixed, 0., 8.)
+        s, ds = matched_isotropic_image(base, fixed, 8., 8.)
+        mid, dm = matched_isotropic_image(base, fixed, 2., 8.)
+        np.testing.assert_array_equal(h, base)
+        np.testing.assert_array_equal(s, fixed)
+        np.testing.assert_allclose(mid, .75*base+.25*fixed)
+        self.assertEqual(dm['match_beta'], .25)
+        self.assertEqual(dm['moment_match_error_mm2'], 0.)
+        self.assertEqual(mid.sum(), base.sum())
+
+    def test_infeasible_match_is_rejected_not_clamped(self):
+        image = np.ones((2, 2))
+        with self.assertRaises(ValueError):
+            matched_isotropic_image(image, image, 9., 8.)
+        with self.assertRaises(ValueError):
+            matched_isotropic_image(image, image, 1., 0.)
+
+    def test_zero_moment_zero_image(self):
+        image = np.zeros((2, 2))
+        result, diag = matched_isotropic_image(image, image, 0., 0.)
+        np.testing.assert_array_equal(result, image)
+        self.assertEqual(diag['expected_squared_displacement_mm2'], 0.)
 
 
 if __name__ == '__main__':

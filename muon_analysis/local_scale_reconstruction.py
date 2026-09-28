@@ -87,14 +87,48 @@ def local_scale_image(image, bins, neff, guide, support=True, edge=True):
                 contrast = (log_guide[tx, ty]-log_guide[sx, sy])/LOG_CONTRAST_SCALE
                 kernel *= np.exp(-.5*contrast**2)
             denominator[sx, sy] += kernel
-            transfers.append((sx, sy, tx, ty, kernel))
+            transfers.append((sx, sy, tx, ty, kernel, (dx*dx+dy*dy)*width**2))
     output = native*(1-alpha)
-    for sx, sy, tx, ty, kernel in transfers:
-        output[tx, ty] += native[sx, sy]*alpha[sx, sy]*kernel/denominator[sx, sy]
+    displacement_weight = 0.
+    for sx, sy, tx, ty, kernel, squared_distance_mm2 in transfers:
+        allocated = native[sx, sy]*alpha[sx, sy]*kernel/denominator[sx, sy]
+        output[tx, ty] += allocated
+        displacement_weight += float(allocated.sum()*squared_distance_mm2)
     if bins == 16:
         output = np.repeat(np.repeat(output/4, 2, axis=0), 2, axis=1)
     if (not np.isfinite(output).all() or (output < 0).any()
             or not np.isclose(output.sum(), image.sum(), rtol=1e-12, atol=1e-9)):
         raise AssertionError('Local-scale weight conservation/positivity failure')
     return output, {'alpha_mass_mean': float((alpha*native).sum()/native.sum()) if native.sum() else 0.,
-                    'physical_neff_mass_mean': float((neff*native).sum()/native.sum()) if native.sum() else 0.}
+                    'physical_neff_mass_mean': float((neff*native).sum()/native.sum()) if native.sum() else 0.,
+                    'expected_squared_displacement_mm2': displacement_weight/float(native.sum()) if native.sum() else 0.}
+
+
+def matched_isotropic_image(base, fixed, target_moment_mm2, fixed_moment_mm2):
+    """H/S凸组合匹配源权重加权的一个二阶位移矩，不做真值优化。
+
+    超出可行范围明确拒绝，不能静默夹断后假称严格匹配。输入矩
+    属于核分配，不是输出图像的空间方差。极小超限只作浮点处理。
+    """
+    if (base.shape != fixed.shape or not np.isfinite(base).all() or not np.isfinite(fixed).all()
+            or (base < 0).any() or (fixed < 0).any()
+            or not np.isfinite(target_moment_mm2) or not np.isfinite(fixed_moment_mm2)
+            or target_moment_mm2 < 0 or fixed_moment_mm2 < 0
+            or not np.isclose(base.sum(), fixed.sum(), rtol=1e-12, atol=1e-9)):
+        raise ValueError('Invalid matched-diffusion images/moments')
+    if fixed_moment_mm2 == 0:
+        if target_moment_mm2 != 0:
+            raise ValueError('Positive displacement cannot match zero fixed displacement')
+        beta = 0.
+    else:
+        beta = target_moment_mm2/fixed_moment_mm2
+    if beta > 1+1e-12:
+        raise ValueError('Target displacement outside H/S convex-control range')
+    beta = min(beta, 1.)
+    image = (1-beta)*base+beta*fixed
+    matched_moment = beta*fixed_moment_mm2
+    if not np.isclose(matched_moment, target_moment_mm2, atol=1e-9, rtol=1e-12):
+        raise AssertionError('Diffusion-moment match failed')
+    return image, {'alpha_mass_mean': beta, 'physical_neff_mass_mean': np.nan,
+                   'expected_squared_displacement_mm2': matched_moment,
+                   'match_beta': beta, 'moment_match_error_mm2': matched_moment-target_moment_mm2}
