@@ -27,6 +27,10 @@ from run_soft_z_gate_experiment import (
 from run_uncertainty_aware_angle_experiment import (
     same_side_layer_spacing_mm, theta_noise_floor_mrad,
 )
+from run_fixed_budget_refinement import (
+    EPS, fractional_pair_metrics, continuous_image_metrics,
+    test_fractional_metrics, test_continuous_metrics,
+)
 
 STREAMS = {
     'seed_a': 'muon_tracks_frame_seed_a.csv',
@@ -61,7 +65,10 @@ def score_frame(image: np.ndarray, truth: np.ndarray,
     }
 
 
-def run(output_dir: Path) -> None:
+def run(output_dir: Path, score_audit: bool = False) -> None:
+    if score_audit:
+        test_fractional_metrics()
+        test_continuous_metrics()
     edges = imaging_edges(32)
     cx, cy = [(axis[:-1] + axis[1:]) / 2 for axis in edges[:2]]
     truth = frame_mask(cx, cy)
@@ -100,9 +107,21 @@ def run(output_dir: Path) -> None:
                         raise AssertionError('Zero-noise H/A/P control failed')
                     xy = observed[['poca_x_mm', 'poca_y_mm']].to_numpy()[ids]
                     for bins in GRIDS:
+                        # 新评分始终配对同条件硬图；不改变任何门权重。
+                        hard_image = xy_image(xy, angle_weight * hard, bins)
                         for method, gate in (('hard', hard), ('simple', analytic),
                                              ('propagated', propagated)):
                             image = xy_image(xy, angle_weight * gate, bins)
+                            extra = {}
+                            if score_audit:
+                                if sigma == 0 and not np.array_equal(image, hard_image):
+                                    raise AssertionError('Zero-noise image identity failed')
+                                extra = {
+                                    **fractional_pair_metrics(image, hard_image, truth),
+                                    **continuous_image_metrics(image, hard_image, truth),
+                                    'total_image_weight': float(image.sum()),
+                                    'total_weight_ratio_vs_hard': float(image.sum() / hard_image.sum()),
+                                }
                             rows.append({
                                 'stream': stream, 'event_count': count,
                                 'repeat': repeat, 'position_sigma_mm': sigma,
@@ -110,6 +129,7 @@ def run(output_dir: Path) -> None:
                                 'candidates': len(ids),
                                 'effective_z_accepted_events': float(gate.sum()),
                                 **score_frame(image, truth, cx, cy),
+                                **extra,
                             })
                 print(f'Frame {stream}: N={count}, repeat={repeat}/{REPEATS}',
                       flush=True)
@@ -117,6 +137,16 @@ def run(output_dir: Path) -> None:
     expected = len(STREAMS) * len(COUNTS) * REPEATS * len(SIGMAS_MM) * len(GRIDS) * 3
     if len(frame) != expected or frame.duplicated(KEYS + ['method']).any():
         raise AssertionError('Incomplete or duplicate paired validation')
+    if score_audit:
+        previous = pd.read_csv(ROOT / 'muon_analysis/frame_z_gate_results/by_repeat.csv')
+        merged = frame.merge(previous, on=KEYS + ['method'],
+                             suffixes=('', '_old'), validate='one_to_one')
+        if len(merged) != expected:
+            raise AssertionError('Original frame archive incomplete')
+        for column in ('iou', 'frame_recall', 'hole_false_positive_fraction',
+                       'candidates', 'effective_z_accepted_events'):
+            if not np.allclose(merged[column], merged[column+'_old'], rtol=0, atol=EPS):
+                raise AssertionError(f'Original frame result changed: {column}')
     views = {name: frame[frame.method == name].set_index(KEYS).sort_index()
              for name in ('hard', 'simple', 'propagated')}
     hard, simple, propagated = (views[name] for name in
@@ -134,6 +164,30 @@ def run(output_dir: Path) -> None:
         'simple_hole_fp': simple.hole_false_positive_fraction,
         'propagated_hole_fp': propagated.hole_false_positive_fraction,
     }).reset_index()
+    if score_audit:
+        paired_extra = pd.DataFrame({
+            'hard_fractional_iou': hard.fractional_iou,
+            'hard_target_mass_fraction': hard.target_mass_fraction,
+            'hard_footprint_proxy_distance': hard.footprint_proxy_distance,
+            **{f'{method}_{column}': view[column]
+               for method, view in (('simple', simple), ('propagated', propagated))
+               for column in ('fractional_iou', 'fractional_gain', 'gain_bound_min',
+                              'gain_bound_max', 'target_mass_gain', 'footprint_proxy_gain',
+                              'concentration_penalty', 'target_mass_reward',
+                              'total_weight_ratio_vs_hard')},
+        }).reset_index()
+        paired = paired.merge(paired_extra, on=KEYS, validate='one_to_one')
+        for prefix in ('simple', 'propagated'):
+            low, high = paired[f'{prefix}_gain_bound_min'], paired[f'{prefix}_gain_bound_max']
+            gain = paired[f'{prefix}_gain_vs_hard']
+            if not ((gain >= low-EPS).all() and (gain <= high+EPS).all()):
+                raise AssertionError('Legacy gain outside legal tie bounds')
+        zero = paired[paired.position_sigma_mm == 0]
+        for prefix in ('simple', 'propagated'):
+            for column in ('fractional_gain', 'target_mass_gain', 'footprint_proxy_gain',
+                           'concentration_penalty', 'target_mass_reward'):
+                if not np.allclose(zero[f'{prefix}_{column}'], 0, atol=EPS, rtol=0):
+                    raise AssertionError('Zero-noise audit metric changed')
     if not np.allclose(paired.loc[paired.position_sigma_mm == 0,
                                   ['simple_gain_vs_hard',
                                    'propagated_gain_vs_hard']], 0):
@@ -157,6 +211,15 @@ def run(output_dir: Path) -> None:
         hard_frame_recall_mean=('hard_frame_recall', 'mean'),
         simple_frame_recall_mean=('simple_frame_recall', 'mean'),
         propagated_frame_recall_mean=('propagated_frame_recall', 'mean'))
+    if score_audit:
+        group = ['stream', 'event_count', 'position_sigma_mm', 'grid']
+        audit_cols = [column for column in paired_extra if column not in KEYS]
+        audited = paired.groupby(group, as_index=False).agg(
+            **{column+'_mean': (column, 'mean') for column in audit_cols},
+            propagated_fractional_wins=('propagated_fractional_gain', lambda x: int((x>EPS).sum())),
+            propagated_mass_wins=('propagated_target_mass_gain', lambda x: int((x>EPS).sum())),
+            propagated_proxy_wins=('propagated_footprint_proxy_gain', lambda x: int((x>EPS).sum())))
+        summary = summary.merge(audited, on=group, validate='one_to_one')
     output_dir.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output_dir / 'by_repeat.csv', index=False)
     paired.to_csv(output_dir / 'paired_by_repeat.csv', index=False)
@@ -177,9 +240,32 @@ def run(output_dir: Path) -> None:
     ax.legend(fontsize=8)
     fig.savefig(output_dir / 'frame_gate_iou_5000_32.png', dpi=180)
     plt.close(fig)
+    if score_audit:
+        fig, axes = plt.subplots(1, 3, figsize=(12, 4), constrained_layout=True)
+        for stream, marker in (('seed_a', 'o'), ('seed_b', 's')):
+            part = summary[(summary.stream == stream) & (summary.event_count == 5000)
+                           & (summary.grid == 32)].sort_values('position_sigma_mm')
+            axes[0].plot(part.position_sigma_mm, part.propagated_gain_mean,
+                         marker=marker, ls='--', label=stream+' legacy')
+            axes[0].plot(part.position_sigma_mm, part.propagated_fractional_gain_mean,
+                         marker=marker, label=stream+' fractional')
+            axes[1].plot(part.position_sigma_mm, part.propagated_target_mass_gain_mean,
+                         marker=marker, label=stream)
+            axes[2].plot(part.position_sigma_mm, part.propagated_footprint_proxy_gain_mean,
+                         marker=marker, label=stream)
+        for ax, ylabel in zip(axes, ('IoU gain', 'Target mass fraction gain', 'Footprint proxy gain')):
+            ax.axhline(0, color='black', lw=1)
+            ax.set(xlabel='Hit sigma [mm]', ylabel=ylabel)
+            ax.grid(alpha=.2)
+            ax.legend(fontsize=7)
+        fig.suptitle('Frozen frame P-H audit: N=5000, 32x32 XY; old streams, no retuning')
+        fig.savefig(output_dir / 'frame_gate_score_audit.png', dpi=180)
+        plt.close(fig)
     (output_dir / 'config.json').write_text(json.dumps({
-        'protocol': 'FRAME_Z_GATE_VALIDATION_PROTOCOL.md',
-        'role': 'held-out target family with two independent Geant4 seeds',
+        'protocol': ('B1/FRAME_GATE_SCORE_AUDIT_PLAN.md' if score_audit
+                     else 'FRAME_Z_GATE_VALIDATION_PROTOCOL.md'),
+        'role': ('retrospective frozen-frame multimetric score audit' if score_audit
+                 else 'held-out target family with two independent Geant4 seeds'),
         'streams': STREAMS, 'counts': COUNTS, 'sigmas_mm': SIGMAS_MM,
         'grids': GRIDS, 'repeats': REPEATS,
         'bootstrap_draws': BOOTSTRAP_DRAWS,
@@ -196,5 +282,8 @@ def run(output_dir: Path) -> None:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path,
-                        default=ROOT / 'muon_analysis/frame_z_gate_results')
-    run(parser.parse_args().output_dir)
+                        default=None)
+    parser.add_argument('--score-audit', action='store_true', help='多指标复核，默认写入独立目录')
+    args = parser.parse_args()
+    run(args.output_dir or ROOT / 'muon_analysis' / (
+        'frame_gate_score_audit_results' if args.score_audit else 'frame_z_gate_results'), args.score_audit)
