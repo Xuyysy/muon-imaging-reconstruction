@@ -1,0 +1,30 @@
+{
+  "plan": "B1/SHAPE_SMOOTHING_CONTROL_PLAN.md",
+  "role": "old development scenes, not independent validation",
+  "counts": [
+    1000,
+    3000,
+    5000
+  ],
+  "sigmas_mm": [
+    0.0,
+    0.05,
+    0.1,
+    0.3
+  ],
+  "grids": [
+    16,
+    32
+  ],
+  "repeats": 5,
+  "scenes": [
+    "u_center",
+    "l_shape",
+    "double_block"
+  ],
+  "sigma_mm_frozen": 5.625,
+  "archived_method_rows_reproduced": 1080,
+  "empty_mass_denominator": "whole image total weight",
+  "truth_usage": "evaluation only; fractional area is truth dependent",
+  "proxy_distance_difference_sign": "negative is better"
+}
