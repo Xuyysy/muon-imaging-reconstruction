@@ -1,0 +1,211 @@
+{
+  "scope": "retrospective consolidation; no new reconstruction or independent validation",
+  "input_hashes": {
+    "continuous": {
+      "path": "continuous_image_audit_results/by_repeat.csv",
+      "sha256": "ac49b977ee7a6d58a9843ee562a204fd175ad5adb1f55a7404cd3fdba8116ab9"
+    },
+    "fractional": {
+      "path": "fractional_iou_audit_results/by_repeat.csv",
+      "sha256": "2e5ec9005f5817f67679bd7cb5bc7f9b577229f55c6d424cd09f19799cab3dba"
+    },
+    "original": {
+      "path": "fixed_budget_refinement_results/by_repeat.csv",
+      "sha256": "5b5ac7bacbff3d45be4e7bf4c5ee096ed2ad2a4c8aebfcd7cb7f58ad36bee633"
+    },
+    "support": {
+      "path": "split_confidence_diagnosis_results/by_repeat.csv",
+      "sha256": "a286edee659f92ea7651788ce7497cfe0aeefadd042a37549fa1e105b4d9a74a"
+    },
+    "single_cell": {
+      "path": "single_cell_refinement_signal_results/by_repeat.csv",
+      "sha256": "00d491b3f71f24d6af41924e5dbfb4cf0de9c7aaa67a68f75feaab7f3729fd84"
+    },
+    "h_verdict": {
+      "path": "edge_h_heldout_results/verdict.json",
+      "sha256": "ba7f8c58b9ecef916de636f4e5f6c368b07017f6fb0a9621e57002f9038a7d14"
+    }
+  },
+  "archive_alignment_passed": true,
+  "methods": {
+    "coarse": {
+      "conditions": 60,
+      "fractional_gain": {
+        "positive": 0,
+        "negative": 0,
+        "zero": 60
+      },
+      "original_hard_gain": {
+        "positive": 0,
+        "negative": 0,
+        "zero": 60
+      },
+      "target_mass_gain": {
+        "positive": 0,
+        "negative": 0,
+        "zero": 60
+      },
+      "uniform_proxy_gain": {
+        "positive": 0,
+        "negative": 0,
+        "zero": 60
+      },
+      "strict_negative_tie_bound": 0,
+      "strict_positive_tie_bound": 0,
+      "joint_contour_mass_proxy_positive": 0,
+      "contour_positive_proxy_negative": 0,
+      "mean_fractional_gain": 0.0,
+      "mean_selected_cells": 0.0
+    },
+    "heldout_positive": {
+      "conditions": 60,
+      "fractional_gain": {
+        "positive": 8,
+        "negative": 17,
+        "zero": 35
+      },
+      "original_hard_gain": {
+        "positive": 9,
+        "negative": 14,
+        "zero": 37
+      },
+      "target_mass_gain": {
+        "positive": 13,
+        "negative": 1,
+        "zero": 46
+      },
+      "uniform_proxy_gain": {
+        "positive": 0,
+        "negative": 25,
+        "zero": 35
+      },
+      "strict_negative_tie_bound": 8,
+      "strict_positive_tie_bound": 1,
+      "joint_contour_mass_proxy_positive": 0,
+      "contour_positive_proxy_negative": 8,
+      "mean_fractional_gain": -0.0030529649775875344,
+      "mean_selected_cells": 1.7166666666666666
+    },
+    "neff8": {
+      "conditions": 60,
+      "fractional_gain": {
+        "positive": 17,
+        "negative": 43,
+        "zero": 0
+      },
+      "original_hard_gain": {
+        "positive": 18,
+        "negative": 35,
+        "zero": 7
+      },
+      "target_mass_gain": {
+        "positive": 28,
+        "negative": 7,
+        "zero": 25
+      },
+      "uniform_proxy_gain": {
+        "positive": 0,
+        "negative": 60,
+        "zero": 0
+      },
+      "strict_negative_tie_bound": 13,
+      "strict_positive_tie_bound": 0,
+      "joint_contour_mass_proxy_positive": 0,
+      "contour_positive_proxy_negative": 17,
+      "mean_fractional_gain": -0.01351345722178482,
+      "mean_selected_cells": 8.0
+    },
+    "random8_mean": {
+      "conditions": 60,
+      "fractional_gain": {
+        "positive": 1,
+        "negative": 59,
+        "zero": 0
+      },
+      "original_hard_gain": {
+        "positive": 8,
+        "negative": 52,
+        "zero": 0
+      },
+      "target_mass_gain": {
+        "positive": 51,
+        "negative": 9,
+        "zero": 0
+      },
+      "uniform_proxy_gain": {
+        "positive": 0,
+        "negative": 60,
+        "zero": 0
+      },
+      "strict_negative_tie_bound": 13,
+      "strict_positive_tie_bound": 0,
+      "joint_contour_mass_proxy_positive": 0,
+      "contour_positive_proxy_negative": 1,
+      "mean_fractional_gain": -0.013225329569742476,
+      "mean_selected_cells": 8.0
+    },
+    "truth_greedy8": {
+      "conditions": 60,
+      "fractional_gain": {
+        "positive": 46,
+        "negative": 7,
+        "zero": 7
+      },
+      "original_hard_gain": {
+        "positive": 54,
+        "negative": 0,
+        "zero": 6
+      },
+      "target_mass_gain": {
+        "positive": 29,
+        "negative": 0,
+        "zero": 31
+      },
+      "uniform_proxy_gain": {
+        "positive": 9,
+        "negative": 45,
+        "zero": 6
+      },
+      "strict_negative_tie_bound": 0,
+      "strict_positive_tie_bound": 5,
+      "joint_contour_mass_proxy_positive": 9,
+      "contour_positive_proxy_negative": 37,
+      "mean_fractional_gain": 0.005664598930520889,
+      "mean_selected_cells": 2.533333333333333
+    }
+  },
+  "support": {
+    "conditions": 180,
+    "conditions_with_hard_mask_change": 0,
+    "low_stats_supported_cells_sum": 0
+  },
+  "single_cell_low_stats_original_hard_only": {
+    "double_block": {
+      "mean_positive_hard_gain_cells": 6.4,
+      "mean_negative_hard_gain_cells": 20.2,
+      "mean_scored_cells": 0.0
+    },
+    "l_shape": {
+      "mean_positive_hard_gain_cells": 15.4,
+      "mean_negative_hard_gain_cells": 22.8,
+      "mean_scored_cells": 0.0
+    },
+    "u_center": {
+      "mean_positive_hard_gain_cells": 23.2,
+      "mean_negative_hard_gain_cells": 19.6,
+      "mean_scored_cells": 0.0
+    }
+  },
+  "edge_h_frozen_verdict": {
+    "primary_groups": 4,
+    "groups_passing": 3,
+    "mechanism_reproduced": false,
+    "scope": "one held-out geometry/two Geant4 streams; not E>S or 3D innovation"
+  },
+  "prohibitions": [
+    "truth_greedy8 is not a deployable algorithm or global upper bound",
+    "uniform footprint proxy is not material density truth",
+    "S has not been paired against these exact archived selections",
+    "subsampling repetitions are not independent physics streams"
+  ]
+}
