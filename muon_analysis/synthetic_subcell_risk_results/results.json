@@ -1,0 +1,3977 @@
+{
+  "config": {
+    "counts": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      32,
+      128
+    ],
+    "trials": 10000,
+    "seed": 2026093001,
+    "probabilities": {
+      "uniform": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "one_favored": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "two_child_boundary": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    "weight_regimes": [
+      "equal",
+      "independent_lognormal",
+      "child_correlated"
+    ],
+    "conditional_mean_weights": {
+      "equal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "independent_lognormal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "child_correlated": [
+        1.0,
+        2.0,
+        4.0,
+        8.0
+      ]
+    }
+  },
+  "code_hashes": {
+    "synthetic_subcell_risk.py": "10cbdd8347c4a7ec9f592f48dadba66ad021bf3449eb88feeb481ba56161a73a",
+    "run_synthetic_subcell_risk.py": "9a404389897e8e4794f796baf4030fc51a660944e8b94d9725c7e7451cc8f653"
+  },
+  "results": [
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.00269999999999998,
+        0.01200000000000001,
+        -0.002700000000000008,
+        -0.01200000000000001
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.75,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.030000000000000013,
+          "mc_standard_error": 1.0408861311938167e-19
+        },
+        "candidate": {
+          "mean_squared_risk": 0.75,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.75,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.7200000000000001,
+          "mc_standard_error": 1.110278539940071e-18
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.0020499999999999963,
+        0.004699999999999982,
+        -0.005500000000000005,
+        -0.0012500000000000011
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.37475,
+          "mc_standard_error": 0.0021637263970271563
+        },
+        "neff": {
+          "mean_squared_risk": 0.04163888888888889,
+          "mc_standard_error": 0.00024041404411412855
+        },
+        "candidate": {
+          "mean_squared_risk": 0.187125,
+          "mc_standard_error": 0.003245589595540735
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.187125,
+          "mc_standard_error": 0.003245589595540735
+        },
+        "raw": {
+          "mean": -0.187625,
+          "mc_standard_error": 0.0010818631985135782
+        },
+        "neff": {
+          "mean": 0.14548611111111112,
+          "mc_standard_error": 0.0030051755514266055
+        }
+      },
+      "candidate_alpha_mean": 0.2495,
+      "candidate_alpha_one_fraction": 0.2495,
+      "variance_proxy_mean": 0.187625,
+      "contrast_mean": 0.37475,
+      "variance_zero_fraction": 0.2495,
+      "neff_mean": 2.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.0018000000000000238,
+        0.0028000000000000247,
+        -0.002475000000000005,
+        -0.002124999999999988
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.1867375,
+          "mc_standard_error": 0.0013229198279042106
+        },
+        "neff": {
+          "mean_squared_risk": 0.046684375,
+          "mc_standard_error": 0.00033072995697605264
+        },
+        "candidate": {
+          "mean_squared_risk": 0.059509375,
+          "mc_standard_error": 0.0011830219695615268
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.059509375,
+          "mc_standard_error": 0.0011830219695615268
+        },
+        "raw": {
+          "mean": -0.127228125,
+          "mc_standard_error": 0.0005030571043129273
+        },
+        "neff": {
+          "mean": 0.012825,
+          "mc_standard_error": 0.0008858755186676667
+        }
+      },
+      "candidate_alpha_mean": 0.2242,
+      "candidate_alpha_one_fraction": 0.0155,
+      "variance_proxy_mean": 0.140815625,
+      "contrast_mean": 0.1867375,
+      "variance_zero_fraction": 0.0155,
+      "neff_mean": 4.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        -0.0010000000000000009,
+        0.0005499999999999949,
+        0.00035000000000001696,
+        9.999999999998899e-05
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.094159375,
+          "mc_standard_error": 0.000714638468143125
+        },
+        "neff": {
+          "mean_squared_risk": 0.0418486111111111,
+          "mc_standard_error": 0.0003176170969525001
+        },
+        "candidate": {
+          "mean_squared_risk": 0.02176706377721543,
+          "mc_standard_error": 0.0004918531882133721
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.02176706377721543,
+          "mc_standard_error": 0.0004918531882133721
+        },
+        "raw": {
+          "mean": -0.07239231122278457,
+          "mc_standard_error": 0.0003528175743230768
+        },
+        "neff": {
+          "mean": -0.020081547333895673,
+          "mc_standard_error": 0.0002522370531138798
+        }
+      },
+      "candidate_alpha_mean": 0.19858048637636874,
+      "candidate_alpha_one_fraction": 0.0001,
+      "variance_proxy_mean": 0.081980078125,
+      "contrast_mean": 0.094159375,
+      "variance_zero_fraction": 0.0001,
+      "neff_mean": 8.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        -0.0004875000000000018,
+        4.6875000000001776e-05,
+        -0.0006968750000000135,
+        0.0011375000000000135
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.023172265625,
+          "mc_standard_error": 0.00018456017212219677
+        },
+        "neff": {
+          "mean_squared_risk": 0.01830895061728395,
+          "mc_standard_error": 0.00014582532118297026
+        },
+        "candidate": {
+          "mean_squared_risk": 0.004117532714318179,
+          "mc_standard_error": 9.929782124680196e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.004117532714318179,
+          "mc_standard_error": 9.929782124680196e-05
+        },
+        "raw": {
+          "mean": -0.01905473291068182,
+          "mc_standard_error": 0.00010728234362485484
+        },
+        "neff": {
+          "mean": -0.01419141790296577,
+          "mc_standard_error": 7.426169658822104e-05
+        }
+      },
+      "candidate_alpha_mean": 0.15137148504846604,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.02271336669921875,
+      "contrast_mean": 0.023172265625,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 32.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "equal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.0005648437499999881,
+        -7.968750000000857e-05,
+        0.0005101562500000045,
+        -0.0009953125000000118
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0058280517578125,
+          "mc_standard_error": 4.809488808465049e-05
+        },
+        "neff": {
+          "mean_squared_risk": 0.005480188246097336,
+          "mc_standard_error": 4.522421065076411e-05
+        },
+        "candidate": {
+          "mean_squared_risk": 0.0010130555616482686,
+          "mc_standard_error": 2.488655045663167e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0010130555616482686,
+          "mc_standard_error": 2.488655045663167e-05
+        },
+        "raw": {
+          "mean": -0.004814996196164232,
+          "mc_standard_error": 2.8528448947328852e-05
+        },
+        "neff": {
+          "mean": -0.004467132684449068,
+          "mc_standard_error": 2.5931392046052272e-05
+        }
+      },
+      "candidate_alpha_mean": 0.14547118451157304,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0058138433456420896,
+      "contrast_mean": 0.0058280517578125,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 128.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.008799999999999975,
+        -0.009000000000000008,
+        0.00269999999999998,
+        -0.0025000000000000022
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.75,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.030000000000000013,
+          "mc_standard_error": 1.1399379732420236e-19
+        },
+        "candidate": {
+          "mean_squared_risk": 0.75,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.75,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.7200000000000001,
+          "mc_standard_error": 1.110278539940071e-18
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.002781405408293247,
+        -7.958672008884227e-05,
+        8.449400893872916e-05,
+        -0.002786312697143023
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.4793046615265399,
+          "mc_standard_error": 0.0019233003856938236
+        },
+        "neff": {
+          "mean_squared_risk": 0.03809812050345234,
+          "mc_standard_error": 0.000163531688006333
+        },
+        "candidate": {
+          "mean_squared_risk": 0.3329670747204511,
+          "mc_standard_error": 0.0030307350718320664
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.3329670747204511,
+          "mc_standard_error": 0.0030307350718320664
+        },
+        "raw": {
+          "mean": -0.1463375868060888,
+          "mc_standard_error": 0.0011174167836847187
+        },
+        "neff": {
+          "mean": 0.2948689542169987,
+          "mc_standard_error": 0.002914298209614325
+        }
+      },
+      "candidate_alpha_mean": 0.6364693236430911,
+      "candidate_alpha_one_fraction": 0.2512,
+      "variance_proxy_mean": 0.1102631109229876,
+      "contrast_mean": 0.4793046615265399,
+      "variance_zero_fraction": 0.2512,
+      "neff_mean": 1.6244511506119361
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        -0.0026865600745923646,
+        0.005695039722948381,
+        0.00038681023287351346,
+        -0.0033952898812288357
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.2948548371842198,
+          "mc_standard_error": 0.0016477612979993984
+        },
+        "neff": {
+          "mean_squared_risk": 0.04448435774450378,
+          "mc_standard_error": 0.0002485342436269625
+        },
+        "candidate": {
+          "mean_squared_risk": 0.15285219999177985,
+          "mc_standard_error": 0.002003644166609256
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.15285219999177985,
+          "mc_standard_error": 0.002003644166609256
+        },
+        "raw": {
+          "mean": -0.14200263719244,
+          "mc_standard_error": 0.0006278092480177727
+        },
+        "neff": {
+          "mean": 0.10836784224727605,
+          "mc_standard_error": 0.0018313417147274305
+        }
+      },
+      "candidate_alpha_mean": 0.4507427909925075,
+      "candidate_alpha_one_fraction": 0.0164,
+      "variance_proxy_mean": 0.12392173970495243,
+      "contrast_mean": 0.2948548371842198,
+      "variance_zero_fraction": 0.0164,
+      "neff_mean": 2.72415801707009
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        -0.0031784051720241124,
+        0.0020007945146412465,
+        0.0015377325481179538,
+        -0.000360121890733367
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.17466346684510853,
+          "mc_standard_error": 0.0011501198749080475
+        },
+        "neff": {
+          "mean_squared_risk": 0.04622360091965396,
+          "mc_standard_error": 0.00028449108887188717
+        },
+        "candidate": {
+          "mean_squared_risk": 0.06807702987252218,
+          "mc_standard_error": 0.0011323016826459622
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.06807702987252218,
+          "mc_standard_error": 0.0011323016826459622
+        },
+        "raw": {
+          "mean": -0.10658643697258635,
+          "mc_standard_error": 0.0004136010245560892
+        },
+        "neff": {
+          "mean": 0.021853428952868216,
+          "mc_standard_error": 0.0009310299895250491
+        }
+      },
+      "candidate_alpha_mean": 0.33225147336362604,
+      "candidate_alpha_one_fraction": 0.0001,
+      "variance_proxy_mean": 0.10086148139881375,
+      "contrast_mean": 0.17466346684510853,
+      "variance_zero_fraction": 0.0001,
+      "neff_mean": 4.689887236356566
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.000509805474927516,
+        -0.0006326401329261877,
+        0.0009648212334257833,
+        -0.0008419865754300537
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.05486873057983938,
+          "mc_standard_error": 0.0004423342701702497
+        },
+        "neff": {
+          "mean_squared_risk": 0.031774164089582925,
+          "mc_standard_error": 0.00022966905750503228
+        },
+        "candidate": {
+          "mean_squared_risk": 0.013782892236046066,
+          "mc_standard_error": 0.00030640513263798376
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.013782892236046066,
+          "mc_standard_error": 0.00030640513263798376
+        },
+        "raw": {
+          "mean": -0.04108583834379332,
+          "mc_standard_error": 0.00021410376937481906
+        },
+        "neff": {
+          "mean": -0.017991271853536852,
+          "mc_standard_error": 0.00016972567184184078
+        }
+      },
+      "candidate_alpha_mean": 0.21109406592430638,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.04399737555192965,
+      "contrast_mean": 0.05486873057983938,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 14.958116877440771
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "independent_lognormal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "sample_probability_bias": [
+        0.000337968668074895,
+        -9.922433643250184e-05,
+        0.00017566877165603456,
+        -0.000414413103297373
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.015233561476809421,
+          "mc_standard_error": 0.0001269292718805978
+        },
+        "neff": {
+          "mean_squared_risk": 0.012889671553128389,
+          "mc_standard_error": 0.00010349871869233171
+        },
+        "candidate": {
+          "mean_squared_risk": 0.002936708221470828,
+          "mc_standard_error": 6.959304328900013e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.002936708221470828,
+          "mc_standard_error": 6.959304328900013e-05
+        },
+        "raw": {
+          "mean": -0.012296853255338592,
+          "mc_standard_error": 7.457101996296852e-05
+        },
+        "neff": {
+          "mean": -0.00995296333165756,
+          "mc_standard_error": 5.377398162623356e-05
+        }
+      },
+      "candidate_alpha_mean": 0.1668187109830407,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.01405705313990467,
+      "contrast_mean": 0.015233561476809421,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 52.5743382881851
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.18333333333333335,
+        0.11666666666666667,
+        -0.016666666666666663,
+        -0.2833333333333333
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.17693333333333333,
+        0.11496666666666666,
+        -0.006866666666666688,
+        -0.28503333333333336
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.8756711111111112,
+          "mc_standard_error": 0.0035538425616547277
+        },
+        "neff": {
+          "mean_squared_risk": 0.15735644444444447,
+          "mc_standard_error": 0.0007107685123309456
+        },
+        "candidate": {
+          "mean_squared_risk": 0.8756711111111112,
+          "mc_standard_error": 0.0035538425616547277
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.7478933333333334,
+          "mc_standard_error": 0.0035538425616547277
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.7183146666666668,
+          "mc_standard_error": 0.002843074049323782
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.07674666666666609,
+        0.08187333333333524,
+        0.023320000000003616,
+        -0.18194000000000815
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.49875496296296296,
+          "mc_standard_error": 0.003543174908450277
+        },
+        "neff": {
+          "mean_squared_risk": 0.1443584560172163,
+          "mc_standard_error": 0.000988574819969245
+        },
+        "candidate": {
+          "mean_squared_risk": 0.3614725022288034,
+          "mc_standard_error": 0.003650998527730288
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.2336947244510256,
+          "mc_standard_error": 0.003650998527730288
+        },
+        "raw": {
+          "mean": -0.13728246073415962,
+          "mc_standard_error": 0.0015510129730390693
+        },
+        "neff": {
+          "mean": 0.2171140462115871,
+          "mc_standard_error": 0.002960690917545018
+        }
+      },
+      "candidate_alpha_mean": 0.6856025343592259,
+      "candidate_alpha_one_fraction": 0.2473,
+      "variance_proxy_mean": 0.10548748407864657,
+      "contrast_mean": 0.4769665185185184,
+      "variance_zero_fraction": 0.2473,
+      "neff_mean": 1.6992645248868778
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.03048890382373058,
+        0.04061004591899653,
+        0.021084092867910187,
+        -0.09218304261065308
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.23624403740693242,
+          "mc_standard_error": 0.0024792181235742824
+        },
+        "neff": {
+          "mean_squared_risk": 0.10783747071474872,
+          "mc_standard_error": 0.0010326484857854645
+        },
+        "candidate": {
+          "mean_squared_risk": 0.1818342103114415,
+          "mc_standard_error": 0.001835229854020219
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.054056432533663726,
+          "mc_standard_error": 0.001835229854020219
+        },
+        "raw": {
+          "mean": -0.054409827095490915,
+          "mc_standard_error": 0.0013128561704246688
+        },
+        "neff": {
+          "mean": 0.07399673959669278,
+          "mc_standard_error": 0.0012160960317576255
+        }
+      },
+      "candidate_alpha_mean": 0.453165725370984,
+      "candidate_alpha_one_fraction": 0.0147,
+      "variance_proxy_mean": 0.11693596997513123,
+      "contrast_mean": 0.29183261868447835,
+      "variance_zero_fraction": 0.0147,
+      "neff_mean": 2.9805777248727092
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.013155917363194117,
+        0.017341732522912046,
+        0.01150606688593031,
+        -0.04200371677203385
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.10502666742083873,
+          "mc_standard_error": 0.0013648180606756388
+        },
+        "neff": {
+          "mean_squared_risk": 0.06771183443718488,
+          "mc_standard_error": 0.0008037217929948297
+        },
+        "candidate": {
+          "mean_squared_risk": 0.09646980304378797,
+          "mc_standard_error": 0.0009861576909868917
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.031307974733989795,
+          "mc_standard_error": 0.0009861576909868917
+        },
+        "raw": {
+          "mean": -0.00855686437705074,
+          "mc_standard_error": 0.000662964519445221
+        },
+        "neff": {
+          "mean": 0.02875796860660309,
+          "mc_standard_error": 0.00047099831367815136
+        }
+      },
+      "candidate_alpha_mean": 0.49164402950690655,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.07906221795285538,
+      "contrast_mean": 0.20051563396880875,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 5.545215109118403
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.0022617772187362856,
+        0.004267426934473267,
+        0.00255436672105247,
+        -0.009083570874251712
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.023225347076017543,
+          "mc_standard_error": 0.00029249538516206764
+        },
+        "neff": {
+          "mean_squared_risk": 0.02073622799123304,
+          "mc_standard_error": 0.00026172427166270716
+        },
+        "candidate": {
+          "mean_squared_risk": 0.02734900955224741,
+          "mc_standard_error": 0.00030441997266687424
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.10042876822553036,
+          "mc_standard_error": 0.00030441997266687424
+        },
+        "raw": {
+          "mean": 0.0041236624762298665,
+          "mc_standard_error": 0.0001505369387492424
+        },
+        "neff": {
+          "mean": 0.00661278156101437,
+          "mc_standard_error": 0.000108262561260141
+        }
+      },
+      "candidate_alpha_mean": 0.7899477765346266,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.02165271897790514,
+      "contrast_mean": 0.14411586231750462,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 21.383699535350413
+    },
+    {
+      "probability_case": "uniform",
+      "weight_regime": "child_correlated",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "weighted_target": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.26666666666666666,
+        0.5333333333333333
+      ],
+      "sample_probability_bias": [
+        0.0007190197125555298,
+        0.0011469210130819474,
+        0.00033985506912154184,
+        -0.0022057957947566598
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.12777777777777777,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.005586014310791154,
+          "mc_standard_error": 6.68603739142406e-05
+        },
+        "neff": {
+          "mean_squared_risk": 0.005444568877985063,
+          "mc_standard_error": 6.601163683692974e-05
+        },
+        "candidate": {
+          "mean_squared_risk": 0.005968690361105122,
+          "mc_standard_error": 7.156723606501265e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.12180908741667265,
+          "mc_standard_error": 7.156723606501266e-05
+        },
+        "raw": {
+          "mean": 0.00038267605031396657,
+          "mc_standard_error": 1.5902474922478092e-05
+        },
+        "neff": {
+          "mean": 0.000524121483120059,
+          "mc_standard_error": 7.881232576631071e-06
+        }
+      },
+      "candidate_alpha_mean": 0.9541518921523606,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.005435769718733759,
+      "contrast_mean": 0.13159391417618868,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 84.86091866962647
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.45000000000000007,
+        0.14999999999999997,
+        0.14999999999999997,
+        0.14999999999999997
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0008000000000000229,
+        0.001999999999999974,
+        -0.0028000000000000247,
+        0.0015999999999999764
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.4809600000000001,
+          "mc_standard_error": 0.005503545833521711
+        },
+        "neff": {
+          "mean_squared_risk": 0.19219200000000003,
+          "mc_standard_error": 0.0011007091667043418
+        },
+        "candidate": {
+          "mean_squared_risk": 0.4809600000000001,
+          "mc_standard_error": 0.005503545833521711
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.21096000000000004,
+          "mc_standard_error": 0.00550354583352171
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.288768,
+          "mc_standard_error": 0.004402836666817369
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        0.0019999999999998908,
+        0.00019999999999997797,
+        -0.00360000000000002,
+        0.0013999999999999846
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.23770000000000005,
+          "mc_standard_error": 0.0024626565874572882
+        },
+        "neff": {
+          "mean_squared_risk": 0.14587777777777777,
+          "mc_standard_error": 0.0010852655087889328
+        },
+        "candidate": {
+          "mean_squared_risk": 0.22677000000000003,
+          "mc_standard_error": 0.0020287873983813056
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.043230000000000005,
+          "mc_standard_error": 0.0020287873983813056
+        },
+        "raw": {
+          "mean": -0.01093,
+          "mc_standard_error": 0.001361686061062861
+        },
+        "neff": {
+          "mean": 0.0808922222222222,
+          "mc_standard_error": 0.0014343349049087955
+        }
+      },
+      "candidate_alpha_mean": 0.5202,
+      "candidate_alpha_one_fraction": 0.5202,
+      "variance_proxy_mean": 0.11995,
+      "contrast_mean": 0.5101,
+      "variance_zero_fraction": 0.5202,
+      "neff_mean": 2.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        0.003249999999999975,
+        0.0015999999999999764,
+        -0.0026750000000000246,
+        -0.002175000000000024
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.11929999999999998,
+          "mc_standard_error": 0.0011601123161395221
+        },
+        "neff": {
+          "mean_squared_risk": 0.09635,
+          "mc_standard_error": 0.000883584961810959
+        },
+        "candidate": {
+          "mean_squared_risk": 0.12975734375,
+          "mc_standard_error": 0.0010624733221248517
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.14024265625000001,
+          "mc_standard_error": 0.0010624733221248517
+        },
+        "raw": {
+          "mean": 0.010457343750000006,
+          "mc_standard_error": 0.0008451387337851286
+        },
+        "neff": {
+          "mean": 0.033407343749999985,
+          "mc_standard_error": 0.0007219836355887867
+        }
+      },
+      "candidate_alpha_mean": 0.609175,
+      "candidate_alpha_one_fraction": 0.2433,
+      "variance_proxy_mean": 0.0892,
+      "contrast_mean": 0.3932,
+      "variance_zero_fraction": 0.2433,
+      "neff_mean": 4.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0013250000000000206,
+        0.0031124999999999764,
+        -0.0005500000000000227,
+        -0.0012375000000000164
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.06137124999999999,
+          "mc_standard_error": 0.000609829202735816
+        },
+        "neff": {
+          "mean_squared_risk": 0.05762944444444447,
+          "mc_standard_error": 0.0006097263410016125
+        },
+        "candidate": {
+          "mean_squared_risk": 0.07887694510510168,
+          "mc_standard_error": 0.0007804658131890023
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.1911230548948983,
+          "mc_standard_error": 0.0007804658131890023
+        },
+        "raw": {
+          "mean": 0.017505695105101707,
+          "mc_standard_error": 0.000500484244344054
+        },
+        "neff": {
+          "mean": 0.021247500660657233,
+          "mc_standard_error": 0.0004254711706322809
+        }
+      },
+      "candidate_alpha_mean": 0.7241083989050164,
+      "candidate_alpha_one_fraction": 0.0586,
+      "variance_proxy_mean": 0.05252734375,
+      "contrast_mean": 0.32978125,
+      "variance_zero_fraction": 0.0586,
+      "neff_mean": 8.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.000200000000000089,
+        -0.0008406250000000254,
+        0.0007499999999999868,
+        0.00029062499999997493
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.015319492187499997,
+          "mc_standard_error": 0.00014305239465192462
+        },
+        "neff": {
+          "mean_squared_risk": 0.015461327160493832,
+          "mc_standard_error": 0.0001647445625482596
+        },
+        "candidate": {
+          "mean_squared_risk": 0.017606492847103198,
+          "mc_standard_error": 0.00019230237256680864
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.2523935071528968,
+          "mc_standard_error": 0.0001923023725668086
+        },
+        "raw": {
+          "mean": 0.0022870006596031976,
+          "mc_standard_error": 7.634088667952495e-05
+        },
+        "neff": {
+          "mean": 0.002145165686609365,
+          "mc_standard_error": 6.69449849645989e-05
+        }
+      },
+      "candidate_alpha_mean": 0.9367739920381691,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.014528765869140625,
+      "contrast_mean": 0.2850794921875,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 32.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "equal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        0.00032031249999997513,
+        -0.0002695312500000241,
+        0.00010468749999997806,
+        -0.00015546875000002625
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0037611816406249994,
+          "mc_standard_error": 3.424392436961959e-05
+        },
+        "neff": {
+          "mean_squared_risk": 0.0037733241505968785,
+          "mc_standard_error": 3.658511725265361e-05
+        },
+        "candidate": {
+          "mean_squared_risk": 0.00389613658169188,
+          "mc_standard_error": 3.706669586735214e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.2661038634183081,
+          "mc_standard_error": 3.7066695867352145e-05
+        },
+        "raw": {
+          "mean": 0.00013495494106688055,
+          "mc_standard_error": 7.363557606960821e-06
+        },
+        "neff": {
+          "mean": 0.00012281243109500215,
+          "mc_standard_error": 7.966320157573383e-06
+        }
+      },
+      "candidate_alpha_mean": 0.9857211539941826,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.003717612838745117,
+      "contrast_mean": 0.274145556640625,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 128.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.45000000000000007,
+        0.14999999999999997,
+        0.14999999999999997,
+        0.14999999999999997
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0014000000000000679,
+        0.0006999999999999784,
+        0.000999999999999987,
+        -0.00030000000000002247
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.48168,
+          "mc_standard_error": 0.005506667785422497
+        },
+        "neff": {
+          "mean_squared_risk": 0.192336,
+          "mc_standard_error": 0.001101333557084499
+        },
+        "candidate": {
+          "mean_squared_risk": 0.48168,
+          "mc_standard_error": 0.005506667785422497
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.21168000000000006,
+          "mc_standard_error": 0.005506667785422497
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.28934400000000005,
+          "mc_standard_error": 0.004405334228337998
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0007943770782709025,
+        -0.002412839618892118,
+        0.002669003346734325,
+        0.0005382133504270303
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.3078880143550491,
+          "mc_standard_error": 0.0035657328769191973
+        },
+        "neff": {
+          "mean_squared_risk": 0.16232088883406381,
+          "mc_standard_error": 0.001139200798092686
+        },
+        "candidate": {
+          "mean_squared_risk": 0.266849884901711,
+          "mc_standard_error": 0.00310541940282231
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.003150115098289014,
+          "mc_standard_error": 0.00310541940282231
+        },
+        "raw": {
+          "mean": -0.04103812945333811,
+          "mc_standard_error": 0.0011347394942705891
+        },
+        "neff": {
+          "mean": 0.10452899606764714,
+          "mc_standard_error": 0.0022518819452003545
+        }
+      },
+      "candidate_alpha_mean": 0.7684717480339864,
+      "candidate_alpha_one_fraction": 0.5205,
+      "variance_proxy_mean": 0.07039995561860737,
+      "contrast_mean": 0.5769347618611258,
+      "variance_zero_fraction": 0.5205,
+      "neff_mean": 1.6264169098043968
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0011497190628414478,
+        -0.0004619994665478744,
+        0.0012028006192480595,
+        0.00040891791014179
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.18803729842264227,
+          "mc_standard_error": 0.002172283063724361
+        },
+        "neff": {
+          "mean_squared_risk": 0.12722138305730651,
+          "mc_standard_error": 0.001068913768479482
+        },
+        "candidate": {
+          "mean_squared_risk": 0.1630322060084376,
+          "mc_standard_error": 0.0016791014225472725
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.1069677939915624,
+          "mc_standard_error": 0.0016791014225472725
+        },
+        "raw": {
+          "mean": -0.025005092414204642,
+          "mc_standard_error": 0.0008569593794136239
+        },
+        "neff": {
+          "mean": 0.03581082295113111,
+          "mc_standard_error": 0.0010304950609365349
+        }
+      },
+      "candidate_alpha_mean": 0.6898799600556275,
+      "candidate_alpha_one_fraction": 0.2396,
+      "variance_proxy_mean": 0.07990259404053729,
+      "contrast_mean": 0.4566576355472318,
+      "variance_zero_fraction": 0.2396,
+      "neff_mean": 2.7174578032183496
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        0.0007278064098816817,
+        0.0012851107145788049,
+        -0.0017066861827776253,
+        -0.00030623094168109877
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.10944403980955376,
+          "mc_standard_error": 0.001268361370974401
+        },
+        "neff": {
+          "mean_squared_risk": 0.08948707166408044,
+          "mc_standard_error": 0.0008861138717193167
+        },
+        "candidate": {
+          "mean_squared_risk": 0.11177560826787042,
+          "mc_standard_error": 0.0010834814784490005
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.1582243917321296,
+          "mc_standard_error": 0.0010834814784490005
+        },
+        "raw": {
+          "mean": 0.002331568458316658,
+          "mc_standard_error": 0.0005921537165695678
+        },
+        "neff": {
+          "mean": 0.022288536603789974,
+          "mc_standard_error": 0.0005714835030047636
+        }
+      },
+      "candidate_alpha_mean": 0.6929012432928089,
+      "candidate_alpha_one_fraction": 0.0589,
+      "variance_proxy_mean": 0.06480654749959455,
+      "contrast_mean": 0.3803174075014094,
+      "variance_zero_fraction": 0.0589,
+      "neff_mean": 4.702313364988321
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        0.0004057791737247518,
+        -0.000540810278117379,
+        0.00043650162156322336,
+        -0.00030147051717041573
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.034703057425018974,
+          "mc_standard_error": 0.00038815429735027834
+        },
+        "neff": {
+          "mean_squared_risk": 0.034132155254297074,
+          "mc_standard_error": 0.00042337874612373894
+        },
+        "candidate": {
+          "mean_squared_risk": 0.04368737925500716,
+          "mc_standard_error": 0.0005298818720846501
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.22631262074499287,
+          "mc_standard_error": 0.00052988187208465
+        },
+        "raw": {
+          "mean": 0.008984321829988188,
+          "mc_standard_error": 0.0002540716674531903
+        },
+        "neff": {
+          "mean": 0.009555224000710084,
+          "mc_standard_error": 0.0002206073900954211
+        }
+      },
+      "candidate_alpha_mean": 0.8515702503763943,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.028162937591124437,
+      "contrast_mean": 0.3051899924334881,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 14.971295161971772
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "independent_lognormal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.7000000000000001,
+        0.10000000000000002,
+        0.10000000000000002,
+        0.10000000000000002
+      ],
+      "sample_probability_bias": [
+        -0.0009621191173317944,
+        0.0009699299933601246,
+        0.0002764839514685924,
+        -0.00028429482749857404
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.27,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.009607282276007724,
+          "mc_standard_error": 0.00010337534235398943
+        },
+        "neff": {
+          "mean_squared_risk": 0.009799109385167166,
+          "mc_standard_error": 0.0001223967976494209
+        },
+        "candidate": {
+          "mean_squared_risk": 0.010954046073564714,
+          "mc_standard_error": 0.00013688334068818017
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.25904595392643526,
+          "mc_standard_error": 0.00013688334068818017
+        },
+        "raw": {
+          "mean": 0.0013467637975569896,
+          "mc_standard_error": 4.578558911055736e-05
+        },
+        "neff": {
+          "mean": 0.0011549366883975489,
+          "mc_standard_error": 3.93502141256391e-05
+        }
+      },
+      "candidate_alpha_mean": 0.9610149358255332,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.009069662854880416,
+      "contrast_mean": 0.27845273933521186,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 52.483882831145856
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        -0.08333333333333337,
+        0.15476190476190474,
+        0.05952380952380948,
+        -0.13095238095238104
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.36086666666666667,
+        0.006961904761904739,
+        -0.08847619047619053,
+        -0.279352380952381
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.7030539682539683,
+          "mc_standard_error": 0.0016668324137760807
+        },
+        "neff": {
+          "mean_squared_risk": 0.06188063492063496,
+          "mc_standard_error": 0.0003333664827552162
+        },
+        "candidate": {
+          "mean_squared_risk": 0.7030539682539683,
+          "mc_standard_error": 0.0016668324137760807
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.6514666666666667,
+          "mc_standard_error": 0.0016668324137760807
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.6411733333333333,
+          "mc_standard_error": 0.0013334659310208646
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.24378888888888595,
+        0.018201904761904406,
+        -0.04957619047619427,
+        -0.2124146031746004
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.5531961763668432,
+          "mc_standard_error": 0.0012953258776067828
+        },
+        "neff": {
+          "mean_squared_risk": 0.08243098658889199,
+          "mc_standard_error": 0.0003588718878227387
+        },
+        "candidate": {
+          "mean_squared_risk": 0.4522495771031482,
+          "mc_standard_error": 0.0021805866896957714
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.40066227551584654,
+          "mc_standard_error": 0.0021805866896957714
+        },
+        "raw": {
+          "mean": -0.1009465992636949,
+          "mc_standard_error": 0.0013518243870445834
+        },
+        "neff": {
+          "mean": 0.3698185905142561,
+          "mc_standard_error": 0.0021893055798039565
+        }
+      },
+      "candidate_alpha_mean": 0.8351064401420408,
+      "candidate_alpha_one_fraction": 0.5152,
+      "variance_proxy_mean": 0.057665483871361105,
+      "contrast_mean": 0.5900505679012346,
+      "variance_zero_fraction": 0.5152,
+      "neff_mean": 1.7704065158371038
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.14683541537789502,
+        0.01737159536369895,
+        -0.016609643624346943,
+        -0.14759736711723065
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.3628387329348475,
+          "mc_standard_error": 0.001893183936689169
+        },
+        "neff": {
+          "mean_squared_risk": 0.09729842073514434,
+          "mc_standard_error": 0.0005799259668697902
+        },
+        "candidate": {
+          "mean_squared_risk": 0.2436413359773309,
+          "mc_standard_error": 0.0024327184371205303
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.19205403439002933,
+          "mc_standard_error": 0.0024327184371205303
+        },
+        "raw": {
+          "mean": -0.11919739695751659,
+          "mc_standard_error": 0.0009351381608865394
+        },
+        "neff": {
+          "mean": 0.14634291524218657,
+          "mc_standard_error": 0.002064653082098494
+        }
+      },
+      "candidate_alpha_mean": 0.5906217631511282,
+      "candidate_alpha_one_fraction": 0.2453,
+      "variance_proxy_mean": 0.09982994211789503,
+      "contrast_mean": 0.39684256661141715,
+      "variance_zero_fraction": 0.2453,
+      "neff_mean": 3.000686093839464
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.07068886976780536,
+        0.013124512469421673,
+        -0.0057402727586329805,
+        -0.07807310947861384
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.19128459030617295,
+          "mc_standard_error": 0.0016185968268698394
+        },
+        "neff": {
+          "mean_squared_risk": 0.08117991892598513,
+          "mc_standard_error": 0.0007721534722586727
+        },
+        "candidate": {
+          "mean_squared_risk": 0.1231990730827052,
+          "mc_standard_error": 0.0014698692524202027
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.07161177149540358,
+          "mc_standard_error": 0.0014698692524202027
+        },
+        "raw": {
+          "mean": -0.06808551722346777,
+          "mc_standard_error": 0.0006898691574199796
+        },
+        "neff": {
+          "mean": 0.042019154156720064,
+          "mc_standard_error": 0.0009123273763969647
+        }
+      },
+      "candidate_alpha_mean": 0.41610498644176697,
+      "candidate_alpha_one_fraction": 0.0538,
+      "variance_proxy_mean": 0.10101288358733425,
+      "contrast_mean": 0.23082666774586968,
+      "variance_zero_fraction": 0.0538,
+      "neff_mean": 4.964355564380483
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.01853370184358155,
+        0.0035910937220986344,
+        -0.00036827705724834514,
+        -0.021756518508413925
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.045363360710176374,
+          "mc_standard_error": 0.0005156931599930737
+        },
+        "neff": {
+          "mean_squared_risk": 0.03228543559087136,
+          "mc_standard_error": 0.0003925263837264207
+        },
+        "candidate": {
+          "mean_squared_risk": 0.03884140214229561,
+          "mc_standard_error": 0.000373073920069412
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.012745899445006004,
+          "mc_standard_error": 0.000373073920069412
+        },
+        "raw": {
+          "mean": -0.006521958567880764,
+          "mc_standard_error": 0.0002715015899153021
+        },
+        "neff": {
+          "mean": 0.00655596655142425,
+          "mc_standard_error": 0.00017503377332886435
+        }
+      },
+      "candidate_alpha_mean": 0.45044515363592846,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0389375114944456,
+      "contrast_mean": 0.09327379030251046,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 16.25378160841927
+    },
+    {
+      "probability_case": "one_favored",
+      "weight_regime": "child_correlated",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "weighted_target": [
+        0.33333333333333337,
+        0.09523809523809526,
+        0.19047619047619052,
+        0.38095238095238104
+      ],
+      "sample_probability_bias": [
+        0.004255063585858865,
+        0.0006932492177589566,
+        -0.0004540364085398596,
+        -0.004494276395064556
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.05158730158730161,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.010412239070791881,
+          "mc_standard_error": 0.00011082528426413707
+        },
+        "neff": {
+          "mean_squared_risk": 0.009397131611546636,
+          "mc_standard_error": 0.00010159985552634682
+        },
+        "candidate": {
+          "mean_squared_risk": 0.01047680926300668,
+          "mc_standard_error": 9.847630558410107e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.04111049232429493,
+          "mc_standard_error": 9.847630558410107e-05
+        },
+        "raw": {
+          "mean": 6.45701922148001e-05,
+          "mc_standard_error": 4.7350398407838606e-05
+        },
+        "neff": {
+          "mean": 0.0010796776514600459,
+          "mc_standard_error": 3.4989235741589044e-05
+        }
+      },
+      "candidate_alpha_mean": 0.8011835423863171,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.010214621990890998,
+      "contrast_mean": 0.061371120347785156,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 62.5902881857989
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.25,
+        -0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0014999999999999458,
+        -0.0015000000000000013,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.5,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.18000000000000002,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.5,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.31999999999999995,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.0015000000000000013,
+        0.0014999999999999458,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.2514,
+          "mc_standard_error": 0.0025000858071082864
+        },
+        "neff": {
+          "mean_squared_risk": 0.13904444444444447,
+          "mc_standard_error": 0.00027778731190092066
+        },
+        "candidate": {
+          "mean_squared_risk": 0.3757,
+          "mc_standard_error": 0.0012500429035541432
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.1257,
+          "mc_standard_error": 0.0012500429035541432
+        },
+        "raw": {
+          "mean": 0.1243,
+          "mc_standard_error": 0.0012500429035541432
+        },
+        "neff": {
+          "mean": 0.23665555555555556,
+          "mc_standard_error": 0.0009722555916532225
+        }
+      },
+      "candidate_alpha_mean": 0.5028,
+      "candidate_alpha_one_fraction": 0.5028,
+      "variance_proxy_mean": 0.1243,
+      "contrast_mean": 0.5014,
+      "variance_zero_fraction": 0.5028,
+      "neff_mean": 2.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0012999999999999678,
+        -0.0013000000000000234,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.1249,
+          "mc_standard_error": 0.001524050941775672
+        },
+        "neff": {
+          "mean_squared_risk": 0.093725,
+          "mc_standard_error": 0.000381012735443918
+        },
+        "candidate": {
+          "mean_squared_risk": 0.128475,
+          "mc_standard_error": 0.0014007930187872684
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.121525,
+          "mc_standard_error": 0.0014007930187872684
+        },
+        "raw": {
+          "mean": 0.003575,
+          "mc_standard_error": 0.00047014781002502516
+        },
+        "neff": {
+          "mean": 0.03475,
+          "mc_standard_error": 0.0010447073457283728
+        }
+      },
+      "candidate_alpha_mean": 0.6879,
+      "candidate_alpha_one_fraction": 0.1238,
+      "variance_proxy_mean": 0.093775,
+      "contrast_mean": 0.3749,
+      "variance_zero_fraction": 0.1238,
+      "neff_mean": 4.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.0010749999999999926,
+        0.0010750000000000481,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0623875,
+          "mc_standard_error": 0.0008165685291457657
+        },
+        "neff": {
+          "mean_squared_risk": 0.05550555555555555,
+          "mc_standard_error": 0.00036291934628700684
+        },
+        "candidate": {
+          "mean_squared_risk": 0.05896369102328433,
+          "mc_standard_error": 0.0007020327072934122
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.1910363089767157,
+          "mc_standard_error": 0.0007020327072934122
+        },
+        "raw": {
+          "mean": -0.0034238089767156792,
+          "mc_standard_error": 0.00015686372636023068
+        },
+        "neff": {
+          "mean": 0.003458135467728768,
+          "mc_standard_error": 0.00034655958941804543
+        }
+      },
+      "candidate_alpha_mean": 0.8099924019607841,
+      "candidate_alpha_one_fraction": 0.0065,
+      "variance_proxy_mean": 0.0547015625,
+      "contrast_mean": 0.3123875,
+      "variance_zero_fraction": 0.0065,
+      "neff_mean": 8.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.00039999999999995595,
+        -0.00040000000000001146,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.01573203125,
+          "mc_standard_error": 0.000221586200299271
+        },
+        "neff": {
+          "mean_squared_risk": 0.015516666666666666,
+          "mc_standard_error": 0.0001750804545574487
+        },
+        "candidate": {
+          "mean_squared_risk": 0.015070756520665052,
+          "mc_standard_error": 0.00020346723245245709
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.234929243479335,
+          "mc_standard_error": 0.00020346723245245709
+        },
+        "raw": {
+          "mean": -0.000661274729334945,
+          "mc_standard_error": 1.8701660732794482e-05
+        },
+        "neff": {
+          "mean": -0.0004459101460016133,
+          "mc_standard_error": 2.868381689248849e-05
+        }
+      },
+      "candidate_alpha_mean": 0.9425368047650913,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0151333740234375,
+      "contrast_mean": 0.26573203125,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 32.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "equal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.00021484375000002665,
+        0.00021484375000002665,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.00388956298828125,
+          "mc_standard_error": 5.585351082100094e-05
+        },
+        "neff": {
+          "mean_squared_risk": 0.0038869719926538076,
+          "mc_standard_error": 5.251973836612024e-05
+        },
+        "candidate": {
+          "mean_squared_risk": 0.003835291470166451,
+          "mc_standard_error": 5.431332479279095e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.24616470852983358,
+          "mc_standard_error": 5.431332479279097e-05
+        },
+        "raw": {
+          "mean": -5.427151811479887e-05,
+          "mc_standard_error": 1.5456090103234206e-06
+        },
+        "neff": {
+          "mean": -5.1680522487356664e-05,
+          "mc_standard_error": 1.797967645203348e-06
+        }
+      },
+      "candidate_alpha_mean": 0.9847235523939165,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0038758627891540528,
+      "contrast_mean": 0.25388956298828125,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 128.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.25,
+        -0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "candidate": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.006299999999999972,
+        -0.006299999999999972,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.5,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean_squared_risk": 0.18000000000000002,
+          "mc_standard_error": 5.1928523754291917e-20
+        },
+        "candidate": {
+          "mean_squared_risk": 0.5,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.31999999999999995,
+          "mc_standard_error": 1.0385704750858383e-19
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0008304349479107964,
+        -0.0008304349479107964,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.3214828874054541,
+          "mc_standard_error": 0.002018307652068602
+        },
+        "neff": {
+          "mean_squared_risk": 0.15307182158922455,
+          "mc_standard_error": 0.00021751712008367518
+        },
+        "candidate": {
+          "mean_squared_risk": 0.3440166156968056,
+          "mc_standard_error": 0.0017020172442436272
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.09401661569680557,
+          "mc_standard_error": 0.0017020172442436272
+        },
+        "raw": {
+          "mean": 0.0225337282913515,
+          "mc_standard_error": 0.0007892227746160209
+        },
+        "neff": {
+          "mean": 0.190944794107581,
+          "mc_standard_error": 0.001532419922259553
+        }
+      },
+      "candidate_alpha_mean": 0.7614484331512702,
+      "candidate_alpha_one_fraction": 0.5054,
+      "variance_proxy_mean": 0.07259994370730212,
+      "contrast_mean": 0.571482887405454,
+      "variance_zero_fraction": 0.5054,
+      "neff_mean": 1.6285310988188055
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.00502910168479731,
+        0.00502910168479731,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.193765565165753,
+          "mc_standard_error": 0.0017022797719166791
+        },
+        "neff": {
+          "mean_squared_risk": 0.11998489372730824,
+          "mc_standard_error": 0.0003244697515066449
+        },
+        "candidate": {
+          "mean_squared_risk": 0.19988310836372022,
+          "mc_standard_error": 0.0015188148812484334
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.050116891636279776,
+          "mc_standard_error": 0.0015188148812484334
+        },
+        "raw": {
+          "mean": 0.006117543197967226,
+          "mc_standard_error": 0.0005178061296916103
+        },
+        "neff": {
+          "mean": 0.07989821463641199,
+          "mc_standard_error": 0.0012344926752517864
+        }
+      },
+      "candidate_alpha_mean": 0.7290751011195103,
+      "candidate_alpha_one_fraction": 0.1198,
+      "variance_proxy_mean": 0.08327503606654237,
+      "contrast_mean": 0.44376556516575294,
+      "variance_zero_fraction": 0.1198,
+      "neff_mean": 2.7267977190633115
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0014685373773315469,
+        -0.0014685373773308807,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.11302054542465137,
+          "mc_standard_error": 0.0011879351525942577
+        },
+        "neff": {
+          "mean_squared_risk": 0.0860849641037368,
+          "mc_standard_error": 0.00036594602903150314
+        },
+        "candidate": {
+          "mean_squared_risk": 0.1112918328143503,
+          "mc_standard_error": 0.0010560871158809373
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.1387081671856497,
+          "mc_standard_error": 0.0010560871158809368
+        },
+        "raw": {
+          "mean": -0.0017287126103010535,
+          "mc_standard_error": 0.00027775099710769866
+        },
+        "neff": {
+          "mean": 0.025206868710613502,
+          "mc_standard_error": 0.0007237481774893932
+        }
+      },
+      "candidate_alpha_mean": 0.7726950023227693,
+      "candidate_alpha_one_fraction": 0.0075,
+      "variance_proxy_mean": 0.06778298867909527,
+      "contrast_mean": 0.36302054542465134,
+      "variance_zero_fraction": 0.0075,
+      "neff_mean": 4.689622539276595
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0005248801256799718,
+        -0.0005248801256796387,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.0366011786089674,
+          "mc_standard_error": 0.00045947673623889375
+        },
+        "neff": {
+          "mean_squared_risk": 0.03426625896047151,
+          "mc_standard_error": 0.0002781860689295756
+        },
+        "candidate": {
+          "mean_squared_risk": 0.034711958392762414,
+          "mc_standard_error": 0.00041099324838774235
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.21528804160723758,
+          "mc_standard_error": 0.00041099324838774235
+        },
+        "raw": {
+          "mean": -0.0018892202162049912,
+          "mc_standard_error": 6.116724832132857e-05
+        },
+        "neff": {
+          "mean": 0.0004456994322909068,
+          "mc_standard_error": 0.0001472216762717103
+        }
+      },
+      "candidate_alpha_mean": 0.8931757856430168,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.02940109016917184,
+      "contrast_mean": 0.28660117860896744,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 14.939381602060745
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "independent_lognormal",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.0004171050746764049,
+        -0.0004171050746764049,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.25,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean_squared_risk": 0.010138482894306714,
+          "mc_standard_error": 0.00013923267386825033
+        },
+        "neff": {
+          "mean_squared_risk": 0.01006209623467224,
+          "mc_standard_error": 0.0001184158527883096
+        },
+        "candidate": {
+          "mean_squared_risk": 0.009845373036820388,
+          "mc_standard_error": 0.00013127083538017246
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.2401546269631796,
+          "mc_standard_error": 0.0001312708353801725
+        },
+        "raw": {
+          "mean": -0.0002931098574863278,
+          "mc_standard_error": 8.758829143101654e-06
+        },
+        "neff": {
+          "mean": -0.00021672319785185094,
+          "mc_standard_error": 1.49004862803088e-05
+        }
+      },
+      "candidate_alpha_mean": 0.9638137324101984,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.00937416568788861,
+      "contrast_mean": 0.2601384828943067,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 52.44284660020402
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 0,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        -0.08333333333333331,
+        -0.41666666666666663,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "neff": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "candidate": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        }
+      },
+      "candidate_alpha_mean": 0.0,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.0,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 0.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 1,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.16536666666666666,
+        -0.16536666666666666,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.554688888888889,
+          "mc_standard_error": 0.003333488745251958
+        },
+        "neff": {
+          "mean_squared_risk": 0.23538222222222221,
+          "mc_standard_error": 0.0006666977490503913
+        },
+        "candidate": {
+          "mean_squared_risk": 0.554688888888889,
+          "mc_standard_error": 0.003333488745251958
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.24913333333333343,
+          "mc_standard_error": 0.003333488745251958
+        },
+        "raw": {
+          "mean": 0.0,
+          "mc_standard_error": 0.0
+        },
+        "neff": {
+          "mean": 0.31930666666666674,
+          "mc_standard_error": 0.0026667909962015666
+        }
+      },
+      "candidate_alpha_mean": 1.0,
+      "candidate_alpha_one_fraction": 1.0,
+      "variance_proxy_mean": 0.0,
+      "contrast_mean": 0.75,
+      "variance_zero_fraction": 1.0,
+      "neff_mean": 1.0
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 2,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.07840000000002989,
+        -0.07839999999997171,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.2713333333333333,
+          "mc_standard_error": 0.0036126138974420267
+        },
+        "neff": {
+          "mean_squared_risk": 0.18239665741841724,
+          "mc_standard_error": 0.0008659141399444245
+        },
+        "candidate": {
+          "mean_squared_risk": 0.336088340192044,
+          "mc_standard_error": 0.003153444026978695
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": 0.030532784636488442,
+          "mc_standard_error": 0.003153444026978695
+        },
+        "raw": {
+          "mean": 0.06475500685871058,
+          "mc_standard_error": 0.0006384511496401373
+        },
+        "neff": {
+          "mean": 0.15369168277362674,
+          "mc_standard_error": 0.0023353433178864742
+        }
+      },
+      "candidate_alpha_mean": 0.6721777777777777,
+      "candidate_alpha_one_fraction": 0.4929,
+      "variance_proxy_mean": 0.10016790123456792,
+      "contrast_mean": 0.5246222222222221,
+      "variance_zero_fraction": 0.4929,
+      "neff_mean": 1.8985800000000004
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 4,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.041001904761926666,
+        -0.041001904761893804,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.12324727437641725,
+          "mc_standard_error": 0.0020955612898953826
+        },
+        "neff": {
+          "mean_squared_risk": 0.11924052809620721,
+          "mc_standard_error": 0.0008372524810957713
+        },
+        "candidate": {
+          "mean_squared_risk": 0.1373606969802888,
+          "mc_standard_error": 0.0020523649503639625
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.16819485857526673,
+          "mc_standard_error": 0.0020523649503639625
+        },
+        "raw": {
+          "mean": 0.014113422603871552,
+          "mc_standard_error": 0.0002114052322516487
+        },
+        "neff": {
+          "mean": 0.018120168884081578,
+          "mc_standard_error": 0.0012848606722791122
+        }
+      },
+      "candidate_alpha_mean": 0.7160528319934034,
+      "candidate_alpha_one_fraction": 0.1239,
+      "variance_proxy_mean": 0.08562613444727249,
+      "contrast_mean": 0.4014682267573696,
+      "variance_zero_fraction": 0.1239,
+      "neff_mean": 3.6845975824175823
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 8,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.018490678210687173,
+        -0.018490678210647205,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.056318482484646985,
+          "mc_standard_error": 0.0009374957660649609
+        },
+        "neff": {
+          "mean_squared_risk": 0.06507664040911926,
+          "mc_standard_error": 0.000574218527524198
+        },
+        "candidate": {
+          "mean_squared_risk": 0.05734347724816356,
+          "mc_standard_error": 0.0008297745937176826
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.248212078307392,
+          "mc_standard_error": 0.0008297745937176827
+        },
+        "raw": {
+          "mean": 0.0010249947635165625,
+          "mc_standard_error": 0.00018078426231963506
+        },
+        "neff": {
+          "mean": -0.007733163160955711,
+          "mc_standard_error": 0.0003526433709489026
+        }
+      },
+      "candidate_alpha_mean": 0.840354023610894,
+      "candidate_alpha_one_fraction": 0.0077,
+      "variance_proxy_mean": 0.04804616066326681,
+      "contrast_mean": 0.3495469192330836,
+      "variance_zero_fraction": 0.0077,
+      "neff_mean": 7.275914255376866
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 32,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.004964688942044271,
+        -0.004964688941990425,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.012471047255235686,
+          "mc_standard_error": 0.000185297139303188
+        },
+        "neff": {
+          "mean_squared_risk": 0.014548426950805726,
+          "mc_standard_error": 0.00016935954447125866
+        },
+        "candidate": {
+          "mean_squared_risk": 0.012749627498588227,
+          "mc_standard_error": 0.0001816977915131606
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.29280592805696726,
+          "mc_standard_error": 0.0001816977915131606
+        },
+        "raw": {
+          "mean": 0.0002785802433525413,
+          "mc_standard_error": 1.683413217367459e-05
+        },
+        "neff": {
+          "mean": -0.001798799452217497,
+          "mc_standard_error": 4.443038557712899e-05
+        }
+      },
+      "candidate_alpha_mean": 0.9584745888493349,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.012376991496288287,
+      "contrast_mean": 0.3147168101827783,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 28.86319646604026
+    },
+    {
+      "probability_case": "two_child_boundary",
+      "weight_regime": "child_correlated",
+      "event_count": 128,
+      "trials": 10000,
+      "event_probability": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "weighted_target": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0,
+        0.0
+      ],
+      "sample_probability_bias": [
+        0.001372903770927858,
+        -0.0013729037709323544,
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "coarse": {
+          "mean_squared_risk": 0.30555555555555547,
+          "mc_standard_error": 5.551392699700355e-19
+        },
+        "raw": {
+          "mean_squared_risk": 0.003120084049744677,
+          "mc_standard_error": 4.475880086946712e-05
+        },
+        "neff": {
+          "mean_squared_risk": 0.0032923554766445726,
+          "mc_standard_error": 4.394179719671938e-05
+        },
+        "candidate": {
+          "mean_squared_risk": 0.003147924245439728,
+          "mc_standard_error": 4.491789868717213e-05
+        }
+      },
+      "candidate_minus": {
+        "coarse": {
+          "mean": -0.3024076313101158,
+          "mc_standard_error": 4.491789868717214e-05
+        },
+        "raw": {
+          "mean": 2.784019569505125e-05,
+          "mc_standard_error": 2.412933534785148e-06
+        },
+        "neff": {
+          "mean": -0.00014443123120484494,
+          "mc_standard_error": 6.282953944203051e-06
+        }
+      },
+      "candidate_alpha_mean": 0.9897905000025581,
+      "candidate_alpha_one_fraction": 0.0,
+      "variance_proxy_mean": 0.0030906712865563122,
+      "contrast_mean": 0.30776037042468135,
+      "variance_zero_fraction": 0.0,
+      "neff_mean": 115.26114875395417
+    }
+  ],
+  "verdict": {
+    "single_event_uniform_sanity_passed": false,
+    "next_action": "stop before Geant4; diagnose finite-sample variance degeneracy",
+    "scope": "synthetic weighted-proportion risk, not muon imaging or 3D voxel validation"
+  }
+}
