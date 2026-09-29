@@ -1,0 +1,6 @@
+{
+  "primary_groups": 4,
+  "groups_passing": 3,
+  "mechanism_reproduced": false,
+  "scope": "one held-out geometry/two Geant4 streams; not E>S or 3D innovation"
+}

@@ -29,6 +29,7 @@ namespace
 //   plus_iron_thin / plus_al_thin：对应十字目标仅把 z 全厚从 100 mm 改为 50 mm。
 //   plus_iron_mid / plus_al_mid：冻结新数据验证用 75 mm 全厚，XY 足迹不变。
 //   three_block_iron：三块阶梯形铁目标；冻结 Q 门的新形状检验。
+//   h_offset：偏心H型铝目标；冻结E/ME边缘机制的新几何检验。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -104,6 +105,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //   左臂 x=[-60,-30], y=[-30,60] mm；z 均为 [-50,50] mm。
   // 仅改变目标形状，铝材料、厚度、探测器和源保持原设置。
   const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
+  if (scenario != nullptr && std::string(scenario) == "h_offset") {
+    // EDGE_HELDOUT_H_PROTOCOL.md在生成数据前固定：外轮廓110×110 mm，
+    // 中心(15,-10) mm，20 mm墙厚，z全厚100 mm，均为铝。
+    // 两柱与横梁只在面上接触，不能把重叠材料当作散射增强。
+    auto* pillar = new G4Box("HOffsetPillar", 1.*cm, 5.5*cm, 5.*cm);
+    auto* bridge = new G4Box("HOffsetBridge", 3.5*cm, 1.*cm, 5.*cm);
+    auto* pillarLV = new G4LogicalVolume(pillar, aluminium, "HOffsetPillar");
+    auto* bridgeLV = new G4LogicalVolume(bridge, aluminium, "HOffsetBridge");
+    new G4PVPlacement(nullptr, {-3.*cm, -1.*cm, 0}, pillarLV,
+                      "HOffsetLeft", worldLV, false, 0, checkOverlaps);
+    new G4PVPlacement(nullptr, {6.*cm, -1.*cm, 0}, pillarLV,
+                      "HOffsetRight", worldLV, false, 1, checkOverlaps);
+    new G4PVPlacement(nullptr, {1.5*cm, -1.*cm, 0}, bridgeLV,
+                      "HOffsetMiddle", worldLV, false, 0, checkOverlaps);
+    pillarLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    bridgeLV->SetVisAttributes(new G4VisAttributes(G4Colour(1., 0.15, 0.05, 0.75)));
+    G4cout << "[Target] frozen off-center H aluminium, center=(15,-10) mm" << G4endl;
+    return worldPV;
+  }
   if (scenario != nullptr && std::string(scenario) == "three_block_iron") {
     // 三块方柱互不重叠，每块 40×40×75 mm。XY 中心从左下到右上
     // 呈阶梯排列：这是新形状检验，不能拿它反调 Q 门参数。

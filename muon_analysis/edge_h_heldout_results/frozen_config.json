@@ -1,0 +1,18 @@
+{
+  "protocol": "B1/EDGE_HELDOUT_H_PROTOCOL.md",
+  "role": "saved before new Geant4 streams; not changed after observing outcomes",
+  "reconstruction_sha256": "fb640c76b44bdb713c6888fadf702eea07fc76e7f534ffa34ee85d7419b11983",
+  "target_scenario": "h_offset",
+  "generated_events_per_stream": 10000,
+  "geant4_seeds": {"seed_a": [930271, 487129], "seed_b": [592813, 764237]},
+  "source": "Ideal fixed 4 GeV parallel +z; unchanged",
+  "material": "G4_Al",
+  "depth_mm": 100,
+  "counts": [1000, 3000, 5000],
+  "sigmas_mm": [0, 0.05, 0.10, 0.30],
+  "grids": [16, 32],
+  "repeats": 5,
+  "primary": {"event_count": 5000, "grid": 32, "sigmas_mm": [0.05, 0.10]},
+  "mechanism_pass": "all four stream/sigma primary group means: E-ME fractional_iou > 0 and empty_mass_fraction < 0",
+  "claim_limit": "one new geometry, two Geant4 streams, overlapping postprocessing subsamples; does not imply E>S or 3D innovation"
+}

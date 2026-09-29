@@ -1,0 +1,7 @@
+# 冻结验证：偏心H型铝目标流A；配置见EDGE_HELDOUT_H_PROTOCOL.md。
+# 环境变量MUON_TARGET_SCENARIO=h_offset，输出独立CSV，不覆盖基线。
+/random/setSeeds 930271 487129
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

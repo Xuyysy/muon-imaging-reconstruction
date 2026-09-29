@@ -1,0 +1,6 @@
+# 冻结验证：偏心H型铝目标流B；与A不同的Geant4种子。
+/random/setSeeds 592813 764237
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
