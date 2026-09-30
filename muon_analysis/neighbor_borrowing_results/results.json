@@ -1,0 +1,2064 @@
+{
+  "config": {
+    "seed": 2026093002,
+    "trials": 10000,
+    "pairs": [
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        8,
+        32
+      ]
+    ],
+    "scenes": {
+      "uniform_shared": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ],
+      "feature_shared": [
+        [
+          0.7,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.7,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ],
+      "rotated_boundary": [
+        [
+          0.7,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.7,
+          0.1,
+          0.1
+        ]
+      ],
+      "disjoint_boundary": [
+        [
+          0.5,
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  },
+  "code_hashes": {
+    "neighbor_borrowing.py": "d27344dcb92e39d107cd682833c9359cdc0b467327706d7cf7d036e2ad91dc80",
+    "run_neighbor_borrowing.py": "e79b5d5fed944f006db78201e7766e8432749b7a5b7ce6efaa7e0d01eed0b0ff"
+  },
+  "results": [
+    {
+      "scene": "uniform_shared",
+      "n_a": 1,
+      "n_b": 8,
+      "total_events": 9,
+      "trials": 10000,
+      "truth_a": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "truth_b": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.030000000000000013,
+            "mc_standard_error": 1.0408861311938167e-19
+          },
+          "B": {
+            "mean_squared_risk": 0.0418,
+            "mc_standard_error": 0.0003151958674276749
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.03990769230769231,
+            "mc_standard_error": 0.00030569354000438816
+          },
+          "B": {
+            "mean_squared_risk": 0.03990769230769231,
+            "mc_standard_error": 0.00030569354000438816
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.027683950617283955,
+            "mc_standard_error": 0.00020678451391981518
+          },
+          "B": {
+            "mean_squared_risk": 0.03990769230769231,
+            "mc_standard_error": 0.00030569354000438816
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.025875823732373904,
+            "mc_standard_error": 0.00020426277683212928
+          },
+          "B": {
+            "mean_squared_risk": 0.04156096184672554,
+            "mc_standard_error": 0.00031404226138086644
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.03990769230769231,
+            "mc_standard_error": 0.00030569354000438816
+          },
+          "B": {
+            "mean_squared_risk": 0.03990769230769231,
+            "mc_standard_error": 0.00030569354000438816
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.00990769230769231,
+            "mc_standard_error": 0.0003056935400043882
+          },
+          "B": {
+            "mean": -0.0018923076923076934,
+            "mc_standard_error": 0.00015281079523891928
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.00231604938271605,
+            "mc_standard_error": 0.00020678451391981518
+          },
+          "B": {
+            "mean": -0.0018923076923076934,
+            "mc_standard_error": 0.00015281079523891928
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.004124176267626105,
+            "mc_standard_error": 0.00020426277683212928
+          },
+          "B": {
+            "mean": -0.00023903815327447112,
+            "mc_standard_error": 0.00012795068831847567
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.00990769230769231,
+            "mc_standard_error": 0.0003056935400043882
+          },
+          "B": {
+            "mean": -0.0018923076923076934,
+            "mc_standard_error": 0.00015281079523891928
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.040075739644970416,
+        "paired_minus_borrowed_a": {
+          "mean": 0.014199915912596521,
+          "mc_standard_error": 0.0003679768842709746
+        }
+      },
+      "mean_gate": 0.8922689261070899,
+      "mean_borrowed_pseudo_events_a": 3.5690757044283594,
+      "mean_borrowed_pseudo_events_b": 0.8922689261070899
+    },
+    {
+      "scene": "uniform_shared",
+      "n_a": 2,
+      "n_b": 8,
+      "total_events": 10,
+      "trials": 10000,
+      "truth_a": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "truth_b": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.041638888888888906,
+            "mc_standard_error": 0.00024041404411412855
+          },
+          "B": {
+            "mean_squared_risk": 0.04175,
+            "mc_standard_error": 0.0003218778418941129
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.03878775510204082,
+            "mc_standard_error": 0.00029947440933234036
+          },
+          "B": {
+            "mean_squared_risk": 0.03878775510204082,
+            "mc_standard_error": 0.00029947440933234036
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.030477000000000004,
+            "mc_standard_error": 0.00022638103263567322
+          },
+          "B": {
+            "mean_squared_risk": 0.03878775510204082,
+            "mc_standard_error": 0.00029947440933234036
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.037272220710687184,
+            "mc_standard_error": 0.0002692322076110514
+          },
+          "B": {
+            "mean_squared_risk": 0.03824353037966035,
+            "mc_standard_error": 0.00029800668070989
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.03878775510204082,
+            "mc_standard_error": 0.00029947440933234036
+          },
+          "B": {
+            "mean_squared_risk": 0.03878775510204082,
+            "mc_standard_error": 0.00029947440933234036
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.002851133786848073,
+            "mc_standard_error": 0.00035600429992105
+          },
+          "B": {
+            "mean": -0.002962244897959187,
+            "mc_standard_error": 0.00020129603068785116
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.01116188888888889,
+            "mc_standard_error": 0.0002600297893803437
+          },
+          "B": {
+            "mean": -0.002962244897959187,
+            "mc_standard_error": 0.00020129603068785116
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.004366668178201711,
+            "mc_standard_error": 0.00016780373333942267
+          },
+          "B": {
+            "mean": -0.003506469620339657,
+            "mc_standard_error": 0.0001349946528373246
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.002851133786848073,
+            "mc_standard_error": 0.00035600429992105
+          },
+          "B": {
+            "mean": -0.002962244897959187,
+            "mc_standard_error": 0.00020129603068785116
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.037994897959183684,
+        "paired_minus_borrowed_a": {
+          "mean": 0.0007226772484964946,
+          "mc_standard_error": 0.00037516640141720055
+        }
+      },
+      "mean_gate": 0.7707113712491835,
+      "mean_borrowed_pseudo_events_a": 3.082845484996734,
+      "mean_borrowed_pseudo_events_b": 1.541422742498367
+    },
+    {
+      "scene": "uniform_shared",
+      "n_a": 4,
+      "n_b": 16,
+      "total_events": 20,
+      "trials": 10000,
+      "truth_a": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "truth_b": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.046684375,
+            "mc_standard_error": 0.00033072995697605264
+          },
+          "B": {
+            "mean_squared_risk": 0.0297805,
+            "mc_standard_error": 0.00023595232426261984
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.025785069444444447,
+            "mc_standard_error": 0.00020654170921344942
+          },
+          "B": {
+            "mean_squared_risk": 0.025785069444444447,
+            "mc_standard_error": 0.00020654170921344942
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.025835850694444447,
+            "mc_standard_error": 0.0001946585444990899
+          },
+          "B": {
+            "mean_squared_risk": 0.025785069444444447,
+            "mc_standard_error": 0.00020654170921344942
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.0317782135302908,
+            "mc_standard_error": 0.0002833194273957849
+          },
+          "B": {
+            "mean_squared_risk": 0.026369563384314672,
+            "mc_standard_error": 0.0002113862037160852
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.025785069444444447,
+            "mc_standard_error": 0.00020654170921344942
+          },
+          "B": {
+            "mean_squared_risk": 0.025785069444444447,
+            "mc_standard_error": 0.00020654170921344942
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.020899305555555553,
+            "mc_standard_error": 0.0003559824605159213
+          },
+          "B": {
+            "mean": -0.003995430555555553,
+            "mc_standard_error": 0.00014466991108335518
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.020848524305555553,
+            "mc_standard_error": 0.000222441376018824
+          },
+          "B": {
+            "mean": -0.003995430555555553,
+            "mc_standard_error": 0.00014466991108335518
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.014906161469709201,
+            "mc_standard_error": 0.00012759917677507073
+          },
+          "B": {
+            "mean": -0.0034109366156853263,
+            "mc_standard_error": 0.00010584699906900503
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.020899305555555553,
+            "mc_standard_error": 0.0003559824605159213
+          },
+          "B": {
+            "mean": -0.003995430555555553,
+            "mc_standard_error": 0.00014466991108335518
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.026083333333333337,
+        "paired_minus_borrowed_a": {
+          "mean": -0.005694880196957463,
+          "mc_standard_error": 0.0003239137235657201
+        }
+      },
+      "mean_gate": 0.8320213354331619,
+      "mean_borrowed_pseudo_events_a": 3.3280853417326477,
+      "mean_borrowed_pseudo_events_b": 3.3280853417326477
+    },
+    {
+      "scene": "uniform_shared",
+      "n_a": 8,
+      "n_b": 32,
+      "total_events": 40,
+      "trials": 10000,
+      "truth_a": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "truth_b": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.041848611111111114,
+            "mc_standard_error": 0.00031761709695250014
+          },
+          "B": {
+            "mean_squared_risk": 0.018391975308641974,
+            "mc_standard_error": 0.00014850501678559343
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.015346487603305783,
+            "mc_standard_error": 0.00012398273595562055
+          },
+          "B": {
+            "mean_squared_risk": 0.015346487603305783,
+            "mc_standard_error": 0.00012398273595562055
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.024920751953125,
+            "mc_standard_error": 0.00019150947954102391
+          },
+          "B": {
+            "mean_squared_risk": 0.01579178125,
+            "mc_standard_error": 0.0001275146271674999
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.029519962406393346,
+            "mc_standard_error": 0.0002651566431515345
+          },
+          "B": {
+            "mean_squared_risk": 0.016488420646406952,
+            "mc_standard_error": 0.00013427911866910843
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.015346487603305783,
+            "mc_standard_error": 0.00012398273595562055
+          },
+          "B": {
+            "mean_squared_risk": 0.015346487603305783,
+            "mc_standard_error": 0.00012398273595562055
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.026502123507805328,
+            "mc_standard_error": 0.00031688891854495736
+          },
+          "B": {
+            "mean": -0.0030454877053361935,
+            "mc_standard_error": 8.990567429739978e-05
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.016927859157986117,
+            "mc_standard_error": 0.00015436961462624306
+          },
+          "B": {
+            "mean": -0.0026001940586419772,
+            "mc_standard_error": 5.215549054462245e-05
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.012328648704717766,
+            "mc_standard_error": 7.918974703490258e-05
+          },
+          "B": {
+            "mean": -0.001903554662235024,
+            "mc_standard_error": 3.6462200501636647e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.026502123507805328,
+            "mc_standard_error": 0.00031688891854495736
+          },
+          "B": {
+            "mean": -0.0030454877053361935,
+            "mc_standard_error": 8.990567429739978e-05
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.015436983471074379,
+        "paired_minus_borrowed_a": {
+          "mean": -0.014082978935318971,
+          "mc_standard_error": 0.00027264553925182843
+        }
+      },
+      "mean_gate": 0.8456670999635327,
+      "mean_borrowed_pseudo_events_a": 3.382668399854131,
+      "mean_borrowed_pseudo_events_b": 3.382668399854131
+    },
+    {
+      "scene": "feature_shared",
+      "n_a": 1,
+      "n_b": 8,
+      "total_events": 9,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.19154399999999996,
+            "mc_standard_error": 0.001097871640317693
+          },
+          "B": {
+            "mean_squared_risk": 0.056619444444444424,
+            "mc_standard_error": 0.0005913670564203715
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.05113704142011833,
+            "mc_standard_error": 0.0005441594146619969
+          },
+          "B": {
+            "mean_squared_risk": 0.05113704142011833,
+            "mc_standard_error": 0.0005441594146619969
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.07108246913580245,
+            "mc_standard_error": 0.0005764577151410322
+          },
+          "B": {
+            "mean_squared_risk": 0.05113704142011833,
+            "mc_standard_error": 0.0005441594146619969
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.08653307244395683,
+            "mc_standard_error": 0.0006910370532042126
+          },
+          "B": {
+            "mean_squared_risk": 0.049183364788632555,
+            "mc_standard_error": 0.0005427568041540139
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.05113704142011833,
+            "mc_standard_error": 0.0005441594146619969
+          },
+          "B": {
+            "mean_squared_risk": 0.05113704142011833,
+            "mc_standard_error": 0.0005441594146619969
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.14040695857988167,
+            "mc_standard_error": 0.001060137861434519
+          },
+          "B": {
+            "mean": -0.005482403024326097,
+            "mc_standard_error": 0.000211628680491511
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.12046153086419752,
+            "mc_standard_error": 0.0008813515802727549
+          },
+          "B": {
+            "mean": -0.005482403024326097,
+            "mc_standard_error": 0.000211628680491511
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.10501092755604313,
+            "mc_standard_error": 0.0006322562075258394
+          },
+          "B": {
+            "mean": -0.007436079655811878,
+            "mc_standard_error": 0.00018913766128233933
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.14040695857988167,
+            "mc_standard_error": 0.001060137861434519
+          },
+          "B": {
+            "mean": -0.005482403024326097,
+            "mc_standard_error": 0.000211628680491511
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.051755976331360934,
+        "paired_minus_borrowed_a": {
+          "mean": -0.034777096112595905,
+          "mc_standard_error": 0.0007624298606012536
+        }
+      },
+      "mean_gate": 0.8877631214684975,
+      "mean_borrowed_pseudo_events_a": 3.55105248587399,
+      "mean_borrowed_pseudo_events_b": 0.8877631214684975
+    },
+    {
+      "scene": "feature_shared",
+      "n_a": 2,
+      "n_b": 8,
+      "total_events": 10,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.14640777777777772,
+            "mc_standard_error": 0.0011054818291419408
+          },
+          "B": {
+            "mean_squared_risk": 0.05775249999999998,
+            "mc_standard_error": 0.0006006058460408248
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.0472042857142857,
+            "mc_standard_error": 0.0005006074215099513
+          },
+          "B": {
+            "mean_squared_risk": 0.0472042857142857,
+            "mc_standard_error": 0.0005006074215099513
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.06276549999999997,
+            "mc_standard_error": 0.0005531998318694593
+          },
+          "B": {
+            "mean_squared_risk": 0.0472042857142857,
+            "mc_standard_error": 0.0005006074215099513
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.07487303863571271,
+            "mc_standard_error": 0.0008447839735487893
+          },
+          "B": {
+            "mean_squared_risk": 0.053614646466475915,
+            "mc_standard_error": 0.0005598155341543095
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.0472042857142857,
+            "mc_standard_error": 0.0005006074215099513
+          },
+          "B": {
+            "mean_squared_risk": 0.0472042857142857,
+            "mc_standard_error": 0.0005006074215099513
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.09920349206349206,
+            "mc_standard_error": 0.0010143669608782115
+          },
+          "B": {
+            "mean": -0.010548214285714284,
+            "mc_standard_error": 0.00028957149205113033
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.08364227777777777,
+            "mc_standard_error": 0.0008083164371905189
+          },
+          "B": {
+            "mean": -0.010548214285714284,
+            "mc_standard_error": 0.00028957149205113033
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.07153473914206504,
+            "mc_standard_error": 0.0006263783582695984
+          },
+          "B": {
+            "mean": -0.004137853533524059,
+            "mc_standard_error": 0.00013427955894795336
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.09920349206349206,
+            "mc_standard_error": 0.0010143669608782115
+          },
+          "B": {
+            "mean": -0.010548214285714284,
+            "mc_standard_error": 0.00028957149205113033
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.04668836734693876,
+        "paired_minus_borrowed_a": {
+          "mean": -0.02818467128877395,
+          "mc_standard_error": 0.0008267496176886781
+        }
+      },
+      "mean_gate": 0.7266998315159438,
+      "mean_borrowed_pseudo_events_a": 2.906799326063775,
+      "mean_borrowed_pseudo_events_b": 1.4533996630318875
+    },
+    {
+      "scene": "feature_shared",
+      "n_a": 4,
+      "n_b": 16,
+      "total_events": 20,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.09681062499999997,
+            "mc_standard_error": 0.000875126730974128
+          },
+          "B": {
+            "mean_squared_risk": 0.029479499999999995,
+            "mc_standard_error": 0.00031581898634853127
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.02370416666666666,
+            "mc_standard_error": 0.00025590752118362446
+          },
+          "B": {
+            "mean_squared_risk": 0.02370416666666666,
+            "mc_standard_error": 0.00025590752118362446
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.04605921874999998,
+            "mc_standard_error": 0.00042933706289303834
+          },
+          "B": {
+            "mean_squared_risk": 0.02370416666666666,
+            "mc_standard_error": 0.00025590752118362446
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.05220670946827936,
+            "mc_standard_error": 0.0005833916573651575
+          },
+          "B": {
+            "mean_squared_risk": 0.02593371612951945,
+            "mc_standard_error": 0.000277263444911464
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.02370416666666666,
+            "mc_standard_error": 0.00025590752118362446
+          },
+          "B": {
+            "mean_squared_risk": 0.02370416666666666,
+            "mc_standard_error": 0.00025590752118362446
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.07310645833333332,
+            "mc_standard_error": 0.0008134876842606504
+          },
+          "B": {
+            "mean": -0.005775333333333329,
+            "mc_standard_error": 0.0001586043286562256
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.05075140624999999,
+            "mc_standard_error": 0.0005214645482873757
+          },
+          "B": {
+            "mean": -0.005775333333333329,
+            "mc_standard_error": 0.0001586043286562256
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.04460391553172061,
+            "mc_standard_error": 0.00038169740776024995
+          },
+          "B": {
+            "mean": -0.0035457838704805356,
+            "mc_standard_error": 0.0001023914624558225
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.07310645833333332,
+            "mc_standard_error": 0.0008134876842606504
+          },
+          "B": {
+            "mean": -0.005775333333333329,
+            "mc_standard_error": 0.0001586043286562256
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.024087638888888884,
+        "paired_minus_borrowed_a": {
+          "mean": -0.028119070579390483,
+          "mc_standard_error": 0.0005526300214941291
+        }
+      },
+      "mean_gate": 0.7735446597047416,
+      "mean_borrowed_pseudo_events_a": 3.0941786388189665,
+      "mean_borrowed_pseudo_events_b": 3.0941786388189665
+    },
+    {
+      "scene": "feature_shared",
+      "n_a": 8,
+      "n_b": 32,
+      "total_events": 40,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.05589638888888887,
+            "mc_standard_error": 0.0005842706533871572
+          },
+          "B": {
+            "mean_squared_risk": 0.01514629629629629,
+            "mc_standard_error": 0.00016081003366425278
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.012038099173553715,
+            "mc_standard_error": 0.00012592362114172639
+          },
+          "B": {
+            "mean_squared_risk": 0.012038099173553715,
+            "mc_standard_error": 0.00012592362114172639
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.03234517578124999,
+            "mc_standard_error": 0.00033853572652892973
+          },
+          "B": {
+            "mean_squared_risk": 0.012816406249999994,
+            "mc_standard_error": 0.00013492801787502975
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.036092388256960886,
+            "mc_standard_error": 0.00043113447997605403
+          },
+          "B": {
+            "mean_squared_risk": 0.013585573883256387,
+            "mc_standard_error": 0.00014599184239208525
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.012038099173553715,
+            "mc_standard_error": 0.00012592362114172639
+          },
+          "B": {
+            "mean_squared_risk": 0.012038099173553715,
+            "mc_standard_error": 0.00012592362114172639
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": -0.04385828971533516,
+            "mc_standard_error": 0.0005531885971602205
+          },
+          "B": {
+            "mean": -0.0031081971227425753,
+            "mc_standard_error": 8.714530884250216e-05
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": -0.02355121310763888,
+            "mc_standard_error": 0.00026690848699226894
+          },
+          "B": {
+            "mean": -0.002329890046296294,
+            "mc_standard_error": 4.98407994213297e-05
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": -0.019804000631927988,
+            "mc_standard_error": 0.00018425639034317049
+          },
+          "B": {
+            "mean": -0.0015607224130399023,
+            "mc_standard_error": 3.1090214806506365e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": -0.04385828971533516,
+            "mc_standard_error": 0.0005531885971602205
+          },
+          "B": {
+            "mean": -0.0031081971227425753,
+            "mc_standard_error": 8.714530884250216e-05
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.012141942148760325,
+        "paired_minus_borrowed_a": {
+          "mean": -0.02395044610820056,
+          "mc_standard_error": 0.0004066639362538917
+        }
+      },
+      "mean_gate": 0.833199696763909,
+      "mean_borrowed_pseudo_events_a": 3.332798787055636,
+      "mean_borrowed_pseudo_events_b": 3.332798787055636
+    },
+    {
+      "scene": "rotated_boundary",
+      "n_a": 1,
+      "n_b": 8,
+      "total_events": 9,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.1,
+        0.7,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.19188,
+            "mc_standard_error": 0.0010993486329375565
+          },
+          "B": {
+            "mean_squared_risk": 0.057090833333333306,
+            "mc_standard_error": 0.0005944027064002546
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.46014816568047334,
+            "mc_standard_error": 0.0013289610280696551
+          },
+          "B": {
+            "mean_squared_risk": 0.07289893491124258,
+            "mc_standard_error": 0.0006422496747229129
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.3554951851851851,
+            "mc_standard_error": 0.0010420202396714128
+          },
+          "B": {
+            "mean_squared_risk": 0.07289893491124258,
+            "mc_standard_error": 0.0006422496747229129
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.29316868452292594,
+            "mc_standard_error": 0.0010509404766000853
+          },
+          "B": {
+            "mean_squared_risk": 0.0669198726625301,
+            "mc_standard_error": 0.0006545199706861396
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.19188,
+            "mc_standard_error": 0.0010993486329375565
+          },
+          "B": {
+            "mean_squared_risk": 0.057090833333333306,
+            "mc_standard_error": 0.0005944027064002546
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.26826816568047335,
+            "mc_standard_error": 0.0013615405215980274
+          },
+          "B": {
+            "mean": 0.01580810157790927,
+            "mc_standard_error": 0.00015891309540363305
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.16361518518518514,
+            "mc_standard_error": 0.0008658834870851384
+          },
+          "B": {
+            "mean": 0.01580810157790927,
+            "mc_standard_error": 0.00015891309540363305
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.10128868452292594,
+            "mc_standard_error": 0.0005325190272152925
+          },
+          "B": {
+            "mean": 0.009829039329196782,
+            "mc_standard_error": 0.00014991289180983687
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.05188426035502958,
+        "paired_minus_borrowed_a": {
+          "mean": -0.24128442416789636,
+          "mc_standard_error": 0.0010441179173520847
+        }
+      },
+      "mean_gate": 0.6601268242449632,
+      "mean_borrowed_pseudo_events_a": 2.6405072969798526,
+      "mean_borrowed_pseudo_events_b": 0.6601268242449632
+    },
+    {
+      "scene": "rotated_boundary",
+      "n_a": 2,
+      "n_b": 8,
+      "total_events": 10,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.1,
+        0.7,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.14552777777777773,
+            "mc_standard_error": 0.0010983892025727842
+          },
+          "B": {
+            "mean_squared_risk": 0.05749694444444442,
+            "mc_standard_error": 0.0005953862865950422
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.3973534693877551,
+            "mc_standard_error": 0.0012331539633559031
+          },
+          "B": {
+            "mean_squared_risk": 0.09163632653061222,
+            "mc_standard_error": 0.0006766120108188423
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.2912165,
+            "mc_standard_error": 0.0010298110573577978
+          },
+          "B": {
+            "mean_squared_risk": 0.09163632653061222,
+            "mc_standard_error": 0.0006766120108188423
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.19625026433018922,
+            "mc_standard_error": 0.0015153687477976788
+          },
+          "B": {
+            "mean_squared_risk": 0.06585429661967057,
+            "mc_standard_error": 0.0006423043807649574
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.14552777777777773,
+            "mc_standard_error": 0.0010983892025727842
+          },
+          "B": {
+            "mean_squared_risk": 0.05749694444444442,
+            "mc_standard_error": 0.0005953862865950422
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.2518256916099773,
+            "mc_standard_error": 0.0011661831427983618
+          },
+          "B": {
+            "mean": 0.03413938208616779,
+            "mc_standard_error": 0.00025118064158939087
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.1456887222222222,
+            "mc_standard_error": 0.0007027374447196233
+          },
+          "B": {
+            "mean": 0.03413938208616779,
+            "mc_standard_error": 0.00025118064158939087
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.050722486552411475,
+            "mc_standard_error": 0.0006843658068312892
+          },
+          "B": {
+            "mean": 0.008357352175226148,
+            "mc_standard_error": 0.0001585500048830354
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.04651653061224489,
+        "paired_minus_borrowed_a": {
+          "mean": -0.14973373371794438,
+          "mc_standard_error": 0.0014075508931286709
+        }
+      },
+      "mean_gate": 0.4089073762775726,
+      "mean_borrowed_pseudo_events_a": 1.6356295051102905,
+      "mean_borrowed_pseudo_events_b": 0.8178147525551452
+    },
+    {
+      "scene": "rotated_boundary",
+      "n_a": 4,
+      "n_b": 16,
+      "total_events": 20,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.1,
+        0.7,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.09725062499999997,
+            "mc_standard_error": 0.0008849917861947085
+          },
+          "B": {
+            "mean_squared_risk": 0.029974499999999994,
+            "mc_standard_error": 0.00032261756490358423
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.4249136805555555,
+            "mc_standard_error": 0.0010954610021265394
+          },
+          "B": {
+            "mean_squared_risk": 0.06404368055555555,
+            "mc_standard_error": 0.00044924887796102806
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.2069138368055555,
+            "mc_standard_error": 0.0008742213206468246
+          },
+          "B": {
+            "mean_squared_risk": 0.06404368055555555,
+            "mc_standard_error": 0.00044924887796102806
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.12469345305065926,
+            "mc_standard_error": 0.0010870118636046966
+          },
+          "B": {
+            "mean_squared_risk": 0.0356015661237108,
+            "mc_standard_error": 0.0003665178411466307
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.09725062499999997,
+            "mc_standard_error": 0.0008849917861947085
+          },
+          "B": {
+            "mean_squared_risk": 0.029974499999999994,
+            "mc_standard_error": 0.00032261756490358423
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.3276630555555555,
+            "mc_standard_error": 0.0010505595329530822
+          },
+          "B": {
+            "mean": 0.03406918055555555,
+            "mc_standard_error": 0.00022484090794561287
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.10966321180555554,
+            "mc_standard_error": 0.0003865686919489585
+          },
+          "B": {
+            "mean": 0.03406918055555555,
+            "mc_standard_error": 0.00022484090794561287
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.027442828050659295,
+            "mc_standard_error": 0.00032030345773342866
+          },
+          "B": {
+            "mean": 0.005627066123710809,
+            "mc_standard_error": 8.425574602738238e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.02393972222222222,
+        "paired_minus_borrowed_a": {
+          "mean": -0.10075373082843705,
+          "mc_standard_error": 0.0010196514705934389
+        }
+      },
+      "mean_gate": 0.27599775199579996,
+      "mean_borrowed_pseudo_events_a": 1.1039910079831998,
+      "mean_borrowed_pseudo_events_b": 1.1039910079831998
+    },
+    {
+      "scene": "rotated_boundary",
+      "n_a": 8,
+      "n_b": 32,
+      "total_events": 40,
+      "trials": 10000,
+      "truth_a": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "truth_b": [
+        0.1,
+        0.7,
+        0.1,
+        0.1
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.057044166666666646,
+            "mc_standard_error": 0.0005879077686261021
+          },
+          "B": {
+            "mean_squared_risk": 0.014908611111111105,
+            "mc_standard_error": 0.0001595789663182724
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.4409726446280991,
+            "mc_standard_error": 0.000870461275349736
+          },
+          "B": {
+            "mean_squared_risk": 0.04761264462809916,
+            "mc_standard_error": 0.00029414105156264547
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.12311181396484372,
+            "mc_standard_error": 0.00067137992136469
+          },
+          "B": {
+            "mean_squared_risk": 0.027041593749999992,
+            "mc_standard_error": 0.00022690712861528882
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.0650521945328344,
+            "mc_standard_error": 0.0006588978884918704
+          },
+          "B": {
+            "mean_squared_risk": 0.01591026909651318,
+            "mc_standard_error": 0.00017059584378082912
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.057044166666666646,
+            "mc_standard_error": 0.0005879077686261021
+          },
+          "B": {
+            "mean_squared_risk": 0.014908611111111105,
+            "mc_standard_error": 0.0001595789663182724
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.3839284779614324,
+            "mc_standard_error": 0.0008169566769788695
+          },
+          "B": {
+            "mean": 0.03270403351698805,
+            "mc_standard_error": 0.00019174494179358473
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.06606764729817707,
+            "mc_standard_error": 0.0002282052779966963
+          },
+          "B": {
+            "mean": 0.012132982638888887,
+            "mc_standard_error": 0.0001044534164552058
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.008008027866167744,
+            "mc_standard_error": 0.00010368219911302407
+          },
+          "B": {
+            "mean": 0.0010016579854020785,
+            "mc_standard_error": 1.83920033060613e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.012247871900826442,
+        "paired_minus_borrowed_a": {
+          "mean": -0.05280432263200795,
+          "mc_standard_error": 0.0006261971162796215
+        }
+      },
+      "mean_gate": 0.1296092813390664,
+      "mean_borrowed_pseudo_events_a": 0.5184371253562656,
+      "mean_borrowed_pseudo_events_b": 0.5184371253562656
+    },
+    {
+      "scene": "disjoint_boundary",
+      "n_a": 1,
+      "n_b": 8,
+      "total_events": 9,
+      "trials": 10000,
+      "truth_a": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "truth_b": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.18000000000000002,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean_squared_risk": 0.05555416666666666,
+            "mc_standard_error": 0.00036868668766130167
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.6183420118343196,
+            "mc_standard_error": 0.0003141472368238309
+          },
+          "B": {
+            "mean_squared_risk": 0.07988047337278106,
+            "mc_standard_error": 0.0003141472368238309
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.4629623456790124,
+            "mc_standard_error": 0.0001638607500716896
+          },
+          "B": {
+            "mean_squared_risk": 0.07988047337278106,
+            "mc_standard_error": 0.0003141472368238309
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.3472280281125313,
+            "mc_standard_error": 3.1238095802037806e-05
+          },
+          "B": {
+            "mean_squared_risk": 0.06711253042107257,
+            "mc_standard_error": 0.00033448979812797494
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.18000000000000002,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean_squared_risk": 0.05555416666666666,
+            "mc_standard_error": 0.00036868668766130167
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.4383420118343196,
+            "mc_standard_error": 0.0003141472368238309
+          },
+          "B": {
+            "mean": 0.024326306706114395,
+            "mc_standard_error": 5.45394508374707e-05
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.2829623456790124,
+            "mc_standard_error": 0.0001638607500716896
+          },
+          "B": {
+            "mean": 0.024326306706114395,
+            "mc_standard_error": 5.45394508374707e-05
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.16722802811253126,
+            "mc_standard_error": 3.1238095802037806e-05
+          },
+          "B": {
+            "mean": 0.011558363754405911,
+            "mc_standard_error": 3.438458739045199e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.05025325443786983,
+        "paired_minus_borrowed_a": {
+          "mean": -0.2969747736746615,
+          "mc_standard_error": 0.0003582442004341622
+        }
+      },
+      "mean_gate": 0.5216872994889108,
+      "mean_borrowed_pseudo_events_a": 2.086749197955643,
+      "mean_borrowed_pseudo_events_b": 0.5216872994889108
+    },
+    {
+      "scene": "disjoint_boundary",
+      "n_a": 2,
+      "n_b": 8,
+      "total_events": 10,
+      "trials": 10000,
+      "truth_a": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "truth_b": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.13930000000000003,
+            "mc_standard_error": 0.0002777612422987861
+          },
+          "B": {
+            "mean_squared_risk": 0.05581111111111111,
+            "mc_standard_error": 0.00037588357529898974
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.5359775510204082,
+            "mc_standard_error": 0.00028057495872950823
+          },
+          "B": {
+            "mean_squared_risk": 0.1074061224489796,
+            "mc_standard_error": 0.0002805749587295082
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.3802400000000001,
+            "mc_standard_error": 0.00016784235790083104
+          },
+          "B": {
+            "mean_squared_risk": 0.1074061224489796,
+            "mc_standard_error": 0.0002805749587295082
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.21804016853446123,
+            "mc_standard_error": 0.0004325915713117777
+          },
+          "B": {
+            "mean_squared_risk": 0.06814070351589571,
+            "mc_standard_error": 0.0003562168732714477
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.13930000000000003,
+            "mc_standard_error": 0.0002777612422987861
+          },
+          "B": {
+            "mean_squared_risk": 0.05581111111111111,
+            "mc_standard_error": 0.00037588357529898974
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.39667755102040814,
+            "mc_standard_error": 0.0003582161495832818
+          },
+          "B": {
+            "mean": 0.05159501133786848,
+            "mc_standard_error": 0.00011224908114845714
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.24094000000000002,
+            "mc_standard_error": 0.0002239616128459317
+          },
+          "B": {
+            "mean": 0.05159501133786848,
+            "mc_standard_error": 0.00011224908114845714
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.0787401685344612,
+            "mc_standard_error": 0.0007088611668161732
+          },
+          "B": {
+            "mean": 0.012329592404784597,
+            "mc_standard_error": 0.00011969239493934603
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.04543775510204082,
+        "paired_minus_borrowed_a": {
+          "mean": -0.17260241343242036,
+          "mc_standard_error": 0.0005953348865495875
+        }
+      },
+      "mean_gate": 0.2828489288422405,
+      "mean_borrowed_pseudo_events_a": 1.131395715368962,
+      "mean_borrowed_pseudo_events_b": 0.565697857684481
+    },
+    {
+      "scene": "disjoint_boundary",
+      "n_a": 4,
+      "n_b": 16,
+      "total_events": 20,
+      "trials": 10000,
+      "truth_a": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "truth_b": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.094034375,
+            "mc_standard_error": 0.0003838751942069326
+          },
+          "B": {
+            "mean_squared_risk": 0.029980500000000007,
+            "mc_standard_error": 0.0002760938875789826
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.5798791666666667,
+            "mc_standard_error": 0.00019663197791582927
+          },
+          "B": {
+            "mean_squared_risk": 0.07987916666666667,
+            "mc_standard_error": 0.00019663197791582932
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.2674841145833333,
+            "mc_standard_error": 0.00017745285243170024
+          },
+          "B": {
+            "mean_squared_risk": 0.07987916666666667,
+            "mc_standard_error": 0.00019663197791582932
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.11930101972025368,
+            "mc_standard_error": 0.00027518190822502497
+          },
+          "B": {
+            "mean_squared_risk": 0.03466986437341413,
+            "mc_standard_error": 0.0002610566336948304
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.094034375,
+            "mc_standard_error": 0.0003838751942069326
+          },
+          "B": {
+            "mean_squared_risk": 0.029980500000000007,
+            "mc_standard_error": 0.0002760938875789826
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.4858447916666667,
+            "mc_standard_error": 0.0003905428432689954
+          },
+          "B": {
+            "mean": 0.049898666666666654,
+            "mc_standard_error": 9.433639475326416e-05
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.17344973958333335,
+            "mc_standard_error": 0.00021834467140566423
+          },
+          "B": {
+            "mean": 0.049898666666666654,
+            "mc_standard_error": 9.433639475326416e-05
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.025266644720253674,
+            "mc_standard_error": 0.00011553810613296342
+          },
+          "B": {
+            "mean": 0.004689364373414128,
+            "mc_standard_error": 2.4692326812704906e-05
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.02439861111111111,
+        "paired_minus_borrowed_a": {
+          "mean": -0.09490240860914258,
+          "mc_standard_error": 0.0003323975318483162
+        }
+      },
+      "mean_gate": 0.14196481226296168,
+      "mean_borrowed_pseudo_events_a": 0.5678592490518467,
+      "mean_borrowed_pseudo_events_b": 0.5678592490518467
+    },
+    {
+      "scene": "disjoint_boundary",
+      "n_a": 8,
+      "n_b": 32,
+      "total_events": 40,
+      "trials": 10000,
+      "truth_a": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "truth_b": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "methods": {
+        "independent": {
+          "A": {
+            "mean_squared_risk": 0.05533472222222223,
+            "mc_standard_error": 0.0003671541899023046
+          },
+          "B": {
+            "mean_squared_risk": 0.015620061728395064,
+            "mc_standard_error": 0.00017532730109797275
+          }
+        },
+        "pooled": {
+          "A": {
+            "mean_squared_risk": 0.6075474173553719,
+            "mc_standard_error": 0.00012071206460333107
+          },
+          "B": {
+            "mean_squared_risk": 0.062092871900826435,
+            "mc_standard_error": 0.0001207120646033311
+          }
+        },
+        "limited": {
+          "A": {
+            "mean_squared_risk": 0.1571172119140625,
+            "mc_standard_error": 0.00020709814616629745
+          },
+          "B": {
+            "mean_squared_risk": 0.03327228125,
+            "mc_standard_error": 0.00014232001336696404
+          }
+        },
+        "gated": {
+          "A": {
+            "mean_squared_risk": 0.061436769234172905,
+            "mc_standard_error": 0.00034524838949275786
+          },
+          "B": {
+            "mean_squared_risk": 0.016341365571733466,
+            "mc_standard_error": 0.00017246327808636639
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean_squared_risk": 0.05533472222222223,
+            "mc_standard_error": 0.0003671541899023046
+          },
+          "B": {
+            "mean_squared_risk": 0.015620061728395064,
+            "mc_standard_error": 0.00017532730109797275
+          }
+        }
+      },
+      "paired_minus_independent": {
+        "pooled": {
+          "A": {
+            "mean": 0.5522126951331496,
+            "mc_standard_error": 0.0003586679458297567
+          },
+          "B": {
+            "mean": 0.046472810172431385,
+            "mc_standard_error": 6.387632836013757e-05
+          }
+        },
+        "limited": {
+          "A": {
+            "mean": 0.10178248969184028,
+            "mc_standard_error": 0.00016111886619863316
+          },
+          "B": {
+            "mean": 0.017652219521604937,
+            "mc_standard_error": 3.425810338948904e-05
+          }
+        },
+        "gated": {
+          "A": {
+            "mean": 0.006102047011950679,
+            "mc_standard_error": 2.296835968810838e-05
+          },
+          "B": {
+            "mean": 0.0007213038433384011,
+            "mc_standard_error": 3.2646147093519087e-06
+          }
+        },
+        "scenario_oracle": {
+          "A": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          },
+          "B": {
+            "mean": 0.0,
+            "mc_standard_error": 0.0
+          }
+        }
+      },
+      "own_a_full_budget": {
+        "mean_squared_risk": 0.012281921487603304,
+        "paired_minus_borrowed_a": {
+          "mean": -0.0491548477465696,
+          "mc_standard_error": 0.00034795880156223097
+        }
+      },
+      "mean_gate": 0.07368398558583425,
+      "mean_borrowed_pseudo_events_a": 0.294735942343337,
+      "mean_borrowed_pseudo_events_b": 0.294735942343337
+    }
+  ],
+  "verdict": {
+    "shared_feature_sparse_a_passing": 2,
+    "shared_feature_required": 2,
+    "disjoint_boundary_cells_passing": 0,
+    "disjoint_boundary_required": 8,
+    "development_screening_passed": false,
+    "scope": "synthetic fixed-total-budget development, not independent Geant4 or 3D imaging"
+  }
+}
