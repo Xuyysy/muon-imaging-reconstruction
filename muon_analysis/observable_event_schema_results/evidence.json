@@ -1,0 +1,156 @@
+{
+  "status": "retrospective_schema_audit_only",
+  "plan": "B1/OBSERVABLE_EVENT_SCHEMA_AUDIT_PLAN.md",
+  "header_consistency_checked_files": 26,
+  "header_consistency": "all_match_cpp_output_header",
+  "columns": [
+    "event",
+    "up1_x_mm",
+    "up1_y_mm",
+    "up1_z_mm",
+    "up2_x_mm",
+    "up2_y_mm",
+    "up2_z_mm",
+    "down1_x_mm",
+    "down1_y_mm",
+    "down1_z_mm",
+    "down2_x_mm",
+    "down2_y_mm",
+    "down2_z_mm",
+    "poca_x_mm",
+    "poca_y_mm",
+    "poca_z_mm",
+    "theta_x_mrad",
+    "theta_y_mrad",
+    "theta_mrad"
+  ],
+  "field_groups": {
+    "event_identifier": [
+      "event"
+    ],
+    "recorded_plane_entry_positions": [
+      "up1_x_mm",
+      "up1_y_mm",
+      "up1_z_mm",
+      "up2_x_mm",
+      "up2_y_mm",
+      "up2_z_mm",
+      "down1_x_mm",
+      "down1_y_mm",
+      "down1_z_mm",
+      "down2_x_mm",
+      "down2_y_mm",
+      "down2_z_mm"
+    ],
+    "deterministic_derived_poca": [
+      "poca_x_mm",
+      "poca_y_mm",
+      "poca_z_mm"
+    ],
+    "deterministic_derived_angles": [
+      "theta_x_mrad",
+      "theta_y_mrad",
+      "theta_mrad"
+    ],
+    "independently_measured_momentum_or_energy": [],
+    "redundant_same_side_hits_or_fit_residual": [],
+    "per_event_resolution_or_uncertainty": [],
+    "per_plane_deposited_energy_or_time": []
+  },
+  "development_files": [
+    {
+      "file": "muon_tracks.csv",
+      "sha256": "eaa5212028a54b2c3317999461cecfafe96bb1785e22eac18e709ff8ddad0d21",
+      "complete_tracks": 9975,
+      "missing_or_nonfinite_cells": 0,
+      "duplicate_event_ids": 0,
+      "z_values_mm": {
+        "up1_z_mm": [
+          -405.0
+        ],
+        "up2_z_mm": [
+          -305.0
+        ],
+        "down1_z_mm": [
+          295.0
+        ],
+        "down2_z_mm": [
+          395.0
+        ]
+      },
+      "angle_max_abs_difference_mrad": {
+        "theta_x_mrad": 0.017156967557448832,
+        "theta_y_mrad": 0.01851338181914186,
+        "theta_mrad": 0.01749833204178808
+      },
+      "angle_p99_abs_difference_mrad": {
+        "theta_x_mrad": 0.012185597570073616,
+        "theta_y_mrad": 0.01216877948816327,
+        "theta_mrad": 0.011712767162292708
+      }
+    },
+    {
+      "file": "muon_tracks_l_shape.csv",
+      "sha256": "850662f282a38ccd48e5689bc91324f197bf75101ab182f05baa4d61ad8c933d",
+      "complete_tracks": 9976,
+      "missing_or_nonfinite_cells": 0,
+      "duplicate_event_ids": 0,
+      "z_values_mm": {
+        "up1_z_mm": [
+          -405.0
+        ],
+        "up2_z_mm": [
+          -305.0
+        ],
+        "down1_z_mm": [
+          295.0
+        ],
+        "down2_z_mm": [
+          395.0
+        ]
+      },
+      "angle_max_abs_difference_mrad": {
+        "theta_x_mrad": 0.018072362282279375,
+        "theta_y_mrad": 0.016700044046262796,
+        "theta_mrad": 0.016582289040140807
+      },
+      "angle_p99_abs_difference_mrad": {
+        "theta_x_mrad": 0.011966209317092379,
+        "theta_y_mrad": 0.011728173765640337,
+        "theta_mrad": 0.011404106506588851
+      }
+    },
+    {
+      "file": "muon_tracks_double_block.csv",
+      "sha256": "0bb1024165b7a8f989c1ce3f4a9a0716406f9fdd97958c9d4189cb2d3f525bdf",
+      "complete_tracks": 9975,
+      "missing_or_nonfinite_cells": 0,
+      "duplicate_event_ids": 0,
+      "z_values_mm": {
+        "up1_z_mm": [
+          -405.0
+        ],
+        "up2_z_mm": [
+          -305.0
+        ],
+        "down1_z_mm": [
+          295.0
+        ],
+        "down2_z_mm": [
+          395.0
+        ]
+      },
+      "angle_max_abs_difference_mrad": {
+        "theta_x_mrad": 0.018408164589333142,
+        "theta_y_mrad": 0.016829995391723696,
+        "theta_mrad": 0.018153022081680348
+      },
+      "angle_p99_abs_difference_mrad": {
+        "theta_x_mrad": 0.01241913455569432,
+        "theta_y_mrad": 0.01226306369242606,
+        "theta_mrad": 0.011720077141432356
+      }
+    }
+  ],
+  "interpretation": "Two recorded positions per side define the line exactly. Angle and PoCA columns are computed from those hits, not additional measurements. This does not rule out cross-event spatial evidence."
+}
