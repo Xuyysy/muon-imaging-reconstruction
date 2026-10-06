@@ -1,0 +1,7 @@
+# 同一源/装置的中心 U 目标对照 A；种子与空场 A 相同。
+# 改变几何会改变随机数消耗，不保证逐事件配对。
+/random/setSeeds 612347 895013
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

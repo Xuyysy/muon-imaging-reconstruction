@@ -1,0 +1,7 @@
+# 空场负对照 A；方案见 EMPTY_TARGET_CONTROL_PROTOCOL.md。
+# 运行时需设置 MUON_TARGET_SCENARIO=empty、独立的 MUON_TRACK_OUTPUT。
+/random/setSeeds 612347 895013
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

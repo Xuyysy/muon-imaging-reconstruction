@@ -30,6 +30,7 @@ namespace
 //   plus_iron_mid / plus_al_mid：冻结新数据验证用 75 mm 全厚，XY 足迹不变。
 //   three_block_iron：三块阶梯形铁目标；冻结 Q 门的新形状检验。
 //   h_offset：偏心H型铝目标；冻结E/ME边缘机制的新几何检验。
+//   empty：保留四层探测器与空气世界，但不放目标物；空间共同占用负对照。
 // 这样不需要反复改源代码、重新保存两套几何文件。
 struct TargetConfiguration
 {
@@ -105,6 +106,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //   左臂 x=[-60,-30], y=[-30,60] mm；z 均为 [-50,50] mm。
   // 仅改变目标形状，铝材料、厚度、探测器和源保持原设置。
   const char* scenario = std::getenv("MUON_TARGET_SCENARIO");
+  if (scenario != nullptr && std::string(scenario) == "empty") {
+    // 只移走目标，不改变探测器/源/空气；仍可能有空气及探测器散射。
+    G4cout << "[Target] empty control: no target material" << G4endl;
+    return worldPV;
+  }
   if (scenario != nullptr && std::string(scenario) == "h_offset") {
     // EDGE_HELDOUT_H_PROTOCOL.md在生成数据前固定：外轮廓110×110 mm，
     // 中心(15,-10) mm，20 mm墙厚，z全厚100 mm，均为铝。

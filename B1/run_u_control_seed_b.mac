@@ -1,0 +1,6 @@
+# 同一源/装置的中心 U 目标对照 B；种子与空场 B 相同。
+/random/setSeeds 943087 527629
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000

@@ -1,0 +1,6 @@
+# 空场负对照 B；与 A 使用不同 Geant4 随机流。
+/random/setSeeds 943087 527629
+/run/initialize
+/run/verbose 0
+/run/printProgress 1000
+/run/beamOn 10000
