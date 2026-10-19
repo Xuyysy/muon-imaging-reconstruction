@@ -1,6 +1,6 @@
 import unittest
 
-from summarize_identity import anomaly_cases, summarize
+from summarize_identity import anomaly_cases, boundary_order_cases, summarize
 
 
 LAYERS = ("up1", "up2", "down1", "down2")
@@ -119,6 +119,25 @@ class SummaryTests(unittest.TestCase):
         self.assertNotEqual(rows[0]["delta_theta_mrad"], 0.0)
         self.assertGreater(rows[0]["delta_poca_mm"], 0.0)
         self.assertIsNotNone(p99)
+
+    def test_boundary_order_case_identifies_processing_and_earliest_tracks(self):
+        selected = event(0)
+        selected["sel_up1_track_id"] = "1"
+        selected["sel_up1_global_time_ns"] = "8.0"
+        entries = [
+            {"event_id": 0, "detector": "UpstreamDetector1", "processing_order": 1,
+             "global_time_ns": 8.0, "track_id": 1, "pdg_id": 13, "parent_id": 0,
+             "x_mm": 0.0, "y_mm": 0.0, "z_mm": 0.0},
+            {"event_id": 0, "detector": "UpstreamDetector1", "processing_order": 2,
+             "global_time_ns": 5.0, "track_id": 2, "pdg_id": 11, "parent_id": 1,
+             "x_mm": 1.0, "y_mm": 0.0, "z_mm": 0.0},
+        ]
+        cases = boundary_order_cases([selected], entries)
+        self.assertEqual(len(cases), 1)
+        self.assertEqual(cases[0]["first_processed_track_id"], 1)
+        self.assertEqual(cases[0]["earliest_time_track_id"], 2)
+        self.assertEqual(cases[0]["earliest_time_parent_id"], 1)
+        self.assertAlmostEqual(cases[0]["selected_vs_earliest_time_delta_ns"], 3.0)
 
 
 if __name__ == "__main__":

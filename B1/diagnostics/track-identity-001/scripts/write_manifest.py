@@ -22,9 +22,13 @@ SOURCE_PATHS = (
     "B1/diagnostics/track-identity-001/run_1000.mac",
     "B1/diagnostics/track-identity-001/run_10000.mac",
     "B1/diagnostics/track-identity-001/run_audit.sh",
+    "B1/diagnostics/track-identity-001/README.md",
+    "B1/diagnostics/track-identity-001/AUDIT_RESULTS.md",
     "B1/diagnostics/track-identity-001/scripts/summarize_identity.py",
     "B1/diagnostics/track-identity-001/scripts/validate_run.py",
     "B1/diagnostics/track-identity-001/scripts/write_manifest.py",
+    "B1/diagnostics/track-identity-001/tests/test_summary.py",
+    "B1/diagnostics/track-identity-001/tests/test_validate_run.py",
 )
 
 
@@ -57,6 +61,16 @@ def main():
     source_hashes = {
         relative: sha256(args.repo / relative) for relative in SOURCE_PATHS
     }
+    previous_manifest_path = args.results_dir / "configuration.json"
+    previous_manifest = (
+        json.loads(previous_manifest_path.read_text(encoding="utf-8"))
+        if previous_manifest_path.exists() else {}
+    )
+    original_manifest_path = args.results_dir / "geant4_run_manifest.json"
+    if previous_manifest and not original_manifest_path.exists():
+        original_manifest_path.write_text(
+            json.dumps(previous_manifest, indent=2) + "\n", encoding="utf-8"
+        )
     result_hashes = {
         path.relative_to(args.results_dir).as_posix(): sha256(path)
         for path in sorted(args.results_dir.rglob("*"))
@@ -67,8 +81,10 @@ def main():
     ).strip()
     manifest = {
         "purpose": "Geant4 track-identity data-reliability audit only; not SCI algorithm validation",
-        "source_commit": source_commit,
-        "source_file_sha256": source_hashes,
+        "geant4_source_commit": previous_manifest.get("source_commit", source_commit),
+        "geant4_source_file_sha256": previous_manifest.get("source_file_sha256", source_hashes),
+        "analysis_source_commit": source_commit,
+        "analysis_source_file_sha256": source_hashes,
         "geant4_version": version_match.group(1),
         "physics_list": "QBBC (configured in B1/exampleB1.cc)",
         "source_mode": "Ideal fixed 4 GeV mu- parallel to +z (PrimaryGeneratorAction.cc)",
@@ -89,7 +105,8 @@ def main():
     target = args.results_dir / "configuration.json"
     target.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote provenance manifest: {target}")
-    print(f"Source commit: {source_commit}")
+    print(f"Geant4 source commit: {manifest['geant4_source_commit']}")
+    print(f"Analysis source commit: {source_commit}")
     print(f"Hashed {len(source_hashes)} source/config files and {len(result_hashes)} result files.")
 
 

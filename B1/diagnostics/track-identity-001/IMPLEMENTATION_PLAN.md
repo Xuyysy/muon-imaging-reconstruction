@@ -69,11 +69,11 @@
 - Create: `B1/diagnostics/track-identity-001/run_audit.sh`
 - Create: `B1/diagnostics/track-identity-001/README.md`
 
-- [ ] Pin separate RNG seed pairs and event counts in each macro; document run independence and the existing default QBBC/target/source configuration.
-- [ ] Build in an isolated worktree-local build directory and capture Geant4 version, configure/build command, logs, source commit, and hashes.
-- [ ] Run 1,000 events first; stop to repair if counts or fields are inconsistent.
-- [ ] Only after 1,000-event checks pass, run 10,000 events to a distinct result directory.
-- [ ] Summarize outputs, inspect event totals and all required metrics, and write anomalous-event notes without changing historic reconstruction.
+- [x] Pin separate RNG seed pairs and event counts in each macro; document run independence and the existing default QBBC/target/source configuration.
+- [x] Build in an isolated worktree-local build directory and capture Geant4 version, configure/build command, logs, source commit, and hashes.
+- [x] Run 1,000 events first; stop to repair if counts or fields are inconsistent.
+- [x] Only after 1,000-event checks pass, run 10,000 events to a distinct result directory.
+- [x] Summarize outputs, inspect event totals and all required metrics, and write anomalous-event notes without changing historic reconstruction.
 
 ### Task 4: Final review and delivery
 

@@ -313,6 +313,71 @@ def anomaly_cases(event_rows: Iterable[dict]) -> tuple[list[dict], float | None]
     return rows, p99
 
 
+def boundary_order_cases(event_rows: Iterable[dict], boundary_rows: Iterable[dict]) -> list[dict]:
+    """Describe event-layer cases where processing order differs from time order."""
+    event_by_id = {_integer(row.get("event_id")): row for row in event_rows}
+    grouped = defaultdict(list)
+    for row in boundary_rows:
+        layer = DETECTOR_NAMES.get(str(row.get("detector", "")))
+        event_id = _integer(row.get("event_id"))
+        order = _integer(row.get("processing_order"))
+        time = _number(row.get("global_time_ns"))
+        if layer is not None and event_id is not None and order is not None and time is not None:
+            grouped[(event_id, layer)].append(row)
+
+    cases = []
+    for (event_id, layer), entries in sorted(grouped.items()):
+        first = min(entries, key=lambda row: _integer(row["processing_order"]))
+        earliest = min(entries, key=lambda row: _number(row["global_time_ns"]))
+        first_time = _number(first["global_time_ns"])
+        earliest_time = _number(earliest["global_time_ns"])
+        event_row = event_by_id.get(event_id, {})
+        selected_time = _number(event_row.get(f"sel_{layer}_global_time_ns"))
+        process_delta = first_time - earliest_time
+        selected_delta = selected_time - earliest_time if selected_time is not None else None
+        if process_delta <= 1.0e-12 and (selected_delta is None or selected_delta <= 1.0e-12):
+            continue
+
+        def pos(record):
+            return tuple(_number(record.get(f"{axis}_mm")) for axis in ("x", "y", "z"))
+
+        first_pos, earliest_pos = pos(first), pos(earliest)
+        position_delta = ""
+        if all(value is not None for value in first_pos + earliest_pos):
+            position_delta = math.sqrt(sum((a - b) ** 2
+                                           for a, b in zip(first_pos, earliest_pos)))
+        cases.append({
+            "event_id": event_id,
+            "detector": first["detector"],
+            "first_processed_order": first["processing_order"],
+            "first_processed_time_ns": first["global_time_ns"],
+            "first_processed_pdg_id": first["pdg_id"],
+            "first_processed_track_id": first["track_id"],
+            "first_processed_parent_id": first["parent_id"],
+            "earliest_time_order": earliest["processing_order"],
+            "earliest_time_ns": earliest["global_time_ns"],
+            "earliest_time_pdg_id": earliest["pdg_id"],
+            "earliest_time_track_id": earliest["track_id"],
+            "earliest_time_parent_id": earliest["parent_id"],
+            "processing_minus_earliest_ns": process_delta,
+            "selected_track_id": event_row.get(f"sel_{layer}_track_id", ""),
+            "selected_pdg_id": event_row.get(f"sel_{layer}_pdg_id", ""),
+            "selected_parent_id": event_row.get(f"sel_{layer}_parent_id", ""),
+            "selected_global_time_ns": selected_time if selected_time is not None else "",
+            "selected_vs_earliest_time_delta_ns": selected_delta if selected_delta is not None else "",
+            "first_processed_x_mm": first["x_mm"],
+            "first_processed_y_mm": first["y_mm"],
+            "first_processed_z_mm": first["z_mm"],
+            "earliest_time_x_mm": earliest["x_mm"],
+            "earliest_time_y_mm": earliest["y_mm"],
+            "earliest_time_z_mm": earliest["z_mm"],
+            "first_vs_earliest_position_delta_mm": position_delta,
+            "current_complete": event_row.get("current_complete", "0"),
+            "primary_complete": event_row.get("primary_complete", "0"),
+        })
+    return cases
+
+
 def _read_csv(path: Path):
     with path.open(newline="", encoding="utf-8") as stream:
         return list(csv.DictReader(stream))
@@ -324,14 +389,18 @@ def main():
     parser.add_argument("--boundaries", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--anomalies-output", required=True, type=Path)
+    parser.add_argument("--boundary-cases-output", required=True, type=Path)
     parser.add_argument("--run-id", required=True)
     args = parser.parse_args()
     event_rows = _read_csv(args.events)
-    result = summarize(event_rows, _read_csv(args.boundaries))
+    boundary_rows = _read_csv(args.boundaries)
+    result = summarize(event_rows, boundary_rows)
     cases, p99 = anomaly_cases(event_rows)
+    time_cases = boundary_order_cases(event_rows, boundary_rows)
     result["run_id"] = args.run_id
     result["anomaly_case_count"] = len(cases)
     result["current_complete_theta_p99_mrad_descriptive_only"] = p99
+    result["boundary_processing_time_case_rows"] = len(time_cases)
     result["events_csv"] = str(args.events)
     result["boundary_entries_csv"] = str(args.boundaries)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -343,6 +412,13 @@ def main():
         writer = csv.DictWriter(stream, fieldnames=columns)
         writer.writeheader()
         writer.writerows(cases)
+    time_path = args.boundary_cases_output
+    time_path.parent.mkdir(parents=True, exist_ok=True)
+    time_columns = list(time_cases[0]) if time_cases else ["event_id", "detector"]
+    with time_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=time_columns)
+        writer.writeheader()
+        writer.writerows(time_cases)
 
 
 if __name__ == "__main__":

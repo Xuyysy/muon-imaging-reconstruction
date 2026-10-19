@@ -2,6 +2,8 @@
 
 This directory contains an approved, minimal data-reliability audit of the existing four-layer first-hit rule. It does not change the current reconstruction rule or the SCI forward model, and is not an independent validation of an SCI algorithm.
 
+See [AUDIT_RESULTS.md](AUDIT_RESULTS.md) for the two-run counts, confidence intervals, event-40 identity anomaly, and boundary processing-time discrepancy analysis.
+
 The Geant4 project currently uses the QBBC physics list, a fixed 4 GeV ideal μ− source, the existing four detector planes, and the default centered U-shaped aluminium target. The source code selects `mu-`; its Geant4/PDG encoding is `+13`. Primary identity is detected dynamically per event using both `ParentID == 0` and PDG ID `13`; the actual Track ID is recorded, never assumed.
 
 ## Output separation
@@ -11,6 +13,7 @@ The Geant4 project currently uses the QBBC physics list, a fixed 4 GeV ideal μ�
 - `boundary_entries.csv` records every observed transition into any of the four detector volumes with event-local processing order, Global Time, PDG ID, Track ID, Parent ID, and position.
 - `identity_summary.json` contains requested event counts, overlapping identity indicators, coordinate/acceptance comparisons, processing-order versus physical-time checks, and a two-sided 95% Wilson interval.
 - `anomaly_cases.csv` contains only known identity-anomalous complete events and their descriptive angle/PoCA changes. The run's 99th-percentile angle is a descriptive reference only, not an acceptance threshold.
+- `boundary_order_cases.csv` records layers where the first processed boundary entry and the earliest Global Time differ, with both particle identities and positions.
 - `geant4_run.log`, `validation.log`, and final `configuration.json` preserve run details and validation.
 
 The output script refuses to overwrite either run directory. The two Geant4 processes have distinct seed pairs and local event IDs: run-1000 uses `(318527, 742913)` and run-10000 uses `(915731, 460297)`. Equal event IDs across these runs do not identify the same event.

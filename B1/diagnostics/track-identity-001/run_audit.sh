@@ -46,6 +46,7 @@ run_one() {
     --boundaries "$run_dir/boundary_entries.csv" \
     --output "$run_dir/identity_summary.json" \
     --anomalies-output "$run_dir/anomaly_cases.csv" \
+    --boundary-cases-output "$run_dir/boundary_order_cases.csv" \
     --run-id "$run_id"
 
   "$PYTHON" "$SCRIPT_DIR/scripts/validate_run.py" \
