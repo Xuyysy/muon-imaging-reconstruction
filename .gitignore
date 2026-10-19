@@ -1,6 +1,7 @@
 # Build products
 build/
 B1/build/
+B1/build-track-identity-audit/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake

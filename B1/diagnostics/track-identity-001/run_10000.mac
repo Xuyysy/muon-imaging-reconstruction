@@ -1,0 +1,5 @@
+# Second diagnostic pass: 10,000 independently generated events.
+# These seeds are distinct from run_1000.mac; event IDs are run-local.
+/random/setSeeds 915731 460297
+/run/initialize
+/run/beamOn 10000

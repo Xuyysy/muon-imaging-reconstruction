@@ -1,0 +1,5 @@
+# First diagnostic pass: 1,000 independently generated events.
+# Geant4/CLHEP uses both explicit seeds; this run is a separate process.
+/random/setSeeds 318527 742913
+/run/initialize
+/run/beamOn 1000
