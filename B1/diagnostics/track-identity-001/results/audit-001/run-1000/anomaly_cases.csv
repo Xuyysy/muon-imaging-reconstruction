@@ -1,0 +1,2 @@
+event_id,current_complete,primary_complete,primary_track_id,selected_track_ids,selected_parent_ids,current_theta_x_mrad,current_theta_y_mrad,current_theta_mrad,primary_theta_x_mrad,primary_theta_y_mrad,primary_theta_mrad,delta_theta_mrad,current_poca_x_mm,current_poca_y_mm,current_poca_z_mm,primary_poca_x_mm,primary_poca_y_mm,primary_poca_z_mm,delta_poca_mm,current_theta_above_run_p99_descriptive_reference,run_current_theta_p99_mrad_descriptive_only
+40,1,0,1,1;1;2;2,0;0;1;1,134.382,-160.129,209.045,,,,,-98.6139,149.006,-174.362,,,,,1,9.09711

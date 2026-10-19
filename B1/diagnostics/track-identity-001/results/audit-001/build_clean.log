@@ -1,0 +1,10 @@
+[ 12%] Building CXX object CMakeFiles/exampleB1.dir/exampleB1.cc.o
+[ 25%] Building CXX object CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o
+[ 37%] Building CXX object CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o
+[ 50%] Building CXX object CMakeFiles/exampleB1.dir/src/EventAction.cc.o
+[ 62%] Building CXX object CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o
+[ 75%] Building CXX object CMakeFiles/exampleB1.dir/src/RunAction.cc.o
+[ 87%] Building CXX object CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o
+[100%] Linking CXX executable exampleB1
+ld: warning: building for macOS-26.4, but linking with dylib '/opt/homebrew/opt/zlib/lib/libz.1.dylib' which was built for newer version 27.0
+[100%] Built target exampleB1

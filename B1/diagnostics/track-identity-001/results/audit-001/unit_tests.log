@@ -1,0 +1,19 @@
+test_acceptance_set_difference_compares_both_rules_over_all_events (test_summary.SummaryTests.test_acceptance_set_difference_compares_both_rules_over_all_events) ... ok
+test_anomaly_geometry_reports_angle_and_poca_differences (test_summary.SummaryTests.test_anomaly_geometry_reports_angle_and_poca_differences) ... ok
+test_anomaly_uses_unmodified_cpp_track_output_for_current_fit (test_summary.SummaryTests.test_anomaly_uses_unmodified_cpp_track_output_for_current_fit) ... ok
+test_boundary_order_case_identifies_processing_and_earliest_tracks (test_summary.SummaryTests.test_boundary_order_case_identifies_processing_and_earliest_tracks) ... ok
+test_coordinate_difference_only_uses_events_complete_under_both_rules (test_summary.SummaryTests.test_coordinate_difference_only_uses_events_complete_under_both_rules) ... ok
+test_counts_generated_and_complete_events_without_losing_incomplete_events (test_summary.SummaryTests.test_counts_generated_and_complete_events_without_losing_incomplete_events) ... ok
+test_processing_order_is_compared_with_minimum_global_time (test_summary.SummaryTests.test_processing_order_is_compared_with_minimum_global_time) ... ok
+test_reports_overlapping_mixed_track_and_secondary_categories_separately (test_summary.SummaryTests.test_reports_overlapping_mixed_track_and_secondary_categories_separately) ... ok
+test_single_secondary_track_is_an_anomaly_even_when_track_ids_match_each_other (test_summary.SummaryTests.test_single_secondary_track_is_an_anomaly_even_when_track_ids_match_each_other) ... ok
+test_unidentifiable_primary_is_reported_separately_from_known_anomaly (test_summary.SummaryTests.test_unidentifiable_primary_is_reported_separately_from_known_anomaly) ... ok
+test_zero_anomalies_has_nonzero_wilson_upper_bound (test_summary.SummaryTests.test_zero_anomalies_has_nonzero_wilson_upper_bound) ... ok
+test_accepts_consistent_run_rows_and_geant4_count (test_validate_run.ValidateRunTests.test_accepts_consistent_run_rows_and_geant4_count) ... ok
+test_rejects_missing_primary_candidate_and_count_disagreement (test_validate_run.ValidateRunTests.test_rejects_missing_primary_candidate_and_count_disagreement) ... ok
+test_original_geant4_manifest_remains_authoritative_after_schema_upgrade (test_write_manifest.ManifestProvenanceTests.test_original_geant4_manifest_remains_authoritative_after_schema_upgrade) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.001s
+
+OK
