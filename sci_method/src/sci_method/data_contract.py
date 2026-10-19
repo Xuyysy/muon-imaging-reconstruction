@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
+import numbers
 from typing import Mapping, Sequence
 
 
@@ -22,10 +23,15 @@ HIT_COLUMNS = tuple(
 class ObservedEvent:
     """单条四层击中观测；坐标单位固定为 mm。"""
 
+    run_id: str
     event_id: int
     hits_mm: tuple[tuple[float, float, float], ...]
 
     def __post_init__(self) -> None:
+        if not isinstance(self.run_id, str) or not self.run_id.strip():
+            raise ValueError("run_id must be a non-empty string")
+        if isinstance(self.event_id, bool) or not isinstance(self.event_id, int):
+            raise ValueError("event ID must be an integer")
         if len(self.hits_mm) != len(HIT_PLANES):
             raise ValueError("exactly four detector-plane hits are required")
         if any(len(hit) != len(HIT_AXES) for hit in self.hits_mm):
@@ -33,35 +39,58 @@ class ObservedEvent:
         if not all(math.isfinite(value) for hit in self.hits_mm for value in hit):
             raise ValueError("hit coordinates must be finite")
 
+    @property
+    def key(self) -> tuple[str, int]:
+        """Cross-run identity; event IDs are only unique within one run."""
+        return self.run_id, self.event_id
 
-def observed_event_from_mapping(row: Mapping[str, object]) -> ObservedEvent:
+
+def _strict_integer_event_id(value: object) -> int:
+    if isinstance(value, bool):
+        raise ValueError("event ID must be an integer")
+    if isinstance(value, numbers.Integral):
+        return int(value)
+    if isinstance(value, numbers.Real) and math.isfinite(float(value)) and float(value).is_integer():
+        return int(value)
+    if isinstance(value, str):
+        value = value.strip()
+        if value and (value.isdecimal() or (value[0] in "+-" and value[1:].isdecimal())):
+            return int(value)
+    raise ValueError("event ID must be an integer")
+
+
+def observed_event_from_mapping(row: Mapping[str, object], *, run_id: str) -> ObservedEvent:
     """只从 CSV-like mapping 读取事件编号与四层击中坐标。
 
     额外列（包括 poca_*、theta_*、truth/material 等）会被忽略；输入 mapping
-    不会被修改。事件 ID 不要求全局唯一，因为不同 Geant4 run 可从 0 重新编号。
+    不会被修改。事件 ID 严格要求整数；调用方必须传入 run_id，跨运行用
+    (run_id, event_id) 联合标识。
     """
+
+    if not isinstance(run_id, str) or not run_id.strip():
+        raise ValueError("run_id must be a non-empty string")
 
     required = ("event",) + HIT_COLUMNS
     missing = [name for name in required if name not in row]
     if missing:
         raise ValueError(f"missing observed input columns: {', '.join(missing)}")
 
+    event_id = _strict_integer_event_id(row["event"])
     try:
-        event_id = int(row["event"])
         values = tuple(float(row[name]) for name in HIT_COLUMNS)
     except (TypeError, ValueError, OverflowError) as exc:
-        raise ValueError("event ID and hit coordinates must be numeric") from exc
+        raise ValueError("hit coordinates must be numeric") from exc
 
     hits = tuple(
         tuple(values[offset : offset + len(HIT_AXES)])
         for offset in range(0, len(values), len(HIT_AXES))
     )
-    return ObservedEvent(event_id=event_id, hits_mm=hits)
+    return ObservedEvent(run_id=run_id.strip(), event_id=event_id, hits_mm=hits)
 
 
 def observed_events_from_rows(
-    rows: Sequence[Mapping[str, object]],
+    rows: Sequence[Mapping[str, object]], *, run_id: str,
 ) -> tuple[ObservedEvent, ...]:
     """把输入行转换为不可变观测记录，不保留输入容器或派生列引用。"""
 
-    return tuple(observed_event_from_mapping(row) for row in rows)
+    return tuple(observed_event_from_mapping(row, run_id=run_id) for row in rows)

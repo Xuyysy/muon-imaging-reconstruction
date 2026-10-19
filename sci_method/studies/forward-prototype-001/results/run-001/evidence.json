@@ -1,0 +1,21 @@
+{
+  "config_sha256": "27456fc3f997cc274e042692263b5eff66c20107bfa9c8f0842b70840ad37e43",
+  "outputs": [
+    "config.json",
+    "synthetic_paths.csv",
+    "synthetic_observations.csv",
+    "information_summary.csv",
+    "information_summary.json",
+    "evidence.json"
+  ],
+  "physics_simulation": false,
+  "reproduction_command": "python3 sci_method/studies/run_forward_identifiability.py",
+  "seed": 20261019,
+  "source_git_commit_before_run": "8f536f1ee5c2630425acd4723b584058dfbf8105",
+  "source_script": "sci_method/studies/run_forward_identifiability.py",
+  "source_script_sha256": "f59a955cc571b0fbd8aee797b380d66819ba9ab5bd32408ccc2e4da3bcf3b3a0",
+  "study_id": "forward-prototype-001",
+  "synthetic_path_table_sha256": "7adb8270c3f8631a3c6e4b8ea9f2ba40d2dba51136ee70e28e4b1c0c59271cf0",
+  "truth_mask_or_oracle_used": false,
+  "warning": "This is a hand-built Gaussian identifiability diagnostic, not a reconstruction-performance experiment."
+}

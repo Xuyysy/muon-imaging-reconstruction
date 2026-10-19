@@ -70,7 +70,15 @@
 
 但这不等于每条径迹能够唯一确定一个 3D 散射位置。对单条径迹，数据主要约束少数沿程积分/矩；大量不同的 λ(x,y,z) 场可能产生近似相同的残差分布。当前源几乎平行、有限横向覆盖；缺少广角多视角和事件动量记录，进一步弱化三维可辨识性。空间分辨率必须由灵敏度/信息结构和冻结的分辨率实验来界定，不能只凭网络/细网格输出更细就宣称分辨率更高。
 
-本轮没有在缺乏源码化前向矩阵与独立随机流的情况下计算数值条件数或“可辨识分辨率”；该项应作为原型阶段显式诊断，而非在此处编造结论。
+本轮新增了手工路径的局部 Fisher 原型，结果见 [`FORWARD_MODEL.md`](FORWARD_MODEL.md)。它只回答受控高斯小模型中哪些参数对比有似然灵敏度，不是当前 Geant4 场景的数值条件数，也不等于真实可辨识分辨率；真实事件几何、入射覆盖和 nuisance 仍需另行核验。
+
+### 2.5 局部可辨识原型结论（合成，不是物理验证）
+
+- 数据“可辨识”定义为局部参数对比方向上的观测似然信息。posterior variance 因正则化变小，只说明先验约束增强，不能说明观测信息充足。
+- 四个残差分量的完整 detector covariance 含上游共同 hit 导致的相关项；在当前各向同性简化下，每个横向投影有两个 downstream residual，其协方差响应含三种纵向二阶矩。不能将四个标量残差当作独立样本。
+- 合成横向四区被等量穿越时，2 区和 4 区 Fisher 满秩；加入未知共同散射背景并 Schur-profile 后，只剩 1 和 3 个局部对比方向。若所有路径只穿越一个区域，细分参数 raw Fisher rank 退化到 1，其余区域严格无数据灵敏度。
+- 对相同横向位置的四段深度模型，即使全部路径都穿过四段，4 参数 raw rank 仍为 3；至少存在一个近零纵向组合。0.3 mm hit error 进一步压低弱方向的相对信息。
+- 在该模型下，有限事件预算与路径几何共同决定可辨识尺度；事件总数本身不足。合成结果不能直接推断旧 CSV 或真实探测器能够达到同样细分。
 
 ## 3. 近邻文献与创新边界
 
@@ -79,11 +87,13 @@
 | 方法/研究 | 已有贡献（与本项目最相关） | 对本研究的直接含义 |
 |---|---|---|
 | Schultz et al., 2007, statistical reconstruction / MLS-EM | 建立基于多重散射统计的最大似然/EM 缪子层析，处理 angle–displacement 观测，提出实验误差与模型偏离处理 | “似然重建替代 POCA”早已不是新颖点；必须用 MLS-EM 类强基线 |
+| Wang, Schultz & Qi, 2009, [Bayesian Image Reconstruction for Improving Detection Performance](https://doi.org/10.1109/TIP.2009.2014423) | 贝叶斯 MAP 先验/迭代成像，改善检测表现 | Bayesian regularization/iterative reconstruction 本身不是新贡献；需明确 prior information 与 data-likelihood information 的区别 |
+| Wang, Schultz & Qi, 2009, [Gaussian Scale Mixture statistical reconstruction](https://doi.org/10.1109/TNS.2009.2023518) | 以 Gaussian scale mixture 建模缪子成像统计 | 与同年 MAP 论文是不同工作；重尾统计似然已是近邻，文献比较中分别列出 |
 | TomOpt / 2025 detector-design and volume inference study | 对 PoCA 位置的不确定度用概率分布扩展到多个体素，比较辐射长度估计与分箱聚类 | “给 PoCA 点加不确定度分布并扩散到多个体素”已有先例，不可当作核心创新 |
 | 2024 NIM A 大体素+角度截断方法 | 通过扩大体素和散射角截断降低每格波动/筛除高角事件 | 单独提出“大体素、角截断”无创新空间；也需匹配参数做基线 |
 | μTRec, Ughade & Chatzidakis, 2025 | 贝叶斯高斯近似建模轨迹并考虑 MCS/能损，报告低通量改进 | “贝叶斯轨迹/低计数”已有近邻，必须核对其 voxel/path prior 与代码 |
 | Alameddine et al., 2025 preprint | 直接以自动微分优化体素化多重散射似然 | PyTorch/梯度优化本身不构成方法创新 |
-| RHMT/NAMT, arXiv:2606.20180 (2026) | 直接以四层下游 hit residual 为观测；用路径积分散射核、空场条件残差响应及未测动量边缘化；报告 hit error 与低计数扫描 | 与“原始击中 + 误差校准 + 低事件统计”高度重叠，是路线可行性的关键近邻，也显著抬高原创门槛。需核验当前 arXiv 版本、发表状态、数据/代码与具体独立贡献；不得仅改符号/背景数据就声称新方法 |
+| [RHMT v1](https://arxiv.org/abs/2606.20180v1) → [NAMT v2](https://arxiv.org/abs/2606.20180v2), same arXiv record (2026) | v1 RHMT 包括 tracker residual 分支与六平面磁谱仪/能损分支；v2 改题为 NAMT，重心转至三/四平面 residual likelihood、空场 nuisance response 与 momentum marginalization | 是同一工作的版本演进，不得算作两篇独立论文；两版本方法变化需逐项比较。hit-residual/path-integral likelihood 已被近邻覆盖，原创门槛很高 |
 | MINT, Pagano, NIM A 2026 online / 2027 volume | 多分辨率 hash-grid 连续场；每径迹 Gaussian Highland NLL；TV/background regularization；报告模拟及实测结果、分辨率压力测试 | “连续多尺度表示 + path likelihood + 低计数细网格优势”已被直接提出；神经场/端到端不能作为主要创新 |
 
 ### 3.1 当前可主张的潜在差异（待验证）

@@ -1,0 +1,28 @@
+{
+  "config_sha256": "0f3f7f9b29496edfb0b9eddec0fe2d27f76a6da8650324b961a6bc871cf0d4e3",
+  "outputs": [
+    "config.json",
+    "synthetic_paths.csv",
+    "synthetic_observations.csv",
+    "information_summary.csv",
+    "information_summary.json",
+    "evidence.json",
+    "source_script_snapshot.py"
+  ],
+  "physics_simulation": false,
+  "reproduction_command": "python3 sci_method/studies/run_forward_identifiability.py --run-id run-005-reproduction",
+  "seed": 20261019,
+  "source_files_sha256": {
+    "sci_method/src/sci_method/forward_model.py": "645eae434ffa53d2254cd76e660e12b2904f109d4c59fb896237ded7dd92eba4",
+    "sci_method/src/sci_method/identifiability.py": "fc70b00cd2b7168bbd7163a327e42f76a5c30cb55e5cb2316353f69b8dc025be",
+    "sci_method/src/sci_method/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "sci_method/studies/run_forward_identifiability.py": "93851ef5157fccb014b6a2e4bc41f76800b9bd8acc57934c9b72131a7fc21cbc"
+  },
+  "source_git_commit_before_run": "8f536f1ee5c2630425acd4723b584058dfbf8105",
+  "source_script": "sci_method/studies/run_forward_identifiability.py",
+  "source_script_sha256": "93851ef5157fccb014b6a2e4bc41f76800b9bd8acc57934c9b72131a7fc21cbc",
+  "study_id": "forward-prototype-001",
+  "synthetic_path_table_sha256": "dec795083ad56b16f6f97100652dacc8bcddb7b320543d129ed5c70025777ffa",
+  "truth_mask_or_oracle_used": false,
+  "warning": "This is a hand-built Gaussian identifiability diagnostic, not a reconstruction-performance experiment."
+}

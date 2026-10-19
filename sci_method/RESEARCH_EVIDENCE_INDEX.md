@@ -40,17 +40,25 @@
 | 文献 | 相关性 | 当前阅读结论 |
 |---|---|---|
 | Schultz et al. (2007), [Statistical reconstruction for cosmic ray muon tomography](https://doi.org/10.1109/TIP.2007.901239) | MLS-EM 强基线 | 已提出多重散射统计似然/EM与实验误差稳健性；模型似然化不是新颖点 |
+| Wang, Schultz & Qi (2009), [Bayesian Image Reconstruction for Improving Detection Performance of Muon Tomography](https://doi.org/10.1109/TIP.2009.2014423) | Bayesian/MAP 重建近邻 | 已将贝叶斯先验和迭代重建用于探测性能；先验稳定化不是新增观测信息，也不是 ICAR-LR 可独占的概念 |
+| Wang, Schultz & Qi (2009), [Statistical Image Reconstruction for Muon Tomography Using a Gaussian Scale Mixture Model](https://doi.org/10.1109/TNS.2009.2023518) | 统计似然及重尾建模近邻 | 与同年 MAP 论文是不同论文，采用 Gaussian scale-mixture 统计模型；应分别引用，但不能把 regularization precision 解释为 data Fisher |
 | [Multiparametric approach…](https://doi.org/10.1140/epjp/s13360-020-00970-z) (2020) | POCA 基线限制与真实 detector | 明确 PoCA 是单点简化；报告边界定位、屏蔽和小统计波动问题 |
 | [A new efficient imaging reconstruction method…](https://doi.org/10.1016/j.nima.2024.169932) (NIM A, 2024) | 低统计量/大体素 | 大体素结合散射角截断降低 voxel fluctuations；角度截断+粗网格不可作为独立创新 |
 | [TomOpt detector design and volume inference](https://doi.org/10.1063/5.0287758) (JAP, 2025) | PoCA uncertainty | 以 PoCA 三维不确定度分布跨 voxel 加权，并做体素辐射长度/聚类评分；概率扩散 PoCA 不是新空白 |
 | Ughade & Chatzidakis, [μTRec](https://doi.org/10.1063/5.0278370) (JAP, 2025) | Bayesian trajectory model | 报告贝叶斯高斯径迹/MCS/能损轨迹和低统计量场景；详细代码及假设待核实 |
 | Alameddine et al., [Gradient-descent-based reconstruction…](https://arxiv.org/abs/2511.05226) (2025 preprint) | 可微 likelihood | 直接用 PyTorch 自动微分优化 voxelized scattering likelihood；梯度优化框架不是新颖点 |
-| Zhao et al., [Raw-Hit Muon Tomography / Nuisance-Aware Muon Tomography](https://arxiv.org/abs/2606.20180) (arXiv 2026) | 最直接近邻 | 使用四平面下游 hit residual、路径积分散射核、open-field nuisance 响应、动量边缘化；覆盖 hit-error 和低-count。标题/版本须核对，但内容对本方向高度重合 |
+| Zhao et al., [Raw-Hit Muon Tomography (RHMT), arXiv v1](https://arxiv.org/abs/2606.20180v1) / [Nuisance-Aware Muon Tomography (NAMT), arXiv v2](https://arxiv.org/abs/2606.20180v2) | 最直接近邻；**同一 arXiv 记录的 v1/v2，不是两篇论文** | v1 标题为 RHMT，摘要同时描述无磁 tracker 的 RHMT-S 与六平面磁谱仪/能损分支 RHMT-E；v2 将标题和重心改为 NAMT，重点是三/四平面 residual likelihood、空场 nuisance 校准与动量边缘化。应逐版本比较方法变化，只计作一个持续演进的工作。residual/path-integral scattering 不是本研究原创点 |
 | Pagano, [A differentiable neural-field forward model for cosmic-ray muon scattering tomography](https://doi.org/10.1016/j.nima.2026.171923) (online 2026 / vol. 2027) | 最新连续场近邻 | 多分辨率 hash-grid 表示 + 每轨迹 Highland NLL + TV/background 正则，含低统计量和实测数据；神经场/多尺度似然不能单独作为贡献 |
 
-## 5. 图像/结论来源规则
+## 5. 本分支新原型证据
 
-- 本分支没有新实验图、CSV、论文性能数字或 `evidence.json`；没有运行新 Geant4/算法实验。
+| Study | 路径 | 内容/证据边界 |
+|---|---|---|
+| 固定 4 GeV/c 前向模型和局部信息合成原型 | [`studies/forward-prototype-001/results/run-005/`](studies/forward-prototype-001/results/run-005/) | 200 条手工路径/场景、固定 seed `20261019`；横向均匀覆盖、横向盲区、四段深度细分；每种比较粗/2/4 参数与 `sigma_hit=0/0.3 mm`；保存 path/residual CSV、Fisher JSON/CSV、配置、脚本快照和代码/输入哈希。不是 Geant4、不是图像质量实验、不是性能验证。`run-001` 至 `run-004` 保留为探索记录，但不用于主要结论。 |
+
+## 6. 图像/结论来源规则
+
+- 本分支没有新 Geant4 图像或重建性能指标；存在的 CSV 是显式合成路径/残差与局部信息结果，不是物理仿真数据。
 - 新算法后续的每个 study 应位于 `sci_method/studies/<study-id>/`，各自保存协议、配置、输入哈希、代码版本、物理与分析随机流、复现命令、日志、结果和失败记录。
 - 论文图必须链接其生成脚本、study ID、源数值表与 `evidence.json`；没有 evidence 元数据的图不得用作正式定量主结论。
 - 原始输入仍保持 `muon_analysis/` 唯一存放，不复制到 SCI 子目录；对共享 CSV 只读。
