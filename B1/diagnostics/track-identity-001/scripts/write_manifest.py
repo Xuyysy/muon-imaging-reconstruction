@@ -29,6 +29,7 @@ SOURCE_PATHS = (
     "B1/diagnostics/track-identity-001/scripts/write_manifest.py",
     "B1/diagnostics/track-identity-001/tests/test_summary.py",
     "B1/diagnostics/track-identity-001/tests/test_validate_run.py",
+    "B1/diagnostics/track-identity-001/tests/test_write_manifest.py",
 )
 
 
@@ -38,6 +39,24 @@ def sha256(path):
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def simulation_source_provenance(previous_manifest, original_manifest, fallback_hashes):
+    """Prefer the manifest captured at simulation time over later analysis metadata."""
+    commit = (
+        original_manifest.get("source_commit")
+        or original_manifest.get("geant4_source_commit")
+        or previous_manifest.get("geant4_source_commit")
+        or previous_manifest.get("source_commit")
+    )
+    hashes = (
+        original_manifest.get("source_file_sha256")
+        or original_manifest.get("geant4_source_file_sha256")
+        or previous_manifest.get("geant4_source_file_sha256")
+        or previous_manifest.get("source_file_sha256")
+        or fallback_hashes
+    )
+    return commit, hashes
 
 
 def main():
@@ -71,6 +90,13 @@ def main():
         original_manifest_path.write_text(
             json.dumps(previous_manifest, indent=2) + "\n", encoding="utf-8"
         )
+    original_manifest = (
+        json.loads(original_manifest_path.read_text(encoding="utf-8"))
+        if original_manifest_path.exists() else {}
+    )
+    simulation_commit, simulation_hashes = simulation_source_provenance(
+        previous_manifest, original_manifest, source_hashes
+    )
     result_hashes = {
         path.relative_to(args.results_dir).as_posix(): sha256(path)
         for path in sorted(args.results_dir.rglob("*"))
@@ -81,8 +107,8 @@ def main():
     ).strip()
     manifest = {
         "purpose": "Geant4 track-identity data-reliability audit only; not SCI algorithm validation",
-        "geant4_source_commit": previous_manifest.get("source_commit", source_commit),
-        "geant4_source_file_sha256": previous_manifest.get("source_file_sha256", source_hashes),
+        "geant4_source_commit": simulation_commit or source_commit,
+        "geant4_source_file_sha256": simulation_hashes,
         "analysis_source_commit": source_commit,
         "analysis_source_file_sha256": source_hashes,
         "geant4_version": version_match.group(1),
