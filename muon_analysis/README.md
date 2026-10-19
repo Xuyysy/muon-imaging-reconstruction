@@ -5,7 +5,7 @@ This page is a navigation and provenance index for the simulation, experiment re
 ## Audit scope and rules
 
 - Inventory snapshot: **2026-10-19**. The tracked-resource baseline inspected for this index is commit [`7e66b72`](https://github.com/Xuyysy/muon-imaging-reconstruction/commit/7e66b72dead8028a9aa3f5958cdecd6ae12bfa0c) (2026-10-06). Per-folder dates below are the latest commit dates touching that path at the baseline, not experiment run dates.
-- This branch adds only this index and a link to it in the repository README. It does not add raw event data, PDFs, slide decks, notebooks, generated plots, or other experiment outputs.
+- This synchronization update adds researcher-authorized research assets on this independent branch. Original data/results are copied byte-for-byte; it does not run experiments or alter scientific conclusions.
 - “Tracked” means present in Git at the baseline. “Local only” means observed in the researcher’s source checkout but not tracked; these entries are documentation of their status, not copies in this branch. Local-only paths may be absent from a clean GitHub checkout.
 - To avoid duplicating existing documentation, the paper-writing guide remains in [`B1/paper/README.md`](../B1/paper/README.md); the paper source, bibliography, and manuscript figure copies remain under [`B1/paper/`](../B1/paper/).
 - Relative links are used so the index works in VS Code and on GitHub. The “last updated” date is the date of the last Git change to the resource path, unless explicitly marked as a local file timestamp.
@@ -19,9 +19,10 @@ This page is a navigation and provenance index for the simulation, experiment re
 | Experiment result folders | 74 folders named `*_results/` | The table below records their latest Git update and key record files |
 | Research notes | 57 `research_note.md` files in the audited repository snapshot | Tracked where listed below; stored beside the associated experiment records |
 | Machine-readable run evidence | `evidence.json` in 5 experiment folders | Tracked; listed in the experiment table |
-| Other plots | 162 PNGs found across paper and analysis resources: 114 tracked, 48 local-only | Local-only plots are not added by this task |
-| Notebook | `muon_analysis/analysis.ipynb` | Tracked; the source checkout also has local edits, which are not included here |
-| PDF, slide decks, thesis draft template | One local compiled PDF, three presentation PPTX files, one Word template | Local-only; not added or uploaded |
+| Other plots | 162 PNGs across paper and analysis resources | All 162 are tracked on this branch, including the 48 recovered from ignored result folders; none were deleted |
+| Notebook | [`analysis.ipynb`](analysis.ipynb) | Tracked with six changed display-only cells that show existing saved CSV/PNG results; no new analysis was run |
+| PDF, slide decks, thesis draft template | One manuscript PDF, three PPTX versions, one Word template | Tracked on this branch with literal text-extraction companions; binaries remain canonical |
+| Baseline event CSV | [`muon_tracks.csv`](muon_tracks.csv) | Tracked on this branch; 9,975 rows; exact run and random seed are unknown (see manifest) |
 | Bibliographic full-text PDFs | None found in the repository snapshot | The user-provided Zotero paper is outside this repository and is not copied or indexed as a distributable file |
 
 ## Paper figures: source and generation links
@@ -178,15 +179,24 @@ Other research notes not stored in a `*_results/` folder include [`event_quality
 | [`B1/paper/references.bib`](../B1/paper/references.bib) | Bibliography used by the manuscript | Tracked |
 | [`B1/paper/README.md`](../B1/paper/README.md) | Existing detailed writing, result provenance, and scientific interpretation cautions | Tracked; retained as the authoritative writing guide |
 | `B1/paper/低统计量条件下缪子散射成像方法研究_基线结果草稿.docx` | Earlier Word baseline-results draft | Tracked in the audited baseline |
-| `B1/paper/main.pdf` | Locally compiled PDF output from the manuscript | Local-only/untracked in the source checkout; do not add as a second manuscript source |
-| `B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板.docx` | Editable Word paper template | Local-only/untracked; do not upload without an explicit decision |
-| `B1/presentation-output/muon-imaging-research-direction-v2.pptx` | Research-direction presentation | Local-only/untracked |
-| `B1/presentation-output/muon-imaging-research-direction.pptx` | Earlier research-direction presentation | Local-only/untracked |
-| `B1/presentation-output/低统计量缪子散射成像研究方向汇报.pptx` | Chinese presentation for research reporting | Local-only/untracked |
+| [`B1/paper/main.pdf`](../B1/paper/main.pdf) + [`main_text.md`](../B1/paper/main_text.md) | Compiled 86-page manuscript and literal, page-numbered extraction | Tracked on this branch; PDF remains canonical for figures/layout |
+| [`B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板.docx`](../B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板.docx) + [text extraction](../B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板_text.md) | Editable Word paper template and paragraph/table extraction | Tracked on this branch; extraction omits page numbering because Word pagination is renderer-dependent |
+| [`B1/presentation-output/muon-imaging-research-direction-v2.pptx`](../B1/presentation-output/muon-imaging-research-direction-v2.pptx) + [text extraction](../B1/presentation-output/muon-imaging-research-direction-v2_text.md) | Current research-direction deck (11 slides; notes included where present) | Tracked on this branch; literal slide-numbered text companion |
+| [`B1/presentation-output/muon-imaging-research-direction.pptx`](../B1/presentation-output/muon-imaging-research-direction.pptx) + [text extraction](../B1/presentation-output/muon-imaging-research-direction_text.md) | Earlier research-direction deck (10 slides; notes included where present) | Tracked on this branch as a historical version |
+| [`B1/presentation-output/低统计量缪子散射成像研究方向汇报.pptx`](../B1/presentation-output/低统计量缪子散射成像研究方向汇报.pptx) + [text extraction](../B1/presentation-output/低统计量缪子散射成像研究方向汇报_text.md) | Chinese research presentation (6 slides; notes included where present) | Tracked on this branch; preserved as a separate version |
 | `B1/.codex-ppt-build/` and `B1/.codex-finalizer/` presentation candidates | Temporary generation/validation outputs, not curated research deliverables | Local/ignored scratch; excluded from this index’s deliverable list and this branch |
 | PDFs of external literature | No full-text literature PDF was found in the repository at audit time | Do not copy or upload papers from Zotero without rights/authorization; the cited source remains outside this project |
 
-The three presentation decks and compiled PDF were identified in the source checkout, but intentionally are **not present in this branch**. Their content is not reproduced here. This status should be re-audited before any future decision to publish or share them.
+The full per-file inventory, byte lengths, SHA-256 hashes, associations, extraction counts, and known/unknown provenance fields are in [`RESOURCE_MANIFEST.json`](RESOURCE_MANIFEST.json). The 48 recovered plots are listed individually there with their result folder, associated script, and available config/summary records. The original 56 manuscript figure copies remain in `B1/paper/figures/`; plot files were not consolidated or removed, even when byte-identical copies exist.
+
+### Synchronization snapshot (2026-10-19)
+
+- Synchronized on this branch: the baseline event CSV, the locally modified display-only Notebook, one compiled manuscript PDF and its 86-page text extraction, three historical/current PPTX decks and slide-numbered text extractions, the editable Word template and its literal paragraph/table extraction, and 48 result plots that had been hidden by the old global `*.png` ignore rule.
+- The CSV has 9,975 data rows and the SHA-256 recorded in the manifest. `B1/run3.mac` is a possible configuration association because it requests 10,000 events, but the exact CSV-to-run link was not established. Its random seed and exact reproduction command are **unknown**; the README’s generic baseline command is not asserted to reproduce this particular file.
+- The Notebook’s six changed cells display already-saved result files; it is synchronized to preserve working context, not as evidence that these results were independently recomputed.
+- Source PPTX/PDF/DOCX binaries were copied without editing. Their Markdown companions are literal text extractions, include source page/slide identifiers where stable, and do not replace the original visual documents. Text embedded only in images may not be represented in these companions.
+- **Not synchronized:** external full-text literature PDFs (none were found in the project; the Zotero paper remains outside the repository), local caches/virtual environments/editor settings, temporary presentation builds, and files containing machine-specific local navigation paths. These are not research evidence or distributable deliverables. The earlier Word baseline draft and all previously tracked negative/failed experiment records remain unchanged.
+- Privacy checks were pattern-based and limited to the extracted document text/metadata; they are not a guarantee. Keep this repository private and review any future sharing scope separately.
 
 ## Tracking, duplicates, size, and sensitivity
 
@@ -202,17 +212,16 @@ The three presentation decks and compiled PDF were identified in the source chec
 
 ### Large files and raw data
 
-- The source checkout contains **29 tracked `muon_analysis/muon_tracks*.csv` event files**, about 1.4 MB each. These are raw/simulation event data already tracked before this index; this task does not add more.
+- The source baseline contained **29 tracked `muon_analysis/muon_tracks*.csv` event files**. This branch additionally tracks [`muon_tracks.csv`](muon_tracks.csv) (1,421,331 bytes); its seed and exact generating run are unknown, as documented in the manifest.
 - Two tracked diagnostic tables exceed 1 MB: [`poca_z_incremental_results/event_features.csv`](poca_z_incremental_results/event_features.csv) and [`single_cell_refinement_signal_results/cells.csv`](single_cell_refinement_signal_results/cells.csv).
-- `muon_analysis/analysis.ipynb` is about 9 MB. It is already tracked; local notebook edits from the source checkout are not included in this branch.
-- The local compiled `B1/paper/main.pdf` is about 8.3 MiB and remains untracked. No large file or raw data is being committed by this change.
-- The source checkout also showed a local `muon_analysis/muon_tracks.csv` of about 1.4 MB that was not part of the tracked baseline. It is not copied or staged here. Obtain explicit researcher approval before adding any new raw event dataset to Git.
+- `muon_analysis/analysis.ipynb` is 9,473,978 bytes; the compiled `B1/paper/main.pdf` is 8,743,474 bytes. The 48 newly synchronized plots total 7,602,287 bytes. No synchronized file approaches GitHub’s 50 MiB large-file warning threshold; regular Git is used rather than LFS. Reassess if a future file approaches that size. See [GitHub’s large-file guidance](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github); if LFS is later needed, retain a connector-readable Markdown schema, provenance, hash, and data-structure summary.
+- This update adds one baseline CSV with unknown random seed and unconfirmed exact run provenance; those gaps are visible in the manifest rather than inferred away. It does not add any other large raw event collection.
 
 ### Sensitive information
 
 - A marker scan of tracked text/config/source files found no GitHub-token, AWS access-key, or private-key markers. This is a limited pattern scan, not a guarantee that all sensitive information has been ruled out.
 - Some pre-existing tracked notes/code contain machine-specific absolute paths with the local account name. They were not reproduced in this index and were not modified during the audit. Review those files before making the repository public; the current repository is intended to remain private.
-- No credentials, private literature PDFs, local presentation files, or user-specific local-only documents were added to this branch.
+- No credentials or third-party full-text literature PDFs were added. The researcher-authorized presentation decks and thesis template are included on this private branch; local caches, workspace settings, and temporary builds are excluded.
 
 ## How to keep this index current
 
@@ -220,5 +229,5 @@ When a researcher approves a new experiment or document for repository tracking:
 
 1. Preserve its run configuration, input/data provenance, random seeds, and exact reproduction command alongside the result; retain `evidence.json` when the run workflow produces one.
 2. Keep outputs in the existing matching `muon_analysis/<experiment>_results/` folder. Link each figure to its producing script and source result folder; copy a plot into `B1/paper/figures/` only when it is intentionally selected for the manuscript.
-3. Record the Git status and file size before staging. Never include new raw data, local-only documents, caches, credentials, or third-party full text without the researcher’s authorization.
+3. Record Git status, file size, and SHA-256 before staging. Include researcher-authorized raw data and local research documents when useful; exclude only credentials, clearly personal sensitive information, and third-party material without sharing rights. Preserve prior versions, negative results, and failed records.
 4. Update the experiment row and the audit date here. Do not change scientific thresholds, metrics, validation labels, or conclusions as part of catalog maintenance.

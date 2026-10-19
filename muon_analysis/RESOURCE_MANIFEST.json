@@ -1,0 +1,813 @@
+{
+  "manifest_version": 1,
+  "audit_date": "2026-10-19",
+  "branch": "codex/research-resource-index",
+  "source_checkout_head": "7e66b72dead8028a9aa3f5958cdecd6ae12bfa0c",
+  "policy": "Original binaries are byte-for-byte preserved. Markdown companions are literal text extraction, not paraphrases. Unknown seeds and run provenance remain unknown.",
+  "extractor_environment": {
+    "python": "3.12.14",
+    "pypdf": "6.10.0",
+    "python-pptx": "1.0.2",
+    "python-docx": "1.2.0"
+  },
+  "privacy_scan": "Pattern scan found no token/private-key markers, email addresses, CN mobile patterns, or /Users paths in extracted PDF/PPTX/DOCX text. This is not a comprehensive privacy guarantee.",
+  "lfs_assessment": {
+    "largest_synchronized_file": "muon_analysis/analysis.ipynb",
+    "largest_bytes": 9473978,
+    "decision": "regular Git; none of these files approaches GitHub's 50 MiB warning threshold; searchable text companions included.",
+    "future_guidance": "Reassess at 50 MiB; if using LFS retain a small Markdown schema, provenance, hash and sample description because the GitHub connector may not parse LFS objects."
+  },
+  "synchronized_assets": [
+    {
+      "path": "muon_analysis/muon_tracks.csv",
+      "kind": "Geant4 event CSV",
+      "status_before_sync": "ignored by broad raw CSV rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 1421331,
+      "sha256": "eaa5212028a54b2c3317999461cecfafe96bb1785e22eac18e709ff8ddad0d21",
+      "research_association": "Baseline U-shaped-target output; exact run provenance unconfirmed",
+      "data_rows": 9975,
+      "columns": [
+        "event",
+        "up1_x_mm",
+        "up1_y_mm",
+        "up1_z_mm",
+        "up2_x_mm",
+        "up2_y_mm",
+        "up2_z_mm",
+        "down1_x_mm",
+        "down1_y_mm",
+        "down1_z_mm",
+        "down2_x_mm",
+        "down2_y_mm",
+        "down2_z_mm",
+        "poca_x_mm",
+        "poca_y_mm",
+        "poca_z_mm",
+        "theta_x_mrad",
+        "theta_y_mrad",
+        "theta_mrad"
+      ],
+      "source_config_candidate": "B1/run3.mac",
+      "candidate_macro_beam_on": 10000,
+      "random_seed": "not recorded",
+      "exact_reproduction_command": "unknown for this exact CSV",
+      "project_baseline_command": "cd B1/build && ./exampleB1 ../run3.mac",
+      "provenance_note": "The project README documents this command, but attribution of this CSV to that run was not verified; the file has 9,975 data rows."
+    },
+    {
+      "path": "muon_analysis/analysis.ipynb",
+      "kind": "Jupyter Notebook",
+      "status_before_sync": "modified tracked file",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 9473978,
+      "sha256": "8187610cb132f0ea08ab6794067173b9618a27029efe8da70ac3c0ec2d09a2eb",
+      "research_association": "Six changed cells display saved CSV/PNG results; no experiment was run during sync",
+      "source_base_commit": "7e66b72dead8028a9aa3f5958cdecd6ae12bfa0c",
+      "modified_cells": 6
+    },
+    {
+      "path": "B1/paper/main.pdf",
+      "kind": "compiled manuscript PDF",
+      "status_before_sync": "local untracked",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 8743474,
+      "sha256": "ed90a0cd5856b6c7590ef4b3b727c396ca5c16720e9bfa8a234cae1421f3a1bb",
+      "research_association": "LaTeX source B1/paper/main.tex and B1/paper/references.bib",
+      "text_companion": "B1/paper/main_text.md",
+      "page_count": 86,
+      "extractor": "pypdf 6.10.0",
+      "text_companion_bytes": 202359,
+      "text_companion_sha256": "4fd7e330364ad56f34e30d8e17c1a4a9705dcbf41239c4d060551e765f7260c2"
+    },
+    {
+      "path": "B1/presentation-output/muon-imaging-research-direction-v2.pptx",
+      "kind": "research presentation PPTX",
+      "status_before_sync": "local untracked",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 56943,
+      "sha256": "b29628296a2333fcf0628eff26f3599da8f0f218c57001455483aabcbd30c369",
+      "research_association": "Research direction deck, current version",
+      "text_companion": "B1/presentation-output/muon-imaging-research-direction-v2_text.md",
+      "slide_count": 11,
+      "slides_with_speaker_notes": 5,
+      "notes_included": true,
+      "deck_generator": "not found in repository",
+      "text_companion_bytes": 12514,
+      "text_companion_sha256": "bebc70b48399fae22ca9f2881747d0d3784bd7771cc2641db370a6ad62a1c0c5"
+    },
+    {
+      "path": "B1/presentation-output/muon-imaging-research-direction.pptx",
+      "kind": "research presentation PPTX",
+      "status_before_sync": "local untracked",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 50417,
+      "sha256": "cc8b227c6c14b4e5f590d61fbd49de49d83d876b2d52148cbf20ac6dc2e2a557",
+      "research_association": "Research direction deck, earlier version retained",
+      "text_companion": "B1/presentation-output/muon-imaging-research-direction_text.md",
+      "slide_count": 10,
+      "slides_with_speaker_notes": 4,
+      "notes_included": true,
+      "deck_generator": "not found in repository",
+      "text_companion_bytes": 10339,
+      "text_companion_sha256": "eb251fe247bcde43b3055f5f7c84034d52a276dd7d8c08832be2b84a551385a8"
+    },
+    {
+      "path": "B1/presentation-output/低统计量缪子散射成像研究方向汇报.pptx",
+      "kind": "research presentation PPTX",
+      "status_before_sync": "local untracked",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 90664,
+      "sha256": "2e1642321e4ac57d25f3d94682d43232f23b8e872208c6b16d8e0c2d96c79b60",
+      "research_association": "Chinese research report, retained separately",
+      "text_companion": "B1/presentation-output/低统计量缪子散射成像研究方向汇报_text.md",
+      "slide_count": 6,
+      "slides_with_speaker_notes": 6,
+      "notes_included": true,
+      "deck_generator": "not found in repository",
+      "text_companion_bytes": 5143,
+      "text_companion_sha256": "26d97b4ea0c590edf0ca953151ec8cf71c587ef6297438d5c112cbefef56d981"
+    },
+    {
+      "path": "B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板.docx",
+      "kind": "paper draft template DOCX",
+      "status_before_sync": "local untracked",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 44417,
+      "sha256": "b8fb8dd670ba778259a2a6f55476c9f23f3a77c74d3b891bb5bc8febcd607023",
+      "research_association": "Manuscript preparation; user-authored working template",
+      "text_companion": "B1/paper/低统计量条件下缪子散射成像方法研究_论文草稿模板_text.md",
+      "paragraph_count": 98,
+      "table_count": 4,
+      "extractor": "python-docx 1.2.0",
+      "text_companion_bytes": 18097,
+      "text_companion_sha256": "96dc268219ca9675ef25b1e555cafa9847aafa2f8f45d99b6efc019c93831537"
+    }
+  ],
+  "newly_tracked_research_plots": [
+    {
+      "path": "muon_analysis/adaptive_voxel_results/adaptive_voxel_metrics_vs_refinement.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 102732,
+      "sha256": "125a1d42dac7d332e3ff1a2447c57fce51a473b7de5c553b163bef9a1cbc4ef7",
+      "experiment_folder": "muon_analysis/adaptive_voxel_results",
+      "generation_script": "muon_analysis/run_adaptive_voxel_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_experiment_config.json",
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_experiment_summary.md",
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/adaptive_voxel_results/adaptive_voxel_poca_xy_3000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 88117,
+      "sha256": "d3f5b3c7dd61838f81ff3efbf0d079248514c25aa3fabfe2a37e8cdda5732816",
+      "experiment_folder": "muon_analysis/adaptive_voxel_results",
+      "generation_script": "muon_analysis/run_adaptive_voxel_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_experiment_config.json",
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_experiment_summary.md",
+        "muon_analysis/adaptive_voxel_results/adaptive_voxel_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/angle_filter_results/angle_filter_metrics_vs_threshold.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 172537,
+      "sha256": "195ba184d9040dc6f712ae048e98e3d3e572c58953b325dc3afd3ef6d7fbdd75",
+      "experiment_folder": "muon_analysis/angle_filter_results",
+      "generation_script": "muon_analysis/run_angle_filter_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/angle_filter_results/angle_filter_experiment_config.json",
+        "muon_analysis/angle_filter_results/angle_filter_experiment_summary.md",
+        "muon_analysis/angle_filter_results/angle_filter_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/angle_filter_results/angle_filter_poca_xy_3000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 89113,
+      "sha256": "49002485efb8ca114a5590cbf3b70510ea96f040783ed9b56d229171b53ffe2d",
+      "experiment_folder": "muon_analysis/angle_filter_results",
+      "generation_script": "muon_analysis/run_angle_filter_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/angle_filter_results/angle_filter_experiment_config.json",
+        "muon_analysis/angle_filter_results/angle_filter_experiment_summary.md",
+        "muon_analysis/angle_filter_results/angle_filter_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/angle_weighting_results/angle_weighting_metrics_vs_cap.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 110824,
+      "sha256": "7c53ea8230a68b4b4b5f6054ba11822a796e6c51a145b665cb3a5f12489afc81",
+      "experiment_folder": "muon_analysis/angle_weighting_results",
+      "generation_script": "muon_analysis/run_angle_weighting_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/angle_weighting_results/angle_weighting_experiment_config.json",
+        "muon_analysis/angle_weighting_results/angle_weighting_experiment_summary.md",
+        "muon_analysis/angle_weighting_results/angle_weighting_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/angle_weighting_results/angle_weighting_poca_xy_3000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 88723,
+      "sha256": "53966edae869f7ea64aa3814d3448eac89bb0cd4f2a6b0e24ee707f80807b46d",
+      "experiment_folder": "muon_analysis/angle_weighting_results",
+      "generation_script": "muon_analysis/run_angle_weighting_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/angle_weighting_results/angle_weighting_experiment_config.json",
+        "muon_analysis/angle_weighting_results/angle_weighting_experiment_summary.md",
+        "muon_analysis/angle_weighting_results/angle_weighting_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/baseline_results/baseline_metrics_vs_event_count.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 24397,
+      "sha256": "9307052f2846cd78ea8eecdf91349a590339d802b16eb6b294df1e14d184e8b9",
+      "experiment_folder": "muon_analysis/baseline_results",
+      "generation_script": "muon_analysis/run_baseline_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/baseline_results/baseline_experiment_config.json",
+        "muon_analysis/baseline_results/baseline_experiment_summary.md",
+        "muon_analysis/baseline_results/baseline_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/baseline_results/poca_xy_1000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 28073,
+      "sha256": "793acc426a408dfcbd53bf62a3b2a834ffba90050dad67b3ec3bf35db642efc1",
+      "experiment_folder": "muon_analysis/baseline_results",
+      "generation_script": "muon_analysis/run_baseline_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/baseline_results/baseline_experiment_config.json",
+        "muon_analysis/baseline_results/baseline_experiment_summary.md",
+        "muon_analysis/baseline_results/baseline_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/baseline_results/poca_xy_3000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 30241,
+      "sha256": "9c1be6111fa123004822dc24b9e3e3a34d5be471e09168992a462f50d1ba3f80",
+      "experiment_folder": "muon_analysis/baseline_results",
+      "generation_script": "muon_analysis/run_baseline_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/baseline_results/baseline_experiment_config.json",
+        "muon_analysis/baseline_results/baseline_experiment_summary.md",
+        "muon_analysis/baseline_results/baseline_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/baseline_results/poca_xy_5000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 30896,
+      "sha256": "5f1ec6d874bee84594e8cf07dc24cf68e26dc68ceb509a7eab2054cc6963ae31",
+      "experiment_folder": "muon_analysis/baseline_results",
+      "generation_script": "muon_analysis/run_baseline_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/baseline_results/baseline_experiment_config.json",
+        "muon_analysis/baseline_results/baseline_experiment_summary.md",
+        "muon_analysis/baseline_results/baseline_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/baseline_results/poca_xy_9975_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 32348,
+      "sha256": "e5a250b2c6b29a3fa11ddfafbb635b4701823938bd61be736a0a13838ee010c7",
+      "experiment_folder": "muon_analysis/baseline_results",
+      "generation_script": "muon_analysis/run_baseline_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/baseline_results/baseline_experiment_config.json",
+        "muon_analysis/baseline_results/baseline_experiment_summary.md",
+        "muon_analysis/baseline_results/baseline_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/boundary_poca_diagnosis_results/boundary_poca_scale_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 176109,
+      "sha256": "afe604bbc9bcc6a5636f6cab7a7bacab410828b6ca4e23c3e6ab1097d1875bd6",
+      "experiment_folder": "muon_analysis/boundary_poca_diagnosis_results",
+      "generation_script": "muon_analysis/diagnose_boundary_poca_scale.py",
+      "associated_run_records": [
+        "muon_analysis/boundary_poca_diagnosis_results/config.json",
+        "muon_analysis/boundary_poca_diagnosis_results/research_note.md",
+        "muon_analysis/boundary_poca_diagnosis_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/continuous_event_quality_results/continuous_event_quality_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 483927,
+      "sha256": "cab682e44c5ab2397d364a9e749de7ce847fdb5ef179a18a4fa4116de75e95e6",
+      "experiment_folder": "muon_analysis/continuous_event_quality_results",
+      "generation_script": "muon_analysis/run_continuous_event_quality_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/continuous_event_quality_results/continuous_event_quality_config.json",
+        "muon_analysis/continuous_event_quality_results/continuous_event_quality_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/continuous_image_audit_results/fixed_budget_refinement.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 51367,
+      "sha256": "cb56f459772a736036b1354eebfb5ce678c6909a15bf2262b0edac3209c35fd7",
+      "experiment_folder": "muon_analysis/continuous_image_audit_results",
+      "generation_script": "muon_analysis/audit_refinement_checkpoint.py",
+      "associated_run_records": [
+        "muon_analysis/continuous_image_audit_results/config.json",
+        "muon_analysis/continuous_image_audit_results/research_note.md",
+        "muon_analysis/continuous_image_audit_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/continuous_image_audit_results/fractional_iou_comparison.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 68350,
+      "sha256": "a1dc413204ee1d89440e7fe59f129e3e544ecdc5db44fff417cdebeafbca2ede",
+      "experiment_folder": "muon_analysis/continuous_image_audit_results",
+      "generation_script": "muon_analysis/audit_refinement_checkpoint.py",
+      "associated_run_records": [
+        "muon_analysis/continuous_image_audit_results/config.json",
+        "muon_analysis/continuous_image_audit_results/research_note.md",
+        "muon_analysis/continuous_image_audit_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/detector_resolution_results/detector_resolution_metrics.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 164113,
+      "sha256": "dabcf04c93727a1d6b010f8a9cba1bbf1b1ea8d4469f8b431f94ceb23ad015be",
+      "experiment_folder": "muon_analysis/detector_resolution_results",
+      "generation_script": "muon_analysis/run_detector_resolution_robustness.py",
+      "associated_run_records": [
+        "muon_analysis/detector_resolution_results/detector_resolution_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/double_block_validation_results/metrics_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 175931,
+      "sha256": "3c7bf417349c963427d98c9e49db9364e68b32515ddc4bf1cb95cf5e8bd35a82",
+      "experiment_folder": "muon_analysis/double_block_validation_results",
+      "generation_script": "muon_analysis/run_double_block_validation.py",
+      "associated_run_records": [
+        "muon_analysis/double_block_validation_results/config.json",
+        "muon_analysis/double_block_validation_results/paired_summary.csv",
+        "muon_analysis/double_block_validation_results/research_note.md",
+        "muon_analysis/double_block_validation_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/double_block_validation_results/reconstruction_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 87525,
+      "sha256": "c00209690375897c5748a84c1de0a7274bed5f0fd96d552b51adab74955d8cbb",
+      "experiment_folder": "muon_analysis/double_block_validation_results",
+      "generation_script": "muon_analysis/run_double_block_validation.py",
+      "associated_run_records": [
+        "muon_analysis/double_block_validation_results/config.json",
+        "muon_analysis/double_block_validation_results/paired_summary.csv",
+        "muon_analysis/double_block_validation_results/research_note.md",
+        "muon_analysis/double_block_validation_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/event_uncertainty_results/event_uncertainty_metrics.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 391660,
+      "sha256": "2994c7825ca556811daf08c428e95c35f049fb2b6d82e85ed81a149b508bef53",
+      "experiment_folder": "muon_analysis/event_uncertainty_results",
+      "generation_script": "muon_analysis/run_event_uncertainty_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/event_uncertainty_results/event_uncertainty_config.json",
+        "muon_analysis/event_uncertainty_results/event_uncertainty_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/fractional_iou_audit_results/fixed_budget_refinement.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 51367,
+      "sha256": "cb56f459772a736036b1354eebfb5ce678c6909a15bf2262b0edac3209c35fd7",
+      "experiment_folder": "muon_analysis/fractional_iou_audit_results",
+      "generation_script": "muon_analysis/run_fixed_budget_refinement.py",
+      "associated_run_records": [
+        "muon_analysis/fractional_iou_audit_results/config.json",
+        "muon_analysis/fractional_iou_audit_results/research_note.md",
+        "muon_analysis/fractional_iou_audit_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/frame_gate_score_audit_results/frame_gate_iou_5000_32.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 130372,
+      "sha256": "92256ffa9c78cf8b1a779c009f9f8fc2f3d0db057b7869b27dbe90aed3b96504",
+      "experiment_folder": "muon_analysis/frame_gate_score_audit_results",
+      "generation_script": "muon_analysis/run_frame_z_gate_validation.py",
+      "associated_run_records": [
+        "muon_analysis/frame_gate_score_audit_results/config.json",
+        "muon_analysis/frame_gate_score_audit_results/research_note.md",
+        "muon_analysis/frame_gate_score_audit_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/frame_smoothing_control_results/frame_gate_iou_5000_32.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 130372,
+      "sha256": "92256ffa9c78cf8b1a779c009f9f8fc2f3d0db057b7869b27dbe90aed3b96504",
+      "experiment_folder": "muon_analysis/frame_smoothing_control_results",
+      "generation_script": "muon_analysis/run_frame_z_gate_validation.py",
+      "associated_run_records": [
+        "muon_analysis/frame_smoothing_control_results/config.json",
+        "muon_analysis/frame_smoothing_control_results/research_note.md",
+        "muon_analysis/frame_smoothing_control_results/summary.csv",
+        "muon_analysis/frame_smoothing_control_results/timing_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/frame_smoothing_control_results/frame_gate_score_audit.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 180476,
+      "sha256": "12bc044dba1f1c95940f224636ccb92ff9f52d31c0fce99f9f422218be345311",
+      "experiment_folder": "muon_analysis/frame_smoothing_control_results",
+      "generation_script": "muon_analysis/run_frame_z_gate_validation.py",
+      "associated_run_records": [
+        "muon_analysis/frame_smoothing_control_results/config.json",
+        "muon_analysis/frame_smoothing_control_results/research_note.md",
+        "muon_analysis/frame_smoothing_control_results/summary.csv",
+        "muon_analysis/frame_smoothing_control_results/timing_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/heldout_subcell_score_results/heldout_subcell_score_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 180301,
+      "sha256": "82cb050420e61ac517115aede529ead4aa5bbfa0e8699b4d9442198baba2f7d6",
+      "experiment_folder": "muon_analysis/heldout_subcell_score_results",
+      "generation_script": "muon_analysis/diagnose_heldout_subcell_score.py",
+      "associated_run_records": [
+        "muon_analysis/heldout_subcell_score_results/config.json",
+        "muon_analysis/heldout_subcell_score_results/research_note.md",
+        "muon_analysis/heldout_subcell_score_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/local_region_results/local_region_vs_global_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 221466,
+      "sha256": "8ffb423e4e8e9203d303ee1bf3019d66098c7917d8c61d6c1c242581a8868152",
+      "experiment_folder": "muon_analysis/local_region_results",
+      "generation_script": "muon_analysis/run_local_region_validation.py",
+      "associated_run_records": [
+        "muon_analysis/local_region_results/local_region_config.json",
+        "muon_analysis/local_region_results/local_region_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/local_region_results/sliding_window_vs_global_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 253933,
+      "sha256": "9dc6802b65e660f42b5dc22726247ef622b8a6b1b64a95963fcc6541613794b1",
+      "experiment_folder": "muon_analysis/local_region_results",
+      "generation_script": "muon_analysis/run_local_region_validation.py",
+      "associated_run_records": [
+        "muon_analysis/local_region_results/local_region_config.json",
+        "muon_analysis/local_region_results/local_region_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/matched_diffusion_control_results/local_scale_ablation.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 238318,
+      "sha256": "7b23f175481c2500875c63724c18481dce6ac0b526a322d20ce415c3d8ad32f4",
+      "experiment_folder": "muon_analysis/matched_diffusion_control_results",
+      "generation_script": "muon_analysis/run_local_scale_candidate.py",
+      "associated_run_records": [
+        "muon_analysis/matched_diffusion_control_results/config.json",
+        "muon_analysis/matched_diffusion_control_results/research_note.md",
+        "muon_analysis/matched_diffusion_control_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/matched_diffusion_control_results/local_scale_images.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 182103,
+      "sha256": "80221649814cdf973ab5fe69612df8bd61d03a59d42a3f308286b4a9ed7be1ae",
+      "experiment_folder": "muon_analysis/matched_diffusion_control_results",
+      "generation_script": "muon_analysis/run_local_scale_candidate.py",
+      "associated_run_records": [
+        "muon_analysis/matched_diffusion_control_results/config.json",
+        "muon_analysis/matched_diffusion_control_results/research_note.md",
+        "muon_analysis/matched_diffusion_control_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/multiscale_localization_results/multiscale_comparison_center_offcenter_small.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 152256,
+      "sha256": "386d27f9bd3ab404cba3fca6bb59701e8fc37a4b54123a67d324a785cbbd1a38",
+      "experiment_folder": "muon_analysis/multiscale_localization_results",
+      "generation_script": "muon_analysis/run_multiscale_localization.py",
+      "associated_run_records": [
+        "muon_analysis/multiscale_localization_results/multiscale_config_center_offcenter_small.json",
+        "muon_analysis/multiscale_localization_results/multiscale_config_medium_offset.json",
+        "muon_analysis/multiscale_localization_results/multiscale_summary_center_offcenter_small.csv",
+        "muon_analysis/multiscale_localization_results/multiscale_summary_medium_offset.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/multiscale_localization_results/multiscale_comparison_medium_offset.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 58596,
+      "sha256": "f8385b75912502c7f3db1a11c2ae41b14826cd7761762dea23d1c5a699044af3",
+      "experiment_folder": "muon_analysis/multiscale_localization_results",
+      "generation_script": "muon_analysis/run_multiscale_localization.py",
+      "associated_run_records": [
+        "muon_analysis/multiscale_localization_results/multiscale_config_center_offcenter_small.json",
+        "muon_analysis/multiscale_localization_results/multiscale_config_medium_offset.json",
+        "muon_analysis/multiscale_localization_results/multiscale_summary_center_offcenter_small.csv",
+        "muon_analysis/multiscale_localization_results/multiscale_summary_medium_offset.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/offcenter_generalization_results/offcenter_metrics_vs_refinement.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 88974,
+      "sha256": "d9ae24d0076d41f4c211af62f39f9bb0b52ed1cb7419826ad85d28c7a2031444",
+      "experiment_folder": "muon_analysis/offcenter_generalization_results",
+      "generation_script": "muon_analysis/run_offcenter_generalization.py",
+      "associated_run_records": [
+        "muon_analysis/offcenter_generalization_results/offcenter_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/offcenter_generalization_results/offcenter_poca_xy_5000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 54588,
+      "sha256": "55c55daa1b54a0f2f6a280d6ae1ffac8940fc8e0f0e96d90343e04d0eb94d57e",
+      "experiment_folder": "muon_analysis/offcenter_generalization_results",
+      "generation_script": "muon_analysis/run_offcenter_generalization.py",
+      "associated_run_records": [
+        "muon_analysis/offcenter_generalization_results/offcenter_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/offcenter_localization_diagnosis/offcenter_background_subtraction.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 161903,
+      "sha256": "176ffe4742c573de5f81419f6bb6335576f83c6e5c571fb25b5bb2919308ec5d",
+      "experiment_folder": "muon_analysis/offcenter_localization_diagnosis",
+      "generation_script": "muon_analysis/diagnose_offcenter_localization.py",
+      "associated_run_records": [
+        "muon_analysis/offcenter_localization_diagnosis/offcenter_centroid_config.json",
+        "muon_analysis/offcenter_localization_diagnosis/offcenter_centroid_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/offcenter_localization_diagnosis/offcenter_centroid_diagnosis.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 282296,
+      "sha256": "e3d2627dc02b646bf0b83c0f5009e07d8b1bab1050c7e88205603ad597931428",
+      "experiment_folder": "muon_analysis/offcenter_localization_diagnosis",
+      "generation_script": "muon_analysis/diagnose_offcenter_localization.py",
+      "associated_run_records": [
+        "muon_analysis/offcenter_localization_diagnosis/offcenter_centroid_config.json",
+        "muon_analysis/offcenter_localization_diagnosis/offcenter_centroid_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/poca_z_stability_results/poca_z_strata_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 107719,
+      "sha256": "59e13a02422fbcaa888c55b36ee00d9e3d474484844e280c1d1785e5fdc094a7",
+      "experiment_folder": "muon_analysis/poca_z_stability_results",
+      "generation_script": "muon_analysis/diagnose_poca_z_stability.py",
+      "associated_run_records": [
+        "muon_analysis/poca_z_stability_results/config.json",
+        "muon_analysis/poca_z_stability_results/research_note.md",
+        "muon_analysis/poca_z_stability_results/strata_summary.csv",
+        "muon_analysis/poca_z_stability_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/robust_localization_results/robust_comparison_center_offcenter_small_medium_offset.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 235440,
+      "sha256": "dd57fe0b93b148f2344f06c0ac7e93f3d08fc31cb087afbfad3d10cd8cd3b23d",
+      "experiment_folder": "muon_analysis/robust_localization_results",
+      "generation_script": "muon_analysis/run_robust_localization_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/robust_localization_results/robust_config_center_offcenter_small_medium_offset.json",
+        "muon_analysis/robust_localization_results/robust_config_small_offset.json",
+        "muon_analysis/robust_localization_results/robust_summary_center_offcenter_small_medium_offset.csv",
+        "muon_analysis/robust_localization_results/robust_summary_small_offset.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/robust_localization_results/robust_comparison_small_offset.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 63668,
+      "sha256": "13573cd56271f2449e4840724b17cc24bea9ea8f75e2742f3cbb1f01f2a3d82c",
+      "experiment_folder": "muon_analysis/robust_localization_results",
+      "generation_script": "muon_analysis/run_robust_localization_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/robust_localization_results/robust_config_center_offcenter_small_medium_offset.json",
+        "muon_analysis/robust_localization_results/robust_config_small_offset.json",
+        "muon_analysis/robust_localization_results/robust_summary_center_offcenter_small_medium_offset.csv",
+        "muon_analysis/robust_localization_results/robust_summary_small_offset.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/selection_attribute_results/selection_attribute_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 387445,
+      "sha256": "5739e99bdecd297481db429bb3c71f8edc170188a734c3301aff583d055a6e8a",
+      "experiment_folder": "muon_analysis/selection_attribute_results",
+      "generation_script": "muon_analysis/decompose_selection_attribute_effect.py",
+      "associated_run_records": [
+        "muon_analysis/selection_attribute_results/config.json",
+        "muon_analysis/selection_attribute_results/research_note.md",
+        "muon_analysis/selection_attribute_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/selection_gate_results/selection_gate_transitions_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 119001,
+      "sha256": "9df7149eefe63b09af8b2d8c141272fdef798742e89aa1eb1331a995d0bcba68",
+      "experiment_folder": "muon_analysis/selection_gate_results",
+      "generation_script": "muon_analysis/diagnose_selection_gate_transitions.py",
+      "associated_run_records": [
+        "muon_analysis/selection_gate_results/config.json",
+        "muon_analysis/selection_gate_results/research_note.md",
+        "muon_analysis/selection_gate_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/small_target_generalization_results/small_target_metrics_vs_refinement.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 97196,
+      "sha256": "62cf4e229995bdf877d86a02165b277621fdf1592a38aac2a3f636cf3d3fd018",
+      "experiment_folder": "muon_analysis/small_target_generalization_results",
+      "generation_script": "muon_analysis/run_small_target_generalization.py",
+      "associated_run_records": [
+        "muon_analysis/small_target_generalization_results/small_target_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/small_target_generalization_results/small_target_poca_xy_5000_events.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 51463,
+      "sha256": "29e3af0d0802c7905c39c35a74d2f54dc94a37e3834f950262e9d3dbe3672500",
+      "experiment_folder": "muon_analysis/small_target_generalization_results",
+      "generation_script": "muon_analysis/run_small_target_generalization.py",
+      "associated_run_records": [
+        "muon_analysis/small_target_generalization_results/small_target_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/soft_uncertainty_results/soft_uncertainty_metrics.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 333074,
+      "sha256": "8385502c129a9440edc390f9aa897ebabd82f7a51cbae7bab927595f7713efda",
+      "experiment_folder": "muon_analysis/soft_uncertainty_results",
+      "generation_script": "muon_analysis/run_soft_uncertainty_weight_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/soft_uncertainty_results/soft_uncertainty_config.json",
+        "muon_analysis/soft_uncertainty_results/soft_uncertainty_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/split_confidence_diagnosis_results/gate_diagnosis_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 147592,
+      "sha256": "0a7294ec1375653856e8e5231a3912bea50281ca0e78bdda58bd9eaa6b70552c",
+      "experiment_folder": "muon_analysis/split_confidence_diagnosis_results",
+      "generation_script": "muon_analysis/diagnose_split_confidence.py",
+      "associated_run_records": [
+        "muon_analysis/split_confidence_diagnosis_results/config.json",
+        "muon_analysis/split_confidence_diagnosis_results/research_note.md",
+        "muon_analysis/split_confidence_diagnosis_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/split_gate_ablation_results/gate_ablation_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 284726,
+      "sha256": "e212270f9a4883e5788bc01e9129fbe29c5842aca11a637bb5afca1f0846b317",
+      "experiment_folder": "muon_analysis/split_gate_ablation_results",
+      "generation_script": "muon_analysis/run_split_gate_ablation.py",
+      "associated_run_records": [
+        "muon_analysis/split_gate_ablation_results/config.json",
+        "muon_analysis/split_gate_ablation_results/research_note.md",
+        "muon_analysis/split_gate_ablation_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/t_shape_independent_results/metrics_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 146201,
+      "sha256": "7e23f3c7d09d40cbc5ca900d09b5b37125e19db793991ffb5c7770aebf49dd02",
+      "experiment_folder": "muon_analysis/t_shape_independent_results",
+      "generation_script": "muon_analysis/run_t_shape_independent_validation.py",
+      "associated_run_records": [
+        "muon_analysis/t_shape_independent_results/config.json",
+        "muon_analysis/t_shape_independent_results/paired_summary.csv",
+        "muon_analysis/t_shape_independent_results/research_note.md",
+        "muon_analysis/t_shape_independent_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/t_shape_independent_results/reconstruction_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 101051,
+      "sha256": "d352cc3012339858c2b4f9a51ca99c85afb20d8d38ea14bbb0994cd59110cd85",
+      "experiment_folder": "muon_analysis/t_shape_independent_results",
+      "generation_script": "muon_analysis/run_t_shape_independent_validation.py",
+      "associated_run_records": [
+        "muon_analysis/t_shape_independent_results/config.json",
+        "muon_analysis/t_shape_independent_results/paired_summary.csv",
+        "muon_analysis/t_shape_independent_results/research_note.md",
+        "muon_analysis/t_shape_independent_results/summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/uncertainty_aware_angle_results/uncertainty_aware_angle_metrics.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 387883,
+      "sha256": "3a935eb484e75c81412606f078b5bdc4b26ae9960f60aded477714156493e562",
+      "experiment_folder": "muon_analysis/uncertainty_aware_angle_results",
+      "generation_script": "muon_analysis/run_uncertainty_aware_angle_experiment.py",
+      "associated_run_records": [
+        "muon_analysis/uncertainty_aware_angle_results/uncertainty_aware_experiment_config.json",
+        "muon_analysis/uncertainty_aware_angle_results/uncertainty_aware_metrics_summary.csv"
+      ]
+    },
+    {
+      "path": "muon_analysis/uncertainty_cross_scenario_results/uncertainty_cross_scenario_5000.png",
+      "status_before_sync": "ignored by broad *.png rule",
+      "status_after_sync": "tracked in this branch",
+      "bytes": 375524,
+      "sha256": "138a258fc0c0acd85be92e2b4a6a8f7b7ebcadc50aa7075b5bb483266f78ff2e",
+      "experiment_folder": "muon_analysis/uncertainty_cross_scenario_results",
+      "generation_script": "muon_analysis/run_uncertainty_cross_scenario.py",
+      "associated_run_records": [
+        "muon_analysis/uncertainty_cross_scenario_results/uncertainty_cross_scenario_config.json",
+        "muon_analysis/uncertainty_cross_scenario_results/uncertainty_cross_scenario_summary.csv"
+      ]
+    }
+  ]
+}

@@ -6,10 +6,8 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 
-# Generated simulation data and figures
-muon_analysis/muon_tracks.csv
-muon_analysis/outputs/
-*.png
+# Research outputs are intentionally trackable:
+# keep CSV/JSON records and PNG figures with their experiment folders.
 
 # Python environments and caches
 muon_analysis/.venv/
@@ -20,3 +18,11 @@ __pycache__/
 # Operating-system and local editor settings
 .DS_Store
 .vscode/
+
+# Local build, plot caches, and machine-specific workspace files
+B1/.matplotlib-cache/
+B1/.codex-ppt-build/
+B1/.codex-finalizer/
+B1/muon-research.code-workspace
+B1/PROJECT_NAVIGATION.md
+muon_analysis/.matplotlib-cache/
