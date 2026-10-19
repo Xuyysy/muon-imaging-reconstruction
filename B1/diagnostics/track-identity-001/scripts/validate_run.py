@@ -36,12 +36,14 @@ def validate_run(event_rows, summary, run_log, expected_events):
                 errors.append(f"event {row['event_id']} primary candidate is not PDG 13 with Parent ID 0")
         is_complete = str(row.get("current_complete", "0")).lower() in {"1", "true"}
         current_complete += int(is_complete)
+        primary_complete = str(row.get("primary_complete", "0")).lower() in {"1", "true"}
+        if primary_complete and count != 1:
+            errors.append(f"event {row['event_id']} is primary-complete despite ambiguous primary identity")
         if is_complete:
             for layer in LAYERS:
                 for suffix in ("track_id", "pdg_id", "parent_id", "global_time_ns", "x_mm", "y_mm", "z_mm"):
                     if not row.get(f"sel_{layer}_{suffix}"):
                         errors.append(f"complete event {row['event_id']} has empty selected {layer} {suffix}")
-        primary_complete = str(row.get("primary_complete", "0")).lower() in {"1", "true"}
         if primary_complete:
             for layer in LAYERS:
                 for suffix in ("track_id", "pdg_id", "parent_id", "global_time_ns", "x_mm", "y_mm", "z_mm"):

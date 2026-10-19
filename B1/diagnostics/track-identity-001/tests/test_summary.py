@@ -76,6 +76,17 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(result["primary_identity_unknown_events"], 1)
         self.assertEqual(result["identity_anomaly"]["denominator"], 0)
 
+    def test_primary_identity_counts_are_mutually_exclusive_missing_unique_ambiguous(self):
+        result = summarize([
+            event(0, primary_candidate_count=0, primary_id=""),
+            event(1),
+            event(2, primary_candidate_count=2, primary_id=""),
+        ], [])
+        self.assertEqual(result["primary_identity_missing_events"], 1)
+        self.assertEqual(result["primary_identity_unique_events"], 1)
+        self.assertEqual(result["primary_identity_ambiguous_events"], 1)
+        self.assertEqual(result["primary_identity_unknown_events"], 2)
+
     def test_coordinate_difference_only_uses_events_complete_under_both_rules(self):
         result = summarize([
             event(0, coordinate_shift_layer="down1"),

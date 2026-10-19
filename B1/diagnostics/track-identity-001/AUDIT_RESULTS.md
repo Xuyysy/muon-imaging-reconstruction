@@ -18,7 +18,10 @@ The primary μ− was recognized per event as a Geant4 primary track with PDG ID
 | At least one selected secondary hit (`ParentID > 0`) | 1 | 0 |
 | Current vs. primary coordinates differ, among events complete under both | 0 / 996 | 0 / 9,966 |
 | Current vs. primary four-layer acceptance differs | 1 | 0 |
-| Primary identity unknown | 0 | 0 |
+| Primary identity uniquely identified | 1,000 | 10,000 |
+| Primary identity missing | 0 | 0 |
+| Primary identity ambiguous (multiple μ− candidates or invalid unique ID) | 0 | 0 |
+| Primary identity unknown (missing + ambiguous) | 0 | 0 |
 | Selected-hit identity unknown among current-complete events | 0 | 0 |
 | Events with at least one layer whose first processed boundary is not earliest by Global Time | 1 | 4 |
 | Event-layer cases with processing/time ordering difference | 1 | 11 |

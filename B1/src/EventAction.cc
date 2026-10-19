@@ -96,6 +96,11 @@ void EventAction::ObserveTrack(G4int pdgId, G4int trackId, G4int parentId,
   }
   fPrimaryMuonTrackIds.push_back(trackId);
   if (fPrimaryMuonTrackIds.size() == 1) fPrimaryMuonGlobalTime = globalTime;
+  if (fPrimaryMuonTrackIds.size() > 1) {
+    // A later-discovered second primary μ− makes event-level identity
+    // ambiguous. Invalidate any first-candidate boundary hits already stored.
+    for (int i = 0; i < 4; ++i) fPrimaryHit[i] = HitRecord{};
+  }
 }
 
 void EventAction::SetHit(const G4String& detector, G4double x, G4double y,
@@ -145,7 +150,8 @@ void EventAction::EndOfEventAction(const G4Event* event)
 {
   if (fDiagnosticEvents.is_open()) {
     const auto eventId = event->GetEventID();
-    const auto primaryComplete = fPrimaryHit[kUpstream1].present &&
+    const auto primaryComplete = fPrimaryMuonTrackIds.size() == 1 &&
+                                 fPrimaryHit[kUpstream1].present &&
                                  fPrimaryHit[kUpstream2].present &&
                                  fPrimaryHit[kDownstream1].present &&
                                  fPrimaryHit[kDownstream2].present;

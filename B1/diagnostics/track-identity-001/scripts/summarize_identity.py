@@ -118,6 +118,12 @@ def _event_flags(row: dict):
     candidate_count = _integer(row.get("primary_candidate_count"))
     primary_track_id = _integer(row.get("primary_track_id"))
     primary_known = candidate_count == 1 and primary_track_id is not None
+    if candidate_count == 0:
+        primary_identity_class = "missing"
+    elif candidate_count == 1 and primary_track_id is not None:
+        primary_identity_class = "unique"
+    else:
+        primary_identity_class = "ambiguous"
 
     selected_identity = [_identity_values(row, "sel", layer) for layer in LAYERS]
     selected_identity_known = all(
@@ -162,7 +168,8 @@ def _event_flags(row: dict):
         "current_complete": current_complete,
         "primary_complete": primary_complete,
         "primary_known": primary_known,
-        "primary_unknown": not primary_known,
+        "primary_identity_class": primary_identity_class,
+        "primary_unknown": primary_identity_class != "unique",
         "selected_unknown": selected_unknown,
         "track_id_inconsistent": track_id_inconsistent,
         "selected_secondary": selected_secondary,
@@ -214,6 +221,15 @@ def summarize(event_rows: Iterable[dict], boundary_rows: Iterable[dict]) -> dict
         "generated_events": generated,
         "current_complete_events": complete,
         "primary_complete_events": sum(flag["primary_complete"] for flag in flags),
+        "primary_identity_missing_events": sum(
+            flag["primary_identity_class"] == "missing" for flag in flags
+        ),
+        "primary_identity_unique_events": sum(
+            flag["primary_identity_class"] == "unique" for flag in flags
+        ),
+        "primary_identity_ambiguous_events": sum(
+            flag["primary_identity_class"] == "ambiguous" for flag in flags
+        ),
         "all_four_current_from_primary_muon_events": sum(
             flag["all_initial_muon"] for flag in flags
         ),

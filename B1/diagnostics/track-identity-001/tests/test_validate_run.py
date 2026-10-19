@@ -28,6 +28,18 @@ class ValidateRunTests(unittest.TestCase):
         self.assertTrue(any("primary mu- candidates" in error for error in errors))
         self.assertTrue(any("RunAction" in error for error in errors))
 
+    def test_rejects_primary_complete_flag_when_multiple_muon_candidates_exist(self):
+        row = {
+            "event_id": "0", "primary_candidate_count": "2", "primary_track_id": "",
+            "primary_pdg_id": "", "primary_parent_id": "", "primary_global_time_ns": "",
+            "current_complete": "0", "primary_complete": "1",
+        }
+        errors = validate_run(
+            [row], {"generated_events": 1, "current_complete_events": 0},
+            "[Muon source] IDEAL mode: fixed 4 GeV, +z direction\nComplete tracks: 0", 1,
+        )
+        self.assertTrue(any("ambiguous primary identity" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()
