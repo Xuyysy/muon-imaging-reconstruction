@@ -18,12 +18,12 @@
     "B1/diagnostics/track-identity-001/scripts/validate_run.py": "6a221d520b69ae3d5624f0a5cf2af09ed83710fef95dabd6de196fd7340d3aaf",
     "B1/diagnostics/track-identity-001/scripts/write_manifest.py": "3ebf852adcb4e95002945e123935e695d70c45b8149c4d7c85b2772e90f66ac9"
   },
-  "analysis_source_commit": "c3ecb6fe6e769b631c69c6a485747470af222931",
+  "analysis_source_commit": "0a20e50229d8ade63d1052e14fecd53ae7c11f1b",
   "analysis_source_file_sha256": {
     "B1/CMakeLists.txt": "f8663e46344a6f889bb55970574a1b596d35974f2d331ae8e7872d3a96713e8b",
     "B1/exampleB1.cc": "f8db25f70fce23add9ebe05736adb54b14a42e8400c24fff4e585f25a628f605",
     "B1/include/EventAction.hh": "14b9341c2bcb1760bc3ab9a67cd4ff13087f55848a9f63482a4729d2cdc8256a",
-    "B1/src/EventAction.cc": "349bd6ab7268e3961fe0144dbbc870f7bb3baac1cd7f25d61d9358496f37ef96",
+    "B1/src/EventAction.cc": "d51a3bc9f1fd1dfed151bd0883bc6f5aa5fe3f4ea104cab836caabbf5e9b3469",
     "B1/src/SteppingAction.cc": "aef81ddf1f5cdfabae792b9584d3f2fbf4b2de34cbad83a2b6b529b098ecae19",
     "B1/src/ActionInitialization.cc": "c5385dec9ad92cfaece5721a917ded3bc81a736b2bc0c7541ee4a6b56b0f2877",
     "B1/src/PrimaryGeneratorAction.cc": "be5df33537bf65d1ec7ad104067f3967e2d20b85454c6cc44fc4b09eb6f36961",
@@ -33,12 +33,12 @@
     "B1/diagnostics/track-identity-001/run_10000.mac": "6b96a95b10bb127c6fc0be38428c9917104c59236793cf598513e0b383f32793",
     "B1/diagnostics/track-identity-001/run_audit.sh": "059fe34a1aa90953300ed508a8439d6320613cd571b8fa24c9add3d11d88a8ea",
     "B1/diagnostics/track-identity-001/README.md": "065a5c27616a31f61a7c494bf20c0e9bcfd502882e9b5ca4a02eaccaf09047a7",
-    "B1/diagnostics/track-identity-001/AUDIT_RESULTS.md": "ab382bfed531b79e64dbb29b60cccec3015ea3738f19ce9e101bc829cd5215cd",
-    "B1/diagnostics/track-identity-001/scripts/summarize_identity.py": "c62686d5aaa2934d93f049e805f0998aeb5b7740cc8c146405d5c2da906b4598",
-    "B1/diagnostics/track-identity-001/scripts/validate_run.py": "6a221d520b69ae3d5624f0a5cf2af09ed83710fef95dabd6de196fd7340d3aaf",
+    "B1/diagnostics/track-identity-001/AUDIT_RESULTS.md": "05030704d35a82b330a878c7139dc1a5c2b92e1d6c6a9d994a267f84ef54e1df",
+    "B1/diagnostics/track-identity-001/scripts/summarize_identity.py": "10f702e05029b8080453433e2a4a3b7688428d4b1308c5c59967e78bed6fac3a",
+    "B1/diagnostics/track-identity-001/scripts/validate_run.py": "ddb9af3d59f628581227240b4903cd53fc50dd8f5a1239ef2699435524d21e5b",
     "B1/diagnostics/track-identity-001/scripts/write_manifest.py": "db4ba75c1a31af10cf7b9a6d40b0e8f7c1239c8586af9d4baf864113ee8c7633",
-    "B1/diagnostics/track-identity-001/tests/test_summary.py": "52a89b54a36b05f8ee855b88462c7b253183087919127df8728cebb5d5f5bf34",
-    "B1/diagnostics/track-identity-001/tests/test_validate_run.py": "9ec53f8daea79c257a4676ccb885c1a769d72edeeb1b32a3ea26d55dd78f8656",
+    "B1/diagnostics/track-identity-001/tests/test_summary.py": "d931f87f99558fb2f9481e3d3b5531a0969f910dfe006ff98776ce18855e4f7f",
+    "B1/diagnostics/track-identity-001/tests/test_validate_run.py": "534a1ce4e484db5381a79d39f5d8798702d123dc236e1f618b8a68ef65c2ef9f",
     "B1/diagnostics/track-identity-001/tests/test_write_manifest.py": "461bc676ceded75832a418b7fb2396651f9d2def5169d0c2e1849111247c6bcd"
   },
   "geant4_version": "11.2.2",
@@ -72,7 +72,7 @@
   "results_directory": "/Users/xuyaoyang/.codex/worktrees/geant4-track-identity-audit/geant4-test/B1/diagnostics/track-identity-001/results/audit-001",
   "result_file_sha256": {
     "build.log": "4a6dbfd5199faac03d5a3f67bfe8723d11d100db4a690a5690ce8698ef767a93",
-    "build_clean.log": "25dfcb37c34bdf53a67015347ccf7b338a8d80478334b20584da46b3188f279f",
+    "build_clean.log": "6d1a53d8671bee616d1f57dd8a8af51872b52e7993ce6bb8e606a02c8e524873",
     "geant4_run_manifest.json": "4bb1a8cc29bd0bbff68ba8c3d1f646301811614214dc4c5fa19edad646ad1f17",
     "run-1000/anomaly_cases.csv": "f7d55e8e00621053fcb69a51a21cbe56830dafeea20127b627d1bf6b758cb3bb",
     "run-1000/boundary_entries.csv": "08ca97e9f6020d89b29a5433027ee3f19ad95ea2f58e0bc70a9fb93e23d54a68",
@@ -80,7 +80,7 @@
     "run-1000/current_rule_tracks.csv": "bd81c1de8dd4bc8cff295617001b8294f8afcb6d988a97711bd5863fcb3dd82a",
     "run-1000/event_identity.csv": "9a88eb99ca8e8a386210068a73177031cfccef45e991d7e05fc183ab067424c7",
     "run-1000/geant4_run.log": "dce20e8043903a53c254c6b65ebffdccb63e4e65e5d4c799e0023392110a5d6c",
-    "run-1000/identity_summary.json": "213f0912545ba12a9f6c1fe26a15f8f0e27f55bce300e964f01cf902c9861e97",
+    "run-1000/identity_summary.json": "c49cd606db54e5b9164b6e2a4f16903beb54dda560afc27802181ea3b5255e84",
     "run-1000/validation.log": "b5282d6f944059e2698fffa1b9767742cdf4d38e87aeaa203f9ded982811b5a8",
     "run-10000/anomaly_cases.csv": "c7cfe90f809678b0fb2507dd96c7382e39b30b0fc170322a6ae8c890b8e6c6db",
     "run-10000/boundary_entries.csv": "760e2f92707376efe96a904c1de87cf50b9f84d35d3538d353568e230d8fb727",
@@ -88,8 +88,8 @@
     "run-10000/current_rule_tracks.csv": "d35b5b0192458fbb097094aeaa1cab96a54bff85ba84845a4fd09c41de15f7f0",
     "run-10000/event_identity.csv": "73210a594a1e12831ce7858b008175745b185bff6a46f53654fde257ba7955cf",
     "run-10000/geant4_run.log": "b3fb9c4aad1d1ac6cf9f5c1952a112c31adbd3431872cce83e57d8060a1dc598",
-    "run-10000/identity_summary.json": "f45b6daacf87a8e623c08da11b2ca924c31604b344a80579a62192f97c4eada4",
+    "run-10000/identity_summary.json": "7f2fc1cbb263e06393957e637ae4b5621b6a9ec24fa8cfb8307eca9f3e88e2df",
     "run-10000/validation.log": "7a5ee6a22effdf2493cc660eab2ff964db565b5971f5a844304f51be6e2621a2",
-    "unit_tests.log": "b5e98770c3c32395f238d5ce63955dfbada0a240274ae0a0d4075a2c813b8f09"
+    "unit_tests.log": "b4b13fdc8084343c7263fbff936a2fcf207d4644f6dd867c80eb698944b3302b"
   }
 }
