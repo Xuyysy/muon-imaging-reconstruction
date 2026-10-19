@@ -250,17 +250,32 @@ def summarize(event_rows: Iterable[dict], boundary_rows: Iterable[dict]) -> dict
     }
 
 
-def anomaly_cases(event_rows: Iterable[dict]) -> tuple[list[dict], float | None]:
+def anomaly_cases(event_rows: Iterable[dict], current_track_rows: Iterable[dict] = ()) -> tuple[list[dict], float | None]:
     """Return descriptive geometry deltas for known identity-anomalous events.
 
     The 99th percentile is only a within-run descriptive reference; it is not
     an acceptance cut and is never used to select or reject reconstruction data.
     """
     events = list(event_rows)
+    tracks_by_event = {
+        _integer(row.get("event")): row
+        for row in current_track_rows
+        if _integer(row.get("event")) is not None
+    }
+
+    def current_geometry(row):
+        track = tracks_by_event.get(_integer(row.get("event_id")))
+        if track is None:
+            return _geometry(row, "sel")
+        keys = ("theta_x_mrad", "theta_y_mrad", "theta_mrad",
+                "poca_x_mm", "poca_y_mm", "poca_z_mm")
+        values = {key: _number(track.get(key)) for key in keys}
+        return values if all(value is not None for value in values.values()) else _geometry(row, "sel")
+
     current_angles = []
     for row in events:
         if _flag(row.get("current_complete")):
-            geometry = _geometry(row, "sel")
+            geometry = current_geometry(row)
             if geometry is not None:
                 current_angles.append(geometry["theta_mrad"])
     current_angles.sort()
@@ -271,7 +286,7 @@ def anomaly_cases(event_rows: Iterable[dict]) -> tuple[list[dict], float | None]
         flags = _event_flags(row)
         if not flags["identity_anomaly"]:
             continue
-        current = _geometry(row, "sel") if flags["current_complete"] else None
+        current = current_geometry(row) if flags["current_complete"] else None
         primary = _geometry(row, "primary") if flags["primary_complete"] else None
         result = {
             "event_id": row.get("event_id", ""),
@@ -387,6 +402,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--events", required=True, type=Path)
     parser.add_argument("--boundaries", required=True, type=Path)
+    parser.add_argument("--tracks", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--anomalies-output", required=True, type=Path)
     parser.add_argument("--boundary-cases-output", required=True, type=Path)
@@ -395,7 +411,7 @@ def main():
     event_rows = _read_csv(args.events)
     boundary_rows = _read_csv(args.boundaries)
     result = summarize(event_rows, boundary_rows)
-    cases, p99 = anomaly_cases(event_rows)
+    cases, p99 = anomaly_cases(event_rows, _read_csv(args.tracks))
     time_cases = boundary_order_cases(event_rows, boundary_rows)
     result["run_id"] = args.run_id
     result["anomaly_case_count"] = len(cases)

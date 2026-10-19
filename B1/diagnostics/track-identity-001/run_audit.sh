@@ -44,6 +44,7 @@ run_one() {
   "$PYTHON" "$SCRIPT_DIR/scripts/summarize_identity.py" \
     --events "$run_dir/event_identity.csv" \
     --boundaries "$run_dir/boundary_entries.csv" \
+    --tracks "$run_dir/current_rule_tracks.csv" \
     --output "$run_dir/identity_summary.json" \
     --anomalies-output "$run_dir/anomaly_cases.csv" \
     --boundary-cases-output "$run_dir/boundary_order_cases.csv" \

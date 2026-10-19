@@ -120,6 +120,18 @@ class SummaryTests(unittest.TestCase):
         self.assertGreater(rows[0]["delta_poca_mm"], 0.0)
         self.assertIsNotNone(p99)
 
+    def test_anomaly_uses_unmodified_cpp_track_output_for_current_fit(self):
+        event_row = event(0, selected_ids=(1, 2, 1, 1), selected_parents=(0, 1, 0, 0),
+                          coordinate_shift_layer="down1")
+        tracks = [{
+            "event": "0", "theta_x_mrad": "12.345", "theta_y_mrad": "-6.789",
+            "theta_mrad": "14.087", "poca_x_mm": "2.5", "poca_y_mm": "-3.0",
+            "poca_z_mm": "9.25",
+        }]
+        rows, _ = anomaly_cases([event_row], tracks)
+        self.assertEqual(rows[0]["current_theta_mrad"], 14.087)
+        self.assertEqual(rows[0]["current_poca_z_mm"], 9.25)
+
     def test_boundary_order_case_identifies_processing_and_earliest_tracks(self):
         selected = event(0)
         selected["sel_up1_track_id"] = "1"

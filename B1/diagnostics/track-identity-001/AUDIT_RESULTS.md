@@ -41,7 +41,7 @@ The current first-hit rule selected:
 
 Thus, one generated event was accepted as a four-plane track even though its selected detector hits combine the initial μ− with its electron secondary. The primary μ− had only two of the four selected planes, so the primary-only four-point scattering angle and PoCA are undefined for this event; no artificial delta is reported. This changes the current-rule acceptance by one event.
 
-The current-rule mixed-particle fit gives `theta_x = 134.383 mrad`, `theta_y = -160.120 mrad`, and `theta = 209.039 mrad`. It exceeds the run's descriptive current-angle 99th percentile (9.097 mrad); this percentile is a description, not a selection threshold. Its PoCA midpoint is approximately `(-98.6, 149.0, -174.4) mm`, well outside the target volume. This is a concrete example of a secondary-hit combination producing a severe, physically implausible POCA observation. The historical reconstruction data were not changed.
+The unmodified C++ current-rule track output gives `theta_x = 134.382 mrad`, `theta_y = -160.129 mrad`, and `theta = 209.045 mrad`. It exceeds the run's descriptive current-angle 99th percentile (9.097 mrad); this percentile is a description, not a selection threshold. Its PoCA midpoint is `(-98.6139, 149.006, -174.362) mm`, well outside the target volume. This is a concrete example of a secondary-hit combination producing a severe, physically implausible POCA observation. The reported current-rule fit is taken from the existing C++ output, not recomputed from the rounded diagnostic coordinates. The historical reconstruction data were not changed.
 
 ## Processing order versus physical Global Time
 
