@@ -19,6 +19,8 @@
     "sci_method/studies/run_forward_identifiability.py": "7fdf38747407b70c7186e88450d08baa5a6d2a794a3367a220a0c4cb5bbbf2c1"
   },
   "source_git_commit_before_run": "8f536f1ee5c2630425acd4723b584058dfbf8105",
+  "source_worktree_clean_before_run": false,
+  "provenance_status": "superseded exploratory run; script snapshot and source-module hashes retained, but source modules were not snapshotted",
   "source_script": "sci_method/studies/run_forward_identifiability.py",
   "source_script_sha256": "7fdf38747407b70c7186e88450d08baa5a6d2a794a3367a220a0c4cb5bbbf2c1",
   "study_id": "forward-prototype-001",

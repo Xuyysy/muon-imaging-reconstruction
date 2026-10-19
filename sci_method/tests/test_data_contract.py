@@ -59,13 +59,25 @@ class ObservedDataContractTests(unittest.TestCase):
 
     def test_batch_conversion_requires_run_id_and_creates_composite_keys(self):
         rows = [make_row(), make_row()]
+        rows[1]["event"] = "8"
 
         events = observed_events_from_rows(rows, run_id="geant4-run-A")
 
-        self.assertEqual(tuple(event.event_id for event in events), (7, 7))
-        self.assertEqual(tuple(event.key for event in events), (("geant4-run-A", 7), ("geant4-run-A", 7)))
+        self.assertEqual(tuple(event.event_id for event in events), (7, 8))
+        self.assertEqual(tuple(event.key for event in events), (("geant4-run-A", 7), ("geant4-run-A", 8)))
         self.assertIsInstance(events, tuple)
         self.assertTrue(all(isinstance(event, ObservedEvent) for event in events))
+
+    def test_rejects_duplicate_composite_event_keys_in_one_batch(self):
+        with self.assertRaisesRegex(ValueError, "duplicate event key"):
+            observed_events_from_rows([make_row(), make_row()], run_id="geant4-run-A")
+
+    def test_same_event_number_in_different_runs_has_distinct_identity(self):
+        row = make_row()
+        first = observed_event_from_mapping(row, run_id="geant4-run-A")
+        second = observed_event_from_mapping(row, run_id="geant4-run-B")
+        self.assertEqual(first.event_id, second.event_id)
+        self.assertNotEqual(first.key, second.key)
 
     def test_rejects_fractional_and_boolean_event_ids_instead_of_truncating(self):
         for invalid in ("7.5", 7.5, True):

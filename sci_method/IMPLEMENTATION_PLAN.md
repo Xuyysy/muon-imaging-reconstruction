@@ -17,10 +17,13 @@ Identifiability means data-likelihood information about local parameter contrast
 
 ## Acceptance
 
-- Analytic detector covariance agrees with fixed-seed Monte Carlo within predeclared 2% relative tolerance for the tested nonzero entries.
+- Analytic detector and path-integrated scattering covariances agree with fixed-seed Monte Carlo within predeclared 2% and 3% relative tolerances respectively for tested nonzero entries.
+- Scattering Monte Carlo check is fixed before execution at seed `20261020`, 100,000 tracks, 1 mm midpoint kick intervals, and 3% relative tolerance; no tolerance adjustment after observing its result.
 - Covariances symmetric PSD; valid likelihood covariance SPD; zero scatter and zero hit-noise limits are explicit.
 - NLL and gradient finite and gradient agrees with central finite differences within predeclared tolerance.
 - A constructed exact null contrast is reported as a zero-information eigenmode; regularization changes only prior/posterior precision, not data Fisher.
 - Contract rejects fractional and boolean event IDs and requires run ID; model package has no truth/mask/oracle API.
+- A batch rejects duplicate composite `(run_id,event_id)` keys to prevent silent event double counting.
 - Outputs are created only under a new study-specific path and existing paths are never overwritten.
+- Canonical evidence snapshots the exact calculation modules and script, records code hashes, Python/NumPy versions, and explicitly marks the pre-commit worktree state.
 - No Geant4 run or large parameter/quality scan.

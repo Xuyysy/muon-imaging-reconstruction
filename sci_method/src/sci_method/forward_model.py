@@ -41,8 +41,8 @@ def _plane_z(z_mm) -> np.ndarray:
     z = np.asarray(z_mm, dtype=float)
     if z.shape != (4,) or not np.all(np.isfinite(z)):
         raise ForwardModelError("z_mm must contain four finite plane positions")
-    if z[1] == z[0]:
-        raise ForwardModelError("upstream planes must have distinct z positions")
+    if np.any(np.diff(z) <= 0):
+        raise ForwardModelError("plane order must be strictly upstream-to-downstream")
     return z
 
 

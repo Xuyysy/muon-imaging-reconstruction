@@ -91,6 +91,10 @@ def observed_event_from_mapping(row: Mapping[str, object], *, run_id: str) -> Ob
 def observed_events_from_rows(
     rows: Sequence[Mapping[str, object]], *, run_id: str,
 ) -> tuple[ObservedEvent, ...]:
-    """把输入行转换为不可变观测记录，不保留输入容器或派生列引用。"""
+    """转换为不可变记录；同一批输入不允许重复的联合事件键。"""
 
-    return tuple(observed_event_from_mapping(row, run_id=run_id) for row in rows)
+    events = tuple(observed_event_from_mapping(row, run_id=run_id) for row in rows)
+    keys = tuple(event.key for event in events)
+    if len(set(keys)) != len(keys):
+        raise ValueError("duplicate event key in input batch")
+    return events

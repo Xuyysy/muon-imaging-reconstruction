@@ -56,6 +56,8 @@ K[\lambda]=\sum_v\lambda_vD_v,\quad
 
 对 x/y 两投影假设独立、相同的 Brownian angular kicks，因此四维残差散射矩阵是两个相同的 2×2 下游块，x-y 块为零；同一投影两个 downstream residual 的协方差一般非零。它是路径积分的统计模型，不是给每事件指派“真实散射点”。
 
+另外用 seed `20261020`、100,000 条径迹和 1 mm 中点 kick 离散，对 `lambda=10^-4 mm^-1` 的解析路径协方差做独立 Monte Carlo 核对。测试在运行前固定 3% 非零矩阵项相对误差容差；实测最大相对差为 `0.238%`，且下游残差交叉协方差是非零并参与比较。该检验验证了离散 Brownian-kick 近似下的积分实现，不验证 Geant4 的散射物理模型。
+
 ## 5. 高斯似然、梯度与 Fisher 信息
 
 事件 i 的总协方差为
@@ -112,7 +114,7 @@ F_{\theta\mid\eta}=F_{\theta\theta}-F_{\theta\eta}F_{\eta\eta}^{+}F_{\eta\theta}
 ## 8. 复现与结果
 
 - 模块：[`src/sci_method/forward_model.py`](src/sci_method/forward_model.py)、[`src/sci_method/identifiability.py`](src/sci_method/identifiability.py)。
-- 测试：[`tests/`](tests/)；固定随机种子和 2% covariance Monte Carlo 容差。
+- 测试：[`tests/`](tests/)；hit-error covariance MC 容差 2%；散射 kick covariance MC 容差 3%（seed `20261020`、100,000 tracks、1 mm bins）。
 - 试验脚本：[`studies/run_forward_identifiability.py`](studies/run_forward_identifiability.py)。
-- 完整输出及哈希：[`studies/forward-prototype-001/results/run-005/`](studies/forward-prototype-001/results/run-005/)，包括 `config.json`、手工路径、合成残差、信息矩阵 CSV/JSON、`evidence.json` 与脚本快照/模块哈希。`run-001` 至 `run-004` 保留为早期/范围不同或源码哈希不完整的诊断记录，不用于主要结论，不覆盖。
+- 完整输出及哈希：[`studies/forward-prototype-001/results/run-007/`](studies/forward-prototype-001/results/run-007/)，包括 `config.json`、手工路径、合成残差、信息矩阵 CSV/JSON、`evidence.json`、完整源快照及哈希。`run-001` 至 `run-006` 保留为早期/范围不同或来源快照不完整的诊断记录，不用于主要结论，不覆盖。
 - 复现时需选新的 `--run-id`；脚本对已存在路径失败退出，避免覆盖证据。

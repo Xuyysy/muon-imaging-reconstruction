@@ -1,0 +1,101 @@
+{
+  "beta": 1.0,
+  "detector_z_mm": [
+    -400.0,
+    -300.0,
+    300.0,
+    400.0
+  ],
+  "event_budget_per_scenario": 200,
+  "hit_error_model": "independent Gaussian x/y per plane, common sigma; known z geometry",
+  "lateral_region_bounds_mm": [
+    [
+      -40,
+      -20,
+      -10,
+      10,
+      -50,
+      50
+    ],
+    [
+      -20,
+      0,
+      -10,
+      10,
+      -50,
+      50
+    ],
+    [
+      0,
+      20,
+      -10,
+      10,
+      -50,
+      50
+    ],
+    [
+      20,
+      40,
+      -10,
+      10,
+      -50,
+      50
+    ]
+  ],
+  "longitudinal_region_bounds_mm": [
+    [
+      -10,
+      10,
+      -10,
+      10,
+      -50,
+      -25
+    ],
+    [
+      -10,
+      10,
+      -10,
+      10,
+      -25,
+      0
+    ],
+    [
+      -10,
+      10,
+      -10,
+      10,
+      0,
+      25
+    ],
+    [
+      -10,
+      10,
+      -10,
+      10,
+      25,
+      50
+    ]
+  ],
+  "models": [
+    1,
+    2,
+    4
+  ],
+  "momentum_gev_c": 4.0,
+  "nominal_density_mm_inv": 0.0001,
+  "note": "Hand-defined paths and Gaussian observations only; not Geant4 or a natural-spectrum inference.",
+  "prior_precision_demo_mm2": 1.0,
+  "rank_relative_tolerance": 1e-10,
+  "rng_seed": 20261019,
+  "run_id": "run-006",
+  "scenarios": [
+    "balanced_four_strips",
+    "single_strip_only",
+    "longitudinal_four_voxels"
+  ],
+  "sigmas_hit_mm": [
+    0.0,
+    0.3
+  ],
+  "study_id": "forward-prototype-001"
+}

@@ -24,6 +24,10 @@ class ForwardModelTests(unittest.TestCase):
         self.assertTrue(np.allclose(y, [-7.0, -8.0, -6.0, -7.0]))
         self.assertEqual(residual_jacobian(self.z).shape, (4, 12))
 
+    def test_rejects_detector_planes_out_of_declared_upstream_to_downstream_order(self):
+        with self.assertRaisesRegex(ForwardModelError, "upstream-to-downstream"):
+            residual_jacobian([-400.0, 300.0, -300.0, 400.0])
+
     def test_detector_covariance_contains_shared_upstream_correlations(self):
         cov = detector_residual_covariance(self.z, self.sigma)
         self.assertAlmostEqual(cov[0, 1], cov[1, 0])
@@ -56,6 +60,38 @@ class ForwardModelTests(unittest.TestCase):
         self.assertGreaterEqual(np.linalg.eigvalsh(kernel).min(), -1e-12)
         miss = (30.0, 0.0, 0.0, 0.0, -100.0, 100.0)
         self.assertTrue(np.allclose(scattering_covariance_per_density(miss, voxel, self.z), 0.0))
+
+    def test_scattering_path_covariance_matches_fixed_seed_kick_monte_carlo(self):
+        # Predeclared acceptance: seed 20261020, 100,000 tracks, dz=1 mm,
+        # and 3% relative tolerance on analytic nonzero covariance entries.
+        seed = 20261020
+        track_count = 100_000
+        dz_mm = 1.0
+        relative_tolerance = 0.03
+        lam = 1.0e-4
+        voxel = BoxVoxel(-10, 10, -10, 10, -50, 50)
+        path = (0.0, 0.0, 0.0, 0.0, -100.0, 100.0)
+        analytic = lam * scattering_covariance_per_density(path, voxel, self.z, momentum_gev=4.0)
+        rng = np.random.default_rng(seed)
+        step_centers = np.arange(-50.0 + dz_mm/2, 50.0, dz_mm)
+        kappa = 0.0136 / 4.0
+        residual_batches = []
+        batch_size = 2_000
+        for start in range(0, track_count, batch_size):
+            count = min(batch_size, track_count - start)
+            kicks = rng.normal(0.0, kappa * np.sqrt(lam * dz_mm), size=(count, len(step_centers), 2))
+            # r_j = sum_z (z_down,j-z) dtheta(z), retaining both downstream planes.
+            rx = kicks[:, :, 0] @ np.vstack((self.z[2]-step_centers, self.z[3]-step_centers)).T
+            ry = kicks[:, :, 1] @ np.vstack((self.z[2]-step_centers, self.z[3]-step_centers)).T
+            residual_batches.append(np.column_stack((rx, ry)))
+        simulated = np.vstack(residual_batches)
+        empirical = np.cov(simulated, rowvar=False, ddof=1)
+        nonzero = np.abs(analytic) > 1e-15
+        self.assertGreater(analytic[0, 1], 0.0)
+        self.assertLess(
+            np.max(np.abs(empirical[nonzero]-analytic[nonzero]) / np.abs(analytic[nonzero])),
+            relative_tolerance,
+        )
 
     def test_zero_material_and_zero_measurement_noise_limits(self):
         det = detector_residual_covariance(self.z, self.sigma)

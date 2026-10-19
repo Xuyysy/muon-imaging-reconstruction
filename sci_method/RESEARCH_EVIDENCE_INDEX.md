@@ -54,7 +54,7 @@
 
 | Study | 路径 | 内容/证据边界 |
 |---|---|---|
-| 固定 4 GeV/c 前向模型和局部信息合成原型 | [`studies/forward-prototype-001/results/run-005/`](studies/forward-prototype-001/results/run-005/) | 200 条手工路径/场景、固定 seed `20261019`；横向均匀覆盖、横向盲区、四段深度细分；每种比较粗/2/4 参数与 `sigma_hit=0/0.3 mm`；保存 path/residual CSV、Fisher JSON/CSV、配置、脚本快照和代码/输入哈希。不是 Geant4、不是图像质量实验、不是性能验证。`run-001` 至 `run-004` 保留为探索记录，但不用于主要结论。 |
+| 固定 4 GeV/c 前向模型和局部信息合成原型 | [`studies/forward-prototype-001/results/run-007/`](studies/forward-prototype-001/results/run-007/) | 200 条手工路径/场景、固定 seed `20261019`；横向均匀覆盖、横向盲区、四段深度细分；每种比较粗/2/4 参数与 `sigma_hit=0/0.3 mm`；保存 path/residual CSV、Fisher JSON/CSV、配置、完整代码快照/哈希。另用 seed `20261020` 的 100,000 条散射 kicks 验证解析路径协方差（3%预定容差，实测最大相对误差 0.238%）。不是 Geant4、不是图像质量实验、不是性能验证。`run-001` 至 `run-006` 保留为探索记录，但不用于主要结论。 |
 
 ## 6. 图像/结论来源规则
 

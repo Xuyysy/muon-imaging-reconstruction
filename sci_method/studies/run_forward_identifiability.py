@@ -6,6 +6,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import platform
+import shutil
 import subprocess
 import sys
 
@@ -137,6 +139,12 @@ def main():
     args = parser.parse_args()
     if not args.run_id.startswith("run-") or any(ch not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for ch in args.run_id):
         raise ValueError("run-id must start with 'run-' and contain only letters, numbers, '-' or '_'")
+    try:
+        source_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+        source_status = subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        source_commit, source_status = "unknown", "unknown"
+    source_worktree_clean = not bool(source_status.strip())
     output = PACKAGE / "studies" / "forward-prototype-001" / "results" / args.run_id
     create_output_directory(output)
     config = {
@@ -203,16 +211,20 @@ def main():
                              "profiled_eigenvalues": json.dumps(prof_report["eigenvalues"].tolist())})
     paths_bytes = (output / "synthetic_paths.csv").read_bytes()
     code_path = Path(__file__).resolve()
-    module_paths = [code_path, PACKAGE / "src" / "sci_method" / "forward_model.py",
+    module_paths = [code_path, PACKAGE / "src" / "sci_method" / "data_contract.py",
+                    PACKAGE / "src" / "sci_method" / "forward_model.py",
                     PACKAGE / "src" / "sci_method" / "identifiability.py",
                     PACKAGE / "src" / "sci_method" / "study_io.py"]
-    try:
-        source_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        source_commit = "unknown"
+    source_snapshot = output / "source_snapshot"
+    source_snapshot.mkdir()
+    for source in module_paths:
+        snapshot_name = "run_forward_identifiability.py" if source == code_path else source.name
+        shutil.copyfile(source, source_snapshot / snapshot_name)
     evidence = {
         "study_id": config["study_id"],
         "source_git_commit_before_run": source_commit,
+        "source_worktree_clean_before_run": source_worktree_clean,
+        "source_tree_note": "If false, the parent commit is not a complete source revision; use the exact source snapshots and hashes below.",
         "source_script": str(code_path.relative_to(ROOT)),
         "source_script_sha256": sha256_bytes(code_path.read_bytes()),
         "source_files_sha256": {str(path.relative_to(ROOT)): sha256_bytes(path.read_bytes())
@@ -220,11 +232,15 @@ def main():
         "config_sha256": sha256_bytes(config_bytes),
         "synthetic_path_table_sha256": sha256_bytes(paths_bytes),
         "seed": SEED,
+        "python_version": platform.python_version(),
+        "numpy_version": np.__version__,
+        "source_snapshot_directory": "source_snapshot/",
         "reproduction_command": f"python3 sci_method/studies/run_forward_identifiability.py --run-id {args.run_id}-reproduction",
         "physics_simulation": False,
         "truth_mask_or_oracle_used": False,
         "outputs": ["config.json", "synthetic_paths.csv", "synthetic_observations.csv",
-                    "information_summary.csv", "information_summary.json", "evidence.json"],
+                    "information_summary.csv", "information_summary.json", "evidence.json",
+                    "source_snapshot/"],
         "warning": "This is a hand-built Gaussian identifiability diagnostic, not a reconstruction-performance experiment.",
     }
     (output / "source_script_snapshot.py").write_bytes(code_path.read_bytes())

@@ -1,0 +1,35 @@
+{
+  "config_sha256": "40fd94fa795ade20145cab1ee7f5f2f9ab12f87d57691377de3197c81170bea5",
+  "numpy_version": "2.3.5",
+  "outputs": [
+    "config.json",
+    "synthetic_paths.csv",
+    "synthetic_observations.csv",
+    "information_summary.csv",
+    "information_summary.json",
+    "evidence.json",
+    "source_snapshot/",
+    "source_script_snapshot.py"
+  ],
+  "physics_simulation": false,
+  "python_version": "3.12.14",
+  "reproduction_command": "python3 sci_method/studies/run_forward_identifiability.py --run-id run-007-reproduction",
+  "seed": 20261019,
+  "source_files_sha256": {
+    "sci_method/src/sci_method/data_contract.py": "423b0ff461f2e7eb29c988b3118f4015317adad3c83bd92ac3e14fd4eb994476",
+    "sci_method/src/sci_method/forward_model.py": "8635d2a0c991f376b81d964bf7c27b93dcc25b55bcc58a5fc8ea60dfdd67dc7e",
+    "sci_method/src/sci_method/identifiability.py": "fc70b00cd2b7168bbd7163a327e42f76a5c30cb55e5cb2316353f69b8dc025be",
+    "sci_method/src/sci_method/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "sci_method/studies/run_forward_identifiability.py": "ca3df6d12ba9663285f62f82513ec430fb24b44a990d13a2e10fb9e16cb7b152"
+  },
+  "source_git_commit_before_run": "9010d10e310679f52cb7f844d73b50a5d3024ce8",
+  "source_script": "sci_method/studies/run_forward_identifiability.py",
+  "source_script_sha256": "ca3df6d12ba9663285f62f82513ec430fb24b44a990d13a2e10fb9e16cb7b152",
+  "source_snapshot_directory": "source_snapshot/",
+  "source_tree_note": "If false, the parent commit is not a complete source revision; use the exact source snapshots and hashes below.",
+  "source_worktree_clean_before_run": false,
+  "study_id": "forward-prototype-001",
+  "synthetic_path_table_sha256": "dec795083ad56b16f6f97100652dacc8bcddb7b320543d129ed5c70025777ffa",
+  "truth_mask_or_oracle_used": false,
+  "warning": "This is a hand-built Gaussian identifiability diagnostic, not a reconstruction-performance experiment."
+}
