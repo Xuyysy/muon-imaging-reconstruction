@@ -17,6 +17,10 @@ B1/                 Geant4 simulation and macro files
 muon_analysis/      CSV output location and analysis.ipynb
 ```
 
+## Research resources
+
+The inventory of paper figures, experiment records, local-only presentation files, tracking status, duplicate checks, and file-handling cautions is in [`muon_analysis/README.md`](muon_analysis/README.md). It is a catalog only; it does not change or reinterpret experiment data.
+
 ## Quick start
 
 Configure and build Geant4 in `B1/build`, then run the 10,000-event baseline:
