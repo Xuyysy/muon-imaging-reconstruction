@@ -296,7 +296,7 @@ def _low_budget_study(output: Path) -> dict:
     }
 
 
-def run(run_id: str = RUN_ID) -> Path:
+def run(run_id: str = RUN_ID, *, include_low_budget: bool = True) -> Path:
     if not run_id.startswith("run-") or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
         raise ValueError("run ID must start with run- and contain only letters, digits, dash or underscore")
     output = ROOT / "studies" / STUDY_ID / "results" / run_id
@@ -322,7 +322,10 @@ def run(run_id: str = RUN_ID) -> Path:
         "training_objective_limitation": "run-001 did not store training NLL values. Objective-scale ratios use held-out NLL magnitude as an explicit order-of-magnitude proxy; raw training LRT values and empirical cutoffs are exact stored values.",
     }
     (output / "near_zero_lrt_diagnostic.json").write_text(json.dumps(diag, indent=2, sort_keys=True) + "\n")
-    low_budget = _low_budget_study(output)
+    low_budget = _low_budget_study(output) if include_low_budget else {
+        "status": "not_run",
+        "reason": "run-002 exposed a line-search nonconvergence at the objective roundoff floor; frozen six-cell simulation deferred pending review",
+    }
     (output / "low_budget_summary.json").write_text(json.dumps(low_budget, indent=2, sort_keys=True) + "\n")
 
     config = {
@@ -339,6 +342,8 @@ def run(run_id: str = RUN_ID) -> Path:
                              "path_fraction_left_right_other": [0.4, 0.4, 0.2]},
         "geant4_invoked": False,
         "all_data_synthetic_or_reanalysis": True,
+        "low_budget_scenarios_executed": include_low_budget,
+        "low_budget_deferral_reason": None if include_low_budget else low_budget["reason"],
         "thresholds_not_tuned_from_evaluation": True,
     }
     (output / "config.json").write_text(json.dumps(config, indent=2, sort_keys=True) + "\n")
@@ -380,8 +385,10 @@ def main() -> None:
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", default=RUN_ID)
+    parser.add_argument("--ablation-only", action="store_true",
+                        help="reanalyze frozen run-001 only; do not generate low-budget synthetic samples")
     args = parser.parse_args()
-    print(run(args.run_id))
+    print(run(args.run_id, include_low_budget=not args.ablation_only))
 
 
 if __name__ == "__main__":
