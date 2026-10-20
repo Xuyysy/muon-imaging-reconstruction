@@ -95,7 +95,7 @@ def prepare_case(case):
 def check_statistics(case, data):
     with (HISTORY / "sample_covariance_sufficient_statistics.csv").open() as stream:
         saved = [row for row in csv.DictReader(stream)
-                 if row["phase"] == case["phase"] and int(row["seed"]) == case["seed"]
+                 if row["phase"] == case["phase"] and int(row["seed"]) == case["seed"]]
     checks = []
     for row in saved:
         scatter = data[row["group"]].T @ data[row["group"]]
