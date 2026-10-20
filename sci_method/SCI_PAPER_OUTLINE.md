@@ -22,6 +22,6 @@
 ## 当前证据状态
 
 - **已有代码证据**：`sci_method/src/sci_method/forward_model.py`、`identifiability.py` 及单元测试。
-- **已有合成证据**：`sci_method/studies/forward-prototype-001/results/run-003/`，200条手工路径/场景，固定 seed；没有 Geant4 和真值评价。
+- **已有合成证据**：canonical 前向模型与 Fisher 数值结果来自 `sci_method/studies/forward-prototype-001/results/run-007/`；早期 `run-003` 仅保留为历史诊断记录，不再作为当前结果来源。无 Geant4 和真值成像评价。
 - **尚缺关键证据**：真实/拟真 hit-error 预算；不同角度与位置的路径覆盖；独立物理随机流；3D分辨率与校准实验；与 MLS-EM、固定网格 likelihood、RHMT/NAMT/MINT 的可复现公平比较；最终未见测试。
 - **禁止的现阶段表述**：不得声称提出已验证的新算法、达到某一空间分辨率、优于基线、适用于自然宇宙线或能从正则化后验方差获得充分观测证据。

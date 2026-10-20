@@ -109,7 +109,9 @@ def scattering_covariance_per_density(path, voxel: BoxVoxel, z_mm,
     `path=(x0_mm,y0_mm,dx/dz,dy/dz,z_start_mm,z_end_mm)` uses the line
     x(z)=x0+z*dx/dz, y(z)=y0+z*dy/dz. For downstream residual planes j,k,
     D_jk=(13.6 MeV/(p beta c))^2 integral_(path intersect voxel)
-    (z_j-z)(z_k-z) ds. With p in GeV/c and beta=1, the coefficient is
+    max(z_j-z,0) max(z_k-z,0) ds. The positive-part lever arms enforce
+    causality: a kick after a measured plane cannot change that plane's hit.
+    With p in GeV/c and beta=1, the coefficient is
     (0.0136/p)^2 rad^2; D has mm^3, so lambda [mm^-1]*D [mm^3] is mm^2.
     Each transverse projection has the same 2x2 covariance, and x-y blocks are
     zero under isotropic independent kicks. Cross-plane terms are retained.
@@ -137,9 +139,12 @@ def scattering_covariance_per_density(path, voxel: BoxVoxel, z_mm,
     projected = np.zeros((2, 2))
     for a, j in enumerate((2, 3)):
         for b, k in enumerate((2, 3)):
+            causal_hi = min(hi, z[j], z[k])
+            if causal_hi <= lo:
+                continue
             def primitive(q):
                 return z[j]*z[k]*q - 0.5*(z[j]+z[k])*q*q + q*q*q/3
-            projected[a, b] = kappa_sq * ds_dz * (primitive(hi)-primitive(lo))
+            projected[a, b] = kappa_sq * ds_dz * (primitive(causal_hi)-primitive(lo))
     projected = 0.5 * (projected + projected.T)
     result = np.zeros((4, 4))
     result[:2, :2] = projected

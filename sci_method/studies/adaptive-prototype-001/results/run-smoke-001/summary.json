@@ -1,0 +1,149 @@
+{
+  "calibration_converged_counts": {
+    "algebraic_confounded|sigma=0.3": 198,
+    "empty_field_calibrated|sigma=0.3": 198,
+    "known_fixed|sigma=0.3": 197,
+    "known_fixed|sigma=1.0": 200
+  },
+  "calibration_thresholds_by_stratum": {
+    "algebraic_confounded|sigma=0.3": 1.8644047875293381,
+    "empty_field_calibrated|sigma=0.3": 2.5494834201178946,
+    "known_fixed|sigma=0.3": 2.062495674414663,
+    "known_fixed|sigma=1.0": 0.0
+  },
+  "interpretation_limit": "All rates and predictive scores are synthetic prototype/development evidence. Truth labels are evaluated only after inference decisions. No Geant4 or independent SCI validation.",
+  "run_id": "run-smoke-001",
+  "scenarios": [
+    {
+      "adaptive_correct_decision_rate": 1.0,
+      "adaptive_reason_counts": {
+        "insufficient_design_power": 3
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 5.551115123125783e-17,
+        "upper": 0.5614970317550454
+      },
+      "count_only_split_rate": 1.0,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 0.8549306464071075,
+      "mean_fit_ms_fine": 1.4553746829430263,
+      "mean_validation_nll_adaptive": 504.57248561104706,
+      "mean_validation_nll_coarse": 504.57248561104706,
+      "mean_validation_nll_count_only": 504.54198200717275,
+      "mean_validation_nll_fine": 504.54198200717275,
+      "replicates": 3,
+      "scenario": "uniform_known_background",
+      "target_split_truth_for_evaluation_only": false,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": 0.0,
+      "adaptive_reason_counts": {
+        "insufficient_design_power": 3
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 5.551115123125783e-17,
+        "upper": 0.5614970317550454
+      },
+      "count_only_split_rate": 1.0,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 3.2731109919647374,
+      "mean_fit_ms_fine": 7.117263972759247,
+      "mean_validation_nll_adaptive": 488.7562015139525,
+      "mean_validation_nll_coarse": 488.7562015139525,
+      "mean_validation_nll_count_only": 488.77685937592577,
+      "mean_validation_nll_fine": 488.77685937592577,
+      "replicates": 3,
+      "scenario": "strong_contrast_calibrated_background",
+      "target_split_truth_for_evaluation_only": true,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": null,
+      "adaptive_reason_counts": {
+        "contrast_not_estimable": 3
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 5.551115123125783e-17,
+        "upper": 0.5614970317550454
+      },
+      "count_only_split_rate": 0.0,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 1.1212499424194295,
+      "mean_fit_ms_fine": 1.265194305839638,
+      "mean_validation_nll_adaptive": 483.7377276941617,
+      "mean_validation_nll_coarse": 483.7377276941617,
+      "mean_validation_nll_count_only": 483.7377276941617,
+      "mean_validation_nll_fine": 483.7377276941617,
+      "replicates": 3,
+      "scenario": "right_child_uncovered",
+      "target_split_truth_for_evaluation_only": null,
+      "unidentifiable_count": 3
+    },
+    {
+      "adaptive_correct_decision_rate": 1.0,
+      "adaptive_reason_counts": {
+        "insufficient_design_power": 3
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 5.551115123125783e-17,
+        "upper": 0.5614970317550454
+      },
+      "count_only_split_rate": 1.0,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 0.6985970151921114,
+      "mean_fit_ms_fine": 0.837596987063686,
+      "mean_validation_nll_adaptive": 1462.0288880714372,
+      "mean_validation_nll_coarse": 1462.0288880714372,
+      "mean_validation_nll_count_only": 1461.5821087282281,
+      "mean_validation_nll_fine": 1461.5821087282281,
+      "replicates": 3,
+      "scenario": "weak_contrast_large_hit_error",
+      "target_split_truth_for_evaluation_only": false,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": null,
+      "adaptive_reason_counts": {
+        "contrast_not_estimable": 3
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 5.551115123125783e-17,
+        "upper": 0.5614970317550454
+      },
+      "count_only_split_rate": 1.0,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 3.4902223851531744,
+      "mean_fit_ms_fine": 3.4458613178382316,
+      "mean_validation_nll_adaptive": 508.9100438415919,
+      "mean_validation_nll_coarse": 508.9100438415919,
+      "mean_validation_nll_count_only": 508.910043882928,
+      "mean_validation_nll_fine": 508.910043882928,
+      "replicates": 3,
+      "scenario": "algebraic_background_contrast_degeneracy",
+      "target_split_truth_for_evaluation_only": null,
+      "unidentifiable_count": 3
+    }
+  ],
+  "study_id": "adaptive-prototype-001"
+}

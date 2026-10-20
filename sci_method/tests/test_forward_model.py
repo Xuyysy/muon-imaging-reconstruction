@@ -57,6 +57,28 @@ class ForwardModelTests(unittest.TestCase):
         self.assertTrue(np.allclose(kernel[:2, :2], kernel[2:, 2:]))
         self.assertTrue(np.allclose(kernel[:2, 2:], 0.0))
         self.assertTrue(np.allclose(kernel, kernel.T))
+
+    def test_scatter_after_first_downstream_plane_cannot_move_that_plane(self):
+        path = (0.0, 0.0, 0.0, 0.0, -400.0, 500.0)
+        voxel = BoxVoxel(-10, 10, -10, 10, 350, 360)
+        kernel = scattering_covariance_per_density(path, voxel, self.z)
+
+        # Residual slots 0/1 are x at z=300/400; 2/3 are y at z=300/400.
+        self.assertAlmostEqual(kernel[0, 0], 0.0, places=14)
+        self.assertAlmostEqual(kernel[0, 1], 0.0, places=14)
+        self.assertAlmostEqual(kernel[2, 3], 0.0, places=14)
+        self.assertAlmostEqual(kernel[1, 1], kernel[3, 3], places=14)
+        self.assertGreater(kernel[1, 1], 0.0)
+
+    def test_scatter_between_detector_groups_keeps_causal_response(self):
+        path = (0.0, 0.0, 0.0, 0.0, -400.0, 500.0)
+        voxel = BoxVoxel(-10, 10, -10, 10, -50, 50)
+        kernel = scattering_covariance_per_density(path, voxel, self.z)
+
+        self.assertGreater(kernel[0, 0], 0.0)
+        self.assertGreater(kernel[1, 1], 0.0)
+        self.assertGreater(kernel[0, 1], 0.0)
+        self.assertAlmostEqual(kernel[0, 0], kernel[2, 2], places=14)
         self.assertGreaterEqual(np.linalg.eigvalsh(kernel).min(), -1e-12)
         miss = (30.0, 0.0, 0.0, 0.0, -100.0, 100.0)
         self.assertTrue(np.allclose(scattering_covariance_per_density(miss, voxel, self.z), 0.0))
