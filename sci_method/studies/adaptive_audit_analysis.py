@@ -10,6 +10,17 @@ def _truth(value: str) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes"}
 
 
+def decision_flags_from_row(row: dict) -> dict[str, bool]:
+    """Parse decision flags consistently from CSV strings or Python booleans."""
+    return {
+        name: _truth(row[f"decision_{name}"])
+        for name in (
+            "lrt_only", "bic_only", "estimability_plus_lrt",
+            "estimability_power_only", "estimability_lrt_power", "full_composite",
+        )
+    }
+
+
 def ablation_decisions(row: dict) -> dict[str, bool]:
     """Apply prespecified nested gates to an existing trial row, no refitting."""
     converged = _truth(row["coarse_converged"]) and _truth(row["fine_converged"])

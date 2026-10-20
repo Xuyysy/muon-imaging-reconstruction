@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "studies"))
 
 from adaptive_audit_analysis import (  # noqa: E402
-    ablation_decisions, lrt_numerical_diagnostic,
+    ablation_decisions, decision_flags_from_row, lrt_numerical_diagnostic,
 )
 from run_adaptive_audit_scenarios import LOW_BUDGET_SCENARIOS, NULL_STRATA  # noqa: E402
 
@@ -51,6 +51,17 @@ class AdaptiveAuditAnalysisTests(unittest.TestCase):
         self.assertEqual(NULL_STRATA, ((500, 0.3), (1000, 0.3), (500, 1.0), (1000, 1.0)))
         self.assertEqual({row["budget"] for row in LOW_BUDGET_SCENARIOS}, {500, 1000})
         self.assertEqual({row["delta"] for row in LOW_BUDGET_SCENARIOS}, {0.0, 0.5, 0.75})
+
+    def test_ablation_summary_accepts_csv_strings_and_in_memory_booleans(self):
+        string_row = {f"decision_{name}": "False" for name in (
+            "lrt_only", "bic_only", "estimability_plus_lrt", "estimability_power_only",
+            "estimability_lrt_power", "full_composite",
+        )}
+        string_row["decision_lrt_only"] = "True"
+        bool_row = {key: False for key in string_row}
+        bool_row["decision_lrt_only"] = True
+        self.assertTrue(decision_flags_from_row(string_row)["lrt_only"])
+        self.assertTrue(decision_flags_from_row(bool_row)["lrt_only"])
 
 
 if __name__ == "__main__":

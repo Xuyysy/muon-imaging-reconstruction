@@ -24,7 +24,9 @@ REPO = ROOT.parent
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "studies"))
 
-from adaptive_audit_analysis import ablation_decisions, lrt_numerical_diagnostic, wilson_interval  # noqa: E402
+from adaptive_audit_analysis import (  # noqa: E402
+    ablation_decisions, decision_flags_from_row, lrt_numerical_diagnostic, wilson_interval,
+)
 from run_adaptive_split_merge import (  # noqa: E402
     BACKGROUND_LEVEL, CALIBRATION_ALPHA, COUNT_MINIMUM_PER_CHILD, _draw_group,
     _fit_and_score, _fit_trial, _synthetic_target_covariance,
@@ -108,10 +110,7 @@ def _ablation_run001(output: Path) -> tuple[dict, dict]:
         base = []
         for trial in trials:
             truth_min = trial["effect_meets_design_minimum_evaluation_only"].lower() == "true"
-            decision_methods = {m: trial[f"decision_{m}"] == "True" for m in (
-                "lrt_only", "bic_only", "estimability_plus_lrt",
-                "estimability_power_only", "estimability_lrt_power", "full_composite",
-            )}
+            decision_methods = decision_flags_from_row(trial)
             decision_methods["count_only"] = trial["count_split"].lower() == "true"
             decision_methods["fixed_coarse"] = False
             decision_methods["fixed_fine"] = True
