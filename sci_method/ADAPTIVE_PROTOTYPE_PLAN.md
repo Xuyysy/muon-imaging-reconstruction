@@ -62,7 +62,7 @@
 
 - [x] Generate calibration and independent evaluation data for uniform, strong contrast, one-child-uncovered, weak contrast/high-hit-error, and algebraic-confounding cases, preserving sufficient statistics and per-replicate predictions.
 - [x] Compare fixed coarse, fixed fine, event-count split, and calibrated information/evidence split on the same generated train/evaluation events and likelihood.
-- [ ] Report correct-split rate, false-split rate, rejection of unidentifiable cases, held-out predictive NLL difference, costs, uncertainty intervals, and all failures.
+- [x] Report correct-split rate, false-split rate, rejection of unidentifiable cases, held-out predictive NLL difference, costs, uncertainty intervals, and all failures.
 - [x] Save config, seed schedule, source snapshot, environment, commit/status, input/output SHA-256, and reproduction command.
 
 ### Task 5 — Research record and final verification

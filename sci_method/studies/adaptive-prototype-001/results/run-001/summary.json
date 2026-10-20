@@ -1,0 +1,160 @@
+{
+  "calibration_converged_counts": {
+    "algebraic_confounded|sigma=0.3": 200,
+    "empty_field_calibrated|sigma=0.3": 200,
+    "known_fixed|sigma=0.3": 200,
+    "known_fixed|sigma=1.0": 200
+  },
+  "calibration_thresholds_by_stratum": {
+    "algebraic_confounded|sigma=0.3": 6.912159733474255e-11,
+    "empty_field_calibrated|sigma=0.3": 3.0909790692385286,
+    "known_fixed|sigma=0.3": 3.7137800142336346,
+    "known_fixed|sigma=1.0": 3.431985957744473
+  },
+  "interpretation_limit": "All rates and predictive scores are synthetic prototype/development evidence. Truth labels are evaluated only after inference decisions. No Geant4 or independent SCI validation.",
+  "run_id": "run-001",
+  "scenarios": [
+    {
+      "adaptive_correct_decision_rate": 0.97,
+      "adaptive_correct_decision_rate_at_declared_minimum_effect": 0.97,
+      "adaptive_reason_counts": {
+        "evidence_below_calibrated_threshold": 194,
+        "split": 6
+      },
+      "adaptive_split_count": 6,
+      "adaptive_split_rate": 0.03,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 0.013820314340111346,
+        "upper": 0.06389429245451925
+      },
+      "count_only_split_rate": 1.0,
+      "effect_meets_design_minimum_for_evaluation_only": false,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 0.8570245583541691,
+      "mean_fit_ms_fine": 1.0286274866666645,
+      "mean_validation_nll_adaptive": 11365.065730700131,
+      "mean_validation_nll_coarse": 11365.002154391417,
+      "mean_validation_nll_count_only": 11365.403802897274,
+      "mean_validation_nll_fine": 11365.403802897274,
+      "replicates": 200,
+      "scenario": "uniform_known_background",
+      "target_split_truth_for_evaluation_only": false,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": 1.0,
+      "adaptive_correct_decision_rate_at_declared_minimum_effect": 1.0,
+      "adaptive_reason_counts": {
+        "split": 200
+      },
+      "adaptive_split_count": 200,
+      "adaptive_split_rate": 1.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 0.9811546736227333,
+        "upper": 1.0
+      },
+      "count_only_split_rate": 1.0,
+      "effect_meets_design_minimum_for_evaluation_only": true,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 5.738379388931207,
+      "mean_fit_ms_fine": 6.197733319713734,
+      "mean_validation_nll_adaptive": 11318.714566106071,
+      "mean_validation_nll_coarse": 11365.068167851981,
+      "mean_validation_nll_count_only": 11318.714566106071,
+      "mean_validation_nll_fine": 11318.714566106071,
+      "replicates": 200,
+      "scenario": "strong_contrast_calibrated_background",
+      "target_split_truth_for_evaluation_only": true,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": null,
+      "adaptive_correct_decision_rate_at_declared_minimum_effect": null,
+      "adaptive_reason_counts": {
+        "contrast_not_estimable": 200
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 0.0,
+        "upper": 0.018845326377266575
+      },
+      "count_only_split_rate": 0.0,
+      "effect_meets_design_minimum_for_evaluation_only": null,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 0.7008529186714441,
+      "mean_fit_ms_fine": 0.7169881084701046,
+      "mean_validation_nll_adaptive": 11357.407662736043,
+      "mean_validation_nll_coarse": 11357.407662736043,
+      "mean_validation_nll_count_only": 11357.407662736043,
+      "mean_validation_nll_fine": 11357.407661538427,
+      "replicates": 200,
+      "scenario": "right_child_uncovered",
+      "target_split_truth_for_evaluation_only": null,
+      "unidentifiable_count": 200
+    },
+    {
+      "adaptive_correct_decision_rate": 0.0,
+      "adaptive_correct_decision_rate_at_declared_minimum_effect": 1.0,
+      "adaptive_reason_counts": {
+        "insufficient_design_power": 200
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 0.0,
+        "upper": 0.018845326377266575
+      },
+      "count_only_split_rate": 1.0,
+      "effect_meets_design_minimum_for_evaluation_only": false,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 1.445592527743429,
+      "mean_fit_ms_fine": 1.6506219073198736,
+      "mean_validation_nll_adaptive": 29333.015476506906,
+      "mean_validation_nll_coarse": 29333.015476506906,
+      "mean_validation_nll_count_only": 29333.317886890283,
+      "mean_validation_nll_fine": 29333.317886890283,
+      "replicates": 200,
+      "scenario": "weak_contrast_large_hit_error",
+      "target_split_truth_for_evaluation_only": true,
+      "unidentifiable_count": 0
+    },
+    {
+      "adaptive_correct_decision_rate": null,
+      "adaptive_correct_decision_rate_at_declared_minimum_effect": null,
+      "adaptive_reason_counts": {
+        "contrast_not_estimable": 200
+      },
+      "adaptive_split_count": 0,
+      "adaptive_split_rate": 0.0,
+      "adaptive_split_rate_wilson_95": {
+        "lower": 0.0,
+        "upper": 0.018845326377266575
+      },
+      "count_only_split_rate": 1.0,
+      "effect_meets_design_minimum_for_evaluation_only": null,
+      "fit_failure_count": 0,
+      "fixed_coarse_split_rate": 0.0,
+      "fixed_fine_split_rate": 1.0,
+      "mean_fit_ms_coarse": 2.0328235387569293,
+      "mean_fit_ms_fine": 2.660027263336815,
+      "mean_validation_nll_adaptive": 11115.28317595204,
+      "mean_validation_nll_coarse": 11115.28317595204,
+      "mean_validation_nll_count_only": 11115.28317941623,
+      "mean_validation_nll_fine": 11115.28317941623,
+      "replicates": 200,
+      "scenario": "algebraic_background_contrast_degeneracy",
+      "target_split_truth_for_evaluation_only": null,
+      "unidentifiable_count": 200
+    }
+  ],
+  "study_id": "adaptive-prototype-001"
+}

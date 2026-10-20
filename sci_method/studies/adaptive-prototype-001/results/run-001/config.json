@@ -1,0 +1,131 @@
+{
+  "background_models": {
+    "algebraic_confounded": "negative control: nuisance derivative exactly equals target contrast direction; not claimed to be a physical background",
+    "empty_field_calibrated": "unknown background scale jointly fitted using independent target-free empty-field observations",
+    "known_fixed": "background covariance fixed at the declared synthetic value"
+  },
+  "beta": 1.0,
+  "calibration_alpha": 0.05,
+  "calibration_replicates_per_stratum": 200,
+  "comparators": [
+    "fixed_coarse",
+    "fixed_fine",
+    "event_count_only",
+    "information_evidence_adaptive"
+  ],
+  "count_baseline_minimum_per_child": 40,
+  "design_contrast_ref": 0.5,
+  "detector_z_mm": [
+    -400.0,
+    -300.0,
+    300.0,
+    400.0
+  ],
+  "evaluation_replicates_per_scenario": 200,
+  "event_budget_per_target_sample": 4000,
+  "geant4_invoked": false,
+  "hit_error_model": "independent isotropic Gaussian x/y hit error per plane; known z geometry",
+  "lambda_ref_mm_inv": 0.01,
+  "min_design_power": 0.8,
+  "momentum_gev_c": 4.0,
+  "parameterization": "dimensionless child scales theta=lambda/lambda_ref; parent mean=(theta_L+theta_R)/2; signed contrast delta=theta_R-theta_L; densities must be nonnegative",
+  "random_seed_schedule": {
+    "calibration_base": 202610200,
+    "calibration_stratum_stride": 1000000,
+    "empty_field_offset": 500000000,
+    "evaluation_base": 202710200,
+    "evaluation_replicate_stride": 10,
+    "evaluation_seed_offsets": {
+      "empty_field": 2,
+      "train": 0,
+      "validation": 1
+    }
+  },
+  "run_id": "run-001",
+  "scenarios": {
+    "algebraic_background_contrast_degeneracy": {
+      "background_level": 1.0,
+      "background_mode": "algebraic_confounded",
+      "child_levels": [
+        1.0,
+        1.0
+      ],
+      "counts": {
+        "left": 1600,
+        "other": 800,
+        "right": 1600
+      },
+      "effect_meets_design_minimum": null,
+      "sigma_hit_mm": 0.3,
+      "target_split": null
+    },
+    "right_child_uncovered": {
+      "background_level": 0.5,
+      "background_mode": "known_fixed",
+      "child_levels": [
+        1.0,
+        1.0
+      ],
+      "counts": {
+        "left": 3200,
+        "other": 800,
+        "right": 0
+      },
+      "effect_meets_design_minimum": null,
+      "sigma_hit_mm": 0.3,
+      "target_split": null
+    },
+    "strong_contrast_calibrated_background": {
+      "background_level": 0.5,
+      "background_mode": "empty_field_calibrated",
+      "child_levels": [
+        0.25,
+        1.75
+      ],
+      "counts": {
+        "left": 1600,
+        "other": 800,
+        "right": 1600
+      },
+      "effect_meets_design_minimum": true,
+      "sigma_hit_mm": 0.3,
+      "target_split": true
+    },
+    "uniform_known_background": {
+      "background_level": 0.5,
+      "background_mode": "known_fixed",
+      "child_levels": [
+        1.0,
+        1.0
+      ],
+      "counts": {
+        "left": 1600,
+        "other": 800,
+        "right": 1600
+      },
+      "effect_meets_design_minimum": false,
+      "sigma_hit_mm": 0.3,
+      "target_split": false
+    },
+    "weak_contrast_large_hit_error": {
+      "background_level": 0.5,
+      "background_mode": "known_fixed",
+      "child_levels": [
+        0.9,
+        1.1
+      ],
+      "counts": {
+        "left": 1600,
+        "other": 800,
+        "right": 1600
+      },
+      "effect_meets_design_minimum": false,
+      "sigma_hit_mm": 1.0,
+      "target_split": true
+    }
+  },
+  "scope_note": "small synthetic prototype; not SCI independent validation or physical Geant4 evidence",
+  "study_id": "adaptive-prototype-001",
+  "threshold_calibration": "empirical higher 95th percentile of development null likelihood-ratio values, stratified by background mode and sigma; disjoint seeds",
+  "truth_mask_or_oracle_used_for_inference": false
+}

@@ -55,6 +55,7 @@
 | Study | 路径 | 内容/证据边界 |
 |---|---|---|
 | 固定 4 GeV/c 前向模型和局部信息合成原型 | [`studies/forward-prototype-001/results/run-007/`](studies/forward-prototype-001/results/run-007/) | 200 条手工路径/场景、固定 seed `20261019`；横向均匀覆盖、横向盲区、四段深度细分；每种比较粗/2/4 参数与 `sigma_hit=0/0.3 mm`；保存 path/residual CSV、Fisher JSON/CSV、配置、完整代码快照/哈希。另用 seed `20261020` 的 100,000 条散射 kicks 验证解析路径协方差（3%预定容差，实测最大相对误差 0.238%）。不是 Geant4、不是图像质量实验、不是性能验证。`run-001` 至 `run-006` 保留为探索记录，但不用于主要结论。 |
+| 可辨识性校准的两子区 split/merge 原型 | [`studies/adaptive-prototype-001/results/run-001/`](studies/adaptive-prototype-001/results/run-001/)；脚本 [`studies/run_adaptive_split_merge.py`](studies/run_adaptive_split_merge.py) | 固定 4 GeV/c 与手工路径，4 个空假设校准层 × 200 次，5 种情形 × 200 次独立训练/验证合成重复；比较固定粗/细、计数规则与信息/统计证据规则。均匀材料候选误细分 6/200（Wilson 95% CI 1.38–6.39%）；强差异 200/200 细分；无覆盖和代数混淆各 200/200 被拒；弱差异/大 hit 误差 200/200 因预定 power 门槛拒绝。0/1,000 拟合失败。输出、配置、种子、源码快照与哈希齐全。合成开发证据，不是 Geant4 或 SCI 独立验证。细节与所有限制见 study README。 |
 
 ## 6. 图像/结论来源规则
 
