@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "studies"))
 
+import run_adaptive_split_merge as adaptive_runner  # noqa: E402
 from run_adaptive_split_merge import (  # noqa: E402
     SCENARIOS, build_likelihood_groups, contrast_report_for_decision,
     EVENT_BUDGET, fit_covariance_model, simulate_empty_field, simulate_target, _wilson,
@@ -16,6 +17,31 @@ from run_adaptive_split_merge import (  # noqa: E402
 
 
 class AdaptiveStudyDesignTests(unittest.TestCase):
+    def test_algebraic_confounded_generator_matches_likelihood_for_every_path_class(self):
+        levels = (1.0, 1.0)
+        background_level = 1.0
+        observed = simulate_target(
+            "algebraic_background_contrast_degeneracy", seed=202610301,
+            child_levels_override=levels,
+        )
+        groups = build_likelihood_groups(
+            observed, sigma_hit_mm=0.3, mode="algebraic_confounded", model="fine",
+        )
+        parameters = np.array([levels[0], levels[1], 1.0, background_level])
+        for group in groups:
+            generator_covariance = adaptive_runner._synthetic_target_covariance(
+                group.name, child_levels=levels,
+                background_level=background_level,
+                mode="algebraic_confounded", sigma_hit_mm=0.3,
+            )
+            likelihood_covariance = group.base_covariance_mm2 + np.einsum(
+                "p,pab->ab", parameters, group.covariance_derivatives_mm2,
+            )
+            np.testing.assert_allclose(
+                generator_covariance, likelihood_covariance, rtol=1e-12, atol=1e-12,
+                err_msg=f"generator/likelihood covariance mismatch for {group.name}",
+            )
+
     def test_scenarios_cover_requested_positive_and_negative_conditions(self):
         self.assertEqual(SCENARIOS["uniform_known_background"]["child_levels"], (1.0, 1.0))
         self.assertGreater(

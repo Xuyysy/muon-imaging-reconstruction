@@ -50,8 +50,8 @@ CALIBRATION_ALPHA = 0.05
 MIN_DESIGN_POWER = 0.80
 DESIGN_CONTRAST_REF = 0.5
 COUNT_MINIMUM_PER_CHILD = 40
-BASE_CALIBRATION_SEED = 202_610_200
-BASE_EVALUATION_SEED = 202_710_200
+BASE_CALIBRATION_SEED = 5_026_102_001
+BASE_EVALUATION_SEED = 5_027_102_001
 BASELINE_LEVEL = 1.0
 BACKGROUND_LEVEL = 0.5
 
@@ -133,6 +133,41 @@ BACKGROUND_KERNELS = {
 }
 
 
+def _algebraic_confounded_background_kernel(region: str) -> np.ndarray:
+    """Return the signed nuisance derivative for the algebraic negative control.
+
+    The nuisance exactly matches the local child-contrast direction and is
+    deliberately zero for the independent ``other`` path class.
+    """
+    if region == "left":
+        return -0.5 * KERNELS["left"]
+    if region == "right":
+        return 0.5 * KERNELS["right"]
+    if region == "other":
+        return np.zeros((4, 4), dtype=float)
+    raise ValueError(f"unknown path class: {region}")
+
+
+def _synthetic_target_covariance(region: str, *, child_levels, background_level: float,
+                                 mode: str, sigma_hit_mm: float) -> np.ndarray:
+    """Covariance used by the synthetic target generator for one path class."""
+    covariance = detector_residual_covariance(Z_PLANES_MM, sigma_hit_mm)
+    if region in ("left", "right"):
+        covariance += float(child_levels[0 if region == "left" else 1]) * KERNELS[region]
+    elif region == "other":
+        covariance += BASELINE_LEVEL * KERNELS["other"]
+    else:
+        raise ValueError(f"unknown path class: {region}")
+
+    if mode in ("known_fixed", "empty_field_calibrated"):
+        covariance += background_level * BACKGROUND_KERNELS[region]
+    elif mode == "algebraic_confounded":
+        covariance += background_level * _algebraic_confounded_background_kernel(region)
+    else:
+        raise ValueError(f"unknown background mode: {mode}")
+    return covariance
+
+
 def truth_free_scenario_inputs(name: str) -> dict:
     """Expose only design inputs needed by inference; truth remains evaluator-side."""
     scenario = SCENARIOS[name]
@@ -160,25 +195,12 @@ def simulate_target(name: str, seed: int, *, child_levels_override=None,
     result = {}
     child_levels = scenario["child_levels"] if child_levels_override is None else child_levels_override
     for region, count in scenario["counts"].items():
-        cov = detector.copy()
-        if region in ("left", "right"):
-            cov += child_levels[0 if region == "left" else 1] * KERNELS[region]
-        elif region == "other":
-            cov += BASELINE_LEVEL * KERNELS["other"]
         mode = scenario["background_mode"]
-        if mode == "known_fixed":
-            cov += scenario["background_level"] * BACKGROUND_KERNELS[region]
-        elif mode == "empty_field_calibrated":
-            cov += scenario["background_level"] * BACKGROUND_KERNELS[region]
-        elif mode == "algebraic_confounded":
-            # The nuisance derivative is exactly the signed child-contrast direction.
-            if region == "left":
-                kcontrast = -0.5 * KERNELS["left"]
-            elif region == "right":
-                kcontrast = 0.5 * KERNELS["right"]
-            cov += scenario["background_level"] * kcontrast
-        else:
-            raise ValueError(f"unknown background mode: {mode}")
+        cov = _synthetic_target_covariance(
+            region, child_levels=child_levels,
+            background_level=scenario["background_level"], mode=mode,
+            sigma_hit_mm=sigma,
+        )
         np.linalg.cholesky(cov)
         result[region] = _draw_group(rng, cov, count)
     return result
@@ -203,11 +225,7 @@ def _parameter_names(model: str, mode: str):
 
 def _mode_background_kernel(region: str, mode: str):
     if mode == "algebraic_confounded":
-        if region == "left":
-            return -0.5 * KERNELS["left"]
-        if region == "right":
-            return 0.5 * KERNELS["right"]
-        return np.zeros((4, 4))
+        return _algebraic_confounded_background_kernel(region)
     return BACKGROUND_KERNELS[region]
 
 
