@@ -103,7 +103,7 @@ def check_statistics(case, data):
         new = np.array([scatter[i, j] for i in range(4) for j in range(i, 4)])
         checks.append(dict(group=row["group"], exact_equal=np.array_equal(new, old),
                            max_absolute_difference=float(np.max(np.abs(new-old)))))
-    if len(checks) != sum(len(v) > 0 for v in data.values()):
+    if len(checks) != len(data):
         raise RuntimeError("historical sufficient-statistic rows missing")
     if not all(check["exact_equal"] for check in checks):
         raise RuntimeError("regenerated likelihood inputs differ; stop before fit comparison")
