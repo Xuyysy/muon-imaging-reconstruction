@@ -1,0 +1,38 @@
+{
+  "calibration_seeds_disjoint_from_evaluation": true,
+  "command": "python3 sci_method/studies/run_adaptive_split_merge.py --run-id run-002",
+  "config_sha256": "70adfba71e9d9af4a2f4248864c37f76e144fc82bed431e6276aaebc64cbbda6",
+  "geant4_invoked": false,
+  "independent_evaluation_seeds": true,
+  "inference_truth_isolation": "scenario truth is accessed only by synthetic generator and post-decision evaluator; decision functions receive local likelihood/Fisher/evidence only",
+  "numpy_version": "2.4.6",
+  "python_version": "3.14.4",
+  "result_file_sha256": {
+    "calibration_null_lrt.csv": "a0bc3b85781dc2af23486b03f84ad24d8919641e7d32ddc54ed8c7b068eab519",
+    "config.json": "70adfba71e9d9af4a2f4248864c37f76e144fc82bed431e6276aaebc64cbbda6",
+    "sample_covariance_sufficient_statistics.csv": "1ca38695cb48ae816b96b4b4da5e620a8a27932d9e1242ee57aa0e08c8f88fef",
+    "source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "source_snapshot/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "source_snapshot/run_adaptive_split_merge.py": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186",
+    "source_snapshot/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "source_snapshot/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "summary.json": "bcd0ee7f50c5b08ed84710d631215d3c0099ca6ed3eff6861fe4f3d3d7f31279",
+    "trial_metrics.csv": "d842cf3a71085465ef285b8f9e6e39eb4fdbda586245a9a9cef7d3f90fdfe73b"
+  },
+  "run_id": "run-002",
+  "source_commit_before_run": "1797120ebc4904ee92360fef2ccebe66bd88ed9f",
+  "source_file_sha256": {
+    "sci_method/src/sci_method/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "sci_method/src/sci_method/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "sci_method/src/sci_method/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "sci_method/src/sci_method/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "sci_method/studies/run_adaptive_split_merge.py": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186"
+  },
+  "source_snapshot_directory": "source_snapshot/",
+  "source_status_before_run": [
+    "?? sci_method/studies/adaptive-prototype-001/results/run-002/"
+  ],
+  "source_worktree_clean_before_run": false,
+  "study_id": "adaptive-prototype-001",
+  "uncommitted_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

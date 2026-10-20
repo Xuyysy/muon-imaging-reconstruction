@@ -1,0 +1,85 @@
+{
+  "all_data_synthetic_or_reanalysis": true,
+  "calibration_replicates_per_stratum": 200,
+  "evaluation_replicates_per_scenario": 200,
+  "fixed_parameters": {
+    "alpha": 0.05,
+    "count_minimum_per_child": 40,
+    "lambda_ref_mm_inv": 0.01,
+    "min_power": 0.8,
+    "minimum_contrast_ref": 0.5,
+    "momentum_gev_c": 4.0,
+    "path_fraction_left_right_other": [
+      0.4,
+      0.4,
+      0.2
+    ]
+  },
+  "frozen_scenarios": [
+    {
+      "budget": 500,
+      "delta": 0.0,
+      "name": "uniform_n500_sigma03",
+      "sigma": 0.3
+    },
+    {
+      "budget": 1000,
+      "delta": 0.0,
+      "name": "uniform_n1000_sigma03",
+      "sigma": 0.3
+    },
+    {
+      "budget": 500,
+      "delta": 0.5,
+      "name": "moderate_d05_n500_sigma03",
+      "sigma": 0.3
+    },
+    {
+      "budget": 500,
+      "delta": 0.75,
+      "name": "moderate_d075_n500_sigma03",
+      "sigma": 0.3
+    },
+    {
+      "budget": 1000,
+      "delta": 0.5,
+      "name": "moderate_d05_n1000_sigma03",
+      "sigma": 0.3
+    },
+    {
+      "budget": 500,
+      "delta": 0.5,
+      "name": "moderate_d05_n500_sigma10",
+      "sigma": 1.0
+    }
+  ],
+  "geant4_invoked": false,
+  "low_budget_deferral_reason": "run-002 exposed a line-search nonconvergence at the objective roundoff floor; frozen six-cell simulation deferred pending review",
+  "low_budget_scenarios_executed": false,
+  "low_budget_seed_bases": {
+    "evaluation": 4027102001,
+    "null_calibration": 4026102001
+  },
+  "null_strata": [
+    [
+      500,
+      0.3
+    ],
+    [
+      1000,
+      0.3
+    ],
+    [
+      500,
+      1.0
+    ],
+    [
+      1000,
+      1.0
+    ]
+  ],
+  "run_id": "run-001",
+  "source_development_run": "adaptive-prototype-001/run-001",
+  "study_id": "adaptive-audit-fix-001",
+  "thresholds_not_tuned_from_evaluation": true
+}

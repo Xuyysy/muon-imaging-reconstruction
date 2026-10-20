@@ -1,0 +1,4 @@
+{
+  "reason": "run-002 exposed a line-search nonconvergence at the objective roundoff floor; frozen six-cell simulation deferred pending review",
+  "status": "not_run"
+}

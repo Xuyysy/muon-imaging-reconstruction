@@ -1,0 +1,540 @@
+{
+  "caveat": "All rows are re-analysis of development run-001, not independent validation. Validation NLL scale is used only as an approximate objective magnitude because training NLLs were not stored in run-001; exact LRT and unchanged cutoffs are retained.",
+  "method_definitions": {
+    "bic_only": "converged and raw training LRT > log(n independent training tracks); one extra child parameter",
+    "estimability_lrt_power": "estimability+LRT plus power >=0.80",
+    "estimability_plus_lrt": "LRT-only plus joint Fisher contrast estimability",
+    "estimability_power_only": "estimable and predeclared Wald power >=0.80, with no observed-LRT gate",
+    "full_composite": "convergence+estimability+power+unchanged calibrated LRT; identical to prior row when all fits converge",
+    "lrt_only": "converged and raw training LRT > unchanged empirical run-001 stratum cutoff"
+  },
+  "scenarios": [
+    {
+      "ablations": {
+        "bic_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "count_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.403802897274,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "estimability_lrt_power": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_plus_lrt": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_power_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_coarse": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_fine": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.403802897274,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "full_composite": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "lrt_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11365.002154391417,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        }
+      },
+      "gate_changed_decision_counts": {
+        "estimability_lrt_power_to_full_composite": 0,
+        "estimability_plus_lrt_to_estimability_lrt_power": 0,
+        "lrt_only_to_estimability_plus_lrt": 0
+      },
+      "max_lrt": 5.040170554446377,
+      "max_lrt_relative_to_validation_nll_scale": 0.0004445098268862359,
+      "mean_lrt": 0.8246985442861479,
+      "mean_lrt_relative_to_validation_nll_scale": 7.248053305557937e-05,
+      "replicates": 200,
+      "scenario": "uniform_known_background"
+    },
+    {
+      "ablations": {
+        "bic_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "count_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11318.714566106071,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "estimability_lrt_power": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_plus_lrt": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_power_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_coarse": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_fine": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11318.714566106071,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "full_composite": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "lrt_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11365.068167851981,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        }
+      },
+      "gate_changed_decision_counts": {
+        "estimability_lrt_power_to_full_composite": 0,
+        "estimability_plus_lrt_to_estimability_lrt_power": 0,
+        "lrt_only_to_estimability_plus_lrt": 0
+      },
+      "max_lrt": 158.47695582902088,
+      "max_lrt_relative_to_validation_nll_scale": 0.013985402674788691,
+      "mean_lrt": 98.29107820246743,
+      "mean_lrt_relative_to_validation_nll_scale": 0.008648989851439992,
+      "replicates": 200,
+      "scenario": "strong_contrast_calibrated_background"
+    },
+    {
+      "ablations": {
+        "bic_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "count_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_lrt_power": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_plus_lrt": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_power_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_coarse": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_fine": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11357.407661538427,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "full_composite": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "lrt_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11357.407662736043,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        }
+      },
+      "gate_changed_decision_counts": {
+        "estimability_lrt_power_to_full_composite": 0,
+        "estimability_plus_lrt_to_estimability_lrt_power": 0,
+        "lrt_only_to_estimability_plus_lrt": 0
+      },
+      "max_lrt": 0.0,
+      "max_lrt_relative_to_validation_nll_scale": 0.0,
+      "mean_lrt": 0.0,
+      "mean_lrt_relative_to_validation_nll_scale": 0.0,
+      "replicates": 200,
+      "scenario": "right_child_uncovered"
+    },
+    {
+      "ablations": {
+        "bic_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "count_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 29333.317886890283,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "estimability_lrt_power": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_plus_lrt": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_power_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_coarse": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_fine": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 29333.317886890283,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "full_composite": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "lrt_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 29333.015476506906,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        }
+      },
+      "gate_changed_decision_counts": {
+        "estimability_lrt_power_to_full_composite": 0,
+        "estimability_plus_lrt_to_estimability_lrt_power": 0,
+        "lrt_only_to_estimability_plus_lrt": 0
+      },
+      "max_lrt": 11.87967641337309,
+      "max_lrt_relative_to_validation_nll_scale": 0.0004079048361870712,
+      "mean_lrt": 0.9105487554815045,
+      "mean_lrt_relative_to_validation_nll_scale": 3.106084656559977e-05,
+      "replicates": 200,
+      "scenario": "weak_contrast_large_hit_error"
+    },
+    {
+      "ablations": {
+        "bic_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "count_only": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11115.28317941623,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "estimability_lrt_power": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_plus_lrt": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "estimability_power_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_coarse": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "fixed_fine": {
+          "correct_vs_declared_min_effect": 0.0,
+          "mean_validation_nll": 11115.28317941623,
+          "split_count": 200,
+          "split_rate": 1.0,
+          "split_rate_wilson95": [
+            0.9811546736227335,
+            1.0
+          ]
+        },
+        "full_composite": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        },
+        "lrt_only": {
+          "correct_vs_declared_min_effect": 1.0,
+          "mean_validation_nll": 11115.28317595204,
+          "split_count": 0,
+          "split_rate": 0.0,
+          "split_rate_wilson95": [
+            1.734723475976807e-18,
+            0.018845326377266575
+          ]
+        }
+      },
+      "gate_changed_decision_counts": {
+        "estimability_lrt_power_to_full_composite": 0,
+        "estimability_plus_lrt_to_estimability_lrt_power": 0,
+        "lrt_only_to_estimability_plus_lrt": 0
+      },
+      "max_lrt": 1.709850039333105e-10,
+      "max_lrt_relative_to_validation_nll_scale": 1.515610138682071e-14,
+      "mean_lrt": 1.9590515876188873e-11,
+      "mean_lrt_relative_to_validation_nll_scale": 1.7591409478272292e-15,
+      "replicates": 200,
+      "scenario": "algebraic_background_contrast_degeneracy"
+    }
+  ],
+  "source_csv_sha256": "5a43961fd31d6f46e54388338d6330f0e637fa3882c38b3189f117e1cdec1c4c",
+  "source_run": "adaptive-prototype-001/run-001"
+}

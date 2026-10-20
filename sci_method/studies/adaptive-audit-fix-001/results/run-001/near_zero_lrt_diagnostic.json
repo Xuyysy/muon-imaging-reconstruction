@@ -1,0 +1,14 @@
+{
+  "algebraic_negative_control_replicates": 200,
+  "estimability_plus_lrt_split_count": 0,
+  "interpretation": "The fine and coarse covariance families are exactly equivalent under the algebraically confounded nuisance. Positive LRTs near zero, including values slightly above an empirical cutoff calibrated from the same numerical degeneracy, are optimizer/floating-point residuals, not resolved statistical evidence. The Fisher estimability check rejects the contrast in all replicates. The cutoff is unchanged; no post-hoc threshold was tuned.",
+  "lrt_only_split_count": 0,
+  "max_relative_to_validation_nll_scale": 1.515610138682071e-14,
+  "mean_relative_to_validation_nll_scale": 1.7591409478272292e-15,
+  "raw_lrt_max": 1.709850039333105e-10,
+  "raw_lrt_mean": 1.9590515876188873e-11,
+  "raw_lrt_min": 0.0,
+  "source_run": "adaptive-prototype-001/run-001",
+  "training_objective_limitation": "run-001 did not store training NLL values. Objective-scale ratios use held-out NLL magnitude as an explicit order-of-magnitude proxy; raw training LRT values and empirical cutoffs are exact stored values.",
+  "unchanged_empirical_cutoff": 6.912159733474255e-11
+}

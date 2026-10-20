@@ -1,0 +1,31 @@
+{
+  "calibration_and_evaluation_seeds_disjoint": true,
+  "command": "PYTHONPATH=sci_method/src python3 sci_method/studies/run_adaptive_audit_scenarios.py --run-id run-002",
+  "geant4_invoked": false,
+  "numpy_version": "2.4.6",
+  "python_version": "3.14.4",
+  "result_file_sha256": {
+    "config.json": "12d67b2405441a171873af87ea8c0a76081dc71ee29f3424415ceae792657304",
+    "low_budget_summary.json": "8f888cf3798a3d2d41bdae073bb03b294aacbf35e30e1cb3e2d242f248e8fc5d",
+    "near_zero_lrt_diagnostic.json": "5538b071e205a9876f4e6a9c06f8fae3c5d283b7a144cfbc6d87bd9ce5421067",
+    "run001_ablation_by_trial.csv": "731c526992d868c3a42b0d0307375d3ea8dda1fc8e73f1d28e944cd81efc30cf",
+    "run001_ablation_summary.json": "f74a8d3ff716124562f1487681a7fccd7262c251fa9d7fa8f8a8c85bc280f38d",
+    "source_snapshot/adaptive_audit_analysis.py": "71cfa3068fd08c4cbba6b416cab3801260cd3e932ba78e55bfea9a8355da737b",
+    "source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "source_snapshot/run_adaptive_audit_scenarios.py": "8a7372a9a831639e079c343353a45dc154474fcf42ba5fae343684261ddb239a",
+    "source_snapshot/run_adaptive_split_merge.py": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186",
+    "source_snapshot/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a"
+  },
+  "run001_ablation_rows": 1000,
+  "run001_csv_sha256": "5a43961fd31d6f46e54388338d6330f0e637fa3882c38b3189f117e1cdec1c4c",
+  "run_id": "run-002",
+  "source_commit": "672cde6c8b206200b2f906c9c13d915441a6b7ea",
+  "source_file_sha256": {
+    "sci_method/src/sci_method/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "sci_method/src/sci_method/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "sci_method/studies/adaptive_audit_analysis.py": "71cfa3068fd08c4cbba6b416cab3801260cd3e932ba78e55bfea9a8355da737b",
+    "sci_method/studies/run_adaptive_audit_scenarios.py": "8a7372a9a831639e079c343353a45dc154474fcf42ba5fae343684261ddb239a",
+    "sci_method/studies/run_adaptive_split_merge.py": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186"
+  },
+  "truth_access": "Synthetic truth is used by generation and post-decision evaluation only; the decision rule consumes likelihood/Fisher/evidence quantities."
+}

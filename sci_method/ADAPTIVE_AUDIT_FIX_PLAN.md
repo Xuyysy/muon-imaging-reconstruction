@@ -7,6 +7,16 @@
 
 Correct and test algebraic-confounding covariance parity; analyze the existing run-001 decisions without regenerating its observations; run only a few predeclared, small synthetic event-budget/effect-size cases with unique run IDs; clarify finite-precision LRT behavior; document the Geant4 momentum-source mismatch and a no-run implementation protocol. No historical result, existing Geant4 CSV, SCI result or `main` changes; no Geant4 execution.
 
+## Completion status (2026-10-20)
+
+- Done: shared algebraic-confounding kernel and covariance regression; original `run-001` preserved.
+- Done: corrected synthetic full study saved as `adaptive-prototype-001/results/run-002/` on a new random stream.
+- Done: existing `run-001` records reanalyzed and saved as `adaptive-audit-fix-001/results/run-002/`; earlier summary-only parsing mistake remains preserved at `results/run-001/` and is marked superseded in the results report.
+- Done: near-zero LRT interpreted as optimizer/floating-point residue under exact non-identifiability; no thresholds changed.
+- Deferred: the six-cell low-budget grid was predeclared but not run. A weak/high-hit-error fit exposed a line-search/roundoff non-convergence. Do not relax tolerances or selectively rerun until the failure and stopping rule are reviewed.
+- Done: Geant4 kinetic-energy versus forward-model momentum mismatch and a minimal diagnostic protocol documented; no Geant4 build/run performed.
+- Next scientific gate: review the retained optimizer failure and decide whether a numerically justified solver change can be specified independently of observed outcomes. Only then freeze/run the small low-budget grid. Current synthetic evidence does not establish independent validation or superiority over BIC.
+
 ## Implementation sequence
 
 1. Add a regression comparing generated covariance and the likelihood covariance for left/right/other paths in the algebraic negative control. Factor the algebraic background derivative into one shared function; require the other-region kernel to be an explicit zero matrix. Preserve `run-001`; create a new audit-fix run ID.
