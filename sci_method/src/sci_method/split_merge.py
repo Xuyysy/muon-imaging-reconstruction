@@ -152,64 +152,15 @@ def grouped_gaussian_nll_and_gradient(groups, parameters):
 
 def fit_covariance_model(groups, *, initial=None, max_iter: int = 500,
                          tolerance: float = 1e-6) -> tuple[np.ndarray, bool, int]:
-    """Fit nonnegative covariance scales with projected gradient + Armijo search.
+    """Compatibility tuple API for the audited covariance solver.
 
-    `tolerance` is on the Fisher-diagonal-preconditioned projected gradient,
-    not on the raw likelihood gradient. The default 1e-6 is above the
-    roundoff-limited scaled gradient observed when NLL values are O(1e4),
-    while remaining a local optimizer stopping tolerance rather than a
-    scientific decision threshold.
-
-    Returns parameters, convergence flag and iteration count. Failure to
-    converge is explicit; callers must retain/report it rather than silently
-    treating the final iterate as a successful fit.
+    Numerical tolerance now applies to the fixed-coordinate-scale raw KKT
+    residual, not a Fisher-diagonal parameter update. A small step alone never
+    certifies convergence. For statuses and line-search diagnostics use
+    ``covariance_optimizer.fit_covariance_detailed``. The archived optimizer
+    remains in historical run source snapshots for exact reproduction.
     """
-    groups = tuple(groups)
-    if not groups:
-        raise SplitMergeError("at least one observation group is required")
-    n_parameters = groups[0].covariance_derivatives_mm2.shape[0]
-    theta = np.ones(n_parameters) if initial is None else np.asarray(initial, dtype=float).copy()
-    if theta.shape != (n_parameters,) or not np.all(np.isfinite(theta)) or np.any(theta < 0):
-        raise SplitMergeError("initial values must be a finite nonnegative parameter vector")
-    if max_iter < 1 or tolerance <= 0 or not math.isfinite(tolerance):
-        raise SplitMergeError("max_iter and tolerance must be positive")
-    value, gradient = grouped_gaussian_nll_and_gradient(groups, theta)
-    step = 1.0
-    for iteration in range(1, max_iter + 1):
-        fisher_diagonal = np.zeros(n_parameters)
-        for group in groups:
-            covariance = group.base_covariance_mm2 + np.einsum(
-                "p,pab->ab", theta, group.covariance_derivatives_mm2
-            )
-            inv = np.linalg.inv(covariance)
-            for index, derivative in enumerate(group.covariance_derivatives_mm2):
-                fisher_diagonal[index] += 0.5 * len(group.residuals_mm) * np.trace(
-                    inv @ derivative @ inv @ derivative
-                )
-        fisher_scale = max(float(np.max(fisher_diagonal)), 1.0)
-        preconditioner = np.maximum(fisher_diagonal, fisher_scale * 1e-12)
-        scaled_gradient = gradient / preconditioner
-        projected_gradient = theta - np.maximum(0.0, theta - scaled_gradient)
-        if np.linalg.norm(projected_gradient, ord=np.inf) <= tolerance:
-            return theta, True, iteration - 1
-        trial_step = min(max(step, 1e-8), 10.0)
-        accepted = False
-        for _ in range(50):
-            candidate = np.maximum(0.0, theta - trial_step * scaled_gradient)
-            delta = candidate - theta
-            if not np.any(delta):
-                trial_step *= 0.5
-                continue
-            candidate_value, candidate_gradient = grouped_gaussian_nll_and_gradient(groups, candidate)
-            armijo = value + 1e-4 * float(gradient @ delta)
-            if candidate_value <= armijo:
-                accepted = True
-                break
-            trial_step *= 0.5
-        if not accepted:
-            return theta, False, iteration
-        theta, value, gradient = candidate, candidate_value, candidate_gradient
-        step = min(trial_step * 1.5, 10.0)
-        if np.linalg.norm(delta) <= tolerance * (1.0 + np.linalg.norm(theta)):
-            return theta, True, iteration
-    return theta, False, max_iter
+    from .covariance_optimizer import fit_covariance_detailed
+    result = fit_covariance_detailed(groups, initial=initial, max_iter=max_iter,
+                                    tolerance=tolerance)
+    return result.parameters, result.converged, result.iterations
