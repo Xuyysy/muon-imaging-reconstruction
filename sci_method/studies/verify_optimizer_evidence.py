@@ -41,8 +41,12 @@ def verify(output):
                 seed=case["seed"]+2 if empty else case["seed"]
                 name=key.removeprefix("empty_")
                 row=archived[(phase,seed,name)]
-                s=data[key].T@data[key]
-                match=int(row["n_events"])==len(data[key]) and all(
+                # NpzFile.__getitem__ reloads on each call. Cache once to
+                # reproduce the original symmetric Y.T@Y reduction, rather
+                # than a general GEMM between two separately loaded copies.
+                observations=data[key]
+                s=observations.T@observations
+                match=int(row["n_events"])==len(observations) and all(
                     s[i,j]==float(row[f"s{i}{j}_mm2"]) for i in range(4) for j in range(i,4))
                 statistic_checks.append(dict(case=case["name"],group=key,match=match))
     paths=["sci_method/studies/"+study+"/results/"+run

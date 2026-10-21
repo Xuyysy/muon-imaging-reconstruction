@@ -45,3 +45,16 @@ full per-iteration direction matrices reconstructed at the saved coordinates.
 
 No Geant4, six-cell grid, new physical data or independent SCI validation was run.
 Runtime production dependency remains NumPy; SciPy is an audit reference only.
+
+Final evidence verification:
+
+```sh
+PYTHONPATH=sci_method/src python3 sci_method/studies/verify_optimizer_evidence.py --run-id run-new-verification-001
+```
+
+`verification/run-001` is retained as an unsuccessful verifier attempt: loading
+an NPZ key twice selected a general BLAS product between two distinct copies,
+instead of the original symmetric Y.T@Y operation, causing bitwise scatter
+checks to fail despite identical observation arrays. The verifier now loads
+each array once; no scientific tolerance was changed. Use verification/run-002
+as the corrected check, including the independent empty-field groups.
