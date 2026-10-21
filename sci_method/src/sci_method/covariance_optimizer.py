@@ -178,10 +178,12 @@ def fit_covariance_detailed(groups, *, initial=None, max_iter=500, tolerance=1e-
             direction[free] = -gradient[free]/diagonal[free]
             method = "fisher_diagonal"
         accepted = False
+        all_changes_rounded_to_zero = True
         for halving in range(50):
             step = 0.5**halving
             candidate = np.maximum(0, theta+step*direction)
             delta = candidate-theta
+            all_changes_rounded_to_zero &= not bool(np.any(delta))
             directional = float(gradient @ delta)
             try:
                 difference = objective.difference(theta, candidate)
@@ -200,6 +202,11 @@ def fit_covariance_detailed(groups, *, initial=None, max_iter=500, tolerance=1e-
                 theta = candidate
                 break
         if not accepted:
-            return CovarianceFitResult(theta, "precision_limited", iteration+1,
-                value, gradient, residual, "no_resolved_descent_kkt_unmet", history)
+            # Line-search exhaustion alone does not establish a roundoff cause.
+            # Only label directly observed unrepresentable parameter changes;
+            # other exhaustion remains unproven and requires diagnosis.
+            status = "precision_limited" if all_changes_rounded_to_zero else "unproven"
+            reason = "parameter_resolution_kkt_unmet" if all_changes_rounded_to_zero else "line_search_exhausted"
+            return CovarianceFitResult(theta, status, iteration+1,
+                value, gradient, residual, reason, history)
     raise AssertionError("unreachable")

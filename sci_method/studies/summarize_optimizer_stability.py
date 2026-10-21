@@ -39,6 +39,9 @@ def stress_models():
         ("near_singular_positive", [ill], [0.2], {}),
         ("stationary_local_maximum", [group(0),group(71.5,base=10*np.eye(4))], [1.0], {}),
         ("iteration_exhaustion", [group(2)], [0.1], {"max_iter":1}),
+        ("parameter_resolution_limit", [GaussianObservationGroup("unrepresentable_step",
+            np.sqrt(4*(1+1e-12))*np.eye(4), (1-1e12)*np.eye(4),
+            (1e12*np.eye(4))[None])], [1.0], {}),
         ("invalid_covariance", [group(2,base=np.zeros((4,4)),derivatives=np.zeros((1,4,4)))], [1.0], {}),
     )
 
@@ -149,6 +152,11 @@ def run(run_id):
         six_cell_grid_run=False,geant4_run=False)
     save(output/"summary.json",summary)
     shutil.copyfile(Path(__file__),output/"source_snapshot.py")
+    shutil.copyfile(ROOT/"src/sci_method/covariance_optimizer.py",output/"covariance_optimizer_snapshot.py")
+    suite = subprocess.run([sys.executable,"-m","unittest","discover","-s","sci_method/tests","-v"],
+        cwd=ROOT.parent,capture_output=True,text=True)
+    (output/"test.log").write_text(suite.stdout+suite.stderr)
+    save(output/"test_status.json",dict(exit_code=suite.returncode,command=f"{sys.executable} -m unittest discover -s sci_method/tests -v"))
     save(output/"evidence.json",dict(source_commit=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
         input_run004_evidence_sha256=sha(source/"evidence.json"),
         source_sha256=sha(Path(__file__)),

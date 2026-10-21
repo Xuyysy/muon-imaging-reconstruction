@@ -100,6 +100,18 @@ class OptimizerStabilityTests(unittest.TestCase):
         self.assertEqual(result.status, "unproven")
         self.assertIn("negative_curvature", result.reason)
 
+    def test_parameter_resolution_limit_keeps_nonzero_score_and_reports_no_certificate(self):
+        # A unit coordinate with sensitivity 1e12 needs an update ~1e-24;
+        # that update is below binary64 spacing at theta=1.
+        group = GaussianObservationGroup("unrepresentable_step",
+            np.sqrt(4*(1+1e-12))*np.eye(4), (1-1e12)*np.eye(4),
+            (1e12*np.eye(4))[None])
+        result = fit_covariance_detailed([group], initial=[1.0])
+        self.assertFalse(result.converged)
+        self.assertGreater(result.kkt_inf, 1e-6)
+        self.assertEqual(result.status, "precision_limited")
+        self.assertIn("parameter_resolution", result.reason)
+
     def test_stable_difference_matches_high_precision_scalar_formula_below_full_nll_ulp(self):
         objective = CovarianceObjective([self.scalar_group(2)])
         theta = np.array([1.0])
