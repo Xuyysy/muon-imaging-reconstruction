@@ -1,0 +1,761 @@
+[
+  {
+    "name": "tiny_preconditioned_step",
+    "initial": [
+      0.0
+    ],
+    "candidate": {
+      "parameters": [
+        1e-08
+      ],
+      "status": "converged",
+      "iterations": 7,
+      "nll": 13.545177444479563,
+      "gradient": [
+        0.0
+      ],
+      "kkt_inf": 0.0,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 0,
+      "diagnostic": {
+        "parameters": [
+          0.0
+        ],
+        "nll_without_constant": 16.000000000000004,
+        "full_nll": 30.703016531274766,
+        "analytic_gradient": [
+          -800000000.0000002
+        ],
+        "kkt_residual": [
+          -800000000.0000002
+        ],
+        "fixed_scale_kkt_inf": 800000000.0000002,
+        "fisher_diagonal": [
+          8e+16
+        ],
+        "inverse_diagonal_preconditioner": [
+          1.25e-17
+        ],
+        "preconditioned_projected_gradient": [
+          -1.0000000000000004e-08
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "small_positive_not_active",
+    "initial": [
+      1e-12
+    ],
+    "candidate": {
+      "parameters": [
+        0.0
+      ],
+      "status": "converged",
+      "iterations": 1,
+      "nll": 0.8,
+      "gradient": [
+        7.2
+      ],
+      "kkt_inf": 0.0,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 0,
+      "diagnostic": {
+        "parameters": [
+          1e-12
+        ],
+        "nll_without_constant": 0.8000000000072007,
+        "full_nll": 15.503016531281963,
+        "analytic_gradient": [
+          7.199999999993599
+        ],
+        "kkt_residual": [
+          7.199999999993599
+        ],
+        "fixed_scale_kkt_inf": 7.199999999993599,
+        "fisher_diagonal": [
+          7.999999999983999
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.12500000000025002
+        ],
+        "preconditioned_projected_gradient": [
+          1e-12
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              1.000000000001,
+              1.000000000001,
+              1.000000000001,
+              1.000000000001
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                1.000000000001,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.000000000001,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.000000000001,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.000000000001
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "zero_boundary",
+    "initial": [
+      1.0
+    ],
+    "candidate": {
+      "parameters": [
+        0.0
+      ],
+      "status": "converged",
+      "iterations": 1,
+      "nll": 0.8,
+      "gradient": [
+        7.2
+      ],
+      "kkt_inf": 0.0,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 1,
+      "diagnostic": {
+        "parameters": [
+          0.0
+        ],
+        "nll_without_constant": 0.8,
+        "full_nll": 15.503016531274763,
+        "analytic_gradient": [
+          7.2
+        ],
+        "kkt_residual": [
+          0.0
+        ],
+        "fixed_scale_kkt_inf": 0.0,
+        "fisher_diagonal": [
+          8.0
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.125
+        ],
+        "preconditioned_projected_gradient": [
+          0.0
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "duplicate_parameters",
+    "initial": [
+      0.1,
+      0.3
+    ],
+    "candidate": {
+      "parameters": [
+        0.39999999981519363,
+        0.5999999998151937
+      ],
+      "status": "converged",
+      "iterations": 5,
+      "nll": 13.545177444479563,
+      "gradient": [
+        -7.392255697825097e-10,
+        -7.392255697825097e-10
+      ],
+      "kkt_inf": 7.392255697825097e-10,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 13,
+      "diagnostic": {
+        "parameters": [
+          0.40000004124681743,
+          0.6000000412468173
+        ],
+        "nll_without_constant": 13.545177444479572,
+        "full_nll": 28.248193975754333,
+        "analytic_gradient": [
+          1.6498725496916222e-07,
+          1.6498725496916222e-07
+        ],
+        "kkt_residual": [
+          1.6498725496916222e-07,
+          1.6498725496916222e-07
+        ],
+        "fixed_scale_kkt_inf": 1.6498725496916222e-07,
+        "fisher_diagonal": [
+          1.9999998350127408,
+          1.9999998350127408
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.5000000412468182,
+          0.5000000412468182
+        ],
+        "preconditioned_projected_gradient": [
+          8.249363431245271e-08,
+          8.249363425694156e-08
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              2.0000000824936346,
+              2.0000000824936346,
+              2.0000000824936346,
+              2.0000000824936346
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                2.0000000824936346,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                2.0000000824936346,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0000000824936346,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                2.0000000824936346
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "unobserved_parameter",
+    "initial": [
+      0.2,
+      7.0
+    ],
+    "candidate": {
+      "parameters": [
+        0.9999995077652406,
+        7.0
+      ],
+      "status": "converged",
+      "iterations": 5,
+      "nll": 13.545177444479808,
+      "gradient": [
+        -9.844700048945385e-07,
+        0.0
+      ],
+      "kkt_inf": 9.844700048945385e-07,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 1,
+      "diagnostic": {
+        "parameters": [
+          1.0000000000000004,
+          7.0
+        ],
+        "nll_without_constant": 13.545177444479563,
+        "full_nll": 28.248193975754326,
+        "analytic_gradient": [
+          0.0,
+          0.0
+        ],
+        "kkt_residual": [
+          0.0,
+          0.0
+        ],
+        "fixed_scale_kkt_inf": 0.0,
+        "fisher_diagonal": [
+          1.9999999999999991,
+          0.0
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.5000000000000002,
+          500000000000.0002
+        ],
+        "preconditioned_projected_gradient": [
+          0.0,
+          0.0
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              2.0000000000000004,
+              2.0000000000000004,
+              2.0000000000000004,
+              2.0000000000000004
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                2.0000000000000004,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                2.0000000000000004,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0000000000000004,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                2.0000000000000004
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "near_singular_positive",
+    "initial": [
+      0.2
+    ],
+    "candidate": {
+      "parameters": [
+        0.9999995077652406
+      ],
+      "status": "converged",
+      "iterations": 5,
+      "nll": -28.923005476944997,
+      "gradient": [
+        -9.844700046724936e-07
+      ],
+      "kkt_inf": 9.844700046724936e-07,
+      "reason": "fixed_scale_kkt"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 1,
+      "diagnostic": {
+        "parameters": [
+          1.0000000000000004
+        ],
+        "nll_without_constant": -28.923005476945242,
+        "full_nll": -14.21998894567048,
+        "analytic_gradient": [
+          -8.881784197001252e-16
+        ],
+        "kkt_residual": [
+          -8.881784197001252e-16
+        ],
+        "fixed_scale_kkt_inf": 8.881784197001252e-16,
+        "fisher_diagonal": [
+          1.9999999999999991
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.5000000000000002
+        ],
+        "preconditioned_projected_gradient": [
+          -4.440892098500626e-16
+        ],
+        "covariances": [
+          {
+            "group": "ill_conditioned",
+            "eigenvalues": [
+              2.0000000000000003e-10,
+              2.0000000000000004,
+              4.000000000000001,
+              6.000000000000002
+            ],
+            "condition": 30000000000.000004,
+            "covariance": [
+              [
+                2.0000000000000003e-10,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                2.0000000000000004,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                4.000000000000001,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                6.000000000000002
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "stationary_local_maximum",
+    "initial": [
+      1.0
+    ],
+    "candidate": {
+      "parameters": [
+        1.0
+      ],
+      "status": "unproven",
+      "iterations": 0,
+      "nll": 76.72833962686653,
+      "gradient": [
+        -8.881784197001252e-16
+      ],
+      "kkt_inf": 8.881784197001252e-16,
+      "reason": "stationary_negative_curvature"
+    },
+    "legacy": {
+      "success": true,
+      "iterations": 0,
+      "diagnostic": {
+        "parameters": [
+          1.0
+        ],
+        "nll_without_constant": 76.72833962686653,
+        "full_nll": 106.13437268941605,
+        "analytic_gradient": [
+          -8.881784197001252e-16
+        ],
+        "kkt_residual": [
+          -8.881784197001252e-16
+        ],
+        "fixed_scale_kkt_inf": 8.881784197001252e-16,
+        "fisher_diagonal": [
+          2.0661157024793386
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.48400000000000004
+        ],
+        "preconditioned_projected_gradient": [
+          -4.440892098500626e-16
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                2.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                2.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          },
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              11.0,
+              11.0,
+              11.0,
+              11.0
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                11.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                11.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                11.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                11.0
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "analytic_negative_example": {
+      "score": [
+        -8.881784197001252e-16
+      ],
+      "hessian": [
+        [
+          -1.206611570247933
+        ]
+      ],
+      "nll_at_stationary": 76.72833962686653,
+      "nll_at_feasible_zero": 75.62068074395236
+    }
+  },
+  {
+    "name": "iteration_exhaustion",
+    "initial": [
+      0.1
+    ],
+    "candidate": {
+      "parameters": [
+        0.4413793103448278
+      ],
+      "status": "unproven",
+      "iterations": 1,
+      "nll": 14.025282545253418,
+      "gradient": [
+        -2.1510496554566063
+      ],
+      "kkt_inf": 2.1510496554566063,
+      "reason": "iteration_budget"
+    },
+    "legacy": {
+      "success": false,
+      "iterations": 1,
+      "diagnostic": {
+        "parameters": [
+          1.0
+        ],
+        "nll_without_constant": 13.545177444479563,
+        "full_nll": 28.248193975754326,
+        "analytic_gradient": [
+          0.0
+        ],
+        "kkt_residual": [
+          0.0
+        ],
+        "fixed_scale_kkt_inf": 0.0,
+        "fisher_diagonal": [
+          2.0
+        ],
+        "inverse_diagonal_preconditioner": [
+          0.5
+        ],
+        "preconditioned_projected_gradient": [
+          0.0
+        ],
+        "covariances": [
+          {
+            "group": "analytic",
+            "eigenvalues": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "condition": 1.0,
+            "covariance": [
+              [
+                2.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                2.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "invalid_covariance",
+    "initial": [
+      1.0
+    ],
+    "candidate": {
+      "parameters": [
+        1.0
+      ],
+      "status": "failed",
+      "iterations": 0,
+      "nll": null,
+      "gradient": null,
+      "kkt_inf": null,
+      "reason": "invalid_covariance: Matrix is not positive definite"
+    },
+    "legacy": {
+      "error_type": "SplitMergeError",
+      "message": "model covariance must be positive definite"
+    }
+  }
+]

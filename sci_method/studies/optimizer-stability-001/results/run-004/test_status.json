@@ -1,0 +1,4 @@
+{
+  "exit_code": 0,
+  "command": "/private/tmp/muon-optimizer-env.nUvPPN/bin/python -m unittest discover -s sci_method/tests -v"
+}

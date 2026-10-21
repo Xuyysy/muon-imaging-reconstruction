@@ -1,0 +1,81 @@
+{
+  "stage": "comparison",
+  "cases": [
+    {
+      "name": "A",
+      "scenario": "uniform_known_background",
+      "phase": "calibration_null",
+      "sigma": 1.0,
+      "replicate": 54,
+      "seed": 5028102055,
+      "null": true
+    },
+    {
+      "name": "B",
+      "scenario": "weak_contrast_large_hit_error",
+      "phase": "evaluation_train",
+      "sigma": 1.0,
+      "replicate": 173,
+      "seed": 5030103731,
+      "null": false
+    },
+    {
+      "name": "control_0",
+      "scenario": "uniform_known_background",
+      "phase": "evaluation_train",
+      "sigma": 0.3,
+      "replicate": 0,
+      "seed": 5027102001,
+      "null": false
+    },
+    {
+      "name": "control_1",
+      "scenario": "strong_contrast_calibrated_background",
+      "phase": "evaluation_train",
+      "sigma": 0.3,
+      "replicate": 0,
+      "seed": 5028102001,
+      "null": false
+    },
+    {
+      "name": "control_2",
+      "scenario": "right_child_uncovered",
+      "phase": "evaluation_train",
+      "sigma": 0.3,
+      "replicate": 0,
+      "seed": 5029102001,
+      "null": false
+    },
+    {
+      "name": "control_3",
+      "scenario": "weak_contrast_large_hit_error",
+      "phase": "evaluation_train",
+      "sigma": 1.0,
+      "replicate": 0,
+      "seed": 5030102001,
+      "null": false
+    },
+    {
+      "name": "control_4",
+      "scenario": "algebraic_background_contrast_degeneracy",
+      "phase": "evaluation_train",
+      "sigma": 0.3,
+      "replicate": 0,
+      "seed": 5031102001,
+      "null": false
+    },
+    {
+      "name": "control_calibration",
+      "scenario": "uniform_known_background",
+      "phase": "calibration_null",
+      "sigma": 1.0,
+      "replicate": 0,
+      "seed": 5028102001,
+      "null": true
+    }
+  ],
+  "base_commit": "5334f3533e1ada58f0afb3e98f8de10a6f52aeb8",
+  "rng": "numpy.default_rng/PCG64; multivariate_normal default SVD; left,right,other order",
+  "six_cell_grid_run": false,
+  "geant4_run": false
+}

@@ -1,0 +1,28 @@
+{
+  "fixed_panel_cases": 8,
+  "fixed_panel_fits": 16,
+  "legacy_success": 14,
+  "legacy_stalled": 2,
+  "legacy_success_kkt_above_frozen_tolerance": 11,
+  "candidate_status_counts": {
+    "converged": 16,
+    "precision_limited": 0,
+    "unproven": 0,
+    "failed": 0
+  },
+  "all_reference_checks_passed": true,
+  "max_candidate_kkt": 1.3408972876494119e-08,
+  "max_nll_reference_difference": 3.637978807091713e-12,
+  "max_raw_lrt_difference": 5.820766091346741e-11,
+  "composite_decision_changes": 0,
+  "objective_scale_ambiguous_lrt_cases": [
+    "control_4"
+  ],
+  "mean_of_per_fit_median_ms": {
+    "legacy": 2.1260469379740243,
+    "candidate": 1.423062436060718
+  },
+  "historical_directories_unchanged": true,
+  "six_cell_grid_run": false,
+  "geant4_run": false
+}

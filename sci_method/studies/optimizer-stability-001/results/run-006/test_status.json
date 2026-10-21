@@ -1,0 +1,4 @@
+{
+  "exit_code": 0,
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest discover -s sci_method/tests -v"
+}

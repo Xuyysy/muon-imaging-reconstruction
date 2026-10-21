@@ -1,0 +1,6885 @@
+[
+  {
+    "case": "A",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29358.25242213694,
+        "full_nll": 44061.2689534117,
+        "analytic_gradient": [
+          0.31241779909476797,
+          -0.24269718736701262
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.4726300416927276,
+            0.0
+          ],
+          [
+            0.0,
+            0.6354570379332912
+          ]
+        ],
+        "fisher": [
+          [
+            2.4897329794983505,
+            0.0
+          ],
+          [
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.4044276673575535,
+            0.0
+          ],
+          [
+            0.0,
+            1.5736705084773608
+          ]
+        ],
+        "proposed_direction": [
+          -0.1263504017288778,
+          0.38192540624987203
+        ],
+        "actual_delta": [
+          -0.1263504017288778,
+          0.38192540624987203
+        ],
+        "stable_nll_change": -0.06663704092594683,
+        "armijo_change": -1.3216633630372338e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.8736495982711222,
+          1.381925406249872
+        ],
+        "nll_without_constant": 29358.185785096015,
+        "full_nll": 44061.20231637078,
+        "analytic_gradient": [
+          -0.002217509087060643,
+          -0.0050632139538281246
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5078241991422394,
+            0.0
+          ],
+          [
+            0.0,
+            0.6091517642771643
+          ]
+        ],
+        "fisher": [
+          [
+            2.5073742782658575,
+            0.0
+          ],
+          [
+            0.0,
+            0.6093813088523831
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3987520338714467,
+            0.0
+          ],
+          [
+            0.0,
+            1.6416270273576676
+          ]
+        ],
+        "proposed_direction": [
+          0.0008842362585938464,
+          0.008311908871898727
+        ],
+        "actual_delta": [
+          0.0008842362585937957,
+          0.00831190887189881
+        ],
+        "stable_nll_change": -2.202935456044705e-05,
+        "armijo_change": -4.404577492168609e-09,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.874533834529716,
+          1.3902373151217708
+        ],
+        "nll_without_constant": 29358.185763066656,
+        "full_nll": 44061.20229434142,
+        "analytic_gradient": [
+          -1.0975753250708209e-07,
+          -2.3222807158870817e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5075759509920545,
+            0.0
+          ],
+          [
+            0.0,
+            0.608593076399171
+          ]
+        ],
+        "fisher": [
+          [
+            2.5072501686731994,
+            0.0
+          ],
+          [
+            0.0,
+            0.6091018366743935
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3987915100255994,
+            0.0
+          ],
+          [
+            0.0,
+            1.6431340394416654
+          ]
+        ],
+        "proposed_direction": [
+          4.377037212518308e-08,
+          3.8158184934130234e-06
+        ],
+        "actual_delta": [
+          4.377037210456791e-08,
+          3.81581849340229e-06
+        ],
+        "stable_nll_change": -4.433103532076307e-12,
+        "armijo_change": -8.866205830592551e-16,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.06665903793691541,
+        "stable_nll_change": -0.06665903794372526,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -2.4265318643301725e-08,
+        "stable_nll_change": -2.429604919483289e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 4.5183696784079075e-09,
+        "stable_nll_change": 4.488245082624473e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -7.927155820652843e-09,
+        "stable_nll_change": -7.921319646052345e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -5.4569682106375694e-11,
+        "stable_nll_change": -6.55463145788148e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 7.639755494892597e-11,
+        "stable_nll_change": 7.802441297953787e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -6.184563972055912e-11,
+        "stable_nll_change": -5.421838256478936e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": -4.729372449219227e-11,
+        "stable_nll_change": -7.983596818640938e-13,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 5.4569682106375694e-11,
+        "stable_nll_change": 7.895602651805476e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -2.696357766239879e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.7119140625,
+        "legacy_absolute_nll_change": 8.003553375601768e-11,
+        "stable_nll_change": -3.0092182299778273e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.35595703125,
+        "legacy_absolute_nll_change": 5.820766091346741e-11,
+        "stable_nll_change": -1.919868898976066e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.177978515625,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -1.0637493874918744e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.0889892578125,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -5.57828427783303e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.04449462890625,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -2.8540264731174247e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.022247314453125,
+        "legacy_absolute_nll_change": 6.184563972055912e-11,
+        "stable_nll_change": -1.4432343197755884e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.0111236572265625,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -7.256724298815591e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.00556182861328125,
+        "legacy_absolute_nll_change": 6.184563972055912e-11,
+        "stable_nll_change": -3.638500348668199e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.002780914306640625,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -1.821784718606456e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.0013904571533203125,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -9.115259758724516e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.0006952285766601562,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -4.55921394628712e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.0003476142883300781,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -2.2800029956649902e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.00017380714416503906,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -1.1401007455444803e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 8.690357208251953e-05,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -5.70074902931704e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 4.3451786041259766e-05,
+        "legacy_absolute_nll_change": 6.548361852765083e-11,
+        "stable_nll_change": -2.850436159431588e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 2.1725893020629883e-05,
+        "legacy_absolute_nll_change": 6.548361852765083e-11,
+        "stable_nll_change": -1.4252335493428277e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.0862946510314941e-05,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -7.126230837445665e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 5.431473255157471e-06,
+        "legacy_absolute_nll_change": 5.4569682106375694e-11,
+        "stable_nll_change": -3.563122749986802e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 2.7157366275787354e-06,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": -1.781541721469174e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.3578683137893677e-06,
+        "legacy_absolute_nll_change": 6.548361852765083e-11,
+        "stable_nll_change": -8.907935372203825e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 6.789341568946838e-07,
+        "legacy_absolute_nll_change": 6.548361852765083e-11,
+        "stable_nll_change": -4.4537484671150296e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 3.394670784473419e-07,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": -2.2268979856631925e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.6973353922367096e-07,
+        "legacy_absolute_nll_change": 8.003553375601768e-11,
+        "stable_nll_change": -1.1134490872509533e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 8.486676961183548e-08,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -5.569219210131522e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 4.243338480591774e-08,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -2.7846096641147985e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 2.121669240295887e-08,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -1.3923048468236026e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.0608346201479435e-08,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -6.961524271023662e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 5.3041731007397175e-09,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -3.4807621447382436e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 2.6520865503698587e-09,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -1.7403810746806548e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.3260432751849294e-09,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -8.481176991942742e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 6.630216375924647e-10,
+        "legacy_absolute_nll_change": 5.4569682106375694e-11,
+        "stable_nll_change": -4.461316887258756e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 3.3151081879623234e-10,
+        "legacy_absolute_nll_change": 5.4569682106375694e-11,
+        "stable_nll_change": -2.2540330000860257e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.6575540939811617e-10,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -8.829135553528467e-22,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 8.287770469905809e-11,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -4.414567776914262e-22,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 4.143885234952904e-11,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -4.414567776914262e-22,
+        "accepted_by_legacy": false
+      }
+    ],
+    "stable_remaining_decrease": -3.2827799000404327e-12,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "A",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29358.25242213694,
+        "full_nll": 44061.2689534117,
+        "analytic_gradient": [
+          1.0442393677952468,
+          -0.7318215687004789,
+          -0.24269718736701262
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.1869752064454369,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2856548352472907,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6354570379332912
+          ]
+        ],
+        "fisher": [
+          [
+            1.2448664897491752,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2448664897491752,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.8424775804666045,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7778137433035468,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.5736705084773608
+          ]
+        ],
+        "proposed_direction": [
+          -0.8797482560081162,
+          0.5692208737811932,
+          0.38192540624987203
+        ],
+        "actual_delta": [
+          -0.8797482560081162,
+          0.5692208737811932,
+          0.38192540624987203
+        ],
+        "stable_nll_change": -0.7032646543080693,
+        "armijo_change": -0.00014279280973413444,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.12025174399188376,
+          1.5692208737811932,
+          1.381925406249872
+        ],
+        "nll_without_constant": 29357.54915748263,
+        "full_nll": 44060.56568875739,
+        "analytic_gradient": [
+          -0.05385247521425246,
+          -0.02251685665822198,
+          -0.0050632139538281246
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.3117308726384747,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2074626348630944,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6091517642771643
+          ]
+        ],
+        "fisher": [
+          [
+            1.3082826768115727,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.206260395060761,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6093813088523831
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7623515012561646,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8281829773667347,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.6416270273576676
+          ]
+        ],
+        "proposed_direction": [
+          0.041054515325945756,
+          0.018648077388146264,
+          0.008311908871898727
+        ],
+        "actual_delta": [
+          0.041054515325945756,
+          0.018648077388146334,
+          0.00831190887189881
+        ],
+        "stable_nll_change": -0.0013383105935589458,
+        "armijo_change": -2.672868327507109e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.16130625931782952,
+          1.5878689511693396,
+          1.3902373151217708
+        ],
+        "nll_without_constant": 29357.54781917204,
+        "full_nll": 44060.5643504468,
+        "analytic_gradient": [
+          -0.00012612731664379817,
+          -2.3033449631282288e-05,
+          -2.3222807158870817e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.3055918916491596,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2049932531749215,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.608593076399171
+          ]
+        ],
+        "fisher": [
+          [
+            1.3052165524825101,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2050261527567119,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6091018366743935
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7659361293496156,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8298801651919591,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.6431340394416654
+          ]
+        ],
+        "proposed_direction": [
+          9.660546871540412e-05,
+          1.9115002984949215e-05,
+          3.8158184934130234e-06
+        ],
+        "actual_delta": [
+          9.660546871539943e-05,
+          1.9115002984904095e-05,
+          3.81581849340229e-06
+        ],
+        "stable_nll_change": -6.316889765563111e-09,
+        "armijo_change": -1.2633734402346876e-12,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.7046029016419197,
+        "stable_nll_change": -0.7046029016649907,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -5.2194081945344806e-08,
+        "stable_nll_change": -5.218965577618789e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 9.771611075848341e-09,
+        "stable_nll_change": 9.744950756755588e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -1.7083948478102684e-08,
+        "stable_nll_change": -1.7093672236899163e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -1.1641532182693481e-10,
+        "stable_nll_change": -1.4262499695701313e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 1.6007106751203537e-10,
+        "stable_nll_change": 1.7132109095541018e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -1.4551915228366852e-10,
+        "stable_nll_change": -1.1858485526375402e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 0.0,
+        "stable_nll_change": -1.7384821693755916e-12,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": 1.7466791051777666e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": -5.943889386865117e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.7119140625,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -6.641265090484874e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.35595703125,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": -4.237962541578459e-12,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -3.0050821103406773e-12,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "B",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29354.684728615233,
+        "full_nll": 44057.70125989,
+        "analytic_gradient": [
+          0.429015899277022,
+          -0.5479336420798563
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.4659687115167266,
+            0.0
+          ],
+          [
+            0.0,
+            0.6527524621735407
+          ]
+        ],
+        "fisher": [
+          [
+            2.4897329794983505,
+            0.0
+          ],
+          [
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.4055201492742934,
+            0.0
+          ],
+          [
+            0.0,
+            1.5319743056505548
+          ]
+        ],
+        "proposed_direction": [
+          -0.1739745915158632,
+          0.8394202608678675
+        ],
+        "actual_delta": [
+          -0.17397459151586325,
+          0.8394202608678674
+        ],
+        "stable_nll_change": -0.27396290399707535,
+        "armijo_change": -5.3458446660348426e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.8260254084841367,
+          1.8394202608678674
+        ],
+        "nll_without_constant": 29354.410765711233,
+        "full_nll": 44057.427296985996,
+        "analytic_gradient": [
+          -0.004204143862848397,
+          -0.024498897947702936
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5144763018708933,
+            0.0
+          ],
+          [
+            0.0,
+            0.595375244000729
+          ]
+        ],
+        "fisher": [
+          [
+            2.5140723507932403,
+            0.0
+          ],
+          [
+            0.0,
+            0.5942802221537248
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3976971265372241,
+            0.0
+          ],
+          [
+            0.0,
+            1.6796130005008665
+          ]
+        ],
+        "proposed_direction": [
+          0.0016719759338039133,
+          0.04114866749090585
+        ],
+        "actual_delta": [
+          0.0016719759338038598,
+          0.041148667490905844
+        ],
+        "stable_nll_change": -0.0005083157156871511,
+        "armijo_change": -1.0151262329045955e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.8276973844179406,
+          1.8805689283587732
+        ],
+        "nll_without_constant": 29354.410257395517,
+        "full_nll": 44057.42678867028,
+        "analytic_gradient": [
+          -3.9397904039173426e-07,
+          -5.4830230618974074e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.514005044827389,
+            0.0
+          ],
+          [
+            0.0,
+            0.5927125002190133
+          ]
+        ],
+        "fisher": [
+          [
+            2.513836742465153,
+            0.0
+          ],
+          [
+            0.0,
+            0.5929495676032378
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3977716759389637,
+            0.0
+          ],
+          [
+            0.0,
+            1.687158613375776
+          ]
+        ],
+        "proposed_direction": [
+          1.567137031814448e-07,
+          9.250729586218232e-05
+        ],
+        "actual_delta": [
+          1.567137032365551e-07,
+          9.250729586218753e-05
+        ],
+        "stable_nll_change": -2.5361375701321413e-09,
+        "armijo_change": -5.072258107975827e-13,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.27447118527197745,
+        "stable_nll_change": -0.2744711852883666,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -2.7728674467653036e-08,
+        "stable_nll_change": -2.774288599945223e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 5.180481821298599e-09,
+        "stable_nll_change": 5.164259339551281e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -9.102222975343466e-09,
+        "stable_nll_change": -9.074659861804812e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -2.546585164964199e-11,
+        "stable_nll_change": -7.553569034939567e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 6.184563972055912e-11,
+        "stable_nll_change": 9.0490227451125e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -5.820766091346741e-11,
+        "stable_nll_change": -6.2708244839087e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": -3.2741809263825417e-11,
+        "stable_nll_change": -9.205775283802395e-13,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": 9.205057998686957e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": -1.8189894035458565e-11,
+        "stable_nll_change": -3.135797138321774e-12,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 2.1357421875,
+        "legacy_absolute_nll_change": 4.729372449219227e-11,
+        "stable_nll_change": 1.9706794361680445e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -6.812491235656596e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.533935546875,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -5.355703541754178e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.2669677734375,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -3.165216274206237e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.13348388671875,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -1.7044492654547852e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.066741943359375,
+        "legacy_absolute_nll_change": 6.548361852765083e-11,
+        "stable_nll_change": -8.826849151327208e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0333709716796875,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -4.4895752993636793e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.01668548583984375,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -2.263825326253345e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.008342742919921875,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -1.1366720824281036e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0041713714599609375,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -5.695258960249549e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0020856857299804688,
+        "legacy_absolute_nll_change": 7.275957614183426e-11,
+        "stable_nll_change": -2.8506041247204607e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0010428428649902344,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -1.4260457216158113e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0005214214324951172,
+        "legacy_absolute_nll_change": 4.729372449219227e-11,
+        "stable_nll_change": -7.132086711000911e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0002607107162475586,
+        "legacy_absolute_nll_change": 5.820766091346741e-11,
+        "stable_nll_change": -3.5665091360302375e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.0001303553581237793,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": -1.783370764824495e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 6.517767906188965e-05,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": -8.917135082342177e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 3.2588839530944824e-05,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -4.458639461930774e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.6294419765472412e-05,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -2.2293385891259416e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 8.147209882736206e-06,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -1.1146838090219549e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 4.073604941368103e-06,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": -5.573430392614814e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 2.0368024706840515e-06,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -2.786611245746738e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.0184012353420258e-06,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -1.3934131145866505e-18,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 5.092006176710129e-07,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -6.96606972056256e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 2.5460030883550644e-07,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -3.48396270058855e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.2730015441775322e-07,
+        "legacy_absolute_nll_change": 5.820766091346741e-11,
+        "stable_nll_change": -1.7420517012896709e-19,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 6.365007720887661e-08,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -8.70028232861627e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 3.1825038604438305e-08,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -4.3494388264902787e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.5912519302219152e-08,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -2.1846958629769927e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 7.956259651109576e-09,
+        "legacy_absolute_nll_change": 5.820766091346741e-11,
+        "stable_nll_change": -1.083073915814635e-20,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 3.978129825554788e-09,
+        "legacy_absolute_nll_change": 5.820766091346741e-11,
+        "stable_nll_change": -5.4153695897494985e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.989064912777394e-09,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -2.8074491103691584e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 9.94532456388697e-10,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -1.3967004858425893e-21,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 4.972662281943485e-10,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -5.985859240879832e-22,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 2.4863311409717426e-10,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -3.9905728234367976e-22,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.2431655704858713e-10,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -1.9952864118645123e-22,
+        "accepted_by_legacy": false
+      }
+    ],
+    "stable_remaining_decrease": -6.843617664477093e-13,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "B",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29354.684728615233,
+        "full_nll": 44057.70125989,
+        "analytic_gradient": [
+          -0.6743502249995029,
+          1.103366124276525,
+          -0.5479336420798563
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.282803999031733,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1831647124849936,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6527524621735407
+          ]
+        ],
+        "fisher": [
+          [
+            1.2448664897491752,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2448664897491752,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7795423157043516,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.845190859267351,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.5319743056505548
+          ]
+        ],
+        "proposed_direction": [
+          0.525684535991863,
+          -0.9325549626637629,
+          0.8394202608678675
+        ],
+        "actual_delta": [
+          0.5256845359918629,
+          -0.9325549626637629,
+          0.8394202608678674
+        ],
+        "stable_nll_change": -0.9133724908367774,
+        "armijo_change": -0.0001843391640726981,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          1.525684535991863,
+          0.06744503733623708,
+          1.8394202608678674
+        ],
+        "nll_without_constant": 29353.771356124395,
+        "full_nll": 44056.78788739916,
+        "analytic_gradient": [
+          -0.019206219485173648,
+          -0.060506174773943044,
+          -0.024498897947702936
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.210520795417436,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.3155507142706198,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.595375244000729
+          ]
+        ],
+        "fisher": [
+          [
+            1.209149284787218,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.312242416772223,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5942802221537248
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.8260907237493265,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7601379324661228,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.6796130005008665
+          ]
+        ],
+        "proposed_direction": [
+          0.015866079754995516,
+          0.045993038594098944,
+          0.04114866749090585
+        ],
+        "actual_delta": [
+          0.015866079754995432,
+          0.04599303859409895,
+          0.041148667490905844
+        ],
+        "stable_nll_change": -0.002051122875019322,
+        "armijo_change": -4.095687247246635e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          1.5415506157468584,
+          0.11343807593033603,
+          1.8805689283587732
+        ],
+        "nll_without_constant": 29353.76930500152,
+        "full_nll": 44056.78583627628,
+        "analytic_gradient": [
+          -1.6737220317974977e-05,
+          -0.0001589677581217419,
+          -5.4830230618974074e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.208411673514287,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.3086448432789746,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5927125002190133
+          ]
+        ],
+        "fisher": [
+          [
+            1.208095277173105,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.3087925955407635,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5929495676032378
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.8275325552688623,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.764149268715547,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.687158613375776
+          ]
+        ],
+        "proposed_direction": [
+          1.3850594697831752e-05,
+          0.00012147509611807904,
+          9.250729586218232e-05
+        ],
+        "actual_delta": [
+          1.3850594697828456e-05,
+          0.0001214750961180816,
+          9.250729586218753e-05
+        ],
+        "stable_nll_change": -1.2307373559248552e-08,
+        "armijo_change": -2.4614640518568482e-12,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.9154235697096738,
+        "stable_nll_change": -0.9154235697496269,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -4.221510607749224e-08,
+        "stable_nll_change": -4.2221325622497244e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 7.8580342233181e-09,
+        "stable_nll_change": 7.884509674161685e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -1.382431946694851e-08,
+        "stable_nll_change": -1.382960615074626e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -1.382431946694851e-10,
+        "stable_nll_change": -1.1539984606582412e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 1.3096723705530167e-10,
+        "stable_nll_change": 1.3862039636683935e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -1.1641532182693481e-10,
+        "stable_nll_change": -9.595000102564051e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -1.4067121565404591e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": -7.248280150246469e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.474609375,
+        "legacy_absolute_nll_change": 4.729372449219227e-11,
+        "stable_nll_change": -5.260371262653391e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.2373046875,
+        "legacy_absolute_nll_change": 7.275957614183426e-12,
+        "stable_nll_change": -3.0392434535694373e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.11865234375,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -1.6218861848921674e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.059326171875,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -8.365092065332267e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0296630859375,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": -4.246461319994892e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.01483154296875,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -2.139209478813295e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.007415771484375,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -1.073599446703117e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0037078857421875,
+        "legacy_absolute_nll_change": 6.184563972055912e-11,
+        "stable_nll_change": -5.377983997849946e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00185394287109375,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -2.6914887166912778e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.000926971435546875,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -1.346368483118393e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0004634857177734375,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -6.733403331072167e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00023174285888671875,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -3.367091773528974e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00011587142944335938,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -1.6836431609718373e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 5.793571472167969e-05,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -8.418459510295883e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 2.8967857360839844e-05,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -4.209288660447617e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 1.4483928680419922e-05,
+        "legacy_absolute_nll_change": 7.275957614183426e-12,
+        "stable_nll_change": -2.1046594577436335e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 7.241964340209961e-06,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -1.052335699153103e-16,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 3.6209821701049805e-06,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -5.2616880199121817e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 1.8104910850524902e-06,
+        "legacy_absolute_nll_change": 1.8189894035458565e-11,
+        "stable_nll_change": -2.6308258972868824e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 9.052455425262451e-07,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -1.3154386899794437e-17,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 4.5262277126312256e-07,
+        "legacy_absolute_nll_change": -1.0913936421275139e-11,
+        "stable_nll_change": -6.577422112145216e-18,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -7.267170675903393e-12,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_0",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 11345.57893527406,
+        "full_nll": 26048.595466548824,
+        "analytic_gradient": [
+          1.8459846277278409,
+          8.590839940022649
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            167.55513694657586,
+            0.0
+          ],
+          [
+            0.0,
+            38.130752558668206
+          ]
+        ],
+        "fisher": [
+          [
+            168.40170575387793,
+            0.0
+          ],
+          [
+            0.0,
+            42.10042643846948
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005968184671764764,
+            0.0
+          ],
+          [
+            0.0,
+            0.02622555110763665
+          ]
+        ],
+        "proposed_direction": [
+          -0.011017177159518684,
+          -0.22529951190459016
+        ],
+        "actual_delta": [
+          -0.011017177159518665,
+          -0.2252995119045902
+        ],
+        "stable_nll_change": -0.9052272734007384,
+        "armijo_change": -0.00019558495850149874,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9889828228404813,
+          0.7747004880954098
+        ],
+        "nll_without_constant": 11344.67370800066,
+        "full_nll": 26047.690239275424,
+        "analytic_gradient": [
+          -0.009377136784246787,
+          -0.987502093689717
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            169.26065017406995,
+            0.0
+          ],
+          [
+            0.0,
+            47.26138087508694
+          ]
+        ],
+        "fisher": [
+          [
+            169.25606372178171,
+            0.0
+          ],
+          [
+            0.0,
+            46.813920119745134
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.0059080477297681795,
+            0.0
+          ],
+          [
+            0.0,
+            0.021158924717900773
+          ]
+        ],
+        "proposed_direction": [
+          5.540057168989492e-05,
+          0.020894482459150116
+        ],
+        "actual_delta": [
+          5.540057168984536e-05,
+          0.020894482459150154
+        ],
+        "stable_nll_change": -0.010385894674827173,
+        "armijo_change": -2.063386467371251e-06,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9890382234121712,
+          0.79559497055456
+        ],
+        "nll_without_constant": 11344.663322105986,
+        "full_nll": 26047.67985338075,
+        "analytic_gradient": [
+          -2.3892128808711277e-07,
+          -0.009882856648920413
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            169.25202519073304,
+            0.0
+          ],
+          [
+            0.0,
+            46.31896529203373
+          ]
+        ],
+        "fisher": [
+          [
+            169.25175127660344,
+            0.0
+          ],
+          [
+            0.0,
+            46.344298980714235
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005908348800394457,
+            0.0
+          ],
+          [
+            0.0,
+            0.02158942872957456
+          ]
+        ],
+        "proposed_direction": [
+          1.4116303058581912e-09,
+          0.00021336522926646934
+        ],
+        "actual_delta": [
+          1.4116302571309802e-09,
+          0.00021336522926651558
+        ],
+        "stable_nll_change": -1.0544011771921818e-06,
+        "armijo_change": -2.1086579750422804e-10,
+        "accepted": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.0,
+        "parameters": [
+          0.9890382248238014,
+          0.7958083357838265
+        ],
+        "nll_without_constant": 11344.663321051585,
+        "full_nll": 26047.67985232635,
+        "analytic_gradient": [
+          -1.0960121699099545e-12,
+          -1.0149953992844019e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            169.25202497097203,
+            0.0
+          ],
+          [
+            0.0,
+            46.309451494735214
+          ]
+        ],
+        "fisher": [
+          [
+            169.2517511667231,
+            0.0
+          ],
+          [
+            0.0,
+            46.33953992738813
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005908348808066003,
+            0.0
+          ],
+          [
+            0.0,
+            0.02159386405415938
+          ]
+        ],
+        "proposed_direction": [
+          6.475622197713314e-15,
+          2.1917672667744593e-08
+        ],
+        "actual_delta": [
+          6.439293542825908e-15,
+          2.191767267678557e-08
+        ],
+        "stable_nll_change": -1.1123167888075943e-14,
+        "armijo_change": -2.2246336929965853e-18,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.9156137957907049,
+        "stable_nll_change": -0.9156137957772494,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -3.2041134545579553e-07,
+        "stable_nll_change": -3.204328948896978e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 5.938272806815803e-08,
+        "stable_nll_change": 5.937898135136303e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -1.046337274601683e-07,
+        "stable_nll_change": -1.0462559723622359e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -8.385541150346398e-10,
+        "stable_nll_change": -8.678519495926812e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 1.04046193882823e-09,
+        "stable_nll_change": 1.0358100784330431e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -7.639755494892597e-10,
+        "stable_nll_change": -7.189590141355669e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -1.0573255044774893e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": -5.4072215806543096e-11,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.4322188628822306e-13,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_0",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 11345.57893527406,
+        "full_nll": 26048.595466548824,
+        "analytic_gradient": [
+          -10.08772353385858,
+          11.93370816158642,
+          8.590839940022649
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            88.849272158428,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            78.70586478814786,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            38.130752558668206
+          ]
+        ],
+        "fisher": [
+          [
+            84.20085287693897,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            84.20085287693897,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            42.10042643846948
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.011255016228122729,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.01270553347824453,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.02622555110763665
+          ]
+        ],
+        "proposed_direction": [
+          0.11353749207839386,
+          -0.15162412856663626,
+          -0.22529951190459016
+        ],
+        "actual_delta": [
+          0.11353749207839381,
+          -0.1516241285666362,
+          -0.2252995119045902
+        ],
+        "stable_nll_change": -2.3471174792230896,
+        "armijo_change": -0.0004890284976721153,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          1.1135374920783938,
+          0.8483758714333638,
+          0.7747004880954098
+        ],
+        "nll_without_constant": 11343.231817794838,
+        "full_nll": 26046.248349069603,
+        "analytic_gradient": [
+          -0.49905852006432294,
+          -0.8910286822730504,
+          -0.987502093689717
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            80.22409880799216,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            90.7803207818414,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            47.26138087508694
+          ]
+        ],
+        "fisher": [
+          [
+            79.98081332554062,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            90.3780097878221,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            46.813920119745134
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.012465082373731532,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.011015603287006978,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.021158924717900773
+          ]
+        ],
+        "proposed_direction": [
+          0.0062208055619143365,
+          0.00981521848126451,
+          0.020894482459150116
+        ],
+        "actual_delta": [
+          0.0062208055619144,
+          0.009815218481264543,
+          0.020894482459150154
+        ],
+        "stable_nll_change": -0.01632714893330531,
+        "armijo_change": -3.248353238189399e-06,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          1.1197582976403082,
+          0.8581910899146283,
+          0.79559497055456
+        ],
+        "nll_without_constant": 11343.215490645904,
+        "full_nll": 26046.232021920667,
+        "analytic_gradient": [
+          -0.0013841100739138135,
+          -0.004137554575037061,
+          -0.009882856648920413
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            79.77956826825265,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            89.93870157058375,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            46.31896529203373
+          ]
+        ],
+        "fisher": [
+          [
+            79.75882339674736,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            89.95786763510863,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            46.344298980714235
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.012534537622935951,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.011118683976276906,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.02158942872957456
+          ]
+        ],
+        "proposed_direction": [
+          1.7349179795757356e-05,
+          4.6004161754435775e-05,
+          0.00021336522926646934
+        ],
+        "actual_delta": [
+          1.7349179795678182e-05,
+          4.600416175448707e-05,
+          0.00021336522926651558
+        ],
+        "stable_nll_change": -1.161581575372827e-06,
+        "armijo_change": -2.3230158791723753e-10,
+        "accepted": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.0,
+        "parameters": [
+          1.1197756468201039,
+          0.8582370940763828,
+          0.7958083357838265
+        ],
+        "nll_without_constant": 11343.215489484322,
+        "full_nll": 26046.232020759086,
+        "analytic_gradient": [
+          -1.0722930987583368e-08,
+          -9.025831859688083e-08,
+          -1.0149953992844019e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            79.77833240107039,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            89.93477761093065,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            46.309451494735214
+          ]
+        ],
+        "fisher": [
+          [
+            79.75820558298635,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            89.95590532258946,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            46.33953992738813
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.012534731798763231,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.011119169097477817,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.02159386405415938
+          ]
+        ],
+        "proposed_direction": [
+          1.3440906402600486e-10,
+          1.0035975069327446e-09,
+          2.1917672667744593e-08
+        ],
+        "actual_delta": [
+          1.3440915047624458e-10,
+          1.0035975384070639e-09,
+          2.191767267678557e-08
+        ],
+        "stable_nll_change": -1.1169180027549065e-14,
+        "armijo_change": -2.2338361216368043e-18,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -2.3634452760306885,
+        "stable_nll_change": -2.3634452760457956,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -3.8568032323382795e-07,
+        "stable_nll_change": -3.8568179591021964e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 7.160997483879328e-08,
+        "stable_nll_change": 7.160513475063404e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -1.2604868970811367e-07,
+        "stable_nll_change": -1.2602987934261925e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -1.025910023599863e-09,
+        "stable_nll_change": -1.046927210131721e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 1.2605596566572785e-09,
+        "stable_nll_change": 1.2515326145363986e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -8.767528925091028e-10,
+        "stable_nll_change": -8.680948460195946e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": -5.4569682106375694e-12,
+        "stable_nll_change": -1.275667691616764e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 1.127773430198431e-10,
+        "stable_nll_change": 1.270912524385023e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": -6.002665031701326e-11,
+        "stable_nll_change": -4.333044999556076e-11,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -9.445646326889399e-12,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_1",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          0.5
+        ],
+        "nll_without_constant": 21805.484811427847,
+        "full_nll": 51211.51787397737,
+        "analytic_gradient": [
+          -16.36191237790468,
+          3.432192553537456,
+          -4.781991807384397
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            175.8756685619932,
+            0.0,
+            85.89210988583177
+          ],
+          [
+            0.0,
+            40.504784704433234,
+            19.734809961464997
+          ],
+          [
+            85.89210988583177,
+            19.734809961464997,
+            221.64059087180894
+          ]
+        ],
+        "fisher": [
+          [
+            168.40170575387793,
+            0.0,
+            81.21440524120081
+          ],
+          [
+            0.0,
+            42.10042643846948,
+            20.303601310300202
+          ],
+          [
+            81.21440524120081,
+            20.303601310300202,
+            220.81987930604654
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.0070881509199057155,
+            0.0013990235708004868,
+            -0.0028714311737661397
+          ],
+          [
+            0.0013990235708004864,
+            0.0260841800818412,
+            -0.002864689273270607
+          ],
+          [
+            -0.0028714311737661397,
+            -0.002864689273270607,
+            0.0058796422405636185
+          ]
+        ],
+        "proposed_direction": [
+          0.09744282564251912,
+          -0.08033414819744651,
+          -0.009033539047701104
+        ],
+        "actual_delta": [
+          0.09744282564251905,
+          -0.08033414819744655,
+          -0.0090335390477011
+        ],
+        "stable_nll_change": -0.9305260971811555,
+        "armijo_change": -0.00018268749305385968,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          1.097442825642519,
+          0.9196658518025534,
+          0.4909664609522989
+        ],
+        "nll_without_constant": 21804.554285330665,
+        "full_nll": 51210.587347880195,
+        "analytic_gradient": [
+          -0.67051594928013,
+          -0.13878956501665662,
+          -0.38758390661483855
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            161.70228947159939,
+            0.0,
+            79.14405452487713
+          ],
+          [
+            0.0,
+            43.82787666335268,
+            21.370515881413553
+          ],
+          [
+            79.14405452487713,
+            21.370515881413553,
+            219.26461959087632
+          ]
+        ],
+        "fisher": [
+          [
+            161.43350817044976,
+            0.0,
+            77.91896652915533
+          ],
+          [
+            0.0,
+            43.78478586671385,
+            21.128233110834955
+          ],
+          [
+            77.91896652915533,
+            21.128233110834955,
+            219.69962113115585
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.007592454939526477,
+            0.001402950649260917,
+            -0.0028772514599919386
+          ],
+          [
+            0.001402950649260917,
+            0.024214199212096714,
+            -0.002866422921633977
+          ],
+          [
+            -0.0028772514599919394,
+            -0.002866422921633978,
+            0.005878624127349391
+          ]
+        ],
+        "proposed_direction": [
+          0.0041704006803170435,
+          0.003190399568278715,
+          -4.861247966316592e-05
+        ],
+        "actual_delta": [
+          0.0041704006803169325,
+          0.0031903995682787123,
+          -4.861247966314597e-05
+        ],
+        "stable_nll_change": -0.0016120772678083813,
+        "armijo_change": -3.2202729245738636e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          1.101613226322836,
+          0.9228562513708322,
+          0.49091784847263575
+        ],
+        "nll_without_constant": 21804.552673253394,
+        "full_nll": 51210.58573580292,
+        "analytic_gradient": [
+          -0.0012467106160869434,
+          -0.00020536618976363386,
+          -0.0007004695220955703
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            161.1014349468211,
+            0.0,
+            78.85354152088348
+          ],
+          [
+            0.0,
+            43.69825536177295,
+            21.307993218375046
+          ],
+          [
+            78.85354152088348,
+            21.307993218375046,
+            219.03760312694496
+          ]
+        ],
+        "fisher": [
+          [
+            161.13323390035524,
+            0.0,
+            77.77479424957801
+          ],
+          [
+            0.0,
+            43.71998436434157,
+            21.097136033741045
+          ],
+          [
+            77.77479424957801,
+            21.097136033741045,
+            219.58772794918627
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.007616114795069911,
+            0.001403524531956423,
+            -0.0028783364428263047
+          ],
+          [
+            0.0014035245319564224,
+            0.024282432521006828,
+            -0.0028674655788460987
+          ],
+          [
+            -0.0028783364428263056,
+            -0.0028674655788460987,
+            0.0058805745722433946
+          ]
+        ],
+        "proposed_direction": [
+          7.767140701181367e-06,
+          4.728007335320428e-06,
+          -5.8169819880786816e-08
+        ],
+        "actual_delta": [
+          7.767140701275821e-06,
+          4.728007335308426e-06,
+          -5.816981990536263e-08
+        ],
+        "stable_nll_change": -5.306813593895529e-09,
+        "armijo_change": -1.061360343459886e-12,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.8409348799759755,
+        "stable_nll_change": -0.8409348799992657,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -0.007419158868287923,
+        "stable_nll_change": -0.007419158901165596,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 0.3463496612275776,
+        "stable_nll_change": 0.3463496612757428,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -0.0484545478320797,
+        "stable_nll_change": -0.04845454781151044,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": 0.0424037102748116,
+        "stable_nll_change": 0.04240371026721724,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 4,
+        "step": 0.84375,
+        "legacy_absolute_nll_change": -0.0332083018256526,
+        "stable_nll_change": -0.03320830185176037,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -0.0006009252865624148,
+        "stable_nll_change": -0.0006009252761520647,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 0.003344558230310213,
+        "stable_nll_change": 0.0033445582223720445,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -0.0012807314669771586,
+        "stable_nll_change": -0.0012807314557842136,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": 4.4491222070064396e-05,
+        "stable_nll_change": 4.449122032586998e-05,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.7119140625,
+        "legacy_absolute_nll_change": -0.0002381879348831717,
+        "stable_nll_change": -0.00023818797952867166,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": -1.0983458196278661e-06,
+        "stable_nll_change": -1.098319835347885e-06,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 9,
+        "step": 1.601806640625,
+        "legacy_absolute_nll_change": -2.739761839620769e-08,
+        "stable_nll_change": -2.737383658758962e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 10,
+        "step": 2.4027099609375,
+        "legacy_absolute_nll_change": 1.7117672541644424e-06,
+        "stable_nll_change": 1.7117145756953252e-06,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 10,
+        "step": 1.20135498046875,
+        "legacy_absolute_nll_change": -1.340267772320658e-07,
+        "stable_nll_change": -1.3401476694333329e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 11,
+        "step": 1.802032470703125,
+        "legacy_absolute_nll_change": 3.204731910955161e-07,
+        "stable_nll_change": 3.204507363515057e-07,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 11,
+        "step": 0.9010162353515625,
+        "legacy_absolute_nll_change": -1.669104676693678e-07,
+        "stable_nll_change": -1.669109603921771e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 12,
+        "step": 1.3515243530273438,
+        "legacy_absolute_nll_change": -6.257323548197746e-10,
+        "stable_nll_change": -6.215927878482335e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 13,
+        "step": 2.0272865295410156,
+        "legacy_absolute_nll_change": 5.628317012451589e-08,
+        "stable_nll_change": 5.627693612092409e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 13,
+        "step": 1.0136432647705078,
+        "legacy_absolute_nll_change": -1.4581019058823586e-08,
+        "stable_nll_change": -1.4602942544868889e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 14,
+        "step": 1.5204648971557617,
+        "legacy_absolute_nll_change": 2.4556356947869062e-09,
+        "stable_nll_change": 2.4471101524212204e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 14,
+        "step": 0.7602324485778809,
+        "legacy_absolute_nll_change": -4.5693013817071915e-09,
+        "stable_nll_change": -4.571007907907823e-09,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -6.57990928307686e-11,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_1",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        "nll_without_constant": 21805.484811427847,
+        "full_nll": 51211.51787397737,
+        "analytic_gradient": [
+          63.90237753981244,
+          -80.26428991771712,
+          3.432192553537456,
+          -4.781991807384397
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            54.897907807844604,
+            0.0,
+            0.0,
+            26.923970330327492
+          ],
+          [
+            0.0,
+            120.97776075414859,
+            0.0,
+            58.96813955550428
+          ],
+          [
+            0.0,
+            0.0,
+            40.504784704433234,
+            19.734809961464997
+          ],
+          [
+            26.923970330327492,
+            58.96813955550428,
+            19.734809961464997,
+            221.64059087180894
+          ]
+        ],
+        "fisher": [
+          [
+            84.20085287693897,
+            0.0,
+            0.0,
+            40.607202620600404
+          ],
+          [
+            0.0,
+            84.20085287693897,
+            0.0,
+            40.607202620600404
+          ],
+          [
+            0.0,
+            0.0,
+            42.10042643846948,
+            20.303601310300202
+          ],
+          [
+            40.607202620600404,
+            40.607202620600404,
+            20.303601310300202,
+            220.81987930604654
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.019629855048107304,
+            0.0014055521622719923,
+            0.0014049527017374512,
+            -0.0028836004407899866
+          ],
+          [
+            0.0014055521622719919,
+            0.009662914947997224,
+            0.0013963371039733452,
+            -0.0028659173248534097
+          ],
+          [
+            0.0014049527017374512,
+            0.0013963371039733452,
+            0.026084182884856887,
+            -0.0028646950263307063
+          ],
+          [
+            -0.002883600440789986,
+            -0.0028659173248534093,
+            -0.0028646950263307063,
+            0.00587965404845339
+          ]
+        ],
+        "proposed_direction": [
+          -1.1601901839734763,
+          0.6672715909323117,
+          -0.08092869824490725,
+          -0.007813252573424384
+        ],
+        "actual_delta": [
+          -1.0,
+          0.6672715909323117,
+          -0.08092869824490723,
+          -0.007813252573424412
+        ],
+        "stable_nll_change": -54.46844241168809,
+        "armijo_change": -0.011770085793394836,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.0,
+          1.6672715909323117,
+          0.9190713017550928,
+          0.4921867474265756
+        ],
+        "nll_without_constant": 21751.016369016157,
+        "full_nll": 51157.04943156568,
+        "analytic_gradient": [
+          -34.81616591005975,
+          -18.405487758367563,
+          -0.13877177462659462,
+          -25.784237561675063
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            162.8700819184625,
+            0.0,
+            0.0,
+            79.20315804599426
+          ],
+          [
+            0.0,
+            70.71546578608884,
+            0.0,
+            34.67753957066225
+          ],
+          [
+            0.0,
+            0.0,
+            43.82805953596196,
+            21.366516016754368
+          ],
+          [
+            79.20315804599426,
+            34.67753957066225,
+            21.366516016754368,
+            240.70387187348962
+          ]
+        ],
+        "fisher": [
+          [
+            142.1045557575471,
+            0.0,
+            0.0,
+            68.48722129574818
+          ],
+          [
+            0.0,
+            63.42615210299009,
+            0.0,
+            30.63777059791578
+          ],
+          [
+            0.0,
+            0.0,
+            43.78493914216153,
+            21.126302173569577
+          ],
+          [
+            68.48722129574818,
+            30.63777059791578,
+            21.126302173569577,
+            232.70435074620212
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.007493010717780402,
+            0.001364513620989196,
+            0.0013565177329552523,
+            -0.002782556590645422
+          ],
+          [
+            0.001364513620989196,
+            0.015517153212161013,
+            0.0013679120063982008,
+            -0.0028059290906091374
+          ],
+          [
+            0.0013565177329552518,
+            0.0013679120063982008,
+            0.024176329571064747,
+            -0.002789486678826223
+          ],
+          [
+            -0.0027825565906454217,
+            -0.002805929090609137,
+            -0.002789486678826223,
+            0.005721933708729163
+          ]
+        ],
+        "proposed_direction": [
+          0.2144345892744493,
+          0.2609489914292197,
+          0.003836039095345023,
+          -0.0013738494007838886
+        ],
+        "actual_delta": [
+          0.2144345892744493,
+          0.2609489914292198,
+          0.003836039095345023,
+          -0.0013738494007838886
+        ],
+        "stable_nll_change": -6.554988477080246,
+        "armijo_change": -0.0012233792378972634,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.2144345892744493,
+          1.9282205823615315,
+          0.9229073408504378,
+          0.4908128980257917
+        ],
+        "nll_without_constant": 21744.461380539076,
+        "full_nll": 51150.4944430886,
+        "analytic_gradient": [
+          -3.920387167401047,
+          -1.7243228074613706,
+          -0.00020914688824280603,
+          -2.7269514718174306
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            127.80422715722602,
+            0.0,
+            0.0,
+            62.26278522989881
+          ],
+          [
+            0.0,
+            57.94703083745148,
+            0.0,
+            28.49050742082398
+          ],
+          [
+            0.0,
+            0.0,
+            43.69824169634634,
+            21.308337491218513
+          ],
+          [
+            62.26278522989881,
+            28.49050742082398,
+            21.308337491218513,
+            226.15391987442845
+          ]
+        ],
+        "fisher": [
+          [
+            125.59338056735152,
+            0.0,
+            0.0,
+            60.550808097381406
+          ],
+          [
+            0.0,
+            57.3310465379256,
+            0.0,
+            27.708517321915053
+          ],
+          [
+            0.0,
+            0.0,
+            43.719972181060264,
+            21.09730234309716
+          ],
+          [
+            60.550808097381406,
+            27.708517321915053,
+            21.09730234309716,
+            225.87602800541805
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.009208982651527345,
+            0.0013972799801206762,
+            0.0013857983652822677,
+            -0.002841936961692229
+          ],
+          [
+            0.0013972799801206762,
+            0.018667301913574595,
+            0.0013985748527900622,
+            -0.002868138444533209
+          ],
+          [
+            0.0013857983652822677,
+            0.0013985748527900622,
+            0.02427129855665204,
+            -0.002844570611749606
+          ],
+          [
+            -0.002841936961692229,
+            -0.002868138444533209,
+            -0.002844570611749606,
+            0.005833525687575813
+          ]
+        ],
+        "proposed_direction": [
+          0.030762604804914773,
+          0.0298453511015579,
+          9.253089463332354e-05,
+          -0.0001799432035185112
+        ],
+        "actual_delta": [
+          0.030762604804914773,
+          0.02984535110155795,
+          9.253089463334696e-05,
+          -0.00017994320351849558
+        ],
+        "stable_nll_change": -0.08665724154097536,
+        "armijo_change": -1.7157366368299676e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.0,
+        "parameters": [
+          0.24519719407936408,
+          1.9580659334630894,
+          0.9229998717450711,
+          0.4906329548222732
+        ],
+        "nll_without_constant": 21744.374723297533,
+        "full_nll": 51150.407785847055,
+        "analytic_gradient": [
+          -0.06623753459010029,
+          -0.01920947117126115,
+          -5.474719744213985e-08,
+          -0.04128603097587158
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            123.51317133503731,
+            0.0,
+            0.0,
+            60.188936028030405
+          ],
+          [
+            0.0,
+            56.661404614489214,
+            0.0,
+            27.867394328961453
+          ],
+          [
+            0.0,
+            0.0,
+            43.69801666341681,
+            21.30883028006366
+          ],
+          [
+            60.188936028030405,
+            27.867394328961453,
+            21.30883028006366,
+            224.4499561843916
+          ]
+        ],
+        "fisher": [
+          [
+            123.4622398115565,
+            0.0,
+            0.0,
+            59.52632125626925
+          ],
+          [
+            0.0,
+            56.69067283783964,
+            0.0,
+            27.400797675285872
+          ],
+          [
+            0.0,
+            0.0,
+            43.719850442554744,
+            21.097538972760894
+          ],
+          [
+            59.52632125626925,
+            27.400797675285872,
+            21.097538972760894,
+            225.0384166561846
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.009484826324941445,
+            0.0014013898375827242,
+            0.0013894656717442736,
+            -0.0028493771492437638
+          ],
+          [
+            0.0014013898375827237,
+            0.01906307276095071,
+            0.0014023404289803879,
+            -0.0028757794129460248
+          ],
+          [
+            0.0013894656717442742,
+            0.001402340428980387,
+            0.024274741981061693,
+            -0.0028513099400590807
+          ],
+          [
+            -0.0028493771492437638,
+            -0.002875779412946025,
+            -0.0028513099400590807,
+            0.005847181081067565
+          ]
+        ],
+        "proposed_direction": [
+          0.0005375320722878792,
+          0.00034028671332978204,
+          1.2550570037133958e-06,
+          -2.5711760779106472e-06
+        ],
+        "actual_delta": [
+          0.0005375320722878774,
+          0.0003402867133297516,
+          1.2550570037683784e-06,
+          -2.5711760779367765e-06
+        ],
+        "stable_nll_change": -2.1021490525980485e-05,
+        "armijo_change": -4.2035373454640365e-09,
+        "accepted": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.0,
+        "parameters": [
+          0.24573472615165196,
+          1.9584062201764192,
+          0.9230011268020749,
+          0.49063038364619527
+        ],
+        "nll_without_constant": 21744.374702276047,
+        "full_nll": 51150.40776482558,
+        "analytic_gradient": [
+          -1.9727366694866078e-05,
+          -2.4515841698935503e-06,
+          -1.2748913036375598e-11,
+          -1.0715918235426614e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            123.43960964672175,
+            0.0,
+            0.0,
+            60.15337720486278
+          ],
+          [
+            0.0,
+            56.64694341895815,
+            0.0,
+            27.86038729683443
+          ],
+          [
+            0.0,
+            0.0,
+            43.69801619035324,
+            21.30883864781835
+          ],
+          [
+            60.15337720486278,
+            27.86038729683443,
+            21.30883864781835,
+            224.42319847833028
+          ]
+        ],
+        "fisher": [
+          [
+            123.42546580386704,
+            0.0,
+            0.0,
+            59.50864044558179
+          ],
+          [
+            0.0,
+            56.68343882462694,
+            0.0,
+            27.39732260127119
+          ],
+          [
+            0.0,
+            0.0,
+            43.719850074674795,
+            21.09754301387243
+          ],
+          [
+            59.50864044558179,
+            27.39732260127119,
+            21.09754301387243,
+            225.02518130554398
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.009489714698113539,
+            0.0014014525282465358,
+            0.0013895231368979545,
+            -0.0028494938432157982
+          ],
+          [
+            0.0014014525282465356,
+            0.019067640071791507,
+            0.0014023970052028881,
+            -0.002875894273333982
+          ],
+          [
+            0.0013895231368979545,
+            0.0014023970052028873,
+            0.02427479362837853,
+            -0.0028514141945783556
+          ],
+          [
+            -0.0028494938432157982,
+            -0.002875894273333982,
+            -0.002851414194578356,
+            0.0058473925162901876
+          ]
+        ],
+        "proposed_direction": [
+          1.6010793519111022e-07,
+          4.357506247965741e-08,
+          2.945148632445202e-10,
+          -6.03363072094854e-10
+        ],
+        "actual_delta": [
+          1.6010793518761446e-07,
+          4.357506244723197e-08,
+          2.9451485694664825e-10,
+          -6.033630817192659e-10
+        ],
+        "stable_nll_change": -1.6294352382716392e-12,
+        "armijo_change": -3.258870295806445e-16,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -61.01634467046097,
+        "stable_nll_change": -61.01634467041935,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -0.004609987452568021,
+        "stable_nll_change": -0.004609987554603789,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 0.37938567941091605,
+        "stable_nll_change": 0.37938567939987494,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -0.04970826618591673,
+        "stable_nll_change": -0.04970826618348198,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": 0.05022963038936723,
+        "stable_nll_change": 0.05022963046046074,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 4,
+        "step": 0.84375,
+        "legacy_absolute_nll_change": -0.036812141712289304,
+        "stable_nll_change": -0.03681214171988009,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -0.00067348196535022,
+        "stable_nll_change": -0.0006734819491350293,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 0.004504221164097544,
+        "stable_nll_change": 0.0045042211425067435,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -0.001628957314096624,
+        "stable_nll_change": -0.0016289573465519984,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": 7.598329830216244e-05,
+        "stable_nll_change": 7.598335785829026e-05,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.7119140625,
+        "legacy_absolute_nll_change": -0.0003289343585493043,
+        "stable_nll_change": -0.0003289343075914521,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": -2.0027619029860944e-06,
+        "stable_nll_change": -2.0027712949240053e-06,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 9,
+        "step": 1.601806640625,
+        "legacy_absolute_nll_change": 1.7083948478102684e-08,
+        "stable_nll_change": 1.7098761374888596e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 9,
+        "step": 0.8009033203125,
+        "legacy_absolute_nll_change": -5.797010089736432e-07,
+        "stable_nll_change": -5.79714357612742e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 10,
+        "step": 1.20135498046875,
+        "legacy_absolute_nll_change": -1.0424264473840594e-07,
+        "stable_nll_change": -1.0419705358033954e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 11,
+        "step": 1.802032470703125,
+        "legacy_absolute_nll_change": -2.000888343900442e-09,
+        "stable_nll_change": -2.038823450034801e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 12,
+        "step": 2.7030487060546875,
+        "legacy_absolute_nll_change": 1.9011713447980583e-07,
+        "stable_nll_change": 1.9011024240614613e-07,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 12,
+        "step": 1.3515243530273438,
+        "legacy_absolute_nll_change": 2.7284841053187847e-10,
+        "stable_nll_change": 2.788118096518229e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 12,
+        "step": 0.6757621765136719,
+        "legacy_absolute_nll_change": -2.3566826712340117e-08,
+        "stable_nll_change": -2.355440534057899e-08,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -4.5847501036373174e-11,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_2",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 11335.130202243981,
+        "full_nll": 26038.146733518744,
+        "analytic_gradient": [
+          9.41908484247897,
+          -5.471706901671186
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            164.12277522477018,
+            0.0
+          ],
+          [
+            0.0,
+            44.57761073395595
+          ]
+        ],
+        "fisher": [
+          [
+            168.40170575387793,
+            0.0
+          ],
+          [
+            0.0,
+            42.10042643846948
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.00609299957687454,
+            0.0
+          ],
+          [
+            0.0,
+            0.022432785955445417
+          ]
+        ],
+        "proposed_direction": [
+          -0.05739047995976976,
+          0.12274562973612314
+        ],
+        "actual_delta": [
+          -0.05739047995976976,
+          0.12274562973612313
+        ],
+        "stable_nll_change": -0.6133008223929531,
+        "armijo_change": -0.00012121939092687813,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9426095200402302,
+          1.1227456297361231
+        ],
+        "nll_without_constant": 11334.516901421588,
+        "full_nll": 26037.53343269635,
+        "analytic_gradient": [
+          -0.2546277397774057,
+          -0.29151727646785064
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            173.0854648376399,
+            0.0
+          ],
+          [
+            0.0,
+            39.924320785114276
+          ]
+        ],
+        "fisher": [
+          [
+            172.92446319679317,
+            0.0
+          ],
+          [
+            0.0,
+            39.82627429201365
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005777492644677208,
+            0.0
+          ],
+          [
+            0.0,
+            0.025047389168680573
+          ]
+        ],
+        "proposed_direction": [
+          0.0014711098936947436,
+          0.007301746673084102
+        ],
+        "actual_delta": [
+          0.0014711098936946998,
+          0.007301746673084031
+        ],
+        "stable_nll_change": -0.001253976607327447,
+        "armijo_change": -2.5031706907913076e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9440806299339249,
+          1.1300473764092072
+        ],
+        "nll_without_constant": 11334.515647444985,
+        "full_nll": 26037.532178719746,
+        "analytic_gradient": [
+          -0.00017400370266162923,
+          -0.0009468359241515678
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            172.84896435625427,
+            0.0
+          ],
+          [
+            0.0,
+            39.665291944473026
+          ]
+        ],
+        "fisher": [
+          [
+            172.80626537931113,
+            0.0
+          ],
+          [
+            0.0,
+            39.69684010631296
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005785397695174658,
+            0.0
+          ],
+          [
+            0.0,
+            0.02521095776629826
+          ]
+        ],
+        "proposed_direction": [
+          1.0066806203304462e-06,
+          2.387064049539916e-05
+        ],
+        "actual_delta": [
+          1.0066806203079537e-06,
+          2.3870640495360362e-05
+        ],
+        "stable_nll_change": -1.1388453206840075e-08,
+        "armijo_change": -2.2776746108845657e-12,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.6145545821636915,
+        "stable_nll_change": -0.6145545821969306,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -1.7137790564447641e-07,
+        "stable_nll_change": -1.7139539636024458e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 3.166860551573336e-08,
+        "stable_nll_change": 3.171837780816865e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -5.588844942394644e-08,
+        "stable_nll_change": -5.5920554159832316e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -5.275069270282984e-10,
+        "stable_nll_change": -4.633612869919747e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 5.384208634495735e-10,
+        "stable_nll_change": 5.523929259276478e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -3.9108272176235914e-10,
+        "stable_nll_change": -3.836044294152983e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 3.092281986027956e-11,
+        "stable_nll_change": -5.644544116896446e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": -2.8827613913602986e-11,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -7.657336409149138e-14,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_2",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 11335.130202243981,
+        "full_nll": 26038.146733518744,
+        "analytic_gradient": [
+          9.41908484247897,
+          0.0,
+          -5.471706901671186
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            164.12277522477018,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            44.57761073395595
+          ]
+        ],
+        "fisher": [
+          [
+            168.40170575387793,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            42.10042643846948
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.00609299957687454,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.022432785955445417
+          ]
+        ],
+        "proposed_direction": [
+          -0.05739047995976976,
+          0.0,
+          0.12274562973612314
+        ],
+        "actual_delta": [
+          -0.05739047995976976,
+          0.0,
+          0.12274562973612313
+        ],
+        "stable_nll_change": -0.6133008223929531,
+        "armijo_change": -0.00012121939092687813,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9426095200402302,
+          1.0,
+          1.1227456297361231
+        ],
+        "nll_without_constant": 11334.516901421588,
+        "full_nll": 26037.53343269635,
+        "analytic_gradient": [
+          -0.2546277397774057,
+          0.0,
+          -0.29151727646785064
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            173.0854648376399,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            39.924320785114276
+          ]
+        ],
+        "fisher": [
+          [
+            172.92446319679317,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            39.82627429201365
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005777492644677208,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.025047389168680573
+          ]
+        ],
+        "proposed_direction": [
+          0.0014711098936947436,
+          0.0,
+          0.007301746673084102
+        ],
+        "actual_delta": [
+          0.0014711098936946998,
+          0.0,
+          0.007301746673084031
+        ],
+        "stable_nll_change": -0.001253976607327447,
+        "armijo_change": -2.5031706907913076e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9440806299339249,
+          1.0,
+          1.1300473764092072
+        ],
+        "nll_without_constant": 11334.515647444985,
+        "full_nll": 26037.532178719746,
+        "analytic_gradient": [
+          -0.00017400370266162923,
+          0.0,
+          -0.0009468359241515678
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            172.84896435625427,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            39.665291944473026
+          ]
+        ],
+        "fisher": [
+          [
+            172.80626537931113,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            39.69684010631296
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005785397695174658,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.02521095776629826
+          ]
+        ],
+        "proposed_direction": [
+          1.0066806203304462e-06,
+          0.0,
+          2.387064049539916e-05
+        ],
+        "actual_delta": [
+          1.0066806203079537e-06,
+          0.0,
+          2.3870640495360362e-05
+        ],
+        "stable_nll_change": -1.1388453206840075e-08,
+        "armijo_change": -2.2776746108845657e-12,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.6145545821636915,
+        "stable_nll_change": -0.6145545821969306,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -1.7137790564447641e-07,
+        "stable_nll_change": -1.7139539636024458e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 3.166860551573336e-08,
+        "stable_nll_change": 3.171837780816865e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -5.588844942394644e-08,
+        "stable_nll_change": -5.5920554159832316e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -5.275069270282984e-10,
+        "stable_nll_change": -4.633612869919747e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 5.384208634495735e-10,
+        "stable_nll_change": 5.523929259276478e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -3.9108272176235914e-10,
+        "stable_nll_change": -3.836044294152983e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 3.092281986027956e-11,
+        "stable_nll_change": -5.644544116896446e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": -2.8827613913602986e-11,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -7.657336409149138e-14,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_3",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29412.41020049845,
+        "full_nll": 44115.426731773216,
+        "analytic_gradient": [
+          1.088546026208053,
+          -0.02293606735346028
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.427924862888123,
+            0.0
+          ],
+          [
+            0.0,
+            0.6236421309660131
+          ]
+        ],
+        "fisher": [
+          [
+            2.4897329794983505,
+            0.0
+          ],
+          [
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.4118743603994632,
+            0.0
+          ],
+          [
+            0.0,
+            1.603483713409506
+          ]
+        ],
+        "proposed_direction": [
+          -0.44834419830981914,
+          0.036777610450937026
+        ],
+        "actual_delta": [
+          -0.4483441983098191,
+          0.03677761045093697
+        ],
+        "stable_nll_change": -0.24029096270497585,
+        "armijo_change": -4.8888682919399094e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.5516558016901809,
+          1.036777610450937
+        ],
+        "nll_without_constant": 29412.169909535743,
+        "full_nll": 44115.1864408105,
+        "analytic_gradient": [
+          -0.027921364785690683,
+          -4.695961677202154e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5536660922032497,
+            0.0
+          ],
+          [
+            0.0,
+            0.6210903862662391
+          ]
+        ],
+        "fisher": [
+          [
+            2.5531888050685714,
+            0.0
+          ],
+          [
+            0.0,
+            0.621158248358852
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.39159387480342855,
+            0.0
+          ],
+          [
+            0.0,
+            1.61007161294449
+          ]
+        ],
+        "proposed_direction": [
+          0.010933835426228616,
+          7.560834591938385e-05
+        ],
+        "actual_delta": [
+          0.01093383542622861,
+          7.560834591946453e-05
+        ],
+        "stable_nll_change": -0.0001527084072157607,
+        "armijo_change": -3.05291157981386e-08,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.5625896371164095,
+          1.0368532187968564
+        ],
+        "nll_without_constant": 29412.169756827338,
+        "full_nll": 44115.1862881021,
+        "analytic_gradient": [
+          -1.723666412001279e-05,
+          -1.978104902100597e-10
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5505139188802173,
+            0.0
+          ],
+          [
+            0.0,
+            0.6210851524395306
+          ]
+        ],
+        "fisher": [
+          [
+            2.551612570941325,
+            0.0
+          ],
+          [
+            0.0,
+            0.6211556312253724
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3920778446247578,
+            0.0
+          ],
+          [
+            0.0,
+            1.6100851808679502
+          ]
+        ],
+        "proposed_direction": [
+          6.758114116695513e-06,
+          3.1849173890744186e-10
+        ],
+        "actual_delta": [
+          6.7581141166561665e-06,
+          3.18491677475663e-10
+        ],
+        "stable_nll_change": -5.824368643951967e-11,
+        "armijo_change": -1.1648734317652027e-14,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.2404436252436426,
+        "stable_nll_change": -0.24044362530269747,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -3.4458935260772705e-08,
+        "stable_nll_change": -3.4430308273762296e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 6.4319465309381485e-09,
+        "stable_nll_change": 6.4056977536311045e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -1.125590642914176e-08,
+        "stable_nll_change": -1.1260102638079477e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -6.912159733474255e-11,
+        "stable_nll_change": -9.368870023907844e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 1.382431946694851e-10,
+        "stable_nll_change": 1.1218941846454904e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -9.822542779147625e-11,
+        "stable_nll_change": -7.775998494349845e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -1.1417708920784744e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": -5.8615343351816265e-12,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.5400430591874948e-14,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_3",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29412.41020049845,
+        "full_nll": 44115.426731773216,
+        "analytic_gradient": [
+          0.24286418265681606,
+          0.8456818435512371,
+          -0.02293606735346028
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.2312158065251617,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1967090563629614,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6236421309660131
+          ]
+        ],
+        "fisher": [
+          [
+            1.2448664897491752,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2448664897491752,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.8122052971544299,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8356249956352803,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.603483713409506
+          ]
+        ],
+        "proposed_direction": [
+          -0.19725557564294702,
+          -0.7066728868263382,
+          0.036777610450937026
+        ],
+        "actual_delta": [
+          -0.19725557564294705,
+          -0.7066728868263382,
+          0.03677761045093697
+        ],
+        "stable_nll_change": -0.3148964207553033,
+        "armijo_change": -6.463702776223985e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.802744424357053,
+          0.2933271131736618,
+          1.036777610450937
+        ],
+        "nll_without_constant": 29412.09530407769,
+        "full_nll": 44115.11183535245,
+        "analytic_gradient": [
+          -0.002702054944020399,
+          -0.034697990272955226,
+          -4.695961677202154e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.2587261801419616,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.29640080420392,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6210903862662391
+          ]
+        ],
+        "fisher": [
+          [
+            1.2586782305266397,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.295429407099159,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.621158248358852
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7944539612953931,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7713663835730721,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.61007161294449
+          ]
+        ],
+        "proposed_direction": [
+          0.0021466582539148077,
+          0.026764863274103105,
+          7.560834591938385e-05
+        ],
+        "actual_delta": [
+          0.0021466582539148016,
+          0.0267648632741031,
+          7.560834591946453e-05
+        ],
+        "stable_nll_change": -0.00046771666830064607,
+        "armijo_change": -9.344909046288678e-08,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.8048910826109678,
+          0.3200919764477649,
+          1.0368532187968564
+        ],
+        "nll_without_constant": 29412.094836361022,
+        "full_nll": 44115.111367635785,
+        "analytic_gradient": [
+          -3.2532013122255066e-07,
+          -5.277614839799272e-05,
+          -1.978104902100597e-10
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.2584230997043353,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2924593655695549,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6210851524395306
+          ]
+        ],
+        "fisher": [
+          [
+            1.2585266877310197,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2934586633963348,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6211556312253724
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7946452987353367,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7737187153727845,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.6100851808679502
+          ]
+        ],
+        "proposed_direction": [
+          2.5851411285996274e-07,
+          4.083389374081836e-05,
+          3.1849173890744186e-10
+        ],
+        "actual_delta": [
+          2.5851411289412596e-07,
+          4.083389374082147e-05,
+          3.18491677475663e-10
+        ],
+        "stable_nll_change": -1.0775715361756432e-09,
+        "armijo_change": -2.1551397356415906e-13,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.31536395549119334,
+        "stable_nll_change": -0.3153639555660133,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -1.3742828741669655e-07,
+        "stable_nll_change": -1.3741221442327917e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 2.5385816115885973e-08,
+        "stable_nll_change": 2.5406935830385368e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -4.4841726776212454e-08,
+        "stable_nll_change": -4.482154194387698e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -3.41970007866621e-10,
+        "stable_nll_change": -3.7114225570416173e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 4.511093720793724e-10,
+        "stable_nll_change": 4.4213683130840925e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -3.128661774098873e-10,
+        "stable_nll_change": -3.0713659574802053e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": -1.8189894035458565e-11,
+        "stable_nll_change": -4.520912287751709e-12,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 7.639755494892597e-11,
+        "stable_nll_change": 4.476991542555828e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": -7.275957614183426e-12,
+        "stable_nll_change": -1.528446527539603e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 2.1357421875,
+        "legacy_absolute_nll_change": -1.4551915228366852e-11,
+        "stable_nll_change": 9.516339356524336e-13,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 9,
+        "step": 3.20361328125,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": 1.6445752141148157e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 9,
+        "step": 1.601806640625,
+        "legacy_absolute_nll_change": 3.637978807091713e-12,
+        "stable_nll_change": -2.7344873841758783e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 9,
+        "step": 0.8009033203125,
+        "legacy_absolute_nll_change": -1.8189894035458565e-11,
+        "stable_nll_change": -4.106585197159486e-12,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.7060258362465485e-13,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_4",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 10971.962711179684,
+        "full_nll": 25674.979242454447,
+        "analytic_gradient": [
+          5.249361159402479,
+          12.199066241317382,
+          -0.9558963032250667
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            194.95744992716521,
+            0.0,
+            -23.02966944269756
+          ],
+          [
+            0.0,
+            41.310788703582375,
+            0.0
+          ],
+          [
+            -23.02966944269756,
+            0.0,
+            48.739362481791304
+          ]
+        ],
+        "fisher": [
+          [
+            197.65419040872837,
+            0.0,
+            -23.669698337603613
+          ],
+          [
+            0.0,
+            47.26672440155623,
+            0.0
+          ],
+          [
+            -23.669698337603613,
+            0.0,
+            49.41354760218209
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005432545238653895,
+            0.0,
+            0.002566913367515627
+          ],
+          [
+            0.0,
+            0.02420675158674185,
+            0.0
+          ],
+          [
+            0.002566913367515627,
+            0.0,
+            0.021730180954615576
+          ]
+        ],
+        "proposed_direction": [
+          -0.02606368897377943,
+          -0.2952997660937785,
+          0.0072971443119412265
+        ],
+        "actual_delta": [
+          -0.02606368897377942,
+          -0.2952997660937785,
+          0.007297144311941173
+        ],
+        "stable_nll_change": -1.677999859603086,
+        "armijo_change": -0.00037461744374651213,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9739363110262206,
+          0.7047002339062215,
+          1.0072971443119412
+        ],
+        "nll_without_constant": 10970.28471132008,
+        "full_nll": 25673.301242594844,
+        "analytic_gradient": [
+          -0.07621897655931154,
+          -2.03263397567359,
+          0.021739717458777452
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            200.47710734372163,
+            0.0,
+            -24.323541070148373
+          ],
+          [
+            0.0,
+            55.89489702142098,
+            0.0
+          ],
+          [
+            -24.323541070148373,
+            0.0,
+            50.11927683593041
+          ]
+        ],
+        "fisher": [
+          [
+            200.42877041001805,
+            0.0,
+            -24.321493748542046
+          ],
+          [
+            0.0,
+            54.858671911226274,
+            0.0
+          ],
+          [
+            -24.321493748542046,
+            0.0,
+            50.10719260250451
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005300187389300114,
+            -4.491659709727648e-19,
+            0.0025722503152859114
+          ],
+          [
+            -4.491659709727647e-19,
+            0.017890720858055494,
+            -4.668918983857214e-18
+          ],
+          [
+            0.0025722503152859114,
+            -4.6689189838572156e-18,
+            0.021200749557200464
+          ]
+        ],
+        "proposed_direction": [
+          0.00034805486329745613,
+          0.03636528706537576,
+          -0.0002648440188023902
+        ],
+        "actual_delta": [
+          0.0003480548632974756,
+          0.036365287065375784,
+          -0.0002648440188024459
+        ],
+        "stable_nll_change": -0.037436903528993676,
+        "armijo_change": -7.394960404381261e-06,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9742843658895181,
+          0.7410655209715973,
+          1.0070323002931387
+        ],
+        "nll_without_constant": 10970.247274416553,
+        "full_nll": 25673.263805691317,
+        "analytic_gradient": [
+          -1.757693523862791e-05,
+          -0.03798679810453587,
+          7.2513639618465575e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            200.3960915528782,
+            0.0,
+            -24.29728938611874
+          ],
+          [
+            0.0,
+            53.82045156097327,
+            0.0
+          ],
+          [
+            -24.29728938611874,
+            0.0,
+            50.09902288821955
+          ]
+        ],
+        "fisher": [
+          [
+            200.38826573561425,
+            0.0,
+            -24.30836819959439
+          ],
+          [
+            0.0,
+            53.82869456531809,
+            0.0
+          ],
+          [
+            -24.30836819959439,
+            0.0,
+            50.097066433903564
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.00530188218656914,
+            0.0,
+            0.0025713348954051127
+          ],
+          [
+            0.0,
+            0.01858029747050893,
+            0.0
+          ],
+          [
+            0.002571334895405113,
+            0.0,
+            0.021207528746276558
+          ]
+        ],
+        "proposed_direction": [
+          7.45451546417816e-08,
+          0.0007058060087344412,
+          -1.0858732273721499e-07
+        ],
+        "actual_delta": [
+          7.454515460469935e-08,
+          0.0007058060087344886,
+          -1.085873226891465e-07
+        ],
+        "stable_nll_change": -1.3408927793584589e-05,
+        "armijo_change": -2.6811312452446853e-09,
+        "accepted": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.0,
+        "parameters": [
+          0.9742844404346727,
+          0.7417713269803318,
+          1.007032191705816
+        ],
+        "nll_without_constant": 10970.247261007622,
+        "full_nll": 25673.263792282385,
+        "analytic_gradient": [
+          -6.573186439595702e-12,
+          -1.3904711676282488e-05,
+          -2.344680005705868e-12
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            200.39607231809504,
+            0.0,
+            -24.297281107474987
+          ],
+          [
+            0.0,
+            53.781056028206216,
+            0.0
+          ],
+          [
+            -24.297281107474987,
+            0.0,
+            50.09901807952376
+          ]
+        ],
+        "fisher": [
+          [
+            200.38825611793317,
+            0.0,
+            -24.3083640600276
+          ],
+          [
+            0.0,
+            53.808991768131456,
+            0.0
+          ],
+          [
+            -24.3083640600276,
+            0.0,
+            50.09706402948329
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005301882533327934,
+            0.0,
+            0.0025713344342717112
+          ],
+          [
+            0.0,
+            0.018593907852525918,
+            4.1286769231265555e-18
+          ],
+          [
+            0.0025713344342717112,
+            4.128676923126555e-18,
+            0.02120753013331174
+          ]
+        ],
+        "proposed_direction": [
+          4.087921880842038e-14,
+          2.585429276247378e-07,
+          6.66267325664091e-14
+        ],
+        "actual_delta": [
+          4.085620730620576e-14,
+          2.585429276225071e-07,
+          6.661338147750939e-14
+        ],
+        "stable_nll_change": -1.7974825951335216e-12,
+        "armijo_change": -3.594964864533357e-16,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -1.7113225415196212,
+        "stable_nll_change": -1.7113225415126994,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -0.0018155504967580782,
+        "stable_nll_change": -0.0018155504974499228,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 0.005106911010443582,
+        "stable_nll_change": 0.005106911020773317,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -0.0019510958136379486,
+        "stable_nll_change": -0.0019510958021421612,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": 7.281227408384439e-05,
+        "stable_nll_change": 7.281229567611088e-05,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 4,
+        "step": 0.84375,
+        "legacy_absolute_nll_change": -0.0003600707022997085,
+        "stable_nll_change": -0.00036007068093182355,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -6.309655873337761e-07,
+        "stable_nll_change": -6.309705894330836e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 2.391079760855064e-07,
+        "stable_nll_change": 2.390851678294537e-07,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -2.735050657065585e-07,
+        "stable_nll_change": -2.7349282338954285e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": -3.687091520987451e-09,
+        "stable_nll_change": -3.7224435774648863e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 2.1357421875,
+        "legacy_absolute_nll_change": 9.336872608400881e-09,
+        "stable_nll_change": 9.337989008673856e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": -4.816683940589428e-09,
+        "stable_nll_change": -4.807468265894424e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 9,
+        "step": 1.601806640625,
+        "legacy_absolute_nll_change": 5.4569682106375694e-12,
+        "stable_nll_change": -1.109276955090717e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 9,
+        "step": 0.8009033203125,
+        "legacy_absolute_nll_change": -5.748006515204906e-10,
+        "stable_nll_change": -5.750990746227536e-10,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.3744554993716578e-14,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_4",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 10971.962711179684,
+        "full_nll": 25674.979242454447,
+        "analytic_gradient": [
+          3.5805768829263065,
+          1.6687842764761731,
+          12.199066241317382,
+          -0.9558963032250667
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            120.50839440628016,
+            0.0,
+            0.0,
+            -60.25419720314008
+          ],
+          [
+            0.0,
+            74.44905552088504,
+            0.0,
+            37.22452776044252
+          ],
+          [
+            0.0,
+            0.0,
+            41.310788703582375,
+            0.0
+          ],
+          [
+            -60.25419720314008,
+            37.22452776044252,
+            0.0,
+            48.739362481791304
+          ]
+        ],
+        "fisher": [
+          [
+            122.4967935419678,
+            0.0,
+            0.0,
+            -61.2483967709839
+          ],
+          [
+            0.0,
+            75.15739686676058,
+            0.0,
+            37.57869843338029
+          ],
+          [
+            0.0,
+            0.0,
+            47.26672440155623,
+            0.0
+          ],
+          [
+            -61.2483967709839,
+            37.57869843338029,
+            0.0,
+            49.41354760218209
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.006135734210822985,
+            0.0030180806881410552,
+            0.0,
+            -0.0015588267613409665
+          ],
+          [
+            0.0030180806881410552,
+            0.009558285367510494,
+            0.0,
+            0.0032701023396847187
+          ],
+          [
+            0.0,
+            0.0,
+            0.02420675158674185,
+            0.0
+          ],
+          [
+            -0.0015588267613409663,
+            0.0032701023396847183,
+            0.0,
+            0.0024144645505128426
+          ]
+        ],
+        "proposed_direction": [
+          -0.02849607041109318,
+          -0.02363130753646571,
+          -0.2952997660937785,
+          0.0024323814373137416
+        ],
+        "actual_delta": [
+          -0.028496070411093144,
+          -0.023631307536465695,
+          -0.2952997660937785,
+          0.0024323814373137242
+        ],
+        "stable_nll_change": -1.677999859603086,
+        "armijo_change": -0.00037461744374651213,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9715039295889069,
+          0.9763686924635343,
+          0.7047002339062215,
+          1.0024323814373137
+        ],
+        "nll_without_constant": 10970.28471132008,
+        "full_nll": 25673.301242594844,
+        "analytic_gradient": [
+          -0.05984920573843322,
+          -0.016369770820878315,
+          -2.03263397567359,
+          0.021739717458777452
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            124.56209474200918,
+            0.0,
+            0.0,
+            -62.28104737100459
+          ],
+          [
+            0.0,
+            75.91501260171243,
+            0.0,
+            37.95750630085622
+          ],
+          [
+            0.0,
+            0.0,
+            55.89489702142098,
+            0.0
+          ],
+          [
+            -62.28104737100459,
+            37.95750630085622,
+            0.0,
+            50.11927683593041
+          ]
+        ],
+        "fisher": [
+          [
+            124.53587895355108,
+            0.0,
+            0.0,
+            -62.26793947677554
+          ],
+          [
+            0.0,
+            75.89289145646698,
+            0.0,
+            37.94644572823349
+          ],
+          [
+            0.0,
+            0.0,
+            54.858671911226274,
+            0.0
+          ],
+          [
+            -62.26793947677554,
+            37.94644572823349,
+            0.0,
+            50.10719260250451
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.005940992685465112,
+            0.002944548549611174,
+            0.0,
+            -0.001498222067926971
+          ],
+          [
+            0.002944548549611174,
+            0.009370659772512991,
+            0.0,
+            0.0032130556114509075
+          ],
+          [
+            0.0,
+            0.0,
+            0.017890720858055487,
+            0.0
+          ],
+          [
+            -0.0014982220679269711,
+            0.0032130556114509075,
+            0.0,
+            0.0023556388396889397
+          ]
+        ],
+        "proposed_direction": [
+          0.00043633620289825056,
+          0.0002597735236966635,
+          0.03636528706537575,
+          -8.828133960079367e-05
+        ],
+        "actual_delta": [
+          0.0004363362028982909,
+          0.0002597735236966603,
+          0.036365287065375784,
+          -8.82813396008153e-05
+        ],
+        "stable_nll_change": -0.03743690352899366,
+        "armijo_change": -7.39496040438126e-06,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9719402657918051,
+          0.976628465987231,
+          0.7410655209715973,
+          1.002344100097713
+        ],
+        "nll_without_constant": 10970.247274416553,
+        "full_nll": 25673.263805691317,
+        "analytic_gradient": [
+          -1.6039831581160513e-05,
+          -1.537103657467398e-06,
+          -0.03798679810453587,
+          7.2513639618465575e-06
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            124.49533516255784,
+            0.0,
+            0.0,
+            -62.24766758127892
+          ],
+          [
+            0.0,
+            75.90075639032035,
+            0.0,
+            37.95037819516018
+          ],
+          [
+            0.0,
+            0.0,
+            53.82045156097327,
+            0.0
+          ],
+          [
+            -62.24766758127892,
+            37.95037819516018,
+            0.0,
+            50.09902288821955
+          ]
+        ],
+        "fisher": [
+          [
+            124.50250106740151,
+            0.0,
+            0.0,
+            -62.251250533700755
+          ],
+          [
+            0.0,
+            75.88576466821273,
+            0.0,
+            37.942882334106365
+          ],
+          [
+            0.0,
+            0.0,
+            53.82869456531809,
+            0.0
+          ],
+          [
+            -62.251250533700755,
+            37.942882334106365,
+            0.0,
+            50.097066433903564
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.0059440510058853535,
+            0.0029454901036495202,
+            0.0,
+            -0.0014992804511179138
+          ],
+          [
+            0.0029454901036495202,
+            0.009372497533092163,
+            0.0,
+            0.003213503714721324
+          ],
+          [
+            0.0,
+            0.0,
+            0.01858029747050893,
+            0.0
+          ],
+          [
+            -0.0014992804511179138,
+            0.003213503714721324,
+            0.0,
+            0.0023563920829196188
+          ]
+        ],
+        "proposed_direction": [
+          1.1074092888752001e-07,
+          3.834938039604321e-08,
+          0.0007058060087344412,
+          -3.619577424573834e-08
+        ],
+        "actual_delta": [
+          1.1074092887142228e-07,
+          3.8349380448998716e-08,
+          0.0007058060087344886,
+          -3.619577415570063e-08
+        ],
+        "stable_nll_change": -1.3408927793584587e-05,
+        "armijo_change": -2.6811312452446853e-09,
+        "accepted": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.0,
+        "parameters": [
+          0.971940376532734,
+          0.9766285043366114,
+          0.7417713269803318,
+          1.0023440639019388
+        ],
+        "nll_without_constant": 10970.247261007622,
+        "full_nll": 25673.263792282385,
+        "analytic_gradient": [
+          -9.419132140919828e-13,
+          -5.631273225503719e-12,
+          -1.3904711676282488e-05,
+          -2.344680005705868e-12
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            124.4953172665225,
+            0.0,
+            0.0,
+            -62.24765863326125
+          ],
+          [
+            0.0,
+            75.90075505157253,
+            0.0,
+            37.950377525786266
+          ],
+          [
+            0.0,
+            0.0,
+            53.781056028206216,
+            0.0
+          ],
+          [
+            -62.24765863326125,
+            37.950377525786266,
+            0.0,
+            50.09901807952376
+          ]
+        ],
+        "fisher": [
+          [
+            124.50249211899418,
+            0.0,
+            0.0,
+            -62.25124605949709
+          ],
+          [
+            0.0,
+            75.88576399893898,
+            0.0,
+            37.94288199946949
+          ],
+          [
+            0.0,
+            0.0,
+            53.808991768131456,
+            0.0
+          ],
+          [
+            -62.25124605949709,
+            37.94288199946949,
+            0.0,
+            50.09706402948329
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.0059440518141814355,
+            0.002945490296293298,
+            -7.313045699793064e-19,
+            -0.0014992807589440699
+          ],
+          [
+            0.002945490296293298,
+            0.009372497726543716,
+            2.486317169435831e-19,
+            0.0032135037151252072
+          ],
+          [
+            -7.313045699793064e-19,
+            2.486317169435831e-19,
+            0.018593907852525918,
+            -1.1192137331541546e-18
+          ],
+          [
+            -0.0014992807589440699,
+            0.0032135037151252072,
+            -1.1192137331541546e-18,
+            0.002356392237034638
+          ]
+        ],
+        "proposed_direction": [
+          1.8670307961918124e-14,
+          6.308812964821122e-14,
+          2.585429276247378e-07,
+          2.2208910820771327e-14
+        ],
+        "actual_delta": [
+          1.865174681370263e-14,
+          6.306066779870889e-14,
+          2.585429276225071e-07,
+          2.220446049250313e-14
+        ],
+        "stable_nll_change": -1.7974825951335214e-12,
+        "armijo_change": -3.594964864533357e-16,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -1.7060697691977111,
+        "stable_nll_change": -1.7060697692012512,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": 0.02801305910179508,
+        "stable_nll_change": 0.028013059128179797,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 2,
+        "step": 0.75,
+        "legacy_absolute_nll_change": -0.0070389790198532864,
+        "stable_nll_change": -0.007038979003569703,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": 0.0013223405676399125,
+        "stable_nll_change": 0.0013223405777855377,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 0.5625,
+        "legacy_absolute_nll_change": -0.00230478345292795,
+        "stable_nll_change": -0.002304783452516673,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 0.84375,
+        "legacy_absolute_nll_change": -1.932371196744498e-05,
+        "stable_nll_change": -1.932368936927767e-05,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": 2.3296341169043444e-05,
+        "stable_nll_change": 2.329631089467409e-05,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 0.6328125,
+        "legacy_absolute_nll_change": -1.609435275895521e-05,
+        "stable_nll_change": -1.6094363426213798e-05,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": -2.3557549866382033e-07,
+        "stable_nll_change": -2.3556055935567217e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": 2.3824941308703274e-06,
+        "stable_nll_change": 2.382469453402705e-06,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 0.7119140625,
+        "legacy_absolute_nll_change": -8.094502845779061e-07,
+        "stable_nll_change": -8.094839146972184e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": 5.1404640544205904e-08,
+        "stable_nll_change": 5.1434215233393584e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 0.533935546875,
+        "legacy_absolute_nll_change": -1.7650563677307218e-07,
+        "stable_nll_change": -1.7648928039941862e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 9,
+        "step": 0.8009033203125,
+        "legacy_absolute_nll_change": -5.311449058353901e-10,
+        "stable_nll_change": -5.215307470664455e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 10,
+        "step": 1.20135498046875,
+        "legacy_absolute_nll_change": 2.9831426218152046e-10,
+        "stable_nll_change": 2.867095774868891e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 10,
+        "step": 0.600677490234375,
+        "legacy_absolute_nll_change": -2.837623469531536e-10,
+        "stable_nll_change": -2.842153324797027e-10,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.201574757709432e-11,
+    "legacy_objective_ulp": 1.8189894035458565e-12
+  },
+  {
+    "case": "control_calibration",
+    "model": "coarse",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29443.61713439545,
+        "full_nll": 44146.63366567021,
+        "analytic_gradient": [
+          -1.5518437853069564,
+          0.43479524430423044
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.5758953792872634,
+            0.0
+          ],
+          [
+            0.0,
+            0.5979368805849238
+          ]
+        ],
+        "fisher": [
+          [
+            2.4897329794983505,
+            0.0
+          ],
+          [
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.3882145245653163,
+            0.0
+          ],
+          [
+            0.0,
+            1.6724173277650365
+          ]
+        ],
+        "proposed_direction": [
+          0.6024482973125809,
+          -0.7271591006042273
+        ],
+        "actual_delta": [
+          0.6024482973125809,
+          -0.7271591006042273
+        ],
+        "stable_nll_change": -0.6313087708713088,
+        "armijo_change": -0.00012510709649485457,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          1.6024482973125809,
+          0.2728408993957727
+        ],
+        "nll_without_constant": 29442.98582562458,
+        "full_nll": 44146.00235689934,
+        "analytic_gradient": [
+          -0.050444205292402344,
+          -0.01837618242159611
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.410495426040994,
+            0.0
+          ],
+          [
+            0.0,
+            0.6492693701135368
+          ]
+        ],
+        "fisher": [
+          [
+            2.4081250453213694,
+            0.0
+          ],
+          [
+            0.0,
+            0.6484704438303346
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.41485247770928296,
+            0.0
+          ],
+          [
+            0.0,
+            1.5401927859697608
+          ]
+        ],
+        "proposed_direction": [
+          0.020926903551628837,
+          0.028302863599406657
+        ],
+        "actual_delta": [
+          0.02092690355162885,
+          0.028302863599406647
+        ],
+        "stable_nll_change": -0.000788552464589456,
+        "armijo_change": -1.5757396034489185e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          1.6233752008642097,
+          0.30114376299517936
+        ],
+        "nll_without_constant": 29442.985037072114,
+        "full_nll": 44146.00156834688,
+        "analytic_gradient": [
+          -5.784928263297129e-05,
+          -2.9568351404274384e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            2.404969104924699,
+            0.0
+          ],
+          [
+            0.0,
+            0.6471812067939412
+          ]
+        ],
+        "fisher": [
+          [
+            2.405362732638463,
+            0.0
+          ],
+          [
+            0.0,
+            0.6474266940591439
+          ]
+        ],
+        "free_mask": [
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.4158057573181634,
+            0.0
+          ],
+          [
+            0.0,
+            1.545162296899629
+          ]
+        ],
+        "proposed_direction": [
+          2.40540647755151e-05,
+          4.568790177136398e-05
+        ],
+        "actual_delta": [
+          2.4054064775569373e-05,
+          4.5687901771340744e-05
+        ],
+        "stable_nll_change": -1.371214945449352e-09,
+        "armijo_change": -2.742426326172685e-13,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -0.6320972886860545,
+        "stable_nll_change": -0.6320972887199592,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -2.7041096473112702e-08,
+        "stable_nll_change": -2.7006840931365506e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 5.0495145842432976e-09,
+        "stable_nll_change": 5.035881642496551e-09,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -8.807546691969037e-09,
+        "stable_nll_change": -8.84078819737564e-09,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -6.548361852765083e-11,
+        "stable_nll_change": -7.368706945164962e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 9.458744898438454e-11,
+        "stable_nll_change": 8.840407610657822e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -8.731149137020111e-11,
+        "stable_nll_change": -6.122446072903068e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": 2.9103830456733704e-11,
+        "stable_nll_change": -8.981471039346765e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.94921875,
+        "legacy_absolute_nll_change": 3.2741809263825417e-11,
+        "stable_nll_change": -4.621056293935384e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.474609375,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -3.353523741574374e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.2373046875,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -1.9375107591827326e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.11865234375,
+        "legacy_absolute_nll_change": 1.4551915228366852e-11,
+        "stable_nll_change": -1.0339425999832387e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.059326171875,
+        "legacy_absolute_nll_change": 2.546585164964199e-11,
+        "stable_nll_change": -5.332681047422505e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0296630859375,
+        "legacy_absolute_nll_change": 4.001776687800884e-11,
+        "stable_nll_change": -2.707082534900723e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.01483154296875,
+        "legacy_absolute_nll_change": 3.637978807091713e-11,
+        "stable_nll_change": -1.36372677298481e-13,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.007415771484375,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": -6.84409760187623e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0037078857421875,
+        "legacy_absolute_nll_change": 7.275957614183426e-12,
+        "stable_nll_change": -3.42841474031967e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00185394287109375,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": -1.7157988803781432e-14,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.000926971435546875,
+        "legacy_absolute_nll_change": 4.3655745685100555e-11,
+        "stable_nll_change": -8.582972855198902e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.0004634857177734375,
+        "legacy_absolute_nll_change": 2.1827872842550278e-11,
+        "stable_nll_change": -4.292481413493262e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00023174285888671875,
+        "legacy_absolute_nll_change": 4.729372449219227e-11,
+        "stable_nll_change": -2.1464890675729594e-15,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 6,
+        "step": 0.00011587142944335938,
+        "legacy_absolute_nll_change": -7.275957614183426e-12,
+        "stable_nll_change": -1.0733067011535017e-15,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -4.632067440836718e-12,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  },
+  {
+    "case": "control_calibration",
+    "model": "fine",
+    "iterations": [
+      {
+        "iteration": 0,
+        "step": 1.0,
+        "parameters": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "nll_without_constant": 29443.61713439545,
+        "full_nll": 44146.63366567021,
+        "analytic_gradient": [
+          0.11397078944912087,
+          -1.6658145747560773,
+          0.43479524430423044
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.238643067440978,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.3372523118462853,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5979368805849238
+          ]
+        ],
+        "fisher": [
+          [
+            1.2448664897491752,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.2448664897491752,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6224332448745876
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.8073350800452855,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.7478020349199054,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.6724173277650365
+          ]
+        ],
+        "proposed_direction": [
+          -0.09201261642273038,
+          1.2456995288018315,
+          -0.7271591006042273
+        ],
+        "actual_delta": [
+          -0.0920126164227304,
+          1.2456995288018313,
+          -0.7271591006042273
+        ],
+        "stable_nll_change": -1.2419056770839754,
+        "armijo_change": -0.0002401756500173106,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "parameters": [
+          0.9079873835772696,
+          2.2456995288018313,
+          0.2728408993957727
+        ],
+        "nll_without_constant": 29442.375228718367,
+        "full_nll": 44145.39175999313,
+        "analytic_gradient": [
+          -0.0005879792152967411,
+          -0.10812279173448447,
+          -0.01837618242159611
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.2514481563437996,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.167979989772583,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6492693701135368
+          ]
+        ],
+        "fisher": [
+          [
+            1.2512807289886814,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1626707369492288,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6484704438303346
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7990742524417277,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.856179051658847,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.5401927859697608
+          ]
+        ],
+        "proposed_direction": [
+          0.00046983905191451706,
+          0.09257246928993794,
+          0.028302863599406657
+        ],
+        "actual_delta": [
+          0.00046983905191455566,
+          0.09257246928993812,
+          0.028302863599406647
+        ],
+        "stable_nll_change": -0.005281648281163237,
+        "armijo_change": -1.052956865753625e-06,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.0,
+        "parameters": [
+          0.9084572226291842,
+          2.3382719980917694,
+          0.30114376299517936
+        ],
+        "nll_without_constant": 29442.369947070085,
+        "full_nll": 44145.38647834485,
+        "analytic_gradient": [
+          -1.5449443613313463e-08,
+          -0.0005369663782708312,
+          -2.9568351404274384e-05
+        ],
+        "coordinate_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "observed_hessian": [
+          [
+            1.2513823933507884,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1564006352786733,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6471812067939412
+          ]
+        ],
+        "fisher": [
+          [
+            1.2512478504860338,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1568900327059994,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.6474266940591439
+          ]
+        ],
+        "free_mask": [
+          true,
+          true,
+          true
+        ],
+        "direction_operator": [
+          [
+            0.7991162456124467,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8647522056739588,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.545162296899629
+          ]
+        ],
+        "proposed_direction": [
+          1.2345901377072246e-08,
+          0.0004643428599824586,
+          4.568790177136398e-05
+        ],
+        "actual_delta": [
+          1.2345901412302851e-08,
+          0.0004643428599826471,
+          4.5687901771340744e-05
+        ],
+        "stable_nll_change": -1.2534578664493314e-07,
+        "armijo_change": -2.5068741992603798e-11,
+        "accepted": true
+      }
+    ],
+    "legacy_trial_precision": [
+      {
+        "iteration": 1,
+        "step": 1.0,
+        "legacy_absolute_nll_change": -1.2471872264104604,
+        "stable_nll_change": -1.2471872264624058,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 2,
+        "step": 1.5,
+        "legacy_absolute_nll_change": -1.683583832345903e-07,
+        "stable_nll_change": -1.683360979995262e-07,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 3,
+        "step": 2.25,
+        "legacy_absolute_nll_change": 3.1312083592638373e-08,
+        "stable_nll_change": 3.131387220121316e-08,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 3,
+        "step": 1.125,
+        "legacy_absolute_nll_change": -5.5035343393683434e-08,
+        "stable_nll_change": -5.504570491680554e-08,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 4,
+        "step": 1.6875,
+        "legacy_absolute_nll_change": -4.765752237290144e-10,
+        "stable_nll_change": -4.579466115348818e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 5,
+        "step": 2.53125,
+        "legacy_absolute_nll_change": 5.566107574850321e-10,
+        "stable_nll_change": 5.482946725159342e-10,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 5,
+        "step": 1.265625,
+        "legacy_absolute_nll_change": -3.4924596548080444e-10,
+        "stable_nll_change": -3.8005331699017466e-10,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 6,
+        "step": 1.8984375,
+        "legacy_absolute_nll_change": -1.0913936421275139e-11,
+        "stable_nll_change": -5.580831814001239e-12,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 7,
+        "step": 2.84765625,
+        "legacy_absolute_nll_change": 5.093170329928398e-11,
+        "stable_nll_change": 5.5748477436148414e-11,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 7,
+        "step": 1.423828125,
+        "legacy_absolute_nll_change": -3.2741809263825417e-11,
+        "stable_nll_change": -1.899556312369108e-11,
+        "accepted_by_legacy": true
+      },
+      {
+        "iteration": 8,
+        "step": 2.1357421875,
+        "legacy_absolute_nll_change": 1.0913936421275139e-11,
+        "stable_nll_change": 1.1926170250984698e-12,
+        "accepted_by_legacy": false
+      },
+      {
+        "iteration": 8,
+        "step": 1.06787109375,
+        "legacy_absolute_nll_change": -1.8189894035458565e-11,
+        "stable_nll_change": -4.125485992540697e-12,
+        "accepted_by_legacy": true
+      }
+    ],
+    "stable_remaining_decrease": -1.8749053375071502e-14,
+    "legacy_objective_ulp": 3.637978807091713e-12
+  }
+]

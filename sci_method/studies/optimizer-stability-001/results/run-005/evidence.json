@@ -1,0 +1,12 @@
+{
+  "source_commit": "b0bc11891a284ffab83f0e8ad7098e2c91ab3bd3",
+  "input_run004_evidence_sha256": "43c0d30ff45474a7552be8f4f2484eaff65cafd7fdb9394f73035b29fae4ec38",
+  "source_sha256": "321e99bb13eadcae4b46506122d365a5744d720a881b1de9f90c7f498c2cd53c",
+  "command": "PYTHONPATH=sci_method/src /opt/homebrew/opt/python@3.14/bin/python3.14 sci_method/studies/summarize_optimizer_stability.py --run-id run-005",
+  "results_sha256": {
+    "analytic_stress_controls.json": "c38067b869de970275ceb044afd6769ccaafab237d86d3b8629e810e13dc11df",
+    "full_iteration_matrices.json": "8b54f101fbf82cf8818607840397653ee510330f84ad0aa6367c412b6c941653",
+    "source_snapshot.py": "321e99bb13eadcae4b46506122d365a5744d720a881b1de9f90c7f498c2cd53c",
+    "summary.json": "7d13d0afd8939ecc84c9aa6583cbb5897932911efa1a4f474f2cf4aa5d97ef23"
+  }
+}

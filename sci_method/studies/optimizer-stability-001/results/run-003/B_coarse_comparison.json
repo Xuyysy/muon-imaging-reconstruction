@@ -1,0 +1,553 @@
+{
+  "candidate": {
+    "parameters": [
+      0.8276975411316438,
+      1.8806614356546354
+    ],
+    "status": "converged",
+    "iterations": 3,
+    "nll": 29354.410257392985,
+    "gradient": [
+      -4.495293026707259e-13,
+      -2.7616525732909736e-10
+    ],
+    "kkt_inf": 2.7616525732909736e-10,
+    "reason": "fixed_scale_kkt",
+    "history": [
+      {
+        "iteration": 0,
+        "parameters": [
+          1.0,
+          1.0
+        ],
+        "gradient": [
+          0.429015899277022,
+          -0.5479336420798563
+        ],
+        "kkt_inf": 0.5479336420798563,
+        "method": "observed_hessian",
+        "fisher_diagonal": [
+          2.4897329794983505,
+          0.6224332448745876
+        ],
+        "hessian_eigenvalues": [
+          0.6527524621735407,
+          2.4659687115167266
+        ],
+        "step": 1.0,
+        "delta": [
+          -0.17397459151586325,
+          0.8394202608678674
+        ],
+        "stable_nll_change": -0.27396290399707535,
+        "armijo_change": -5.3458446660348426e-05,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "parameters": [
+          0.8260254084841367,
+          1.8394202608678674
+        ],
+        "gradient": [
+          -0.004204143862848397,
+          -0.024498897947702936
+        ],
+        "kkt_inf": 0.024498897947702936,
+        "method": "observed_hessian",
+        "fisher_diagonal": [
+          2.5140723507932403,
+          0.5942802221537248
+        ],
+        "hessian_eigenvalues": [
+          0.595375244000729,
+          2.5144763018708933
+        ],
+        "step": 1.0,
+        "delta": [
+          0.0016719759338038598,
+          0.041148667490905844
+        ],
+        "stable_nll_change": -0.0005083157156871511,
+        "armijo_change": -1.0151262329045955e-07,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "parameters": [
+          0.8276973844179406,
+          1.8805689283587732
+        ],
+        "gradient": [
+          -3.9397904039173426e-07,
+          -5.4830230618974074e-05
+        ],
+        "kkt_inf": 5.4830230618974074e-05,
+        "method": "observed_hessian",
+        "fisher_diagonal": [
+          2.513836742465153,
+          0.5929495676032378
+        ],
+        "hessian_eigenvalues": [
+          0.5927125002190133,
+          2.514005044827389
+        ],
+        "step": 1.0,
+        "delta": [
+          1.567137032365551e-07,
+          9.250729586218753e-05
+        ],
+        "stable_nll_change": -2.5361375701321413e-09,
+        "armijo_change": -5.072258107975827e-13,
+        "accepted": true
+      }
+    ]
+  },
+  "candidate_traced_ms": 0.9621669960324652,
+  "candidate_final": {
+    "parameters": [
+      0.8276975411316438,
+      1.8806614356546354
+    ],
+    "nll_without_constant": 29354.410257392985,
+    "full_nll": 44057.42678866775,
+    "analytic_gradient": [
+      -2.0179413695586845e-12,
+      -2.7700863824975386e-10
+    ],
+    "kkt_residual": [
+      -2.0179413695586845e-12,
+      -2.7700863824975386e-10
+    ],
+    "fixed_scale_kkt_inf": 2.7700863824975386e-10,
+    "fisher_diagonal": [
+      2.5138367203831944,
+      0.5929465811642408
+    ],
+    "inverse_diagonal_preconditioner": [
+      0.397798310404013,
+      1.6864925640291517
+    ],
+    "preconditioned_projected_gradient": [
+      -8.026912468039882e-13,
+      -4.671729669780689e-10
+    ],
+    "covariances": [
+      {
+        "group": "left",
+        "eigenvalues": [
+          1.0178723575378326,
+          1.0178723575378326,
+          202.9988871756251,
+          202.9988871756251
+        ],
+        "condition": 199.43452209142046,
+        "covariance": [
+          [
+            87.5217683414396,
+            99.94608884870405,
+            0.0,
+            0.0
+          ],
+          [
+            99.94608884870405,
+            116.49499119172333,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            87.5217683414396,
+            99.94608884870405
+          ],
+          [
+            0.0,
+            0.0,
+            99.94608884870405,
+            116.49499119172333
+          ]
+        ]
+      },
+      {
+        "group": "right",
+        "eigenvalues": [
+          1.0178723575378326,
+          1.0178723575378326,
+          202.9988871756251,
+          202.9988871756251
+        ],
+        "condition": 199.43452209142046,
+        "covariance": [
+          [
+            87.5217683414396,
+            99.94608884870405,
+            0.0,
+            0.0
+          ],
+          [
+            99.94608884870405,
+            116.49499119172333,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            87.5217683414396,
+            99.94608884870405
+          ],
+          [
+            0.0,
+            0.0,
+            99.94608884870405,
+            116.49499119172333
+          ]
+        ]
+      },
+      {
+        "group": "other",
+        "eigenvalues": [
+          1.0326161727216592,
+          1.0326161727216592,
+          206.0474961199805,
+          206.0474961199805
+        ],
+        "condition": 199.53928823030398,
+        "covariance": [
+          [
+            88.62741552948522,
+            101.41690391537026,
+            0.0,
+            0.0
+          ],
+          [
+            101.41690391537026,
+            118.45269676321695,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            88.62741552948522,
+            101.41690391537026
+          ],
+          [
+            0.0,
+            0.0,
+            101.41690391537026,
+            118.45269676321695
+          ]
+        ]
+      }
+    ]
+  },
+  "reference": {
+    "selected": {
+      "method": "bounded_score_least_squares",
+      "start": [
+        0.8276976427429633,
+        1.8806612617270788
+      ],
+      "parameters": [
+        0.8276975411313714,
+        1.8806614361203546
+      ],
+      "nll": 29354.41025739294,
+      "gradient": [
+        -8.526512829121202e-14,
+        -1.2079226507921703e-13
+      ],
+      "kkt_inf": 1.2079226507921703e-13,
+      "solver_success": true,
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "nfev": 9
+    },
+    "candidates": [
+      {
+        "method": "L-BFGS-B",
+        "start": [
+          0.5,
+          0.5
+        ],
+        "parameters": [
+          0.8276976427429633,
+          1.8806612617270788
+        ],
+        "nll": 29354.410257392938,
+        "gradient": [
+          2.5545249116021296e-07,
+          -1.0336428246660034e-07
+        ],
+        "kkt_inf": 2.5545249116021296e-07,
+        "solver_success": true,
+        "solver_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "nfev": 58
+      },
+      {
+        "method": "bounded_score_least_squares",
+        "start": [
+          0.8276976427429633,
+          1.8806612617270788
+        ],
+        "parameters": [
+          0.8276975411313714,
+          1.8806614361203546
+        ],
+        "nll": 29354.41025739294,
+        "gradient": [
+          -8.526512829121202e-14,
+          -1.2079226507921703e-13
+        ],
+        "kkt_inf": 1.2079226507921703e-13,
+        "solver_success": true,
+        "solver_message": "`xtol` termination condition is satisfied.",
+        "nfev": 9
+      },
+      {
+        "method": "L-BFGS-B",
+        "start": [
+          1.0,
+          1.0
+        ],
+        "parameters": [
+          0.8276969239143028,
+          1.880660115032024
+        ],
+        "nll": 29354.41025739294,
+        "gradient": [
+          -1.55168768145586e-06,
+          -7.830177217726941e-07
+        ],
+        "kkt_inf": 1.55168768145586e-06,
+        "solver_success": true,
+        "solver_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "nfev": 31
+      },
+      {
+        "method": "bounded_score_least_squares",
+        "start": [
+          0.8276969239143028,
+          1.880660115032024
+        ],
+        "parameters": [
+          0.8276975411316647,
+          1.8806614361202147
+        ],
+        "nll": 29354.410257392945,
+        "gradient": [
+          3.694822225952521e-13,
+          -4.618527782440651e-14
+        ],
+        "kkt_inf": 3.694822225952521e-13,
+        "solver_success": true,
+        "solver_message": "`xtol` termination condition is satisfied.",
+        "nfev": 5
+      },
+      {
+        "method": "L-BFGS-B",
+        "start": [
+          2.0,
+          2.0
+        ],
+        "parameters": [
+          0.827697540699494,
+          1.88066143572036
+        ],
+        "nll": 29354.410257392945,
+        "gradient": [
+          -1.0858940413527307e-09,
+          -2.3719692876511544e-10
+        ],
+        "kkt_inf": 1.0858940413527307e-09,
+        "solver_success": true,
+        "solver_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "nfev": 10
+      },
+      {
+        "method": "bounded_score_least_squares",
+        "start": [
+          0.827697540699494,
+          1.88066143572036
+        ],
+        "parameters": [
+          0.8276975411312341,
+          1.8806614361203071
+        ],
+        "nll": 29354.410257392945,
+        "gradient": [
+          -1.6342482922482304e-13,
+          -1.1723955140041653e-13
+        ],
+        "kkt_inf": 1.6342482922482304e-13,
+        "solver_success": true,
+        "solver_message": "`xtol` termination condition is satisfied.",
+        "nfev": 6
+      }
+    ],
+    "certified_kkt": true,
+    "runtime_ms": 45.10412499803351
+  },
+  "observed_hessian_eigenvalues": [
+    0.5927065291562001,
+    2.514005000661339
+  ],
+  "fisher_eigenvalues": [
+    0.592946581164236,
+    2.513836720383242
+  ],
+  "observed_hessian_rank": 2,
+  "local_negative_curvature": false,
+  "parameter_scaled_reference_difference": 2.4763587533881914e-10,
+  "max_covariance_relative_reference_difference": 6.574727229285834e-12,
+  "nll_reference_difference": 3.637978807091713e-12,
+  "nll_agreement_budget": 1e-08,
+  "old_to_new_nll_difference": -1.0913936421275139e-11,
+  "old_to_new_parameter_difference": [
+    5.033199035331393e-08,
+    1.515624966197393e-06
+  ],
+  "independent_vs_whitened_gradient_max_error": 1.7285062270389062e-12,
+  "gradient_checks": {
+    "initial": {
+      "analytic_gradient": [
+        0.4290158992771893,
+        -0.5479336420798511
+      ],
+      "estimates": [
+        {
+          "step_factor": 0.1,
+          "steps": [
+            6.055454452393343e-07,
+            6.055454452393343e-07
+          ],
+          "numeric_gradient": [
+            0.4290209870054375,
+            -0.5479328128557774
+          ],
+          "absolute_error": [
+            5.087728248198697e-06,
+            8.292240736285095e-07
+          ]
+        },
+        {
+          "step_factor": 1.0,
+          "steps": [
+            6.055454452393343e-06,
+            6.055454452393343e-06
+          ],
+          "numeric_gradient": [
+            0.4290161807880536,
+            -0.5479337140215369
+          ],
+          "absolute_error": [
+            2.81510864286183e-07,
+            7.194168583080085e-08
+          ]
+        },
+        {
+          "step_factor": 10.0,
+          "steps": [
+            6.055454452393343e-05,
+            6.055454452393343e-05
+          ],
+          "numeric_gradient": [
+            0.4290159404771844,
+            -0.5479336539438197
+          ],
+          "absolute_error": [
+            4.11999950822306e-08,
+            1.1863968585323903e-08
+          ]
+        }
+      ],
+      "best_absolute_error": [
+        4.11999950822306e-08,
+        1.1863968585323903e-08
+      ],
+      "passed": true
+    },
+    "final": {
+      "analytic_gradient": [
+        1.2789769243681803e-12,
+        -2.7615953968052054e-10
+      ],
+      "estimates": [
+        {
+          "step_factor": 0.1,
+          "steps": [
+            6.055454452393343e-07,
+            1.138825966397932e-06
+          ],
+          "numeric_gradient": [
+            0.0,
+            0.0
+          ],
+          "absolute_error": [
+            1.2789769243681803e-12,
+            2.7615953968052054e-10
+          ]
+        },
+        {
+          "step_factor": 1.0,
+          "steps": [
+            6.055454452393343e-06,
+            1.1388259663979319e-05
+          ],
+          "numeric_gradient": [
+            -3.003885864960843e-07,
+            0.0
+          ],
+          "absolute_error": [
+            3.0038986547300865e-07,
+            2.7615953968052054e-10
+          ]
+        },
+        {
+          "step_factor": 10.0,
+          "steps": [
+            6.055454452393343e-05,
+            0.00011388259663979319
+          ],
+          "numeric_gradient": [
+            0.0,
+            0.0
+          ],
+          "absolute_error": [
+            1.2789769243681803e-12,
+            2.7615953968052054e-10
+          ]
+        }
+      ],
+      "best_absolute_error": [
+        1.2789769243681803e-12,
+        2.7615953968052054e-10
+      ],
+      "passed": true
+    }
+  },
+  "timing_ms": {
+    "legacy": [
+      3.733375000592787,
+      3.7811250003869645,
+      3.7345000018831342,
+      3.7547079991782084,
+      3.7110409975866787
+    ],
+    "candidate": [
+      0.910000002477318,
+      0.9229159986716695,
+      0.920375001442153,
+      0.9035000039148144,
+      0.8993750016088597
+    ]
+  },
+  "acceptance": {
+    "kkt": true,
+    "reference_kkt": true,
+    "objective": true,
+    "parameter_or_covariance": true
+  },
+  "accepted": true
+}

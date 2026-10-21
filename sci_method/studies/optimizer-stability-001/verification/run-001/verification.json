@@ -1,0 +1,1088 @@
+{
+  "all_passed": false,
+  "artifact_hash_checks": [
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/A_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "60b0352f14ed8507df88f35a394cef16c646932f2effb7ad77458f1f8a847388"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/A_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "e22d02adfd6673d59ab72630800e46a64528a0094928bf0eb2bf83ae4dff4884"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/A_observations.npz",
+      "match": true,
+      "expected_sha256": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/B_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "ba236f6a121d08f6abda14362ba2356b156d6c0472aa9cc744647b336c930abc"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/B_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "368f34c197bf086ddaa304b7c76539e4e59c72a5faa88f14a2eff8fa24f63d58"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/B_observations.npz",
+      "match": true,
+      "expected_sha256": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/config.json",
+      "match": true,
+      "expected_sha256": "ee25941018b210fcf2a7d504be4a6d07e87180538cf28beec00654ed9214254b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_0_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "4a805723799f516a4be9160dedd899a0a43f42274dac372dd07ee281887159fa"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_0_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "eafe6b4e914439ea5cf35e2b948df3b9c2cec8e6e4ded6c1b62979608a6f4189"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_0_observations.npz",
+      "match": true,
+      "expected_sha256": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_1_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "0533569a077c723be20b25a49d032d2880f10ded7763cee51ec2fa946edb12a6"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_1_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "444110d3ded47a40d6fa833341ba94a947d610d4eaced229cbc90e793b718770"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_1_observations.npz",
+      "match": true,
+      "expected_sha256": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_2_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "45b42f512603b508ee1f12efc24c18958c55be2201763eac8967da6e87dd4c46"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_2_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "da9bc7745fce339ce4e9ad2b4eb2f7eb9d30f2b9871845e50c8da59cee37f21a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_2_observations.npz",
+      "match": true,
+      "expected_sha256": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_3_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "bc8921d96989dead7d573933a81d22199258cb7bd7baa17304ce8f2b526cd151"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_3_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "9e010f5285ca335ef396539b56a7adacdf907b778ccc37fa6f22650548c0ba63"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_3_observations.npz",
+      "match": true,
+      "expected_sha256": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_4_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "d725811509f1e8b1afe03bcb02f7e59d1684f95e8badafc9f07c14b49bdbfc59"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_4_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "1da3a7901bf84e464ee5fa64c052c7b30fa3e24345930ae74c4b358a0390f22c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_4_observations.npz",
+      "match": true,
+      "expected_sha256": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_calibration_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "6d81fda75a6bfa0cda7a06d5023c349bb8cd28ce53e0fa78ee24d2e77aa40d1b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_calibration_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "2a0f6ee678eea604fc23ad9e391c6085714b7fbfa8b548b0698a320877793938"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/control_calibration_observations.npz",
+      "match": true,
+      "expected_sha256": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/environment.json",
+      "match": true,
+      "expected_sha256": "2aaf389b4aa7eb978cee46233b2436f950077904d285d396cd8e12c787a7979d"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md",
+      "match": true,
+      "expected_sha256": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/source_snapshot/audit_optimizer_stability.py",
+      "match": true,
+      "expected_sha256": "96ede4012b8c68f3ef88be63db023aa7ee8ac3e45464c3bb1ccf9798b998de4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/source_snapshot/split_merge.py",
+      "match": true,
+      "expected_sha256": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-002/summary.json",
+      "match": true,
+      "expected_sha256": "b0c97a079ecf3e7cc7046a9a2034e660295eb9eb4cf79faf3710254691c2e011"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/A_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "c2bada47b3e9ead9d934fcf79a4a9c769b4a2c7aed5d29424c37aa2b1a1129ea"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/A_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "7071c756b775ada471479840872ce6c5de308c56f20d4b5cd29604b1c2c9fa42"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/A_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "8f62a3e26a9515ea5b6336c12c0bcd58b9f2544c15910943d66e5e1cf3024fea"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/A_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "cfd498771b67204ba9aeb9f45cf57dd90c4e593a1d32618462837e7c6cd8be50"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/A_observations.npz",
+      "match": true,
+      "expected_sha256": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/B_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "0dbee165ed7320f87b37fc6debd8a6651ed276e6bd87b93ef5fe1229585b35b9"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/B_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "f43cd2cc58d5d13134a5841e25db7acd7624d384c6533bcb408446651cee86c4"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/B_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "d612cb810462c8588349861ed1132eb190843d6b0f2a752ce129a64d219aaac6"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/B_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "d8a5c6626121c9bb75dc7da13e977e87708f83f4f4ba071bec721a6bd75a94bf"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/B_observations.npz",
+      "match": true,
+      "expected_sha256": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/config.json",
+      "match": true,
+      "expected_sha256": "916aa5a0aee3efdbb512431ba08bd59b5c05ade1dbd7db285d9dbdfeabaab4b7"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_0_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "e6fc2d3606a5b846a5cf2954ed7539d8d91672cf9dfcf7cdcb66474aa16aaf6b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_0_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "29a00c68051818127a79fbceb8fae79940cb99df1d981e801f63d3d97fec07d7"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_0_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "141f949f749eb4fd6823b1e791b23a4c4f8b74dfeb63efa4fd91ea656711000f"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_0_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "451fc0d453f596ec6233a5d8f174532d4902c2a0e5dfd024ab690614ed20fcfb"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_0_observations.npz",
+      "match": true,
+      "expected_sha256": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_1_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "4a3d18eb7875847bf01a5c36d24a3887f1ad4ee692684b3e658edd82e555e151"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_1_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "f5025a169b16f47c2175d4074be0edb811de92aac21fefac4ce75aef35a1cbda"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_1_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "50524cfac3190fe2ea76f956b534d21eb548a917cd8ddf72321b58a63008cbf9"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_1_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "6350308140a5d190932c89606111f64eff90a41bdf5a394994254386ea356ee3"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_1_observations.npz",
+      "match": true,
+      "expected_sha256": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_2_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "b27e807a41fc9c3d45a5722a8e850cda1a3f5a70029dedd54f42bc752d85b989"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_2_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "b8bff8d36c2f4598dfa2fdb80705245a8278bd294267e547c415161372cb1c30"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_2_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "b66feb97a5f9c58e000d01b6d3892d8e3c03672cac47ed9a7f9996022c0f676e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_2_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "36a6131f2db3201a82ebe2b11f0355f19c3d91f44e930d32e33e2e8e1affe27b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_2_observations.npz",
+      "match": true,
+      "expected_sha256": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_3_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "cf889167aaf9baeb0dec65222b4f5cbf431df37e04849289bbdb57a5fa4f8c35"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_3_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "5311d57870040403f58a55d95ad76b76f2ab644968897696e75f207d9f1d011b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_3_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "680ba52b1f296d63a6411c1d58e81e341830b75c5d325a861591971683ece425"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_3_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "92f1ad874233d913fe698b44c532465f648eb1a6c5b3ebdcf871affc637ff5b9"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_3_observations.npz",
+      "match": true,
+      "expected_sha256": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_4_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "d1b8b842f32fab73ca8ff0164a3d8d9d66ca6a2fde35d00cf3deb0cd3afad888"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_4_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "6c10054540f6ae0117b5f3306d263ea1556f829e92b9db3982e613344b35d93d"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_4_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "ddd53b9e47f0f799defcb6c3bc22e4957b4ff9ea21d8e512ecea72bdb8603a1e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_4_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "05cadbada2ee0f7f2bc8d6b5312f73e2b77072b25d1e0823c0390ba8dcfde442"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_4_observations.npz",
+      "match": true,
+      "expected_sha256": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_calibration_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "456d01cd4193724ded7a5031e16af1f77fcc1c68c1b0a46b71061662c0c2566a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_calibration_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "4d63ceadc73da0dc494b860fb7dcdb907667cdc511da292e6abcede0086138fe"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_calibration_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "126685587f3db4b28f145502af80e6fe10ac0b2cdcc5403ccf6b724ae9c2148e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_calibration_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "e50e455ae68475fe23763fa6685d876be27455b69799822dde5df6c1718509ac"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/control_calibration_observations.npz",
+      "match": true,
+      "expected_sha256": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/environment.json",
+      "match": true,
+      "expected_sha256": "ebc3c2c43e118a1bdfb91fa73e6963e2fd8967b0d5a32ac2f12812cd0e450fb5"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md",
+      "match": true,
+      "expected_sha256": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/source_snapshot/audit_optimizer_stability.py",
+      "match": true,
+      "expected_sha256": "b8d2f5e90c332d87daa8e8ce4b0b74f097d891b254486197cd666a3091853423"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/source_snapshot/covariance_optimizer.py",
+      "match": true,
+      "expected_sha256": "15e9cfbaf99d51059bd28af2afacee20aa7dc3cf9a56eabb0a0f390029b86845"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/source_snapshot/split_merge.py",
+      "match": true,
+      "expected_sha256": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-003/summary.json",
+      "match": true,
+      "expected_sha256": "5d7ebf655396f85fd4e8c052eae77829ac4c9ad9d441b95d8d04f5159d87d9ff"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/A_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "5613ee91e1b3d2c18f4929865df960ebc4a86a490eebcc23cd8c48447f2f8273"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/A_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "ee61a1498f6d91f35957a5e19b67d261387f357408add24949fe6a2f08fddc4c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/A_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "afd8f3165bc9f9424ad37d3e788d6652b72c9c0edb53064c12cf70870e11c0c1"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/A_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "34b7da0f166c81164a3f94022564b3d291e4ce4621d399676484170fa2c17b03"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/A_observations.npz",
+      "match": true,
+      "expected_sha256": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/B_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "13867153f00043cd2ebc6f93b32e95a7f0f99a86e335b1ce05e99c2f802838da"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/B_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "54a2643b81afc2e07ea99612d5d7a69dc26575a9abbd2e6c5a42963036f16183"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/B_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "5b94c20512bca1c28d5a67f936b83ffb13c9e21bf3ea08fdfd93975631b5cbc5"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/B_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "1e28c7e9aa63d50a158147157a646ac6dc17ddb91f2474d4d03643dfc035c4da"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/B_observations.npz",
+      "match": true,
+      "expected_sha256": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/config.json",
+      "match": true,
+      "expected_sha256": "44dcaebf458b77a5c7354fcec2c139f694bf8cab3462110e5c0d9ca06e6680fd"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_0_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "432f7f2463ef4c92a3ffc31439b8d262a741986ddf470dad81d987d31c0b4c6f"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_0_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "59a0fd9b01d090c91b6653af51bb7aedd81e2aa2d605c93a9b41b182e65a9894"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_0_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "560beda0651b43b5c3afe069feb92748da3f7424e0af467bc934a7841d62d491"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_0_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "f84e7b2c1f10344554cafb8e98e20cb6e841c0ab7f255d09c07621cf17ab60f0"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_0_observations.npz",
+      "match": true,
+      "expected_sha256": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_1_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "f2f08a666b2a981aca1ff1c46f53252fb536cf2527ffe0b39bca58f2ac58b62d"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_1_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "eee8fd686c61578ecdb5bf23dbf34b99ca4ac811fbbf042c3d787eff1c0ae7a0"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_1_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "85e3dc497ab5685cbae958347a08ec902fbb7912cc425fb0130b98bef629d8cc"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_1_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "34c03102588507a4084b304950a7495d7c78b7e98af00e2e55bdfa47ae406c8e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_1_observations.npz",
+      "match": true,
+      "expected_sha256": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_2_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "78feb9679c449315c341edeff65f9798f61606d3a2619f9c00b4f45ca5739093"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_2_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "c6238ccc81dacd99b411c70b06af2d0d96dcde27d8701ecb65828412026960d8"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_2_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "af74824aae4a55235a16f28dca6e93ac8181edf7d6b9e7f4f7b9d3478ce0f398"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_2_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "794a536eb08e16bdb3138d495809fe2c90135185327c7956478915b2356822bc"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_2_observations.npz",
+      "match": true,
+      "expected_sha256": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_3_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "5173869960d8eaa731c4754c6baf74a49c00238feaf267aed2e73c550a466aaf"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_3_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "cd5c2b4f693d52f6b6439a9a8a6890d873b0146df1fabdcc099d18ae3c970eaf"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_3_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "4459f5202181a7770643bb12ca042adc3623559edc2f6f3781d2838d2f3f0864"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_3_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "4156f4eb0d53e64e0b0f5715fc8cc9971ef39b94dec8d07ecf470732cef9ca91"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_3_observations.npz",
+      "match": true,
+      "expected_sha256": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_4_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "599b86a931d4e6b94b43dce9a782ad0a00ace9bd3a6c40b7252e67ab6a843012"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_4_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "70bfd19ea58414944175bda5b0463d2e90f12ab94a74448662209eb7aded1f07"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_4_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "29c8afb68a45891eae43cd9ddae8c32f9c77598e476b536cfb4f79a181664256"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_4_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "9c9242c96a6840061df963fecf07e8a421fa7529287a70699aac08f319f4e050"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_4_observations.npz",
+      "match": true,
+      "expected_sha256": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_calibration_coarse_comparison.json",
+      "match": true,
+      "expected_sha256": "5e953e8b70bc0639e8880afe9909368282d7e8a205cfa2637d25a3c78e143858"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_calibration_coarse_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "ccb4536397f583ce25fa049599e72ede98b0e069dabadb5eb05f1f37721d38d7"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_calibration_fine_comparison.json",
+      "match": true,
+      "expected_sha256": "8a4f3c8c64bcc4cca97bd7517372f4b56ac027c092acd0aca50c9e82c9a6ec9c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_calibration_fine_legacy_trace.json",
+      "match": true,
+      "expected_sha256": "8e80b4fd799eff101182857248e58db44c378a91a422c40d399f8cab0de3838c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/control_calibration_observations.npz",
+      "match": true,
+      "expected_sha256": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/environment.json",
+      "match": true,
+      "expected_sha256": "ebc3c2c43e118a1bdfb91fa73e6963e2fd8967b0d5a32ac2f12812cd0e450fb5"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/historical_protection.json",
+      "match": true,
+      "expected_sha256": "f817487f744b1269bceed238c559e041eea942260c86d3ab98a3d48e2a23ce08"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md",
+      "match": true,
+      "expected_sha256": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/audit_optimizer_stability.py",
+      "match": true,
+      "expected_sha256": "c3ca34929c7d7fd84011da3c38bba72fa2a345f1470566a17ebf34fe0135eb4e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/covariance_optimizer.py",
+      "match": true,
+      "expected_sha256": "ee38c0e093bac6f84a2c422b2d497274b176d4e151ebfc5b209160f6e2f8da6c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/forward_model.py",
+      "match": true,
+      "expected_sha256": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/historical_generator.py",
+      "match": true,
+      "expected_sha256": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/identifiability.py",
+      "match": true,
+      "expected_sha256": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/legacy_split_merge.py",
+      "match": true,
+      "expected_sha256": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/split_merge.py",
+      "match": true,
+      "expected_sha256": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/study_io.py",
+      "match": true,
+      "expected_sha256": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/source_snapshot/test_optimizer_stability.py",
+      "match": true,
+      "expected_sha256": "0d131d2ef88dd811b6b8cb1aab69d1aa783b462f0ebcb53c38a9a6399d3845f5"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/summary.json",
+      "match": true,
+      "expected_sha256": "1c0b2d289f8d1b8801f6293e0c4dbcaa144c624d303ff890e268fe9e9234a8fa"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/test.log",
+      "match": true,
+      "expected_sha256": "5e4d4be9922557c5b97b0d92b45e52b3a2b6a05248b253ee0029aa97d74b945b"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-004/test_status.json",
+      "match": true,
+      "expected_sha256": "08cc9948331149f13be2878bffa4280229f17d67c44fe118fae0ff7ea203f0ec"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-005/analytic_stress_controls.json",
+      "match": true,
+      "expected_sha256": "c38067b869de970275ceb044afd6769ccaafab237d86d3b8629e810e13dc11df"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-005/full_iteration_matrices.json",
+      "match": true,
+      "expected_sha256": "8b54f101fbf82cf8818607840397653ee510330f84ad0aa6367c412b6c941653"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-005/source_snapshot.py",
+      "match": true,
+      "expected_sha256": "321e99bb13eadcae4b46506122d365a5744d720a881b1de9f90c7f498c2cd53c"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-005/summary.json",
+      "match": true,
+      "expected_sha256": "7d13d0afd8939ecc84c9aa6583cbb5897932911efa1a4f474f2cf4aa5d97ef23"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/analytic_stress_controls.json",
+      "match": true,
+      "expected_sha256": "6b90acf83f680550a47deced8cd8dd9feea13792406f354bc3a7b5e80026524d"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/covariance_optimizer_snapshot.py",
+      "match": true,
+      "expected_sha256": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/full_iteration_matrices.json",
+      "match": true,
+      "expected_sha256": "8b54f101fbf82cf8818607840397653ee510330f84ad0aa6367c412b6c941653"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/source_snapshot.py",
+      "match": true,
+      "expected_sha256": "33545baf724dd46d45a24319ae43f6387f94e6938d819ef831bf2517ff3c19ed"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/summary.json",
+      "match": true,
+      "expected_sha256": "7d13d0afd8939ecc84c9aa6583cbb5897932911efa1a4f474f2cf4aa5d97ef23"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/test.log",
+      "match": true,
+      "expected_sha256": "3fdfd103f2f1d3c2f425ad0a764b34fb1738db5c5043c4f329d36ada4277ad31"
+    },
+    {
+      "file": "studies/optimizer-stability-001/results/run-006/test_status.json",
+      "match": true,
+      "expected_sha256": "ed3d2a74d8da394977c145d3e381dcdb7a0559c9e023ade40f8cf55c8d93e094"
+    }
+  ],
+  "protected_history_checks": {
+    "studies/adaptive-prototype-001/results/run-001/calibration_null_lrt.csv": true,
+    "studies/adaptive-prototype-001/results/run-001/config.json": true,
+    "studies/adaptive-prototype-001/results/run-001/evidence.json": true,
+    "studies/adaptive-prototype-001/results/run-001/sample_covariance_sufficient_statistics.csv": true,
+    "studies/adaptive-prototype-001/results/run-001/source_snapshot/forward_model.py": true,
+    "studies/adaptive-prototype-001/results/run-001/source_snapshot/identifiability.py": true,
+    "studies/adaptive-prototype-001/results/run-001/source_snapshot/run_adaptive_split_merge.py": true,
+    "studies/adaptive-prototype-001/results/run-001/source_snapshot/split_merge.py": true,
+    "studies/adaptive-prototype-001/results/run-001/source_snapshot/study_io.py": true,
+    "studies/adaptive-prototype-001/results/run-001/summary.json": true,
+    "studies/adaptive-prototype-001/results/run-001/trial_metrics.csv": true,
+    "studies/adaptive-prototype-001/results/run-002/calibration_null_lrt.csv": true,
+    "studies/adaptive-prototype-001/results/run-002/config.json": true,
+    "studies/adaptive-prototype-001/results/run-002/evidence.json": true,
+    "studies/adaptive-prototype-001/results/run-002/sample_covariance_sufficient_statistics.csv": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/__pycache__/run_adaptive_split_merge.cpython-314.pyc": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/__pycache__/split_merge.cpython-314.pyc": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/forward_model.py": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/identifiability.py": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/run_adaptive_split_merge.py": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/split_merge.py": true,
+    "studies/adaptive-prototype-001/results/run-002/source_snapshot/study_io.py": true,
+    "studies/adaptive-prototype-001/results/run-002/summary.json": true,
+    "studies/adaptive-prototype-001/results/run-002/trial_metrics.csv": true,
+    "studies/adaptive-audit-fix-001/results/run-001/config.json": true,
+    "studies/adaptive-audit-fix-001/results/run-001/evidence.json": true,
+    "studies/adaptive-audit-fix-001/results/run-001/low_budget_summary.json": true,
+    "studies/adaptive-audit-fix-001/results/run-001/near_zero_lrt_diagnostic.json": true,
+    "studies/adaptive-audit-fix-001/results/run-001/run001_ablation_by_trial.csv": true,
+    "studies/adaptive-audit-fix-001/results/run-001/run001_ablation_summary.json": true,
+    "studies/adaptive-audit-fix-001/results/run-001/source_snapshot/adaptive_audit_analysis.py": true,
+    "studies/adaptive-audit-fix-001/results/run-001/source_snapshot/forward_model.py": true,
+    "studies/adaptive-audit-fix-001/results/run-001/source_snapshot/run_adaptive_audit_scenarios.py": true,
+    "studies/adaptive-audit-fix-001/results/run-001/source_snapshot/run_adaptive_split_merge.py": true,
+    "studies/adaptive-audit-fix-001/results/run-001/source_snapshot/split_merge.py": true,
+    "studies/adaptive-audit-fix-001/results/run-002/config.json": true,
+    "studies/adaptive-audit-fix-001/results/run-002/evidence.json": true,
+    "studies/adaptive-audit-fix-001/results/run-002/low_budget_summary.json": true,
+    "studies/adaptive-audit-fix-001/results/run-002/near_zero_lrt_diagnostic.json": true,
+    "studies/adaptive-audit-fix-001/results/run-002/run001_ablation_by_trial.csv": true,
+    "studies/adaptive-audit-fix-001/results/run-002/run001_ablation_summary.json": true,
+    "studies/adaptive-audit-fix-001/results/run-002/source_snapshot/adaptive_audit_analysis.py": true,
+    "studies/adaptive-audit-fix-001/results/run-002/source_snapshot/forward_model.py": true,
+    "studies/adaptive-audit-fix-001/results/run-002/source_snapshot/run_adaptive_audit_scenarios.py": true,
+    "studies/adaptive-audit-fix-001/results/run-002/source_snapshot/run_adaptive_split_merge.py": true,
+    "studies/adaptive-audit-fix-001/results/run-002/source_snapshot/split_merge.py": true
+  },
+  "historical_git_diff_empty": true,
+  "observed_sufficient_statistic_checks": [
+    {
+      "case": "A",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "A",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "A",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "B",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "B",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "B",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_0",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_0",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "control_0",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "empty_left",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "empty_right",
+      "match": false
+    },
+    {
+      "case": "control_1",
+      "group": "empty_other",
+      "match": false
+    },
+    {
+      "case": "control_2",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_2",
+      "group": "right",
+      "match": true
+    },
+    {
+      "case": "control_2",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_3",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_3",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "control_3",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_4",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_4",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "control_4",
+      "group": "other",
+      "match": false
+    },
+    {
+      "case": "control_calibration",
+      "group": "left",
+      "match": false
+    },
+    {
+      "case": "control_calibration",
+      "group": "right",
+      "match": false
+    },
+    {
+      "case": "control_calibration",
+      "group": "other",
+      "match": false
+    }
+  ],
+  "final_test_status": {
+    "exit_code": 0,
+    "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest discover -s sci_method/tests -v"
+  },
+  "source_commit": "690b5c2bccdc22a7d2cedbed5e3f883a9238b505",
+  "verifier_source_sha256": "01b8001a03405709401b301da6a2c0b33151f2bece99cda9a7cda5300a370acc",
+  "python": "3.14.4",
+  "numpy": "2.4.6",
+  "command": "PYTHONPATH=sci_method/src python3 sci_method/studies/verify_optimizer_evidence.py --run-id run-001",
+  "result_files_sha256": {
+    "results/run-001/A_coarse_legacy_trace.json": "e8f5c23eb5ddc672d592c28a26257b4dab088d55095d688b6f39358979bf8e0e",
+    "results/run-001/A_fine_legacy_trace.json": "5ba5937bba9b3b7b78a73b81627fae7e0e5d5d00b3b57609a6ad24e683b0dfb7",
+    "results/run-001/A_observations.npz": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605",
+    "results/run-001/B_coarse_legacy_trace.json": "7e59dd735d6c8531837be9e71e2e985b3ccf125eae217a6b729179e4d0e77a93",
+    "results/run-001/B_fine_legacy_trace.json": "46d1ac62a160fa4b32df086b05e9df6c0dbcdb351e27347c1857c9dc3516ef50",
+    "results/run-001/B_observations.npz": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd",
+    "results/run-001/INCOMPLETE.md": "7614dc828b98416b5f465520ba7f82c757bbff852e167ce366b4e703bcda1ae9",
+    "results/run-001/config.json": "ee25941018b210fcf2a7d504be4a6d07e87180538cf28beec00654ed9214254b",
+    "results/run-001/control_0_coarse_legacy_trace.json": "c57daa8d207867dffe9eade601c909f9041e10ea1fb21820728e6755892d5dd7",
+    "results/run-001/control_0_fine_legacy_trace.json": "e200a73344e32a4c288e69fb720f6ddb254a77a3c69c356328e76fa001c0b922",
+    "results/run-001/control_0_observations.npz": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8",
+    "results/run-001/control_1_coarse_legacy_trace.json": "7b531fa57d478a57eb7ca62311e86d570a4e392ed901a4473968ba425b9f7ad9",
+    "results/run-001/control_1_fine_legacy_trace.json": "575096c00599c12d2af4c16c25804aa0602b8b6e49470001016f68091482bd57",
+    "results/run-001/control_1_observations.npz": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec",
+    "results/run-001/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23",
+    "results/run-001/source_snapshot/audit_optimizer_stability.py": "d2afef473e51aa6625073a106d186dfb3dc0f5758a839f285ff386dca89ba59b",
+    "results/run-001/source_snapshot/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "results/run-002/A_coarse_legacy_trace.json": "60b0352f14ed8507df88f35a394cef16c646932f2effb7ad77458f1f8a847388",
+    "results/run-002/A_fine_legacy_trace.json": "e22d02adfd6673d59ab72630800e46a64528a0094928bf0eb2bf83ae4dff4884",
+    "results/run-002/A_observations.npz": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605",
+    "results/run-002/B_coarse_legacy_trace.json": "ba236f6a121d08f6abda14362ba2356b156d6c0472aa9cc744647b336c930abc",
+    "results/run-002/B_fine_legacy_trace.json": "368f34c197bf086ddaa304b7c76539e4e59c72a5faa88f14a2eff8fa24f63d58",
+    "results/run-002/B_observations.npz": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd",
+    "results/run-002/config.json": "ee25941018b210fcf2a7d504be4a6d07e87180538cf28beec00654ed9214254b",
+    "results/run-002/control_0_coarse_legacy_trace.json": "4a805723799f516a4be9160dedd899a0a43f42274dac372dd07ee281887159fa",
+    "results/run-002/control_0_fine_legacy_trace.json": "eafe6b4e914439ea5cf35e2b948df3b9c2cec8e6e4ded6c1b62979608a6f4189",
+    "results/run-002/control_0_observations.npz": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8",
+    "results/run-002/control_1_coarse_legacy_trace.json": "0533569a077c723be20b25a49d032d2880f10ded7763cee51ec2fa946edb12a6",
+    "results/run-002/control_1_fine_legacy_trace.json": "444110d3ded47a40d6fa833341ba94a947d610d4eaced229cbc90e793b718770",
+    "results/run-002/control_1_observations.npz": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec",
+    "results/run-002/control_2_coarse_legacy_trace.json": "45b42f512603b508ee1f12efc24c18958c55be2201763eac8967da6e87dd4c46",
+    "results/run-002/control_2_fine_legacy_trace.json": "da9bc7745fce339ce4e9ad2b4eb2f7eb9d30f2b9871845e50c8da59cee37f21a",
+    "results/run-002/control_2_observations.npz": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a",
+    "results/run-002/control_3_coarse_legacy_trace.json": "bc8921d96989dead7d573933a81d22199258cb7bd7baa17304ce8f2b526cd151",
+    "results/run-002/control_3_fine_legacy_trace.json": "9e010f5285ca335ef396539b56a7adacdf907b778ccc37fa6f22650548c0ba63",
+    "results/run-002/control_3_observations.npz": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77",
+    "results/run-002/control_4_coarse_legacy_trace.json": "d725811509f1e8b1afe03bcb02f7e59d1684f95e8badafc9f07c14b49bdbfc59",
+    "results/run-002/control_4_fine_legacy_trace.json": "1da3a7901bf84e464ee5fa64c052c7b30fa3e24345930ae74c4b358a0390f22c",
+    "results/run-002/control_4_observations.npz": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24",
+    "results/run-002/control_calibration_coarse_legacy_trace.json": "6d81fda75a6bfa0cda7a06d5023c349bb8cd28ce53e0fa78ee24d2e77aa40d1b",
+    "results/run-002/control_calibration_fine_legacy_trace.json": "2a0f6ee678eea604fc23ad9e391c6085714b7fbfa8b548b0698a320877793938",
+    "results/run-002/control_calibration_observations.npz": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622",
+    "results/run-002/environment.json": "2aaf389b4aa7eb978cee46233b2436f950077904d285d396cd8e12c787a7979d",
+    "results/run-002/evidence.json": "13a9e3dd92884e2fe099a114cba1c9dd9c416108a168c5248b1a31bb03b3991d",
+    "results/run-002/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23",
+    "results/run-002/source_snapshot/audit_optimizer_stability.py": "96ede4012b8c68f3ef88be63db023aa7ee8ac3e45464c3bb1ccf9798b998de4a",
+    "results/run-002/source_snapshot/split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "results/run-002/summary.json": "b0c97a079ecf3e7cc7046a9a2034e660295eb9eb4cf79faf3710254691c2e011",
+    "results/run-003/A_coarse_comparison.json": "c2bada47b3e9ead9d934fcf79a4a9c769b4a2c7aed5d29424c37aa2b1a1129ea",
+    "results/run-003/A_coarse_legacy_trace.json": "7071c756b775ada471479840872ce6c5de308c56f20d4b5cd29604b1c2c9fa42",
+    "results/run-003/A_fine_comparison.json": "8f62a3e26a9515ea5b6336c12c0bcd58b9f2544c15910943d66e5e1cf3024fea",
+    "results/run-003/A_fine_legacy_trace.json": "cfd498771b67204ba9aeb9f45cf57dd90c4e593a1d32618462837e7c6cd8be50",
+    "results/run-003/A_observations.npz": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605",
+    "results/run-003/B_coarse_comparison.json": "0dbee165ed7320f87b37fc6debd8a6651ed276e6bd87b93ef5fe1229585b35b9",
+    "results/run-003/B_coarse_legacy_trace.json": "f43cd2cc58d5d13134a5841e25db7acd7624d384c6533bcb408446651cee86c4",
+    "results/run-003/B_fine_comparison.json": "d612cb810462c8588349861ed1132eb190843d6b0f2a752ce129a64d219aaac6",
+    "results/run-003/B_fine_legacy_trace.json": "d8a5c6626121c9bb75dc7da13e977e87708f83f4f4ba071bec721a6bd75a94bf",
+    "results/run-003/B_observations.npz": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd",
+    "results/run-003/config.json": "916aa5a0aee3efdbb512431ba08bd59b5c05ade1dbd7db285d9dbdfeabaab4b7",
+    "results/run-003/control_0_coarse_comparison.json": "e6fc2d3606a5b846a5cf2954ed7539d8d91672cf9dfcf7cdcb66474aa16aaf6b",
+    "results/run-003/control_0_coarse_legacy_trace.json": "29a00c68051818127a79fbceb8fae79940cb99df1d981e801f63d3d97fec07d7",
+    "results/run-003/control_0_fine_comparison.json": "141f949f749eb4fd6823b1e791b23a4c4f8b74dfeb63efa4fd91ea656711000f",
+    "results/run-003/control_0_fine_legacy_trace.json": "451fc0d453f596ec6233a5d8f174532d4902c2a0e5dfd024ab690614ed20fcfb",
+    "results/run-003/control_0_observations.npz": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8",
+    "results/run-003/control_1_coarse_comparison.json": "4a3d18eb7875847bf01a5c36d24a3887f1ad4ee692684b3e658edd82e555e151",
+    "results/run-003/control_1_coarse_legacy_trace.json": "f5025a169b16f47c2175d4074be0edb811de92aac21fefac4ce75aef35a1cbda",
+    "results/run-003/control_1_fine_comparison.json": "50524cfac3190fe2ea76f956b534d21eb548a917cd8ddf72321b58a63008cbf9",
+    "results/run-003/control_1_fine_legacy_trace.json": "6350308140a5d190932c89606111f64eff90a41bdf5a394994254386ea356ee3",
+    "results/run-003/control_1_observations.npz": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec",
+    "results/run-003/control_2_coarse_comparison.json": "b27e807a41fc9c3d45a5722a8e850cda1a3f5a70029dedd54f42bc752d85b989",
+    "results/run-003/control_2_coarse_legacy_trace.json": "b8bff8d36c2f4598dfa2fdb80705245a8278bd294267e547c415161372cb1c30",
+    "results/run-003/control_2_fine_comparison.json": "b66feb97a5f9c58e000d01b6d3892d8e3c03672cac47ed9a7f9996022c0f676e",
+    "results/run-003/control_2_fine_legacy_trace.json": "36a6131f2db3201a82ebe2b11f0355f19c3d91f44e930d32e33e2e8e1affe27b",
+    "results/run-003/control_2_observations.npz": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a",
+    "results/run-003/control_3_coarse_comparison.json": "cf889167aaf9baeb0dec65222b4f5cbf431df37e04849289bbdb57a5fa4f8c35",
+    "results/run-003/control_3_coarse_legacy_trace.json": "5311d57870040403f58a55d95ad76b76f2ab644968897696e75f207d9f1d011b",
+    "results/run-003/control_3_fine_comparison.json": "680ba52b1f296d63a6411c1d58e81e341830b75c5d325a861591971683ece425",
+    "results/run-003/control_3_fine_legacy_trace.json": "92f1ad874233d913fe698b44c532465f648eb1a6c5b3ebdcf871affc637ff5b9",
+    "results/run-003/control_3_observations.npz": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77",
+    "results/run-003/control_4_coarse_comparison.json": "d1b8b842f32fab73ca8ff0164a3d8d9d66ca6a2fde35d00cf3deb0cd3afad888",
+    "results/run-003/control_4_coarse_legacy_trace.json": "6c10054540f6ae0117b5f3306d263ea1556f829e92b9db3982e613344b35d93d",
+    "results/run-003/control_4_fine_comparison.json": "ddd53b9e47f0f799defcb6c3bc22e4957b4ff9ea21d8e512ecea72bdb8603a1e",
+    "results/run-003/control_4_fine_legacy_trace.json": "05cadbada2ee0f7f2bc8d6b5312f73e2b77072b25d1e0823c0390ba8dcfde442",
+    "results/run-003/control_4_observations.npz": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24",
+    "results/run-003/control_calibration_coarse_comparison.json": "456d01cd4193724ded7a5031e16af1f77fcc1c68c1b0a46b71061662c0c2566a",
+    "results/run-003/control_calibration_coarse_legacy_trace.json": "4d63ceadc73da0dc494b860fb7dcdb907667cdc511da292e6abcede0086138fe",
+    "results/run-003/control_calibration_fine_comparison.json": "126685587f3db4b28f145502af80e6fe10ac0b2cdcc5403ccf6b724ae9c2148e",
+    "results/run-003/control_calibration_fine_legacy_trace.json": "e50e455ae68475fe23763fa6685d876be27455b69799822dde5df6c1718509ac",
+    "results/run-003/control_calibration_observations.npz": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622",
+    "results/run-003/environment.json": "ebc3c2c43e118a1bdfb91fa73e6963e2fd8967b0d5a32ac2f12812cd0e450fb5",
+    "results/run-003/evidence.json": "6f92ae660dc401803f8932a1e6265c15f201f633706686dd57e1de46c826da4f",
+    "results/run-003/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23",
+    "results/run-003/source_snapshot/audit_optimizer_stability.py": "b8d2f5e90c332d87daa8e8ce4b0b74f097d891b254486197cd666a3091853423",
+    "results/run-003/source_snapshot/covariance_optimizer.py": "15e9cfbaf99d51059bd28af2afacee20aa7dc3cf9a56eabb0a0f390029b86845",
+    "results/run-003/source_snapshot/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "results/run-003/summary.json": "5d7ebf655396f85fd4e8c052eae77829ac4c9ad9d441b95d8d04f5159d87d9ff",
+    "results/run-004/A_coarse_comparison.json": "5613ee91e1b3d2c18f4929865df960ebc4a86a490eebcc23cd8c48447f2f8273",
+    "results/run-004/A_coarse_legacy_trace.json": "ee61a1498f6d91f35957a5e19b67d261387f357408add24949fe6a2f08fddc4c",
+    "results/run-004/A_fine_comparison.json": "afd8f3165bc9f9424ad37d3e788d6652b72c9c0edb53064c12cf70870e11c0c1",
+    "results/run-004/A_fine_legacy_trace.json": "34b7da0f166c81164a3f94022564b3d291e4ce4621d399676484170fa2c17b03",
+    "results/run-004/A_observations.npz": "efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605",
+    "results/run-004/B_coarse_comparison.json": "13867153f00043cd2ebc6f93b32e95a7f0f99a86e335b1ce05e99c2f802838da",
+    "results/run-004/B_coarse_legacy_trace.json": "54a2643b81afc2e07ea99612d5d7a69dc26575a9abbd2e6c5a42963036f16183",
+    "results/run-004/B_fine_comparison.json": "5b94c20512bca1c28d5a67f936b83ffb13c9e21bf3ea08fdfd93975631b5cbc5",
+    "results/run-004/B_fine_legacy_trace.json": "1e28c7e9aa63d50a158147157a646ac6dc17ddb91f2474d4d03643dfc035c4da",
+    "results/run-004/B_observations.npz": "7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd",
+    "results/run-004/config.json": "44dcaebf458b77a5c7354fcec2c139f694bf8cab3462110e5c0d9ca06e6680fd",
+    "results/run-004/control_0_coarse_comparison.json": "432f7f2463ef4c92a3ffc31439b8d262a741986ddf470dad81d987d31c0b4c6f",
+    "results/run-004/control_0_coarse_legacy_trace.json": "59a0fd9b01d090c91b6653af51bb7aedd81e2aa2d605c93a9b41b182e65a9894",
+    "results/run-004/control_0_fine_comparison.json": "560beda0651b43b5c3afe069feb92748da3f7424e0af467bc934a7841d62d491",
+    "results/run-004/control_0_fine_legacy_trace.json": "f84e7b2c1f10344554cafb8e98e20cb6e841c0ab7f255d09c07621cf17ab60f0",
+    "results/run-004/control_0_observations.npz": "4e4fa104bb07b755aa619d7feb266f4b247a8c1305b979e40311c38b092707b8",
+    "results/run-004/control_1_coarse_comparison.json": "f2f08a666b2a981aca1ff1c46f53252fb536cf2527ffe0b39bca58f2ac58b62d",
+    "results/run-004/control_1_coarse_legacy_trace.json": "eee8fd686c61578ecdb5bf23dbf34b99ca4ac811fbbf042c3d787eff1c0ae7a0",
+    "results/run-004/control_1_fine_comparison.json": "85e3dc497ab5685cbae958347a08ec902fbb7912cc425fb0130b98bef629d8cc",
+    "results/run-004/control_1_fine_legacy_trace.json": "34c03102588507a4084b304950a7495d7c78b7e98af00e2e55bdfa47ae406c8e",
+    "results/run-004/control_1_observations.npz": "87d96d6e8209c08c3ce000439d27d6de6f18205d3432321427cbaeb935a994ec",
+    "results/run-004/control_2_coarse_comparison.json": "78feb9679c449315c341edeff65f9798f61606d3a2619f9c00b4f45ca5739093",
+    "results/run-004/control_2_coarse_legacy_trace.json": "c6238ccc81dacd99b411c70b06af2d0d96dcde27d8701ecb65828412026960d8",
+    "results/run-004/control_2_fine_comparison.json": "af74824aae4a55235a16f28dca6e93ac8181edf7d6b9e7f4f7b9d3478ce0f398",
+    "results/run-004/control_2_fine_legacy_trace.json": "794a536eb08e16bdb3138d495809fe2c90135185327c7956478915b2356822bc",
+    "results/run-004/control_2_observations.npz": "12a9c52b15f21ee18a07f058397998e7905b109f2247a56b143a5f8bc4066d4a",
+    "results/run-004/control_3_coarse_comparison.json": "5173869960d8eaa731c4754c6baf74a49c00238feaf267aed2e73c550a466aaf",
+    "results/run-004/control_3_coarse_legacy_trace.json": "cd5c2b4f693d52f6b6439a9a8a6890d873b0146df1fabdcc099d18ae3c970eaf",
+    "results/run-004/control_3_fine_comparison.json": "4459f5202181a7770643bb12ca042adc3623559edc2f6f3781d2838d2f3f0864",
+    "results/run-004/control_3_fine_legacy_trace.json": "4156f4eb0d53e64e0b0f5715fc8cc9971ef39b94dec8d07ecf470732cef9ca91",
+    "results/run-004/control_3_observations.npz": "06800a48750d3326672ac4073dfcf73e526bcd6c99a5a3f1140c690e95c35c77",
+    "results/run-004/control_4_coarse_comparison.json": "599b86a931d4e6b94b43dce9a782ad0a00ace9bd3a6c40b7252e67ab6a843012",
+    "results/run-004/control_4_coarse_legacy_trace.json": "70bfd19ea58414944175bda5b0463d2e90f12ab94a74448662209eb7aded1f07",
+    "results/run-004/control_4_fine_comparison.json": "29c8afb68a45891eae43cd9ddae8c32f9c77598e476b536cfb4f79a181664256",
+    "results/run-004/control_4_fine_legacy_trace.json": "9c9242c96a6840061df963fecf07e8a421fa7529287a70699aac08f319f4e050",
+    "results/run-004/control_4_observations.npz": "6eaa1fbffcca3e505aafae45a2d38bdffc25c8adc944dacf732c85b6da62dc24",
+    "results/run-004/control_calibration_coarse_comparison.json": "5e953e8b70bc0639e8880afe9909368282d7e8a205cfa2637d25a3c78e143858",
+    "results/run-004/control_calibration_coarse_legacy_trace.json": "ccb4536397f583ce25fa049599e72ede98b0e069dabadb5eb05f1f37721d38d7",
+    "results/run-004/control_calibration_fine_comparison.json": "8a4f3c8c64bcc4cca97bd7517372f4b56ac027c092acd0aca50c9e82c9a6ec9c",
+    "results/run-004/control_calibration_fine_legacy_trace.json": "8e80b4fd799eff101182857248e58db44c378a91a422c40d399f8cab0de3838c",
+    "results/run-004/control_calibration_observations.npz": "0ecbea86d5d4f483eb04dcb8e4076695bf30043e30a635949515da7c024fe622",
+    "results/run-004/environment.json": "ebc3c2c43e118a1bdfb91fa73e6963e2fd8967b0d5a32ac2f12812cd0e450fb5",
+    "results/run-004/evidence.json": "43c0d30ff45474a7552be8f4f2484eaff65cafd7fdb9394f73035b29fae4ec38",
+    "results/run-004/historical_protection.json": "f817487f744b1269bceed238c559e041eea942260c86d3ab98a3d48e2a23ce08",
+    "results/run-004/source_snapshot/OPTIMIZER_STABILITY_PROTOCOL.md": "4c92105da3c1b70dcc6ae3c1277b3353bb69840b7c2d042efe84e038306aac23",
+    "results/run-004/source_snapshot/audit_optimizer_stability.py": "c3ca34929c7d7fd84011da3c38bba72fa2a345f1470566a17ebf34fe0135eb4e",
+    "results/run-004/source_snapshot/covariance_optimizer.py": "ee38c0e093bac6f84a2c422b2d497274b176d4e151ebfc5b209160f6e2f8da6c",
+    "results/run-004/source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "results/run-004/source_snapshot/historical_generator.py": "af4e83800de8cb9f7b3ccf29ac3d27721d6dbee06c04ba634f54acec0e015186",
+    "results/run-004/source_snapshot/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "results/run-004/source_snapshot/legacy_split_merge.py": "b9c11b842d917f9b60f0bd63e468f28e6f21d7152eec8a429a90425b9a98da4a",
+    "results/run-004/source_snapshot/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "results/run-004/source_snapshot/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "results/run-004/source_snapshot/test_optimizer_stability.py": "0d131d2ef88dd811b6b8cb1aab69d1aa783b462f0ebcb53c38a9a6399d3845f5",
+    "results/run-004/summary.json": "1c0b2d289f8d1b8801f6293e0c4dbcaa144c624d303ff890e268fe9e9234a8fa",
+    "results/run-004/test.log": "5e4d4be9922557c5b97b0d92b45e52b3a2b6a05248b253ee0029aa97d74b945b",
+    "results/run-004/test_status.json": "08cc9948331149f13be2878bffa4280229f17d67c44fe118fae0ff7ea203f0ec",
+    "results/run-005/analytic_stress_controls.json": "c38067b869de970275ceb044afd6769ccaafab237d86d3b8629e810e13dc11df",
+    "results/run-005/evidence.json": "6851c71490f59a2d5297f2977843fc51f7d786eb0cf6b124a68b91e4d0185a78",
+    "results/run-005/full_iteration_matrices.json": "8b54f101fbf82cf8818607840397653ee510330f84ad0aa6367c412b6c941653",
+    "results/run-005/source_snapshot.py": "321e99bb13eadcae4b46506122d365a5744d720a881b1de9f90c7f498c2cd53c",
+    "results/run-005/summary.json": "7d13d0afd8939ecc84c9aa6583cbb5897932911efa1a4f474f2cf4aa5d97ef23",
+    "results/run-006/analytic_stress_controls.json": "6b90acf83f680550a47deced8cd8dd9feea13792406f354bc3a7b5e80026524d",
+    "results/run-006/covariance_optimizer_snapshot.py": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f",
+    "results/run-006/evidence.json": "e702323d8b5db6ddb1cf2c180e91218f8c09c6335e886fa5978d628dcf362192",
+    "results/run-006/full_iteration_matrices.json": "8b54f101fbf82cf8818607840397653ee510330f84ad0aa6367c412b6c941653",
+    "results/run-006/source_snapshot.py": "33545baf724dd46d45a24319ae43f6387f94e6938d819ef831bf2517ff3c19ed",
+    "results/run-006/summary.json": "7d13d0afd8939ecc84c9aa6583cbb5897932911efa1a4f474f2cf4aa5d97ef23",
+    "results/run-006/test.log": "3fdfd103f2f1d3c2f425ad0a764b34fb1738db5c5043c4f329d36ada4277ad31",
+    "results/run-006/test_status.json": "ed3d2a74d8da394977c145d3e381dcdb7a0559c9e023ade40f8cf55c8d93e094"
+  }
+}
