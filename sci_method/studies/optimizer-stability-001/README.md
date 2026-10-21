@@ -1,0 +1,47 @@
+# Covariance optimizer numerical audit
+
+Report: [OPTIMIZER_STABILITY_REVIEW.md](../../OPTIMIZER_STABILITY_REVIEW.md).
+Frozen protocol: [OPTIMIZER_STABILITY_PROTOCOL.md](../../OPTIMIZER_STABILITY_PROTOCOL.md).
+Scientific base: `5334f3533e1ada58f0afb3e98f8de10a6f52aeb8`.
+Updated 2026-10-21. All results are numerical development evidence.
+
+Canonical fit panel: [results/run-004](results/run-004/), source `71e59a1`.
+Final supplementary classification, analytic controls and tests:
+[results/run-006](results/run-006/), source `d52c02d` plus the recorded script commit.
+run-001 is incomplete (reader assumed only nonempty groups were archived).
+run-002 is the legacy diagnostic; run-003 the first comparison; run-005 the
+first matrix supplement. Preserve all runs, including the failed reader attempt.
+
+Commands below are launched from the repository root. A run ID must be new.
+The diagnostic script refuses to overwrite an existing directory.
+
+```sh
+PYTHONPATH=sci_method/src python3 -m unittest discover -s sci_method/tests -v
+PYTHONPATH=sci_method/src python3 sci_method/studies/audit_optimizer_stability.py --stage legacy --run-id run-reproduce-legacy-001
+```
+
+To repeat the independent comparison, use Python 3.14.4 with NumPy 2.4.6 and
+SciPy 1.18.1 in an isolated environment. The working audit environment was
+`/private/tmp/muon-optimizer-env.nUvPPN`; its exact executable is in evidence.json.
+For a different machine, install `requirements-audit.txt` into a fresh venv.
+
+```sh
+PYTHONPATH=sci_method/src /path/to/audit-venv/bin/python sci_method/studies/audit_optimizer_stability.py --stage comparison --run-id run-reproduce-comparison-001
+```
+
+The supplement intentionally reads canonical run-004 NPZ arrays and JSON records,
+and executes only the tiny analytic controls. It does not refit the stochastic
+panel or generate new random observations:
+
+```sh
+PYTHONPATH=sci_method/src python3 sci_method/studies/summarize_optimizer_stability.py --run-id run-reproduce-supplement-001
+```
+
+Full raw legacy/candidate traces, independent solver flags, parameters, NLL,
+gradients, KKT, timing, covariance eigenvalues, seeds, environment, code snapshots
+and SHA-256 are stored beside each run's `evidence.json`. The supplement includes
+full per-iteration direction matrices reconstructed at the saved coordinates.
+`test.log` and `test_status.json` preserve the complete suite outcome.
+
+No Geant4, six-cell grid, new physical data or independent SCI validation was run.
+Runtime production dependency remains NumPy; SciPy is an audit reference only.

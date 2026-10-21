@@ -63,7 +63,13 @@
 |---|---|---|
 | Algebraic negative-control correction and frozen-record ablation | [`ADAPTIVE_AUDIT_FIX_RESULTS.md`](ADAPTIVE_AUDIT_FIX_RESULTS.md); corrected synthetic output [`studies/adaptive-prototype-001/results/run-002/`](studies/adaptive-prototype-001/results/run-002/); reanalysis [`studies/adaptive-audit-fix-001/results/run-002/`](studies/adaptive-audit-fix-001/results/run-002/) | Fixes generator/likelihood covariance mismatch; reuses old run-001 trial records for ablation. Corrected run-002 uses new synthetic seeds. Audit run-001 summary is retained but superseded due to Boolean/string parsing defect. No low-budget grid or Geant4 run; see report for the optimizer failure and stop rationale. Not independent validation. |
 
-## 7. 图像/结论来源规则
+## 7. Optimizer numerical audit (2026-10-21)
+
+| Study | Path | Evidence and limits |
+|---|---|---|
+| Covariance optimizer stability | [`OPTIMIZER_STABILITY_REVIEW.md`](OPTIMIZER_STABILITY_REVIEW.md); [`studies/optimizer-stability-001/`](studies/optimizer-stability-001/) | Frozen acceptance before repair; A/B failures reproduced against historical sufficient statistics. Fixed 8-case/16-fit panel cross-checked with independent SciPy optimization and score solving. All 16 meet numerical acceptance; 61 unit tests. Analytic negative controls retain non-minimum stationary points and parameter-resolution failures. Canonical fits run-004; final supplement run-006. No six-cell grid, Geant4, cutoff tuning, or independent SCI performance validation. |
+
+## 8. 图像/结论来源规则
 
 - 本分支没有新 Geant4 图像或重建性能指标；存在的 CSV 是显式合成路径/残差与局部信息结果，不是物理仿真数据。
 - 新算法后续的每个 study 应位于 `sci_method/studies/<study-id>/`，各自保存协议、配置、输入哈希、代码版本、物理与分析随机流、复现命令、日志、结果和失败记录。
