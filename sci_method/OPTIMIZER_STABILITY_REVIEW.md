@@ -212,6 +212,11 @@ A 观测 NPZ：`efc6a745a8e6e4139996d7b504ca964e5666bcb4ea84fc857230bf0ac28f6605
 B 观测 NPZ：`7efefbf60921f74fef8df6123f7ef8e4334a1db10e3de2d29ba6ffd98148a3cd`。
 其它结果及源码 SHA-256 见各 run 的 evidence.json。历史四个受保护目录的
 运行前后哈希一致，明细在 run-004/historical_protection.json。
+最终 verification/run-003 核查 144 项结果清单哈希、44 个规范历史文件和
+27 组充分统计量（包含独立空场），全部通过。早期 snapshot 导入生成的
+两个 .pyc 缓存已移出，后续导入禁止写历史目录；它们不是科研输入。
+第一次独立校验还发现 NPZ 重复读取会改变 BLAS 的对称乘积计算路径，
+现已缓存同一数组再重算；没有放宽逐值相等判据，失败校验记录保留。
 
 复现命令与版本要求见 [study README](studies/optimizer-stability-001/README.md)。
 正式模块使用 NumPy，审计的 SciPy 用隔离环境。未引入第三方文献全文。

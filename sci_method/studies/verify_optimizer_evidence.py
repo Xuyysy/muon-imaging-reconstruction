@@ -28,7 +28,11 @@ def verify(output):
                 match=sha(path.parent/relative)==expected, expected_sha256=expected))
     canonical=STUDY/"results/run-004"
     protected=json.loads((canonical/"historical_protection.json").read_text())
-    history_checks={name:sha(ROOT/name)==expected for name,expected in protected["before_sha256"].items()}
+    # Only canonical source/data files belong to the historical evidence tree;
+    # the early importer's two newly generated .pyc files were incidental caches.
+    ignored_caches=[name for name in protected["before_sha256"] if "__pycache__" in Path(name).parts]
+    history_checks={name:sha(ROOT/name)==expected for name,expected in protected["before_sha256"].items()
+                    if name not in ignored_caches}
     with (ROOT/"studies/adaptive-prototype-001/results/run-002/sample_covariance_sufficient_statistics.csv").open() as stream:
         archived={(r["phase"],int(r["seed"]),r["group"]):r for r in csv.DictReader(stream)}
     statistic_checks=[]
@@ -57,7 +61,7 @@ def verify(output):
     latest=json.loads((STUDY/"results/run-006/test_status.json").read_text())
     result=dict(all_passed=all(c["match"] for c in checks+statistic_checks) and all(history_checks.values())
         and diff.returncode==0 and latest["exit_code"]==0,
-        artifact_hash_checks=checks,protected_history_checks=history_checks,
+        artifact_hash_checks=checks,protected_history_checks=history_checks,noncanonical_import_caches=ignored_caches,
         historical_git_diff_empty=diff.returncode==0,observed_sufficient_statistic_checks=statistic_checks,
         final_test_status=latest,source_commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT.parent,text=True).strip(),
         verifier_source_sha256=sha(Path(__file__)),python=platform.python_version(),numpy=np.__version__,
