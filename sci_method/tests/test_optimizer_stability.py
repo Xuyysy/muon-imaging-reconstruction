@@ -91,6 +91,15 @@ class OptimizerStabilityTests(unittest.TestCase):
         self.assertTrue(result.converged)
         self.assertEqual(result.parameters[0], 0.0)
 
+    def test_stationary_local_maximum_is_not_certified_as_a_likelihood_minimum(self):
+        # At theta=1, C1=2I with S1=0 and C2=11I with S2/n=71.5I.
+        # Score/8 = 1/2 + 1/11 - 71.5/121 = 0, but Hessian < 0.
+        groups = [self.scalar_group(0.0), self.scalar_group(71.5, base=10*np.eye(4))]
+        result = fit_covariance_detailed(groups, initial=[1.0])
+        self.assertFalse(result.converged)
+        self.assertEqual(result.status, "unproven")
+        self.assertIn("negative_curvature", result.reason)
+
     def test_stable_difference_matches_high_precision_scalar_formula_below_full_nll_ulp(self):
         objective = CovarianceObjective([self.scalar_group(2)])
         theta = np.array([1.0])

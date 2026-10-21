@@ -149,6 +149,11 @@ def trace_legacy(groups, initial):
         if event == "line":
             local = frame.f_locals
             source = text[frame.f_lineno]
+            if source.startswith("if not np.any(delta)") and not np.any(local["delta"]):
+                trials.append(dict(iteration=local["iteration"], theta=local["theta"].copy(),
+                    trial_step=local["trial_step"], delta=local["delta"].copy(),
+                    candidate=local["candidate"].copy(), accepted=False,
+                    skip_reason="parameter_change_rounded_to_zero"))
             if source.startswith("if candidate_value <= armijo"):
                 record = {key: np.copy(local[key]) if isinstance(local[key], np.ndarray) else local[key]
                           for key in ("iteration", "theta", "value", "gradient", "preconditioner",
@@ -323,6 +328,8 @@ def compare_fit(groups, initial, old, multiple_starts):
         max_covariance_relative_reference_difference=max(covariance_errors),
         nll_reference_difference=ref_value-selected["nll"], nll_agreement_budget=objective_budget,
         old_to_new_nll_difference=ref_value-old["final"]["nll_without_constant"],
+        old_to_new_stable_nll_difference=objective.difference(
+            np.array(old["final"]["parameters"]), result.parameters),
         old_to_new_parameter_difference=result.parameters-old["final"]["parameters"],
         independent_vs_whitened_gradient_max_error=float(np.max(np.abs(gradient-ref_gradient))),
         gradient_checks=dict(initial=gradient_check(groups, initial),
@@ -332,15 +339,34 @@ def compare_fit(groups, initial, old, multiple_starts):
              reference_kkt=reference["certified_kkt"], objective=reference_error <= objective_budget,
              parameter_or_covariance=(parameter_error <=1e-5 if rank==len(initial)
                                       else max(covariance_errors) <=1e-6)))
+    out["acceptance"]["finite_difference_gradient"] = all(
+        check["passed"] for check in out["gradient_checks"].values())
+    out["acceptance"]["independent_score"] = out["independent_vs_whitened_gradient_max_error"] <= 1e-6
     out["accepted"] = all(out["acceptance"].values()) and not out["local_negative_curvature"]
     return out
 
 
+def protected_history_hashes():
+    records = {}
+    for study in ("adaptive-prototype-001", "adaptive-audit-fix-001"):
+        for run_id in ("run-001", "run-002"):
+            directory = ROOT/"studies"/study/"results"/run_id
+            for path in sorted(directory.rglob("*")):
+                if path.is_file():
+                    records[str(path.relative_to(ROOT))] = sha(path)
+    return records
+
+
 def run(run_id, stage):
+    if not run_id.startswith("run-") or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
+        raise ValueError("invalid run ID")
+    protection_before = protected_history_hashes()
     output = ROOT / "studies/optimizer-stability-001/results" / run_id
     output.mkdir(parents=True, exist_ok=False)
     paths = [Path(__file__), ROOT/"OPTIMIZER_STABILITY_PROTOCOL.md",
-             ROOT/"src/sci_method/split_merge.py"]
+             ROOT/"src/sci_method/split_merge.py", ROOT/"src/sci_method/forward_model.py",
+             ROOT/"src/sci_method/identifiability.py", ROOT/"src/sci_method/study_io.py",
+             ROOT/"tests/test_optimizer_stability.py"]
     for name in ("covariance_optimizer.py",):
         if (ROOT/"src/sci_method"/name).exists():
             paths.append(ROOT/"src/sci_method"/name)
@@ -348,10 +374,14 @@ def run(run_id, stage):
     snapshots.mkdir()
     for path in paths:
         shutil.copyfile(path, snapshots/path.name)
+    shutil.copyfile(HISTORY/"source_snapshot/split_merge.py", snapshots/"legacy_split_merge.py")
+    shutil.copyfile(HISTORY/"source_snapshot/run_adaptive_split_merge.py", snapshots/"historical_generator.py")
     cases = fixed_cases()
     save(output/"config.json", dict(stage=stage, cases=cases, base_commit=BASE_SHA,
          rng="numpy.default_rng/PCG64; multivariate_normal default SVD; left,right,other order",
-         six_cell_grid_run=False, geant4_run=False))
+         six_cell_grid_run=False, geant4_run=False,
+         kkt_tolerance=1e-6, max_iterations=500,
+         frozen_acceptance_commit="da315c0", scipy_is_audit_only=True))
     results = []
     for case in cases:
         data, empty, models, mode = prepare_case(case)
@@ -414,6 +444,14 @@ def run(run_id, stage):
         import scipy
         environment["scipy"] = scipy.__version__
     save(output/"environment.json", environment)
+    suite = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "sci_method/tests", "-v"],
+                           cwd=ROOT.parent, capture_output=True, text=True)
+    (output/"test.log").write_text(suite.stdout+suite.stderr)
+    save(output/"test_status.json", dict(exit_code=suite.returncode,
+         command=f"{sys.executable} -m unittest discover -s sci_method/tests -v"))
+    protection_after = protected_history_hashes()
+    save(output/"historical_protection.json", dict(unchanged=protection_before==protection_after,
+         before_sha256=protection_before, after_sha256=protection_after))
     source_hashes = {str(p.relative_to(ROOT.parent)):sha(p) for p in paths}
     evidence = dict(source_commit=subprocess.check_output(["git","rev-parse","HEAD"], text=True).strip(),
         source_file_sha256=source_hashes, historical_evidence_sha256=sha(HISTORY/"evidence.json"),

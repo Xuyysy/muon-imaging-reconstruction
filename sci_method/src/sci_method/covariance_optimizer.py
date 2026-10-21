@@ -146,6 +146,16 @@ def fit_covariance_detailed(groups, *, initial=None, max_iter=500, tolerance=1e-
             return CovarianceFitResult(theta, "failed", iteration, value, gradient,
                                        residual, "nonfinite_objective_or_score", history)
         if residual <= tolerance:
+            # First-order stationarity can also occur at a local maximum.
+            # Reject resolved negative curvature on interior coordinates.
+            # Flat directions are allowed but do not imply identifiability.
+            interior = theta > 0
+            if np.any(interior):
+                curvature = np.linalg.eigvalsh(hessian[np.ix_(interior, interior)])
+                curvature_floor = 64*np.finfo(float).eps*max(1.0, float(np.max(np.abs(curvature))))
+                if curvature.min() < -curvature_floor:
+                    return CovarianceFitResult(theta, "unproven", iteration, value,
+                        gradient, residual, "stationary_negative_curvature", history)
             return CovarianceFitResult(theta, "converged", iteration, value, gradient,
                                        residual, "fixed_scale_kkt", history)
         if iteration == max_iter:
