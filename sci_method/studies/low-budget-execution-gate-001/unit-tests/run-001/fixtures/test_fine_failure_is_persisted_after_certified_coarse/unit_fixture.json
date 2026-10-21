@@ -1,0 +1,1 @@
+{"test": "test_low_budget_execution_gate.ExecutionGateTests.test_fine_failure_is_persisted_after_certified_coarse", "purpose": "fault injection / deterministic unit fixtures; not a six-cell experiment", "observations": "zero arrays; no RNG generation or physical data"}

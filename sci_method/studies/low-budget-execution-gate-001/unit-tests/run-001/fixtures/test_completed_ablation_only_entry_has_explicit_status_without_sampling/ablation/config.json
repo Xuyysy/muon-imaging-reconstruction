@@ -1,0 +1,106 @@
+{
+  "study_id": "adaptive-audit-fix-001",
+  "run_id": "run-unit-ablation",
+  "source_development_run": "adaptive-prototype-001/run-001",
+  "low_budget_seed_bases": {
+    "null_calibration": 4026102001,
+    "evaluation": 4027102001
+  },
+  "calibration_replicates_per_stratum": 200,
+  "evaluation_replicates_per_scenario": 200,
+  "frozen_scenarios": [
+    {
+      "name": "uniform_n500_sigma03",
+      "budget": 500,
+      "delta": 0.0,
+      "sigma": 0.3
+    },
+    {
+      "name": "uniform_n1000_sigma03",
+      "budget": 1000,
+      "delta": 0.0,
+      "sigma": 0.3
+    },
+    {
+      "name": "moderate_d05_n500_sigma03",
+      "budget": 500,
+      "delta": 0.5,
+      "sigma": 0.3
+    },
+    {
+      "name": "moderate_d075_n500_sigma03",
+      "budget": 500,
+      "delta": 0.75,
+      "sigma": 0.3
+    },
+    {
+      "name": "moderate_d05_n1000_sigma03",
+      "budget": 1000,
+      "delta": 0.5,
+      "sigma": 0.3
+    },
+    {
+      "name": "moderate_d05_n500_sigma10",
+      "budget": 500,
+      "delta": 0.5,
+      "sigma": 1.0
+    }
+  ],
+  "null_strata": [
+    [
+      500,
+      0.3
+    ],
+    [
+      1000,
+      0.3
+    ],
+    [
+      500,
+      1.0
+    ],
+    [
+      1000,
+      1.0
+    ]
+  ],
+  "fixed_parameters": {
+    "alpha": 0.05,
+    "min_power": 0.8,
+    "minimum_contrast_ref": 0.5,
+    "count_minimum_per_child": 40,
+    "lambda_ref_mm_inv": 0.01,
+    "momentum_gev_c": 4.0,
+    "path_fraction_left_right_other": [
+      0.4,
+      0.4,
+      0.2
+    ]
+  },
+  "geant4_invoked": false,
+  "all_data_synthetic_or_reanalysis": true,
+  "low_budget_scenarios_requested": false,
+  "execution_status_file": "run_state.json",
+  "seed_schedule": {
+    "stratum_or_scenario_stride": 1000000,
+    "calibration_trial_stride": 1,
+    "evaluation_trial_stride": 10,
+    "validation_offset": 1,
+    "group_order": [
+      "left",
+      "right",
+      "other"
+    ]
+  },
+  "numerical_gate": {
+    "kkt_tolerance": 1e-06,
+    "max_iterations": 500,
+    "objective_absolute_budget": 1e-08,
+    "objective_eps_factor": 512,
+    "require_all_calibration_fits_certified": true,
+    "original_raw_lrt_used_for_decisions": true,
+    "stable_lrt_is_diagnostic": true,
+    "allowance_is_rigorous_bound": false
+  },
+  "thresholds_not_tuned_from_evaluation": true
+}

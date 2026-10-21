@@ -1,0 +1,78 @@
+{
+  "exception_type": "ExecutionGateError",
+  "message": "fit_not_certified: {'phase': 'calibration', 'budget': 500, 'sigma_hit_mm': 0.3, 'replicate': 0, 'seed': 4026102001, 'counts': {'left': 200, 'right': 200, 'other': 100}}",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/studies/run_adaptive_audit_scenarios.py\", line 472, in run\n    _,counts=_run_contents(output,include_low_budget=include_low_budget)\n             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py\", line 1176, in __call__\n    return self._mock_call(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py\", line 1180, in _mock_call\n    return self._execute_mock_call(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py\", line 1247, in _execute_mock_call\n    result = effect(*args, **kwargs)\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/tests/test_low_budget_execution_gate.py\", line 238, in <lambda>\n    patch.object(runner,\"_run_contents\",side_effect=lambda path,**kwargs:runner._low_budget_study(path)), \\\n                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/studies/run_adaptive_audit_scenarios.py\", line 234, in _low_budget_study\n    coarse,fine,diagnostic=gate.fit_pair(groups_coarse,groups_fine,context)\n                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/studies/low_budget_execution_gate.py\", line 206, in fit_pair\n    c=self._fit_one(coarse,cval,np.ones(2),\"coarse\",context,solver)\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/studies/low_budget_execution_gate.py\", line 194, in _fit_one\n    self.fail(\"fit_not_certified\",context,record)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/xuyaoyang/.codex/worktrees/sci-low-budget-execution-gate/geant4-test/sci_method/studies/low_budget_execution_gate.py\", line 99, in fail\n    raise ExecutionGateError(code,context,details)\nlow_budget_execution_gate.ExecutionGateError: fit_not_certified: {'phase': 'calibration', 'budget': 500, 'sigma_hit_mm': 0.3, 'replicate': 0, 'seed': 4026102001, 'counts': {'left': 200, 'right': 200, 'other': 100}}\n",
+  "code": "fit_not_certified",
+  "context": {
+    "phase": "calibration",
+    "budget": 500,
+    "sigma_hit_mm": 0.3,
+    "replicate": 0,
+    "seed": 4026102001,
+    "counts": {
+      "left": 200,
+      "right": 200,
+      "other": 100
+    }
+  },
+  "details": {
+    "context": {
+      "phase": "calibration",
+      "budget": 500,
+      "sigma_hit_mm": 0.3,
+      "replicate": 0,
+      "seed": 4026102001,
+      "counts": {
+        "left": 200,
+        "right": 200,
+        "other": 100
+      }
+    },
+    "model": "coarse",
+    "initial_parameters": [
+      1.0,
+      1.0
+    ],
+    "tolerance": 1e-06,
+    "coordinate_scale": [
+      1.0,
+      1.0
+    ],
+    "status": "failed",
+    "reason": "injected",
+    "parameters": [
+      0.0,
+      0.0
+    ],
+    "solver_nll": 288.90924033656455,
+    "reported_gradient": [
+      119.91098522640273,
+      29.977746306600682
+    ],
+    "reported_kkt_inf": 0.0,
+    "iterations": 1,
+    "claimed_converged": false,
+    "recomputed_nll": 288.90924033656455,
+    "train_nll": 288.90924033656455,
+    "eval_nll": 288.90924033656455,
+    "full_train_nll": 2126.7863067459098,
+    "recomputed_gradient": [
+      119.91098522640273,
+      29.977746306600682
+    ],
+    "kkt_residual": [
+      0.0,
+      0.0
+    ],
+    "recomputed_kkt_inf": 0.0,
+    "interior_hessian_eigenvalues": [],
+    "objective_budget": 1e-08,
+    "objective_discrepancy": 0.0,
+    "certification_issues": [
+      "status_not_certified"
+    ],
+    "certified": false,
+    "fit_ms": 0.5763750014011748,
+    "certification_and_scoring_ms": 0.2905000001192093
+  }
+}

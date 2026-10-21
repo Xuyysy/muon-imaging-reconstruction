@@ -1,0 +1,11 @@
+{
+  "run_id": "run-unit-abort",
+  "status": "aborted",
+  "started_utc": "2026-10-21T01:45:13.077533+00:00",
+  "low_budget_requested": true,
+  "study_body_completed": false,
+  "geant4_invoked": false,
+  "exception_type": "ExecutionGateError",
+  "exception_message": "fit_not_certified: {'phase': 'calibration', 'budget': 500, 'sigma_hit_mm': 0.3, 'replicate': 0, 'seed': 4026102001, 'counts': {'left': 200, 'right': 200, 'other': 100}}",
+  "finished_utc": "2026-10-21T01:45:13.105790+00:00"
+}

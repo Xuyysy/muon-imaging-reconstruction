@@ -1,0 +1,12 @@
+{
+  "unit_test_exit_code": 0,
+  "unit_test_count": 82,
+  "unit_tests_only": true,
+  "six_scenario_experiment_executed": false,
+  "geant4_invoked": false,
+  "deterministic_fault_fixture_folders": 21,
+  "history_hashes_unchanged": true,
+  "protected_git_diff_empty": true,
+  "protected_file_count": 239,
+  "frozen_plan_sha256": "9185cce68f771d3245e860bc2c50de1f97509d425026cb9e12e7bb00d9ae7ffc"
+}

@@ -1,0 +1,4 @@
+{"code": "invalid_cutoff_state", "context": {"phase": "calibration", "replicate": 0, "seed": 123, "counts": {"left": 4, "right": 4, "other": 4}}, "details": {"name": "calibrated", "spec": {"value": null}}}
+{"code": "invalid_cutoff_state", "context": {"phase": "calibration", "replicate": 0, "seed": 123, "counts": {"left": 4, "right": 4, "other": 4}}, "details": {"name": "calibrated", "spec": {"value": "not-a-number"}}}
+{"code": "invalid_cutoff_state", "context": {"phase": "calibration", "replicate": 0, "seed": 123, "counts": {"left": 4, "right": 4, "other": 4}}, "details": {"name": "calibrated", "spec": {"value": null}}}
+{"code": "invalid_cutoff_state", "context": {"phase": "calibration", "replicate": 0, "seed": 123, "counts": {"left": 4, "right": 4, "other": 4}}, "details": {"name": "calibrated", "spec": {"value": -1.0}}}

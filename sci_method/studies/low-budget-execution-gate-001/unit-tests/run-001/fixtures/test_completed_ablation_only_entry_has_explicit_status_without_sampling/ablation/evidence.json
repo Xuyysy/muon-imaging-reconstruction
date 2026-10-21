@@ -1,0 +1,51 @@
+{
+  "run_id": "run-unit-ablation",
+  "source_commit": "b1180b5779b51628e6b0fa57e92eb701e3febc70",
+  "branch": "codex/sci-low-budget-execution-gate",
+  "source_file_sha256": {
+    "sci_method/studies/run_adaptive_audit_scenarios.py": "eb8eea12a2b3dc0949cc817f79c7288b5ea6b95327c99521def63b4a81ac970a",
+    "sci_method/studies/adaptive_audit_analysis.py": "71cfa3068fd08c4cbba6b416cab3801260cd3e932ba78e55bfea9a8355da737b",
+    "sci_method/studies/run_adaptive_split_merge.py": "1c64ae3223a2464026bf6792578fcf24d16bb7dcfdec1e847d0d4304a3c0dde4",
+    "sci_method/studies/low_budget_execution_gate.py": "ecf1a3ad3632e2cde077ed251ddf5582c2710764c2e277be60eb9e3f30b5e203",
+    "sci_method/src/sci_method/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "sci_method/src/sci_method/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "sci_method/src/sci_method/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "sci_method/src/sci_method/covariance_optimizer.py": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f",
+    "sci_method/src/sci_method/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e",
+    "sci_method/ADAPTIVE_AUDIT_FIX_PLAN.md": "9185cce68f771d3245e860bc2c50de1f97509d425026cb9e12e7bb00d9ae7ffc",
+    "sci_method/LOW_BUDGET_EXECUTION_GATE_PLAN.md": "3eb6b5c3a3a8af9fd77e0882ddbe06b9d488f2b587782c8b48943d22f16bab50"
+  },
+  "python_version": "3.14.4",
+  "numpy_version": "2.4.6",
+  "command": "PYTHONPATH=sci_method/src /opt/homebrew/opt/python@3.14/bin/python3.14 sci_method/studies/run_adaptive_audit_scenarios.py --run-id run-unit-ablation --ablation-only",
+  "actual_argv": [
+    "python3.14 -m unittest",
+    "discover",
+    "-s",
+    "sci_method/tests",
+    "-v"
+  ],
+  "geant4_invoked": false,
+  "calibration_and_evaluation_seeds_disjoint": true,
+  "truth_access": "Synthetic truth is used only by generation/post-decision evaluation; the numerical gate reads observations and likelihood model only.",
+  "run001_csv_sha256": "5a43961fd31d6f46e54388338d6330f0e637fa3882c38b3189f117e1cdec1c4c",
+  "uncommitted_source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "run001_ablation_rows": 0,
+  "execution_status": "completed",
+  "result_file_sha256": {
+    "config.json": "5e1c0c4cc7694c9a54055c7214f7d9b8935c8f210a3ec8f556a372dd2bb2890a",
+    "environment.json": "7b91035cc3c823c6a2a3ef34afc015ca4cbdc133c8b35b720750f6da62bbe26a",
+    "run_state.json": "0d108fdd556cbf231f09d3f9d5e1adc5ac1a6961f05dd8cebfe6e73726182337",
+    "source_snapshot/ADAPTIVE_AUDIT_FIX_PLAN.md": "9185cce68f771d3245e860bc2c50de1f97509d425026cb9e12e7bb00d9ae7ffc",
+    "source_snapshot/LOW_BUDGET_EXECUTION_GATE_PLAN.md": "3eb6b5c3a3a8af9fd77e0882ddbe06b9d488f2b587782c8b48943d22f16bab50",
+    "source_snapshot/adaptive_audit_analysis.py": "71cfa3068fd08c4cbba6b416cab3801260cd3e932ba78e55bfea9a8355da737b",
+    "source_snapshot/covariance_optimizer.py": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f",
+    "source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "source_snapshot/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "source_snapshot/low_budget_execution_gate.py": "ecf1a3ad3632e2cde077ed251ddf5582c2710764c2e277be60eb9e3f30b5e203",
+    "source_snapshot/run_adaptive_audit_scenarios.py": "eb8eea12a2b3dc0949cc817f79c7288b5ea6b95327c99521def63b4a81ac970a",
+    "source_snapshot/run_adaptive_split_merge.py": "1c64ae3223a2464026bf6792578fcf24d16bb7dcfdec1e847d0d4304a3c0dde4",
+    "source_snapshot/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "source_snapshot/study_io.py": "27f391ba3d94a1eedb2fc119f8a4f5c892cb8e27d413478e1778a18cf925585e"
+  }
+}

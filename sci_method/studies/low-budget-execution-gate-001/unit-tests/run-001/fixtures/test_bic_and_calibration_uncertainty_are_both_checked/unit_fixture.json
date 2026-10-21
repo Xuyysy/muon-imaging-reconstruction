@@ -1,0 +1,1 @@
+{"test": "test_low_budget_execution_gate.ExecutionGateTests.test_bic_and_calibration_uncertainty_are_both_checked", "purpose": "fault injection / deterministic unit fixtures; not a six-cell experiment", "observations": "zero arrays; no RNG generation or physical data"}

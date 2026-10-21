@@ -1,0 +1,1 @@
+{"test": "test_low_budget_execution_gate.ExecutionGateTests.test_near_cutoff_stops_and_saves_both_lrt_values", "purpose": "fault injection / deterministic unit fixtures; not a six-cell experiment", "observations": "zero arrays; no RNG generation or physical data"}

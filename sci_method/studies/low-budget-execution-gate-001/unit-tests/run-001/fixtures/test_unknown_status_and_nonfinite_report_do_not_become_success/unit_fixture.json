@@ -1,0 +1,1 @@
+{"test": "test_low_budget_execution_gate.ExecutionGateTests.test_unknown_status_and_nonfinite_report_do_not_become_success", "purpose": "fault injection / deterministic unit fixtures; not a six-cell experiment", "observations": "zero arrays; no RNG generation or physical data"}

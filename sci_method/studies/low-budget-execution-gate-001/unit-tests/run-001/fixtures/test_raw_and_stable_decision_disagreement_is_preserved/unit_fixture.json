@@ -1,0 +1,1 @@
+{"test": "test_low_budget_execution_gate.ExecutionGateTests.test_raw_and_stable_decision_disagreement_is_preserved", "purpose": "fault injection / deterministic unit fixtures; not a six-cell experiment", "observations": "zero arrays; no RNG generation or physical data"}

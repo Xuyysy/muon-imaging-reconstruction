@@ -1,0 +1,1 @@
+{"context": {"phase": "calibration", "budget": 500, "sigma_hit_mm": 0.3, "replicate": 1, "seed": 4026102002, "counts": {"left": 200, "right": 200, "other": 100}}, "model": "fine", "reason": "preceding_fit_failed"}

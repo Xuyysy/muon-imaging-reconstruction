@@ -1,0 +1,12 @@
+{
+  "phase": "calibration",
+  "budget": 500,
+  "sigma_hit_mm": 0.3,
+  "replicate": 0,
+  "seed": 4026102001,
+  "counts": {
+    "left": 200,
+    "right": 200,
+    "other": 100
+  }
+}
