@@ -11,10 +11,13 @@ import csv
 import hashlib
 import json
 import math
+import os
 import platform
 import shutil
 import subprocess
 import sys
+import traceback
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -35,6 +38,9 @@ from run_adaptive_split_merge import (  # noqa: E402
     decide_split, simulate_target,
 )
 from sci_method.study_io import create_output_directory  # noqa: E402
+from low_budget_execution_gate import (  # noqa: E402
+    ExecutionGate, ExecutionGateError, plain, write_json,
+)
 
 
 STUDY_ID = "adaptive-audit-fix-001"
@@ -187,23 +193,68 @@ def _build_groups(data: dict, sigma: float, model: str):
     return build_likelihood_groups(data, sigma_hit_mm=sigma, mode="known_fixed", model=model)
 
 
+def _append_csv(path: Path, row: dict):
+    """Persist each completed trial; an abort never discards prior rows."""
+    existed=path.exists()
+    with path.open("a",newline="",encoding="utf-8") as stream:
+        writer=csv.DictWriter(stream,fieldnames=list(row),lineterminator="\n")
+        if not existed:
+            writer.writeheader()
+        writer.writerow(row)
+        stream.flush();os.fsync(stream.fileno())
+
+
+def _numerical_fit_columns(coarse, fine):
+    row={}
+    for name,record in (("coarse",coarse),("fine",fine)):
+        for key in ("status","reason","reported_kkt_inf","recomputed_kkt_inf","train_nll","solver_nll","iterations","certification_and_scoring_ms"):
+            row[f"{name}_{key}"]=record[key]
+        row[f"{name}_parameters"]=json.dumps(plain(record["parameters"]))
+    return row
+
+
 def _low_budget_study(output: Path) -> dict:
+    if any((output/name).exists() for name in ("fits.jsonl","inputs.jsonl","low_budget_null_calibration.csv","low_budget_trials.csv")):
+        raise FileExistsError("numerical journals already exist; use a new run ID, not an implicit resume")
+    gate=ExecutionGate(output)
     thresholds = {}
-    cal_rows = []
+    threshold_allowances={}
     for index, (budget, sigma) in enumerate(NULL_STRATA):
-        null_lrt = []
+        null_lrt,stable_null,allowances = [],[],[]
         for replicate in range(CALIBRATION_REPLICATES):
             seed = CAL_SEED_BASE + index * 1_000_000 + replicate
+            context=dict(phase="calibration",budget=budget,sigma_hit_mm=sigma,
+                         replicate=replicate,seed=seed,counts=_counts(budget))
+            gate.start_trial(context)
             data = _simulate_low_budget(budget, 0.0, sigma, seed)
+            gate.record_sample(data,context,role="null_calibration")
             groups_coarse, groups_fine = _build_groups(data, sigma, "coarse"), _build_groups(data, sigma, "fine")
-            coarse, fine, lrt, converged = _fit_trial(groups_coarse, groups_fine, groups_coarse, groups_fine, "known_fixed")
-            cal_rows.append({"budget": budget, "sigma_hit_mm": sigma, "replicate": replicate,
-                             "seed": seed, "lrt": lrt if converged else "", "converged": converged})
-            if converged:
-                null_lrt.append(lrt)
-        if len(null_lrt) < 20:
-            raise RuntimeError(f"too few converged null fits for N={budget}, sigma={sigma}")
-        thresholds[f"N={budget}|sigma={sigma:.1f}"] = calibrate_lrt_threshold(null_lrt, alpha=CALIBRATION_ALPHA)
+            # Uncertified fits persist their report and raise here. There is
+            # deliberately no branch that filters failures out of calibration.
+            coarse,fine,diagnostic=gate.fit_pair(groups_coarse,groups_fine,context)
+            lrt=diagnostic["raw_lrt"]
+            _append_csv(output/"low_budget_null_calibration.csv",dict(
+                budget=budget,sigma_hit_mm=sigma,replicate=replicate,seed=seed,
+                lrt=lrt,stable_lrt=diagnostic["stable_lrt"],converged=True,
+                raw_signed_lrt=diagnostic["raw_signed_lrt"],
+                stable_signed_lrt=diagnostic["stable_signed_lrt"],
+                lrt_numerical_allowance=diagnostic["numerical_allowance"],
+                **_numerical_fit_columns(coarse,fine)))
+            null_lrt.append(lrt)
+            stable_null.append(diagnostic["stable_lrt"])
+            allowances.append(diagnostic["numerical_allowance"])
+        key=f"N={budget}|sigma={sigma:.1f}"
+        thresholds[key] = calibrate_lrt_threshold(null_lrt, alpha=CALIBRATION_ALPHA)
+        stable_cutoff=calibrate_lrt_threshold(stable_null,alpha=CALIBRATION_ALPHA)
+        threshold_allowances[key]=max(allowances)
+        calibration_record=dict(context=dict(phase="calibration_cutoff",stratum=key),
+            declared_replicates=CALIBRATION_REPLICATES,certified_replicates=len(null_lrt),
+            raw_cutoff=thresholds[key],stable_diagnostic_cutoff=stable_cutoff,
+            cutoff_allowance=threshold_allowances[key],alpha=CALIBRATION_ALPHA,
+            original_raw_statistic_used_for_calibration=True)
+        gate.log("calibration_cutoffs.jsonl",calibration_record)
+        if not all(math.isfinite(v) for v in (thresholds[key],stable_cutoff)) or abs(thresholds[key]-stable_cutoff)>threshold_allowances[key]:
+            gate.fail("calibration_cutoff_inconsistent",calibration_record["context"],calibration_record)
 
     metrics = []
     for scenario_index, spec in enumerate(LOW_BUDGET_SCENARIOS):
@@ -213,11 +264,22 @@ def _low_budget_study(output: Path) -> dict:
             seed = EVAL_SEED_BASE + scenario_index * 1_000_000 + replicate * 10
             validation_seed = seed + 1
             counts = _counts(spec["budget"])
+            context=dict(phase="evaluation",scenario=spec["name"],replicate=replicate,
+                         seed=seed,validation_seed=validation_seed,counts=counts,
+                         budget=spec["budget"],sigma_hit_mm=spec["sigma"])
+            gate.start_trial(context)
             train = _simulate_low_budget(spec["budget"], spec["delta"], spec["sigma"], seed)
+            gate.record_sample(train,context,role="evaluation_train")
             validation = _simulate_low_budget(spec["budget"], spec["delta"], spec["sigma"], validation_seed)
+            gate.record_sample(validation,{**context,"seed":validation_seed},role="evaluation_validation")
             coarse_train, fine_train = _build_groups(train, spec["sigma"], "coarse"), _build_groups(train, spec["sigma"], "fine")
             coarse_val, fine_val = _build_groups(validation, spec["sigma"], "coarse"), _build_groups(validation, spec["sigma"], "fine")
-            coarse, fine, lrt, converged = _fit_trial(coarse_train, fine_train, coarse_val, fine_val, "known_fixed")
+            coarse,fine,diagnostic=gate.fit_pair(coarse_train,fine_train,context,
+                                               validation=(coarse_val,fine_val))
+            lrt,converged=diagnostic["raw_lrt"],True
+            gate.check_lrt(diagnostic,{
+                "calibrated":dict(value=cutoff,allowance=threshold_allowances[key]),
+                "bic":dict(value=math.log(sum(counts.values())),allowance=0.)},context)
             info = contrast_report_for_decision(fine_train, "known_fixed")
             decisions = ablation_decisions({
                 "coarse_converged": str(coarse["converged"]), "fine_converged": str(fine["converged"]),
@@ -242,19 +304,19 @@ def _low_budget_study(output: Path) -> dict:
                 "contrast_variance_ref2": info["variance"] if info["estimable"] else "inf",
                 "predicted_power_for_delta_05": info["predicted_power_for_design_contrast"],
                 "lrt_train": lrt, "lrt_cutoff": cutoff, "fit_converged": converged,
+                "raw_signed_lrt":diagnostic["raw_signed_lrt"],
+                "stable_signed_lrt":diagnostic["stable_signed_lrt"],
+                "stable_lrt":diagnostic["stable_lrt"],
+                "lrt_numerical_allowance":diagnostic["numerical_allowance"],
+                "calibration_cutoff_allowance":threshold_allowances[key],
                 "coarse_validation_nll": coarse["eval_nll"], "fine_validation_nll": fine["eval_nll"],
                 "coarse_fit_ms": coarse["fit_ms"], "fine_fit_ms": fine["fit_ms"],
                 "failure": "" if converged else "coarse_or_fine_nonconvergence",
                 **{f"split_{method}": decision for method, decision in decisions.items()},
+                **_numerical_fit_columns(coarse,fine),
             }
+            _append_csv(output/"low_budget_trials.csv",row)
             metrics.append(row)
-
-    with (output / "low_budget_null_calibration.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(cal_rows[0]), lineterminator="\n")
-        writer.writeheader(); writer.writerows(cal_rows)
-    with (output / "low_budget_trials.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(metrics[0]), lineterminator="\n")
-        writer.writeheader(); writer.writerows(metrics)
 
     summaries = []
     for spec in LOW_BUDGET_SCENARIOS:
@@ -290,17 +352,13 @@ def _low_budget_study(output: Path) -> dict:
         "calibration_replicates_per_stratum": CALIBRATION_REPLICATES,
         "evaluation_replicates_per_scenario": REPLICATES,
         "calibration_thresholds": thresholds,
+        "calibration_cutoff_numerical_allowances":threshold_allowances,
         "scenarios": summaries,
         "predeclared_scope": "Six fixed cells only: two null event budgets, two moderate contrasts at N=500, N=1000 replication of delta=0.5, and one high-hit-error case. No parameter search. Alpha, power threshold, minimum effect, event allocations, and 200 replicas fixed before evaluating these cells.",
     }
 
 
-def run(run_id: str = RUN_ID, *, include_low_budget: bool = True) -> Path:
-    if not run_id.startswith("run-") or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
-        raise ValueError("run ID must start with run- and contain only letters, digits, dash or underscore")
-    output = ROOT / "studies" / STUDY_ID / "results" / run_id
-    create_output_directory(output)
-
+def _run_contents(output: Path, *, include_low_budget: bool):
     ablation, counts = _ablation_run001(output)
     (output / "run001_ablation_summary.json").write_text(json.dumps(ablation, indent=2, sort_keys=True) + "\n")
     algebraic = next(s for s in ablation["scenarios"] if s["scenario"] == "algebraic_background_contrast_degeneracy")
@@ -323,11 +381,15 @@ def run(run_id: str = RUN_ID, *, include_low_budget: bool = True) -> Path:
     (output / "near_zero_lrt_diagnostic.json").write_text(json.dumps(diag, indent=2, sort_keys=True) + "\n")
     low_budget = _low_budget_study(output) if include_low_budget else {
         "status": "not_run",
-        "reason": "run-002 exposed a line-search nonconvergence at the objective roundoff floor; frozen six-cell simulation deferred pending review",
+        "reason": "ablation-only requested; no low-budget synthetic observations generated",
     }
     (output / "low_budget_summary.json").write_text(json.dumps(low_budget, indent=2, sort_keys=True) + "\n")
 
-    config = {
+    return ablation,counts
+
+
+def _configuration(run_id,include_low_budget):
+    return {
         "study_id": STUDY_ID, "run_id": run_id,
         "source_development_run": "adaptive-prototype-001/run-001",
         "low_budget_seed_bases": {"null_calibration": CAL_SEED_BASE, "evaluation": EVAL_SEED_BASE},
@@ -341,42 +403,89 @@ def run(run_id: str = RUN_ID, *, include_low_budget: bool = True) -> Path:
                              "path_fraction_left_right_other": [0.4, 0.4, 0.2]},
         "geant4_invoked": False,
         "all_data_synthetic_or_reanalysis": True,
-        "low_budget_scenarios_executed": include_low_budget,
-        "low_budget_deferral_reason": None if include_low_budget else low_budget["reason"],
+        "low_budget_scenarios_requested": include_low_budget,
+        "execution_status_file":"run_state.json",
+        "seed_schedule":dict(stratum_or_scenario_stride=1_000_000,calibration_trial_stride=1,
+                             evaluation_trial_stride=10,validation_offset=1,
+                             group_order=["left","right","other"]),
+        "numerical_gate":dict(kkt_tolerance=1e-6,max_iterations=500,objective_absolute_budget=1e-8,
+            objective_eps_factor=512,require_all_calibration_fits_certified=True,
+            original_raw_lrt_used_for_decisions=True,stable_lrt_is_diagnostic=True,
+            allowance_is_rigorous_bound=False),
         "thresholds_not_tuned_from_evaluation": True,
     }
-    (output / "config.json").write_text(json.dumps(config, indent=2, sort_keys=True) + "\n")
 
-    script = Path(__file__).resolve()
-    source_paths = [script, ROOT / "studies/adaptive_audit_analysis.py",
+
+def _source_paths():
+    return [Path(__file__).resolve(), ROOT / "studies/adaptive_audit_analysis.py",
                     ROOT / "studies/run_adaptive_split_merge.py",
+                    ROOT / "studies/low_budget_execution_gate.py",
                     ROOT / "src/sci_method/forward_model.py",
-                    ROOT / "src/sci_method/split_merge.py"]
-    snap = output / "source_snapshot"
-    snap.mkdir()
-    source_hashes = {}
-    for source in source_paths:
-        shutil.copyfile(source, snap / source.name)
-        source_hashes[source.relative_to(REPO).as_posix()] = _sha256(source)
-    result_hashes = {p.relative_to(output).as_posix(): _sha256(p)
-                     for p in sorted(output.rglob("*")) if p.is_file() and p.name != "evidence.json"}
+                    ROOT / "src/sci_method/identifiability.py",
+                    ROOT / "src/sci_method/split_merge.py",
+                    ROOT / "src/sci_method/covariance_optimizer.py",
+                    ROOT / "src/sci_method/study_io.py",
+                    ROOT / "ADAPTIVE_AUDIT_FIX_PLAN.md",
+                    ROOT / "LOW_BUDGET_EXECUTION_GATE_PLAN.md"]
+
+
+def _git_text(*args):
     try:
-        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
-    except subprocess.CalledProcessError:
-        commit = "unknown"
-    evidence = {
-        "run_id": run_id, "source_commit": commit,
-        "source_file_sha256": source_hashes,
-        "run001_csv_sha256": ablation["source_csv_sha256"],
-        "run001_ablation_rows": counts["run001_ablation_rows"],
-        "result_file_sha256": result_hashes,
-        "python_version": platform.python_version(), "numpy_version": np.__version__,
-        "command": f"PYTHONPATH=sci_method/src python3 sci_method/studies/run_adaptive_audit_scenarios.py --run-id {run_id}",
-        "geant4_invoked": False,
-        "calibration_and_evaluation_seeds_disjoint": True,
-        "truth_access": "Synthetic truth is used by generation and post-decision evaluation only; the decision rule consumes likelihood/Fisher/evidence quantities.",
-    }
-    (output / "evidence.json").write_text(json.dumps(evidence, indent=2, sort_keys=True) + "\n")
+        return subprocess.check_output(["git",*args],cwd=REPO,text=True).strip()
+    except (subprocess.CalledProcessError,FileNotFoundError):
+        return "unavailable"
+
+
+def _output_path(run_id):
+    return ROOT/"studies"/STUDY_ID/"results"/run_id
+
+
+def run(run_id: str = RUN_ID, *, include_low_budget: bool = True) -> Path:
+    if not run_id.startswith("run-") or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
+        raise ValueError("run ID must start with run- and contain only letters, digits, dash or underscore")
+    output=_output_path(run_id)
+    create_output_directory(output)  # Outside try: never alter an existing run.
+    started=datetime.now(timezone.utc).isoformat()
+    state=dict(run_id=run_id,status="running",started_utc=started,
+               low_budget_requested=include_low_budget,study_body_completed=False,geant4_invoked=False)
+    evidence=dict(run_id=run_id,source_commit=_git_text("rev-parse","HEAD"),
+        branch=_git_text("branch","--show-current"),source_file_sha256={},
+        python_version=platform.python_version(),numpy_version=np.__version__,
+        command=f"PYTHONPATH=sci_method/src {sys.executable} sci_method/studies/run_adaptive_audit_scenarios.py --run-id {run_id}"+("" if include_low_budget else " --ablation-only"),
+        actual_argv=sys.argv,geant4_invoked=False,calibration_and_evaluation_seeds_disjoint=True,
+        truth_access="Synthetic truth is used only by generation/post-decision evaluation; the numerical gate reads observations and likelihood model only.")
+    try:
+        write_json(output/"config.json",_configuration(run_id,include_low_budget))
+        write_json(output/"run_state.json",state)
+        write_json(output/"environment.json",dict(python=sys.version,numpy=np.__version__,
+            platform=platform.platform(),machine=platform.machine(),
+            numpy_build_configuration=getattr(np.__config__,"CONFIG",None)))
+        snap=output/"source_snapshot";snap.mkdir()
+        for source in _source_paths():
+            shutil.copyfile(source,snap/source.name)
+            evidence["source_file_sha256"][source.relative_to(REPO).as_posix()]=_sha256(source)
+        historical=ROOT/"studies/adaptive-prototype-001/results/run-001/trial_metrics.csv"
+        evidence["run001_csv_sha256"]=_sha256(historical)
+        evidence["uncommitted_source_diff_sha256"]=hashlib.sha256(_git_text("diff","HEAD","--",*[str(p.relative_to(REPO)) for p in _source_paths()]).encode()).hexdigest()
+        # A startup manifest exists even if work is subsequently interrupted.
+        write_json(output/"evidence.json",evidence)
+        _,counts=_run_contents(output,include_low_budget=include_low_budget)
+        evidence["run001_ablation_rows"]=counts["run001_ablation_rows"]
+        state.update(status="completed",study_body_completed=True)
+    except BaseException as exc:
+        state.update(status="aborted",exception_type=type(exc).__name__,exception_message=str(exc))
+        failure=dict(exception_type=type(exc).__name__,message=str(exc),traceback=traceback.format_exc())
+        if isinstance(exc,ExecutionGateError):
+            failure.update(code=exc.code,context=exc.context,details=exc.details)
+        write_json(output/"failure.json",failure)
+        raise
+    finally:
+        state["finished_utc"]=datetime.now(timezone.utc).isoformat()
+        write_json(output/"run_state.json",state)
+        evidence["execution_status"]=state["status"]
+        evidence["result_file_sha256"]={p.relative_to(output).as_posix():_sha256(p)
+            for p in sorted(output.rglob("*")) if p.is_file() and p!=output/"evidence.json"}
+        write_json(output/"evidence.json",evidence)
     return output
 
 

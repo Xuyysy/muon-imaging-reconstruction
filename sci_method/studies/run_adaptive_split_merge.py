@@ -642,6 +642,7 @@ def run_study(run_id: str = RUN_ID, calibration_replicates: int = CALIBRATION_RE
     source_paths = [script_path, ROOT / "src/sci_method/forward_model.py",
                     ROOT / "src/sci_method/identifiability.py",
                     ROOT / "src/sci_method/split_merge.py",
+                    ROOT / "src/sci_method/covariance_optimizer.py",
                     ROOT / "src/sci_method/study_io.py"]
     snapshots = output / "source_snapshot"
     snapshots.mkdir()
