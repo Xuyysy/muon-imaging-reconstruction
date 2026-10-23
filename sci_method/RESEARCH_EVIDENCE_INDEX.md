@@ -81,3 +81,9 @@
 - 新算法后续的每个 study 应位于 `sci_method/studies/<study-id>/`，各自保存协议、配置、输入哈希、代码版本、物理与分析随机流、复现命令、日志、结果和失败记录。
 - 论文图必须链接其生成脚本、study ID、源数值表与 `evidence.json`；没有 evidence 元数据的图不得用作正式定量主结论。
 - 原始输入仍保持 `muon_analysis/` 唯一存放，不复制到 SCI 子目录；对共享 CSV 只读。
+
+## 10. ML方向可行性案头审查（2026-10-23）
+
+| Study | 路径 | 证据范围与决策角色 |
+|---|---|---|
+| 独立重新选题审查 | [`studies/ml-direction-feasibility-001/README.md`](studies/ml-direction-feasibility-001/README.md)；文献矩阵、资产/数据审查、决策、最小PoC及溯源记录均在该目录 | 基于`809fe42`，只读既有算法/资料和公开文献；推荐有上限的小规模B2可信学习探索，以MAP＋同审查/ICAR为对照，备选为信息/分辨率界限研究。没有训练、生成数据、Geant4或六场景执行；尚未正式改变主线或证明创新。新文档指出旧诊断计划μ⁻ PDG符号和T/p方差比较歧义，历史记录不覆盖。 |
