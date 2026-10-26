@@ -87,3 +87,9 @@
 | Study | 路径 | 证据范围与决策角色 |
 |---|---|---|
 | 独立重新选题审查 | [`studies/ml-direction-feasibility-001/README.md`](studies/ml-direction-feasibility-001/README.md)；文献矩阵、资产/数据审查、决策、最小PoC及溯源记录均在该目录 | 基于`809fe42`，只读既有算法/资料和公开文献；推荐有上限的小规模B2可信学习探索，以MAP＋同审查/ICAR为对照，备选为信息/分辨率界限研究。没有训练、生成数据、Geant4或六场景执行；尚未正式改变主线或证明创新。新文档指出旧诊断计划μ⁻ PDG符号和T/p方差比较歧义，历史记录不覆盖。 |
+
+## 11. B2阶段0数学与方法学审查（2026-10-26）
+
+| Study | 路径 | 证据范围与决策角色 |
+|---|---|---|
+| 可信ML的独立增量审查 | [`studies/ml-credibility-stage0-001/README.md`](studies/ml-credibility-stage0-001/README.md)；解析报告、A/B/C比较、待批计划及确定性run均在该目录 | 基于`f92eaba`。固定候选无关审查器对CNN/MAP结论不变；FE四深度层精确等分布反例；完整hit covariance、联合Fisher/nuisance和校准/样本量有限和检查。侧截断总效应未达原诊断预期，失败保留。建议B：暂不训练，先解决一般结构检验与选择保护、真实ML增量/新颖性缺口。只新增审查工具和文档，既有算法、论文及结果不改；无训练/随机观测生成/Geant4/六场景运行。 |
