@@ -90,6 +90,6 @@ F是白化协方差导数的Gram矩阵；SPD C下，其零空间对应零协方�
 
 ## 6. 复现与证据边界
 
-[audit_checks.py](audit_checks.py)使用Fraction独立矩积分对照只读旧kernel，用4个手工固定残差向量检查NLL等式，不从Gaussian分布抽样。全矩阵和规划有限和输出在[results/run-001/checks.json](results/run-001/checks.json)；来源/环境/hash由evidence.json和source_snapshot记录。现有模块未修改。
+[audit_checks.py](audit_checks.py)使用Fraction独立矩积分对照只读旧kernel，用4个手工固定残差向量检查NLL等式，不从Gaussian分布抽样。全矩阵和规划有限和canonical输出在[results/run-002/checks.json](results/run-002/checks.json)；来源/环境/hash由evidence.json和source_snapshot记录。run-001数值相同、原样保留；run-002只修正归档认证检查。现有科学模块未修改。
 
 本反例是已知路径、固定动量、组间散射、独立Gaussian hit误差的**模型内证明**。不能据此断言Geant4中这两个物体所有观测严格同分布，也不能把数值rank当真实仪器深度分辨率。

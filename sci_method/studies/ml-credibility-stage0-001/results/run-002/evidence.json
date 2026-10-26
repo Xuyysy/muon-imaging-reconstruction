@@ -1,0 +1,15 @@
+{
+  "scope": "deterministic audit only",
+  "sha256": {
+    "certification_checks.json": "486b912d7e6fa9d0674b1b0e3a8d0689e769662b64b3a255fafcfddbaca05af3",
+    "checks.json": "c86da475ca5d051e925ea70738205a1772b1fb1ae7e199f7a543496eeff17fcc",
+    "config.json": "af46029816859d4a3186dc9ae445ffa67ae1fb83c33dfaa2da3d46fcfb771426",
+    "input_sources.json": "cbc9ec190a8e349e87b6b60ed09e8fd6b6bb8a1958fe24bf0caa6f4966364e66",
+    "run_state.json": "c31a80d826d7ffc7f1a0974cb59d2abcc8d94a6faba42d1d2d0cad2143394e83",
+    "source_snapshot/CHECK_SPEC.md": "a7f4a92b3802eed1efd2067ea08df288495f90a39841b747e8df154295a20971",
+    "source_snapshot/audit_checks.py": "efc3000153969e79c6a83e31d064947df4a0766d4ae451837508507559657606",
+    "source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "source_snapshot/identifiability.py": "7fc1bd69da3d863ae90e78650ef8423f7e45c915ad795e3549e4b7df4bb39592",
+    "source_snapshot/test_audit_checks.py": "b04ef6f1829800e49f5d3d3180e20979b1b2d2f46b37aebcf05fcd618240db6a"
+  }
+}

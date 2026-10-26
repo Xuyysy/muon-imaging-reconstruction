@@ -1,0 +1,8 @@
+{
+  "exact_moment_null": true,
+  "vertical_kernel_matches_exact": true,
+  "vertical_covariance_equal": true,
+  "tilted_full_kernel_matches_exact": true,
+  "tilted_full_covariance_equal": true,
+  "clipping_status_consistent": true
+}

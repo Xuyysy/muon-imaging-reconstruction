@@ -1,0 +1,8 @@
+{
+  "status": "completed_with_failed_effect_expectation",
+  "numerical_identities": "passed",
+  "failed_diagnostics": [
+    "clipped total covariance change > 0.001: NOT MET"
+  ],
+  "scope": "deterministic numerical checks, not performance validation"
+}

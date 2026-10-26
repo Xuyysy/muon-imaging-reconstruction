@@ -1,0 +1,10 @@
+{
+  "role": "prior review documents, read-only; no sampled data",
+  "sha256": {
+    "sci_method/studies/ml-direction-feasibility-001/README.md": "6c74142f94f71388001151a1fd8e47179e8cdee5afe6dfce8bb07ff56d6728cc",
+    "sci_method/studies/ml-direction-feasibility-001/LITERATURE_REVIEW.md": "7eb53af0d2087df923d83d263fb74f4bc96177ad99c3b6a0ee83de8ff48fb5f9",
+    "sci_method/studies/ml-direction-feasibility-001/RESEARCH_DECISION.md": "b26fe95efb8be24d7f14d8b574183be6ad96824d164c43ac4e9a4f2613b9d80c",
+    "sci_method/studies/ml-direction-feasibility-001/MINIMAL_POC_PLAN.md": "ed04e5cf38041fe07c86a37c6f5da7d2a4633fa384cfed934a0fa0a906ae04ac",
+    "sci_method/studies/ml-direction-feasibility-001/ASSETS_AND_DATA.md": "af656067e704287c742d596b56519394802e770b05b73d7cbf0e332922ccb81e"
+  }
+}

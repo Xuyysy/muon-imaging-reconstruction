@@ -24,11 +24,11 @@
 | [CHECK_SPEC.md](CHECK_SPEC.md) | 计算前声明的固定输入与数值判据，不是新正式实验协议 |
 | [TEST_HISTORY.md](TEST_HISTORY.md) | RED与原效应预期失败，保留原断言，不将绿色测试等同正结果 |
 | [audit_checks.py](audit_checks.py) / [test_audit_checks.py](test_audit_checks.py) | study-local确定性审查工具与轻量测试，不修改科学算法 |
-| [results/run-001/checks.json](results/run-001/checks.json) | 固定矩阵、数值结果和规划有限和；来源快照及哈希在同目录 |
-| [VERIFICATION.md](VERIFICATION.md) | 最终实际测试、边界核验和复现说明 |
+| [results/run-002/checks.json](results/run-002/checks.json) | canonical固定矩阵、数值结果和规划有限和；来源快照及哈希在同目录；run-001原样保留但归档状态检查较弱 |
+| [VERIFICATION.md](VERIFICATION.md) / [REVIEW_NOTES.md](REVIEW_NOTES.md) | 最终实际测试、边界核验、同级代码审查与复现说明 |
 | [上轮可行性资料](../ml-direction-feasibility-001/README.md) | 本轮输入，原样保留；其中固定审查器收益/512场景建议以本轮限定为准 |
 
-生成脚本关联`results/run-001/evidence.json`，无图像或新论文结果；没有将第三方全文上传。最后更新时间由本页日期及Git历史追踪。数值工具的`kernel_matches_exact`使用**完整深度积分**参考：全穿越应为true；裁切为false是参考不再适用，不是宣称生产积分错误。裁切另有独立材料变化27/676的解析核对。
+生成脚本关联`results/run-002/evidence.json`，无图像或新论文结果；没有将第三方全文上传。最后更新时间由本页日期及Git历史追踪。数值工具的`kernel_matches_exact`使用**完整深度积分**参考：全穿越应为true；裁切为false是参考不再适用，不是宣称生产积分错误。裁切另有独立材料变化27/676的解析核对。两个run数值相同；run-002仅加强归档认证，不重新选择参数或门槛。
 
 ## 边界与下一步
 

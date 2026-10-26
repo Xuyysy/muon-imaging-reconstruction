@@ -1,0 +1,44 @@
+{
+  "created_at_utc": "2026-10-26T07:15:23.455846+00:00",
+  "specification_date": "2026-10-25",
+  "z_mm": [
+    -400.0,
+    -300.0,
+    300.0,
+    400.0
+  ],
+  "layers_mm": [
+    [
+      -100,
+      -50
+    ],
+    [
+      -50,
+      0
+    ],
+    [
+      0,
+      50
+    ],
+    [
+      50,
+      100
+    ]
+  ],
+  "lambda_ref_mm_inv": 0.0001,
+  "sigma_hit_mm": 0.3,
+  "p_gev_c": 4.0,
+  "random_seed": null,
+  "randomness": "none; exact algebra and fixed matrices only",
+  "rounding_budget": "256*eps*max(1,norm_inf(reference))",
+  "git_commit": "262b743d429021493587c14f11883e52b95df2b8",
+  "git_status_before_snapshot": "?? sci_method/studies/ml-credibility-stage0-001/VERIFICATION.md\n?? sci_method/studies/ml-credibility-stage0-001/results/\n?? sci_method/studies/ml-credibility-stage0-001/verification/archive-check.json\n",
+  "command": [
+    "sci_method/studies/ml-credibility-stage0-001/audit_checks.py",
+    "--output",
+    "sci_method/studies/ml-credibility-stage0-001/results/run-002"
+  ],
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "numpy": "2.4.6",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O"
+}

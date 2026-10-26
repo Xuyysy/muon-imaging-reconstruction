@@ -1,0 +1,32 @@
+{
+  "runs": [
+    {
+      "run_id": "run-001",
+      "source_commit": "493dc96db2752281f675b8f9b571de283f5c1a3a",
+      "manifest_files_verified": 9,
+      "source_snapshots_verified_against_own_commit": 5,
+      "prior_document_hashes_verified": 5
+    },
+    {
+      "run_id": "run-002",
+      "source_commit": "262b743d429021493587c14f11883e52b95df2b8",
+      "manifest_files_verified": 10,
+      "source_snapshots_verified_against_own_commit": 5,
+      "prior_document_hashes_verified": 5
+    }
+  ],
+  "run_numeric_checks_byte_identical": true,
+  "canonical_certification_checks_all_pass": true,
+  "original_failed_effect_expectation_preserved": [
+    "clipped total covariance change > 0.001: NOT MET"
+  ],
+  "protected_baseline_files_unchanged": 1258,
+  "existing_file_edit_allowlist": [
+    "sci_method/RESEARCH_EVIDENCE_INDEX.md"
+  ],
+  "local_markdown_links_checked": 29,
+  "credential_signature_scan": "no matches; limited signature scan, not exhaustive privacy audit",
+  "files_considered": 37,
+  "largest_file_bytes": 15100,
+  "study_bytes": 177694
+}

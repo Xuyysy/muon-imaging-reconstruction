@@ -1,0 +1,38 @@
+{
+  "source_commit": "493dc96db2752281f675b8f9b571de283f5c1a3a",
+  "protected_baseline_tracked_files_unchanged": 1258,
+  "allowed_existing_edit": "sci_method/RESEARCH_EVIDENCE_INDEX.md (append-only entry)",
+  "archive_sha256_verified": 9,
+  "prior_document_sha256_verified": 5,
+  "source_snapshots_exact": 5,
+  "run_state": {
+    "status": "completed_with_failed_effect_expectation",
+    "numerical_identities": "passed",
+    "failed_diagnostics": [
+      "clipped total covariance change > 0.001: NOT MET"
+    ],
+    "scope": "deterministic numerical checks, not performance validation"
+  },
+  "numerical_summary": {
+    "vertical_rank": 3,
+    "vertical_covariance_abs_difference": 0.0,
+    "tilted_full_covariance_abs_difference": 0.0,
+    "clipped_rank": 2,
+    "clipped_relative_total_difference": 6.84674866339067e-05,
+    "clipped_relative_material_difference": 0.03994082840234621,
+    "planning": {
+      "zero_failures_upper95_n64": 0.045729702330762456,
+      "zero_failures_upper95_n128": 0.023132405251746757,
+      "probability_zero_at_risk05_n64": 0.03752413921111602,
+      "conformal_n64_order": 62,
+      "conformal_continuous_marginal_miscoverage": 0.046153846153846156,
+      "unadjusted_min_of_20_uniform_pvalues_fwer": 0.6415140775914581,
+      "paired_power_n128_difference05": {
+        "0.05": 0.6216116526846567,
+        "0.1": 0.333913067498533,
+        "0.25": 0.15332929064279707,
+        "0.5": 0.1025048166745829
+      }
+    }
+  }
+}

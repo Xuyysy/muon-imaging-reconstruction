@@ -1,0 +1,16 @@
+{
+  "status": "completed_with_failed_effect_expectation",
+  "numerical_identities": "passed",
+  "certified_checks": [
+    "exact_moment_null",
+    "vertical_kernel_matches_exact",
+    "vertical_covariance_equal",
+    "tilted_full_kernel_matches_exact",
+    "tilted_full_covariance_equal",
+    "clipping_status_consistent"
+  ],
+  "failed_diagnostics": [
+    "clipped total covariance change > 0.001: NOT MET"
+  ],
+  "scope": "deterministic numerical checks, not performance validation"
+}
