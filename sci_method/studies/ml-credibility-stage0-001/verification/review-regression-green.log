@@ -1,0 +1,19 @@
+test_clipping_breaks_null_but_retains_failed_effect_expectation (test_audit_checks.StageZeroTests.test_clipping_breaks_null_but_retains_failed_effect_expectation) ... ok
+test_correlated_detector_block_is_not_diagonalized (test_audit_checks.StageZeroTests.test_correlated_detector_block_is_not_diagonalized) ... ok
+test_existing_result_directory_is_not_overwritten (test_audit_checks.StageZeroTests.test_existing_result_directory_is_not_overwritten) ... ok
+test_full_crossing_tilt_does_not_remove_exact_null (test_audit_checks.StageZeroTests.test_full_crossing_tilt_does_not_remove_exact_null) ... ok
+test_independent_calibration_resolves_only_added_nuisance_not_intrinsic_null (test_audit_checks.StageZeroTests.test_independent_calibration_resolves_only_added_nuisance_not_intrinsic_null) ... ok
+test_joint_fisher_flags_depth_contrast_unestimable (test_audit_checks.StageZeroTests.test_joint_fisher_flags_depth_contrast_unestimable) ... ok
+test_mcnemar_exact_power_has_independent_small_case (test_audit_checks.StageZeroTests.test_mcnemar_exact_power_has_independent_small_case) ... ok
+test_moments_match_hand_derived_rational_values (test_audit_checks.StageZeroTests.test_moments_match_hand_derived_rational_values) ... ok
+test_prior_changes_posterior_precision_not_data_null (test_audit_checks.StageZeroTests.test_prior_changes_posterior_precision_not_data_null) ... ok
+test_probability_validation_rejects_impossible_discordance (test_audit_checks.StageZeroTests.test_probability_validation_rejects_impossible_discordance) ... ok
+test_runner_completion_status_is_derived_not_hardcoded (test_audit_checks.StageZeroTests.test_runner_completion_status_is_derived_not_hardcoded) ... ok
+test_runner_rejects_kernel_scale_regression_and_preserves_failure (test_audit_checks.StageZeroTests.test_runner_rejects_kernel_scale_regression_and_preserves_failure) ... ok
+test_two_positive_fields_have_equal_covariance_but_different_depth_contrast (test_audit_checks.StageZeroTests.test_two_positive_fields_have_equal_covariance_but_different_depth_contrast) ... ok
+test_zero_failure_upper_bound_is_not_zero (test_audit_checks.StageZeroTests.test_zero_failure_upper_bound_is_not_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.218s
+
+OK

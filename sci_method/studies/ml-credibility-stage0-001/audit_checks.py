@@ -192,12 +192,25 @@ def run(output):
             shutil.copy2(p,snapshot/p.name)
         report = analyze()
         dump('checks.json',report)
-        # 这里只认证规格内的代数恒等式；不认证ML效果或统计coverage。
-        if not (report['vertical']['covariance_equal'] and report['tilted_full']['covariance_equal']):
-            raise AssertionError('covariance identity exceeded declared rounding budget')
-        dump('run_state.json',{'status':'completed_with_failed_effect_expectation',
+        # 仅认证下列显式恒等式；不把两个等式误当全部独立核检查通过。
+        clipped = report['tilted_clipped']
+        checks = {'exact_moment_null':all(sum(x*v for x,v in zip(row,(-1,3,-3,1)))==0
+                                         for row in exact_moments()),
+                  **{f'{path}_{key}':report[path][key]
+                     for path in ('vertical','tilted_full')
+                     for key in ('kernel_matches_exact','covariance_equal')},
+                  'clipping_status_consistent':clipped['initial_clipping_threshold_met']==(
+                      clipped['relative_covariance_change']>clipped['initial_clipping_threshold'])}
+        dump('certification_checks.json',checks)
+        if not all(checks.values()):
+            raise AssertionError('declared mathematical checks failed: '+str(
+                [name for name,passed in checks.items() if not passed]))
+        failed = ([] if clipped['initial_clipping_threshold_met'] else [
+            f"clipped total covariance change > {clipped['initial_clipping_threshold']}: NOT MET"])
+        dump('run_state.json',{'status':'completed_with_failed_effect_expectation' if failed else 'completed',
              'numerical_identities':'passed',
-             'failed_diagnostics':['clipped total covariance change > 0.001: NOT MET'],
+             'certified_checks':list(checks),
+             'failed_diagnostics':failed,
              'scope':'deterministic numerical checks, not performance validation'})
     except BaseException as exc:
         dump('failure.json',{'type':type(exc).__name__,'message':str(exc),'traceback':traceback.format_exc()})

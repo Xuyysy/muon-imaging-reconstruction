@@ -1,8 +1,10 @@
 """确定性审查测试：测试工具边界与独立解析期望，不训练/抽样。"""
 from fractions import Fraction
 from pathlib import Path
+import json
 import tempfile
 import unittest
+from unittest.mock import patch
 import numpy as np
 
 import audit_checks as audit
@@ -80,6 +82,32 @@ class StageZeroTests(unittest.TestCase):
             with self.assertRaises(FileExistsError):
                 audit.run(Path(tmp))
             self.assertEqual(before, set(Path(tmp).iterdir()))
+
+    def test_runner_rejects_kernel_scale_regression_and_preserves_failure(self):
+        original = audit.path_kernels
+        # 故障注入：共同核放大仍保留covariance等式，但应被独立解析核检查拒绝。
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)/'fault'
+            with patch.object(audit, 'path_kernels', side_effect=lambda *a,**k:100*original(*a,**k)):
+                with self.assertRaises(AssertionError):
+                    audit.run(out)
+            self.assertEqual(json.loads((out/'run_state.json').read_text())['status'], 'failed')
+            self.assertTrue((out/'failure.json').exists())
+            self.assertTrue((out/'checks.json').exists())
+            self.assertTrue((out/'evidence.json').exists())
+
+    def test_runner_completion_status_is_derived_not_hardcoded(self):
+        # 仅状态机夹具，不是新物理数值结果，也不改实际inputs/threshold。
+        report = audit.analyze()
+        report['tilted_clipped']['relative_covariance_change'] = .002
+        report['tilted_clipped']['initial_clipping_threshold_met'] = True
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)/'status-fixture'
+            with patch.object(audit, 'analyze', return_value=report):
+                audit.run(out)
+            state = json.loads((out/'run_state.json').read_text())
+            self.assertEqual(state['status'], 'completed')
+            self.assertEqual(state['failed_diagnostics'], [])
 
 
 if __name__ == '__main__':

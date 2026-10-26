@@ -35,3 +35,11 @@ FAILED (failures=1)
 实现检查还将旧NLL接口调用保持为原单位：原kernel(mm³)×λ(mm^-1)，不把缩放后的kernel和u误标成旧API的单位；这不改变其数值协方差或已有算法。
 
 尝试用tee保存首次失败时遇到worktree写权限限制（`Operation not permitted`），没有生成声称完整的原始log；因此这里明确标为终端摘录。最终测试/正式确定性run的日志通过授权执行保存，既有结果未动。
+
+## 3. 同级只读审查后的归档认证修复
+
+源码493dc96的数值没有被发现错误，但runner只检查两个covariance等式，就写出泛称通过的状态；且裁切效应未达状态写死。独立核整体错乘100仍保留等式，会被旧runner错误认证。
+
+先增加两项回归，保存[review-regression-red.log](verification/review-regression-red.log)：14项中12通过、2失败，分别为“应中止却未抛异常”和“状态应由结果派生却仍写死失败”。这是工具故障注入，不是新物理场景。随后最小修复：独立解析核、精确矩和covariance检查逐项存档，任何失败保留报告/异常/哈希后中止；效应状态按原0.001判据计算。
+
+[review-regression-green.log](verification/review-regression-green.log)记录14/14通过。原run-001仍保留旧源码与原状态，不覆盖；修复后使用新run-002。原总效应预期仍失败，未改变任何输入、门槛或科学结论。
