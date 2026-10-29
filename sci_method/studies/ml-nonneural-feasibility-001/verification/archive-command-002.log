@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "replayed_seed_parts": 1536,
+  "verified_trial_rows": 6144,
+  "later_test_only_source_changes": [
+    "sci_method/studies/ml-nonneural-feasibility-001/test_diagnostics.py"
+  ],
+  "archive_files_verified": 18,
+  "baseline": "b57ba0e8bbe2c930a7b473a34a0d90901708bda1",
+  "changed_paths": [
+    "sci_method/studies/ml-nonneural-feasibility-001/DIAGNOSTIC_PLAN.md",
+    "sci_method/studies/ml-nonneural-feasibility-001/budget_run.py",
+    "sci_method/studies/ml-nonneural-feasibility-001/diagnostics.py",
+    "sci_method/studies/ml-nonneural-feasibility-001/test_diagnostics.py",
+    "sci_method/studies/ml-nonneural-feasibility-001/verification/tests-green-001.json",
+    "sci_method/studies/ml-nonneural-feasibility-001/verification/tests-green-001.log",
+    "sci_method/studies/ml-nonneural-feasibility-001/verification/tests-red-001.json",
+    "sci_method/studies/ml-nonneural-feasibility-001/verification/tests-red-001.log"
+  ],
+  "protected_historical_paths_unchanged": true,
+  "timing": {
+    "fixed": {
+      "median_seconds": 0.0,
+      "min_seconds": 0.0,
+      "max_seconds": 5e-06,
+      "measurements": 60
+    },
+    "map": {
+      "median_seconds": 0.0007740000000000001,
+      "min_seconds": 0.000741,
+      "max_seconds": 0.00263,
+      "measurements": 60
+    },
+    "score": {
+      "median_seconds": 7.000000000000001e-06,
+      "min_seconds": 6e-06,
+      "max_seconds": 2.7000000000000002e-05,
+      "measurements": 60
+    },
+    "fisher": {
+      "median_seconds": 3e-06,
+      "min_seconds": 2.0000000000000003e-06,
+      "max_seconds": 9e-06,
+      "measurements": 60
+    },
+    "audit_all8": {
+      "median_seconds": 4.3e-05,
+      "min_seconds": 4e-05,
+      "max_seconds": 0.000143,
+      "measurements": 60
+    }
+  },
+  "config_sha256": "2ba60091b63e2a94ee2b01d41cc4a5ab1a0d0afb19837671198ec7a18c45f2a6",
+  "evidence_sha256": "a088251341b3276e136557b51668e0a4033b695f80d773cd0897f12e5f2094fa",
+  "observations_sha256": "9f31617fdb8030983f8c4493227094024ba24b215f7178cb6b7b9981eca877cf",
+  "review_source_sha256": "41a2d05d44e3ebd0e4b850d3a5b033bfaa15d80715e1c04b489fe12a26f58268",
+  "classification": "exploratory output replay and timing audit; not independent research validation"
+}

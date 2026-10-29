@@ -1,0 +1,23 @@
+{
+  "code_commit": "82ae010c399135934b743c2a179e11d3a734f570",
+  "sha256": {
+    "analytical_checks.json": "1c33382b8fa0f42f6a686c58e40526825bed6760ffbe5f431afc513ce1c72040",
+    "candidate_comparison.csv": "fb62f742bd5bdd479d2b43bde28fc6a45bfd3d98d295eae59aaf80058180a963",
+    "candidate_execution.json": "0d4358d681e74d518421db902247be53bdc0f4b29887c3476822b8e627efcd9e",
+    "candidate_summary.json": "6a7a2284598069f9c891f50e3c10aae602db331dc69f35830fc97a1a914b399e",
+    "config.json": "2ba60091b63e2a94ee2b01d41cc4a5ab1a0d0afb19837671198ec7a18c45f2a6",
+    "mode_energies.npz": "9f31617fdb8030983f8c4493227094024ba24b215f7178cb6b7b9981eca877cf",
+    "physical_inputs.json": "be2861080f0c4f1a0898fe6e37a345966a3c511b596f206e90b586796673ae6b",
+    "seed_keys.json": "190c1871468d2e03df74dc92bec63fd9614b3221e6a69080e2cea0d052ec075a",
+    "solver_cost.json": "9d2ccf079525df4f736dd8c70254494cb0e718b2ded4a6005343e84b0c685a9f",
+    "source_snapshot/DIAGNOSTIC_PLAN.md": "b4b14eec5a056e8578d0cf6ae509f71e618dcc4e06f8dfc4b228a009f031bd90",
+    "source_snapshot/budget_run.py": "ce0fa022d899377045c0851cce0c45c2bfeedafa7302eef4514490f1d0180dfb",
+    "source_snapshot/covariance_optimizer.py": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f",
+    "source_snapshot/diagnostics.py": "b3bfea10e196cf0bd44691f848be5cc6efd6b7bc609ca4f52aa47051946a7979",
+    "source_snapshot/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "source_snapshot/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "source_snapshot/test_diagnostics.py": "0838b4e38a9cff74b8848403bb7faf6fa3957031417d2ffcc5a67ff3a317327a",
+    "state.json": "41dd321962565ad4bcf756abadbcd2aad1f95950237e3d1df5cd41a84eda10b7",
+    "trial_records.json": "b83f85ad792342fcfd51d99ed33f4c3263b2fa2789514b07077fbe3523db1f15"
+  }
+}

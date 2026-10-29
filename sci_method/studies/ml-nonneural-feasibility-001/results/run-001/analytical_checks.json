@@ -1,0 +1,129 @@
+{
+  "0.3": {
+    "a": [
+      0.01712592592592513,
+      0.6422222222222207
+    ],
+    "Q_local_efficiency_vs_score": 0.5429755657969867,
+    "tail_comparison": [
+      {
+        "n": 2,
+        "u": 0.0,
+        "Q_power": 0.006194520600876863,
+        "LR_simple_alt3_power": 0.0010801348198335868
+      },
+      {
+        "n": 2,
+        "u": 1.0,
+        "Q_power": 0.025000000000000043,
+        "LR_simple_alt3_power": 0.024999999999999984
+      },
+      {
+        "n": 2,
+        "u": 1.4,
+        "Q_power": 0.039767237403099676,
+        "LR_simple_alt3_power": 0.047035752086165256
+      },
+      {
+        "n": 2,
+        "u": 3.0,
+        "Q_power": 0.1363521249267273,
+        "LR_simple_alt3_power": 0.18124871367696002
+      },
+      {
+        "n": 20,
+        "u": 0.0,
+        "Q_power": 0.00023621141153602006,
+        "LR_simple_alt3_power": 1.0763514324583399e-06
+      },
+      {
+        "n": 20,
+        "u": 1.0,
+        "Q_power": 0.025000000000000078,
+        "LR_simple_alt3_power": 0.02499999999999994
+      },
+      {
+        "n": 20,
+        "u": 1.4,
+        "Q_power": 0.07818809629875567,
+        "LR_simple_alt3_power": 0.10844609398028808
+      },
+      {
+        "n": 20,
+        "u": 3.0,
+        "Q_power": 0.6081731215664206,
+        "LR_simple_alt3_power": 0.7653555941331927
+      }
+    ]
+  },
+  "1.0": {
+    "a": [
+      0.0015413333333331662,
+      0.05779999999999955
+    ],
+    "Q_local_efficiency_vs_score": 0.5281422652950525,
+    "tail_comparison": [
+      {
+        "n": 2,
+        "u": 0.0,
+        "Q_power": 0.020958749111372837,
+        "LR_simple_alt3_power": 0.019003819866704297
+      },
+      {
+        "n": 2,
+        "u": 1.0,
+        "Q_power": 0.025000000000000043,
+        "LR_simple_alt3_power": 0.024999999999999953
+      },
+      {
+        "n": 2,
+        "u": 1.4,
+        "Q_power": 0.02676631033602602,
+        "LR_simple_alt3_power": 0.027653786243466018
+      },
+      {
+        "n": 2,
+        "u": 3.0,
+        "Q_power": 0.034696432253949916,
+        "LR_simple_alt3_power": 0.039671376567109486
+      },
+      {
+        "n": 20,
+        "u": 0.0,
+        "Q_power": 0.015436821922751538,
+        "LR_simple_alt3_power": 0.012212955114958752
+      },
+      {
+        "n": 20,
+        "u": 1.0,
+        "Q_power": 0.025000000000000078,
+        "LR_simple_alt3_power": 0.025000000000000036
+      },
+      {
+        "n": 20,
+        "u": 1.4,
+        "Q_power": 0.029910338135294846,
+        "LR_simple_alt3_power": 0.032174251009351
+      },
+      {
+        "n": 20,
+        "u": 3.0,
+        "Q_power": 0.056992848384232436,
+        "LR_simple_alt3_power": 0.07509350442319895
+      }
+    ]
+  },
+  "negative_controls": {
+    "depth_null_max_abs": 4.263256414560601e-14,
+    "rounding_budget": 4.753095102690471e-11,
+    "background_target_identical_derivatives": "algebraic non-identifiability; no p-values assigned",
+    "unobserved_kernel": "D=0 gives zero Fisher but Q noise test still has nominal size"
+  },
+  "exploratory_misspecification": {
+    "N": 40,
+    "relative_covariance_excess": 0.05,
+    "nominal_alpha": 0.025,
+    "true_null_rejection": 0.06735101674548237,
+    "limit_fixed_positive_excess_large_N": 1.0
+  }
+}

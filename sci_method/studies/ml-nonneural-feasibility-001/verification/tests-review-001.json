@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "sci_method/studies/ml-nonneural-feasibility-001",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cpu_limit": 120,
+  "state": "completed",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "wall_seconds": 0.14491358399391174,
+  "child_cpu_seconds": 0.098914
+}

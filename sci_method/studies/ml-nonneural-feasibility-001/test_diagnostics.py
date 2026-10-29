@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 from diagnostics import (chi2_sf_even, chi2_isf_even, pair_tail, map_mode,
                          propose, physical_modes, Q_pvalue, lr_weights,
-                         oracle_indices)
+                         oracle_indices, checked_tail, weighted_isf)
 
 
 class DiagnosticTests(unittest.TestCase):
@@ -89,6 +89,30 @@ class DiagnosticTests(unittest.TestCase):
         self.assertTrue(np.all((1+4*a)/(1+a)==1))
         # Q still rejects noise at its nominal size: size is not material power.
         self.assertAlmostEqual(pair_tail(chi2_isf_even(.025,8),2,[1,1]),.025,places=12)
+
+    def test_noncommuting_psd_order(self):
+        c0=np.array([[2.,.5],[.5,1.]])
+        d=np.array([[1.,1.],[1.,1.]])
+        self.assertGreater(np.max(abs(c0@d-d@c0)),0)
+        L=np.linalg.cholesky(c0+d)
+        W=np.linalg.solve(L,np.eye(2))
+        b=W@(c0+.4*d)@W.T
+        self.assertGreater(np.linalg.eigvalsh(b).min(),0)
+        self.assertLessEqual(np.linalg.eigvalsh(b).max(),1+1e-14)
+
+    def test_mode_energy_matches_full_physical_Q(self):
+        c0,d,a,W=physical_modes(.3)
+        y=np.arange(20,dtype=float).reshape(5,4)/7
+        x=y[:,:2]@W.T; z=y[:,2:]@W.T
+        modes=np.sum(x*x+z*z,axis=0)
+        direct=np.einsum('ia,ab,ib->',y,np.linalg.inv(c0+d),y)
+        self.assertAlmostEqual(float(np.sum(modes/(1+a))),direct,places=10)
+
+    def test_classic_LR_at_fixed_simple_alternative(self):
+        _,_,a,_=physical_modes(.3); w=lr_weights(a); b=(1+3*a)/(1+a)
+        qpower=checked_tail(chi2_isf_even(.025,80),20,b)
+        lrpower=checked_tail(weighted_isf(.025,20,*w),20,w*b)
+        self.assertGreater(lrpower,qpower)
 
 
 if __name__ == '__main__': unittest.main()

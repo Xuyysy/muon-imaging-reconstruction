@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python3",
+    "sci_method/studies/ml-nonneural-feasibility-001/review_checks.py",
+    "--tag",
+    "archive-review-002"
+  ],
+  "cpu_limit": 120,
+  "state": "completed",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "wall_seconds": 3.958350458065979,
+  "child_cpu_seconds": 3.814257
+}

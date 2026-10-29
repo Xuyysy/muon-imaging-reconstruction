@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/xuyaoyang/.codex/worktrees/sci-ml-nonneural-feasibility/geant4-test/sci_method/studies/ml-nonneural-feasibility-001/review_checks.py", line 92, in <module>
+    result=run_review()
+  File "/Users/xuyaoyang/.codex/worktrees/sci-ml-nonneural-feasibility/geant4-test/sci_method/studies/ml-nonneural-feasibility-001/review_checks.py", line 21, in run_review
+    if sha(ROOT/path)!=digest: raise AssertionError('input/source changed '+path)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: input/source changed sci_method/studies/ml-nonneural-feasibility-001/test_diagnostics.py

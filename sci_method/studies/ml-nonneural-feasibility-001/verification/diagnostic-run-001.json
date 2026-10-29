@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python3",
+    "sci_method/studies/ml-nonneural-feasibility-001/diagnostics.py",
+    "--run-id",
+    "run-001"
+  ],
+  "cpu_limit": 300,
+  "state": "completed",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "wall_seconds": 1.9134430000558496,
+  "child_cpu_seconds": 1.817567
+}

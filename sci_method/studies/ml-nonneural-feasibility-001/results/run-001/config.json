@@ -1,0 +1,137 @@
+{
+  "classification": "predeclared diagnostic; analytical LR comparison exploratory",
+  "baseline": "b57ba0e8bbe2c930a7b473a34a0d90901708bda1",
+  "code_commit": "82ae010c399135934b743c2a179e11d3a734f570",
+  "git_status": "?? sci_method/studies/ml-nonneural-feasibility-001/results/\n?? sci_method/studies/ml-nonneural-feasibility-001/verification/diagnostic-run-001.json\n?? sci_method/studies/ml-nonneural-feasibility-001/verification/diagnostic-run-001.log\n",
+  "command": [
+    "sci_method/studies/ml-nonneural-feasibility-001/diagnostics.py",
+    "--run-id",
+    "run-001"
+  ],
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "numpy": "2.4.6",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "p_gev_c": 4.0,
+  "lambda_ref_mm_inv": 0.01,
+  "u_star": 1.0,
+  "alpha": 0.05,
+  "K": 2,
+  "counts": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40
+  ],
+  "replicates": 128,
+  "scenes": [
+    [
+      "empty",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      0.3
+    ],
+    [
+      "uniform_boundary",
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      0.3
+    ],
+    [
+      "two_enhancements",
+      [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        4
+      ],
+      0.3
+    ],
+    [
+      "weak_enhancements",
+      [
+        1,
+        1,
+        1.4,
+        1,
+        1,
+        1.4,
+        1,
+        1
+      ],
+      0.3
+    ],
+    [
+      "coverage_challenge",
+      [
+        4,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0
+      ],
+      0.3
+    ],
+    [
+      "high_hit_error",
+      [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        4
+      ],
+      1.0
+    ]
+  ],
+  "rng": "PCG64; SeedSequence([20261029,scene,replicate,part])",
+  "sources": {
+    "sci_method/studies/ml-nonneural-feasibility-001/DIAGNOSTIC_PLAN.md": "b4b14eec5a056e8578d0cf6ae509f71e618dcc4e06f8dfc4b228a009f031bd90",
+    "sci_method/studies/ml-nonneural-feasibility-001/diagnostics.py": "b3bfea10e196cf0bd44691f848be5cc6efd6b7bc609ca4f52aa47051946a7979",
+    "sci_method/studies/ml-nonneural-feasibility-001/test_diagnostics.py": "0838b4e38a9cff74b8848403bb7faf6fa3957031417d2ffcc5a67ff3a317327a",
+    "sci_method/studies/ml-nonneural-feasibility-001/budget_run.py": "ce0fa022d899377045c0851cce0c45c2bfeedafa7302eef4514490f1d0180dfb",
+    "sci_method/src/sci_method/forward_model.py": "6010670daddf8cb0a90738ca40ae3d5519ad17252bbace4cf2dbcd4ffe2f7505",
+    "sci_method/src/sci_method/split_merge.py": "c748f3594e9bd179726a5028f466750697817ee16f1a195df685b0e132088fae",
+    "sci_method/src/sci_method/covariance_optimizer.py": "603fa122e2ab0a1514a15dfa94693868e03d078fadc2bf6f1ad9aa1475413a1f"
+  },
+  "input_hashes": {
+    "sci_method/studies/ml-credibility-stage0-001/MATHEMATICAL_REVIEW.md": "b12f73f3496baf00f24e6910bbc2c0b9c05553be9d44800e264bfd5601739f19",
+    "sci_method/studies/ml-credibility-stage0-001/METHODOLOGY_REVIEW.md": "af02d1b9417742bffb0bdc8f15664d2737540a33fb137522d8f930c3fcaf158a",
+    "sci_method/studies/ml-credibility-stage0-001/CHECK_SPEC.md": "a7f4a92b3802eed1efd2067ea08df288495f90a39841b747e8df154295a20971",
+    "sci_method/studies/ml-credibility-stage0-001/NEXT_STAGE_PLAN.md": "13b9dfe930c2e353998b505cbb8ebd1d896352bf4c5da73bc2484fab8354f813",
+    "sci_method/studies/ml-credibility-stage0-001/VERIFICATION.md": "dc5add61c41f8ce9971aa18bcc7cc12bc5381b7b7065754f9fa12855a0cf849a",
+    "sci_method/FORWARD_MODEL.md": "4177cb59c3177d5caf9b9d9bd88574f6196f2144e58ba86e581efb324b6a50ef",
+    "sci_method/OPTIMIZER_STABILITY_REVIEW.md": "c2afee1ee08780862d8205cb7d708fe77bea09eba192edd558df79bd4fa28e86",
+    "sci_method/RESEARCH_EVIDENCE_INDEX.md": "13eb79bef2ba843ff3b57ed28bc7bf068101ca07daaf3f1236b3ca09a39cd20c"
+  }
+}

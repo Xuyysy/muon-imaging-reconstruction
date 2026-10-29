@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python3",
+    "sci_method/studies/ml-nonneural-feasibility-001/final_checks.py"
+  ],
+  "cpu_limit": 120,
+  "state": "completed",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "wall_seconds": 0.3687066670972854,
+  "child_cpu_seconds": 0.179753
+}
