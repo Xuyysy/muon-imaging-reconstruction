@@ -1,0 +1,22 @@
+test_boundary_pvalue (test_diagnostics.DiagnosticTests.test_boundary_pvalue) ... ok
+test_covariance_correlations_retained (test_diagnostics.DiagnosticTests.test_covariance_correlations_retained) ... ok
+test_df2_analytic_tail (test_diagnostics.DiagnosticTests.test_df2_analytic_tail) ... ok
+test_df4_analytic_tail (test_diagnostics.DiagnosticTests.test_df4_analytic_tail) ... ok
+test_invalid_covariance_scale_rejected (test_diagnostics.DiagnosticTests.test_invalid_covariance_scale_rejected) ... ok
+test_invalid_df_rejected (test_diagnostics.DiagnosticTests.test_invalid_df_rejected) ... ok
+test_lr_weight_psd (test_diagnostics.DiagnosticTests.test_lr_weight_psd) ... ok
+test_map_boundary_and_kkt (test_diagnostics.DiagnosticTests.test_map_boundary_and_kkt) ... ok
+test_map_global_candidate_check (test_diagnostics.DiagnosticTests.test_map_global_candidate_check) ... ok
+test_map_interior_and_finite_difference (test_diagnostics.DiagnosticTests.test_map_interior_and_finite_difference) ... ok
+test_oracle_no_audit_random_input (test_diagnostics.DiagnosticTests.test_oracle_no_audit_random_input) ... ok
+test_pair_exponential_closed_form (test_diagnostics.DiagnosticTests.test_pair_exponential_closed_form) ... ok
+test_proposer_cannot_receive_truth (test_diagnostics.DiagnosticTests.test_proposer_cannot_receive_truth) ... ok
+test_psd_coupling_deterministic (test_diagnostics.DiagnosticTests.test_psd_coupling_deterministic) ... ok
+test_quantiles_round_trip (test_diagnostics.DiagnosticTests.test_quantiles_round_trip) ... ok
+test_tail_equal_weights (test_diagnostics.DiagnosticTests.test_tail_equal_weights) ... ok
+test_zero_kernel_no_contrast_information (test_diagnostics.DiagnosticTests.test_zero_kernel_no_contrast_information) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.014s
+
+OK
