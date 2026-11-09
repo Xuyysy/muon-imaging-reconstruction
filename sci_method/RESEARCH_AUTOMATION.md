@@ -6,10 +6,16 @@ This document records workflow behavior, not a scientific result.
 ## Primary day-to-day workflow
 
 1. Researcher approves scientific question, empirical protocol, cost ceiling, and any material changes.
-2. ChatGPT uses the connected GitHub integration **directly** for appropriately scoped
-   branch/issue/PR/evidence-management work and independent audit. Use Codex **only when
-   substantial code or mathematical engineering is needed**; Codex may challenge the plan
-   within approved scope and budget.
+2. Choose the tool for **scientific and engineering quality**, not by a rigid GitHub-first hierarchy.
+   ChatGPT directly uses the connected GitHub integration for suitable repository operations,
+   evidence management, and independent audit. **Proactively recommend Codex whenever it
+   is likely to produce materially better mathematics, science, coding, or verification,
+   even for a task that could technically be done through GitHub alone.**
+   Before any Codex handoff, explain its concrete advantage, recommended model/effort,
+   exact scope, starting ref/branch, deliverables, cost ceiling and prohibited operations,
+   and **obtain the researcher's explicit approval**. Do not silently invoke Codex or
+   assume approval based on previous tasks. Codex may challenge the plan within the
+   separately approved scope and budget.
 3. All changes live on an isolated branch. GitHub Actions verifies ordinary code and
    immutable evidence, collects logs and a CI report; it does **not** infer scientific novelty.
 4. ChatGPT examines code, mathematical assumptions, statistical validity, negative
