@@ -11,11 +11,15 @@ This document records workflow behavior, not a scientific result.
    evidence management, and independent audit. **Proactively recommend Codex whenever it
    is likely to produce materially better mathematics, science, coding, or verification,
    even for a task that could technically be done through GitHub alone.**
-   Before any Codex handoff, explain its concrete advantage, recommended model/effort,
-   exact scope, starting ref/branch, deliverables, cost ceiling and prohibited operations,
-   and **obtain the researcher's explicit approval**. Do not silently invoke Codex or
-   assume approval based on previous tasks. Codex may challenge the plan within the
-   separately approved scope and budget.
+   When Codex would materially help, **give the researcher a complete copy-ready
+   instruction immediately** (recommend model/effort first; include advantages, scope,
+   starting ref/branch, deliverables, cost ceiling and prohibitions). Do **not** add a
+   separate approval-question round before providing the instruction: the researcher
+   decides whether to paste/send it to Codex. Do not secretly launch Codex or claim
+   the instruction has been executed. Expanding compute budgets, running new Geant4
+   or neural training, switching the scientific direction, and merging main still
+   require explicit separate authorization. Codex may challenge the plan within the
+   scope and budget that the researcher approved for execution.
 3. All changes live on an isolated branch. GitHub Actions verifies ordinary code and
    immutable evidence, collects logs and a CI report; it does **not** infer scientific novelty.
 4. ChatGPT examines code, mathematical assumptions, statistical validity, negative
