@@ -1,0 +1,71 @@
+name: SCI evidence CI (read-only)
+
+on:
+  pull_request:
+    paths:
+      - ".github/**"
+      - "sci_method/**"
+  push:
+    branches:
+      - "codex/science-automation-v1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sci-evidence-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  math-and-evidence:
+    name: Small math tests and archived-evidence integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+      PYTHONPATH: "sci_method/src"
+      SCI_COMPARE_BASE: "${{ github.event.pull_request.base.sha || github.event.before || '' }}"
+    steps:
+      - name: Checkout without persisted credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Python 3.11
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned numerical dependency
+        run: python -m pip install --disable-pip-version-check "numpy==2.1.3"
+
+      - name: Archived evidence SHA-256 and protected-history gate
+        run: |
+          mkdir -p ci-artifacts
+          python .github/scripts/sci_evidence_gate.py \
+            --base "$SCI_COMPARE_BASE" \
+            --report ci-artifacts/evidence-report.json
+
+      - name: Run only the bounded stage-1 mathematical unit tests
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p ci-artifacts
+          python -m unittest discover \
+            -s sci_method/studies/ml-nonneural-feasibility-001 \
+            -p 'test_*.py' -v 2>&1 | tee ci-artifacts/tests.log
+
+      - name: Save audit logs even when tests fail
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sci-evidence-ci-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ci-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
